@@ -1,0 +1,33 @@
+
+syntax = "proto3";
+
+//for dateformate input
+import "google/protobuf/timestamp.proto";
+
+//setting java package name where the generated files need to store
+option  java_package ="com.musicmantra.classbooking";
+
+//generating multiples files
+option java_multiple_files = true;
+
+//defining service class
+service ClassBooking{
+    //method for inserting a record
+    rpc postBooking(postBookingReq) returns (postBookingResp);
+}
+
+//defining request message format
+message postBookingReq {
+    uint64 studentid=1;
+    uint64 teacherid=2;
+    uint64 instrumentid=3;
+    uint64 genreid=4;
+    google.protobuf.Timestamp dateTime = 5;
+    string status=6;
+}
+
+//defining response message format
+message postBookingResp {
+    string msg=1 ;
+    int32 statuscode=2 ;
+}
