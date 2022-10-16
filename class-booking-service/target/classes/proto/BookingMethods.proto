@@ -5,7 +5,7 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
 //setting java package name where the generated files need to store
-option  java_package ="com.musicmantra.classbooking";
+option  java_package ="com.musicmantra.classbooking.addnewrecord";
 
 //generating multiples files
 option java_multiple_files = true;

@@ -1,9 +1,8 @@
 package com.musicmantra.classbooking.databaseOperations;
 
-import com.musicmantra.classbooking.postBookingReq;
+import com.musicmantra.classbooking.addnewrecord.postBookingReq;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;

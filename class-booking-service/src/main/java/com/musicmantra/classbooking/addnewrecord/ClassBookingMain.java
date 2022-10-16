@@ -1,4 +1,4 @@
-package com.musicmantra.classbooking;
+package com.musicmantra.classbooking.addnewrecord;
 
 import com.musicmantra.classbooking.services.PostClassBooking;
 import io.grpc.Server;

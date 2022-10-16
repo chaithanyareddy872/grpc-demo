@@ -1,8 +1,8 @@
 package com.musicmantra.classbooking.services;
-import com.musicmantra.classbooking.ClassBookingGrpc;
+import com.musicmantra.classbooking.addnewrecord.ClassBookingGrpc;
 import com.musicmantra.classbooking.databaseOperations.DatabaseOperations;
-import com.musicmantra.classbooking.postBookingReq;
-import com.musicmantra.classbooking.postBookingResp;
+import com.musicmantra.classbooking.addnewrecord.postBookingReq;
+import com.musicmantra.classbooking.addnewrecord.postBookingResp;
 import io.grpc.stub.StreamObserver;
 
 import java.sql.Connection;

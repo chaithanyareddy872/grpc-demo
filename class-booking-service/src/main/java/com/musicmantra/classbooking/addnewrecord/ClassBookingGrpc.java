@@ -1,4 +1,4 @@
-package com.musicmantra.classbooking;
+package com.musicmantra.classbooking.addnewrecord;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *defining service class
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
@@ -27,30 +30,30 @@ public final class ClassBookingGrpc {
   public static final String SERVICE_NAME = "ClassBooking";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.musicmantra.classbooking.postBookingReq,
-      com.musicmantra.classbooking.postBookingResp> getPostBookingMethod;
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.postBookingReq,
+      com.musicmantra.classbooking.addnewrecord.postBookingResp> getPostBookingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "postBooking",
-      requestType = com.musicmantra.classbooking.postBookingReq.class,
-      responseType = com.musicmantra.classbooking.postBookingResp.class,
+      requestType = com.musicmantra.classbooking.addnewrecord.postBookingReq.class,
+      responseType = com.musicmantra.classbooking.addnewrecord.postBookingResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.musicmantra.classbooking.postBookingReq,
-      com.musicmantra.classbooking.postBookingResp> getPostBookingMethod() {
-    io.grpc.MethodDescriptor<com.musicmantra.classbooking.postBookingReq, com.musicmantra.classbooking.postBookingResp> getPostBookingMethod;
+  public static io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.postBookingReq,
+      com.musicmantra.classbooking.addnewrecord.postBookingResp> getPostBookingMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.postBookingReq, com.musicmantra.classbooking.addnewrecord.postBookingResp> getPostBookingMethod;
     if ((getPostBookingMethod = ClassBookingGrpc.getPostBookingMethod) == null) {
       synchronized (ClassBookingGrpc.class) {
         if ((getPostBookingMethod = ClassBookingGrpc.getPostBookingMethod) == null) {
           ClassBookingGrpc.getPostBookingMethod = getPostBookingMethod = 
-              io.grpc.MethodDescriptor.<com.musicmantra.classbooking.postBookingReq, com.musicmantra.classbooking.postBookingResp>newBuilder()
+              io.grpc.MethodDescriptor.<com.musicmantra.classbooking.addnewrecord.postBookingReq, com.musicmantra.classbooking.addnewrecord.postBookingResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "ClassBooking", "postBooking"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.musicmantra.classbooking.postBookingReq.getDefaultInstance()))
+                  com.musicmantra.classbooking.addnewrecord.postBookingReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.musicmantra.classbooking.postBookingResp.getDefaultInstance()))
+                  com.musicmantra.classbooking.addnewrecord.postBookingResp.getDefaultInstance()))
                   .setSchemaDescriptor(new ClassBookingMethodDescriptorSupplier("postBooking"))
                   .build();
           }
@@ -83,13 +86,19 @@ public final class ClassBookingGrpc {
   }
 
   /**
+   * <pre>
+   *defining service class
+   * </pre>
    */
   public static abstract class ClassBookingImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *method for inserting a record
+     * </pre>
      */
-    public void postBooking(com.musicmantra.classbooking.postBookingReq request,
-        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.postBookingResp> responseObserver) {
+    public void postBooking(com.musicmantra.classbooking.addnewrecord.postBookingReq request,
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.postBookingResp> responseObserver) {
       asyncUnimplementedUnaryCall(getPostBookingMethod(), responseObserver);
     }
 
@@ -99,14 +108,17 @@ public final class ClassBookingGrpc {
             getPostBookingMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.musicmantra.classbooking.postBookingReq,
-                com.musicmantra.classbooking.postBookingResp>(
+                com.musicmantra.classbooking.addnewrecord.postBookingReq,
+                com.musicmantra.classbooking.addnewrecord.postBookingResp>(
                   this, METHODID_POST_BOOKING)))
           .build();
     }
   }
 
   /**
+   * <pre>
+   *defining service class
+   * </pre>
    */
   public static final class ClassBookingStub extends io.grpc.stub.AbstractStub<ClassBookingStub> {
     private ClassBookingStub(io.grpc.Channel channel) {
@@ -125,15 +137,21 @@ public final class ClassBookingGrpc {
     }
 
     /**
+     * <pre>
+     *method for inserting a record
+     * </pre>
      */
-    public void postBooking(com.musicmantra.classbooking.postBookingReq request,
-        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.postBookingResp> responseObserver) {
+    public void postBooking(com.musicmantra.classbooking.addnewrecord.postBookingReq request,
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.postBookingResp> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getPostBookingMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
+   * <pre>
+   *defining service class
+   * </pre>
    */
   public static final class ClassBookingBlockingStub extends io.grpc.stub.AbstractStub<ClassBookingBlockingStub> {
     private ClassBookingBlockingStub(io.grpc.Channel channel) {
@@ -152,14 +170,20 @@ public final class ClassBookingGrpc {
     }
 
     /**
+     * <pre>
+     *method for inserting a record
+     * </pre>
      */
-    public com.musicmantra.classbooking.postBookingResp postBooking(com.musicmantra.classbooking.postBookingReq request) {
+    public com.musicmantra.classbooking.addnewrecord.postBookingResp postBooking(com.musicmantra.classbooking.addnewrecord.postBookingReq request) {
       return blockingUnaryCall(
           getChannel(), getPostBookingMethod(), getCallOptions(), request);
     }
   }
 
   /**
+   * <pre>
+   *defining service class
+   * </pre>
    */
   public static final class ClassBookingFutureStub extends io.grpc.stub.AbstractStub<ClassBookingFutureStub> {
     private ClassBookingFutureStub(io.grpc.Channel channel) {
@@ -178,9 +202,12 @@ public final class ClassBookingGrpc {
     }
 
     /**
+     * <pre>
+     *method for inserting a record
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.musicmantra.classbooking.postBookingResp> postBooking(
-        com.musicmantra.classbooking.postBookingReq request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.musicmantra.classbooking.addnewrecord.postBookingResp> postBooking(
+        com.musicmantra.classbooking.addnewrecord.postBookingReq request) {
       return futureUnaryCall(
           getChannel().newCall(getPostBookingMethod(), getCallOptions()), request);
     }
@@ -206,8 +233,8 @@ public final class ClassBookingGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_POST_BOOKING:
-          serviceImpl.postBooking((com.musicmantra.classbooking.postBookingReq) request,
-              (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.postBookingResp>) responseObserver);
+          serviceImpl.postBooking((com.musicmantra.classbooking.addnewrecord.postBookingReq) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.postBookingResp>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -231,7 +258,7 @@ public final class ClassBookingGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.musicmantra.classbooking.BookingMethods.getDescriptor();
+      return com.musicmantra.classbooking.addnewrecord.BookingMethods.getDescriptor();
     }
 
     @java.lang.Override
