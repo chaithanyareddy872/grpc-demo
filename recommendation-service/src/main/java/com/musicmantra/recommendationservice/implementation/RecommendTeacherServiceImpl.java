@@ -102,6 +102,8 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
         //Response builder
         Recommendteacher.recommendationResponse.Builder response=Recommendteacher.recommendationResponse.newBuilder();
 
+        List<Recommendteacher.recommendationResponse.Builder> responses=new ArrayList<>();
+
         Connection connection=getConnection();
 
         //Query to fetch teacher preferences
@@ -149,6 +151,8 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
                             .addAllGenre(teacherGenres)
                             .addAllInstrument(teacherInstruments);
 
+                    responses.add(response);
+
                     responseObserver.onNext(response.build());
 
                     response.clearGenre().clearInstrument();
@@ -158,6 +162,10 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        if(responses.isEmpty()){
+            response.setResponseCode(303).setResponseMessage("No recommendations found please use search request");
+            responseObserver.onNext(response.build());
         }
 
         //Ending the response
