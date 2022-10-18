@@ -13,21 +13,46 @@ option java_multiple_files = true;
 //defining service class
 service ClassBooking{
     //method for inserting a record
-    rpc postBooking(postBookingReq) returns (postBookingResp);
+    rpc postBooking(postBookingReq) returns (BookingResp);
+    rpc updateBooking(updatereq) returns (BookingResp);
+    rpc deleteBooking(deleteBookingReq) returns (BookingResp);
+    rpc getallstudentbookings(multiBookingReq) returns (stream multiBookingResp);
 }
 
 //defining request message format
 message postBookingReq {
     uint64 studentid=1;
-    uint64 teacherid=2;
-    uint64 instrumentid=3;
-    uint64 genreid=4;
-    google.protobuf.Timestamp dateTime = 5;
-    string status=6;
+    uint64 sessionid=2;
+    google.protobuf.Timestamp dateTime = 3;
+    string status=4;
 }
 
+//update a record
+message updatereq{
+    uint64 bookingid=1;
+    google.protobuf.Timestamp dateTime = 2;
+    string status=3;
+}
 //defining response message format
-message postBookingResp {
+message BookingResp {
     string msg=1 ;
     int32 statuscode=2 ;
+}
+
+//delete a record req message
+message deleteBookingReq {
+    uint64 bookingid=1;
+}
+
+//multi record req message
+message multiBookingReq{
+    uint64 userid=1;
+}
+//multi records response message
+message  multiBookingResp{
+    uint64 bookinid=1;
+    uint64 studentid=2;
+    uint64 sessionid=3;
+    google.protobuf.Timestamp dateTime = 4;
+    string status=5;
 }

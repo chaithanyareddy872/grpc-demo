@@ -20,10 +20,30 @@ public final class BookingMethods {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_postBookingReq_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_postBookingResp_descriptor;
+    internal_static_updatereq_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_postBookingResp_fieldAccessorTable;
+      internal_static_updatereq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_BookingResp_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_BookingResp_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_deleteBookingReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_deleteBookingReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_multiBookingReq_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_multiBookingReq_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_multiBookingResp_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_multiBookingResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,15 +54,26 @@ public final class BookingMethods {
   static {
     java.lang.String[] descriptorData = {
       "\n\024BookingMethods.proto\032\037google/protobuf/" +
-      "timestamp.proto\"\233\001\n\016postBookingReq\022\021\n\tst" +
-      "udentid\030\001 \001(\004\022\021\n\tteacherid\030\002 \001(\004\022\024\n\014inst" +
-      "rumentid\030\003 \001(\004\022\017\n\007genreid\030\004 \001(\004\022,\n\010dateT" +
-      "ime\030\005 \001(\0132\032.google.protobuf.Timestamp\022\016\n" +
-      "\006status\030\006 \001(\t\"2\n\017postBookingResp\022\013\n\003msg\030" +
-      "\001 \001(\t\022\022\n\nstatuscode\030\002 \001(\0052@\n\014ClassBookin" +
-      "g\0220\n\013postBooking\022\017.postBookingReq\032\020.post" +
-      "BookingRespB-\n)com.musicmantra.classbook" +
-      "ing.addnewrecordP\001b\006proto3"
+      "timestamp.proto\"t\n\016postBookingReq\022\021\n\tstu" +
+      "dentid\030\001 \001(\004\022\021\n\tsessionid\030\002 \001(\004\022,\n\010dateT" +
+      "ime\030\003 \001(\0132\032.google.protobuf.Timestamp\022\016\n" +
+      "\006status\030\004 \001(\t\"\\\n\tupdatereq\022\021\n\tbookingid\030" +
+      "\001 \001(\004\022,\n\010dateTime\030\002 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022\016\n\006status\030\003 \001(\t\".\n\013BookingRe" +
+      "sp\022\013\n\003msg\030\001 \001(\t\022\022\n\nstatuscode\030\002 \001(\005\"%\n\020d" +
+      "eleteBookingReq\022\021\n\tbookingid\030\001 \001(\004\"!\n\017mu" +
+      "ltiBookingReq\022\016\n\006userid\030\001 \001(\004\"\210\001\n\020multiB" +
+      "ookingResp\022\020\n\010bookinid\030\001 \001(\004\022\021\n\tstudenti" +
+      "d\030\002 \001(\004\022\021\n\tsessionid\030\003 \001(\004\022,\n\010dateTime\030\004" +
+      " \001(\0132\032.google.protobuf.Timestamp\022\016\n\006stat" +
+      "us\030\005 \001(\t2\331\001\n\014ClassBooking\022,\n\013postBooking" +
+      "\022\017.postBookingReq\032\014.BookingResp\022)\n\rupdat" +
+      "eBooking\022\n.updatereq\032\014.BookingResp\0220\n\rde" +
+      "leteBooking\022\021.deleteBookingReq\032\014.Booking" +
+      "Resp\022>\n\025getallstudentbookings\022\020.multiBoo" +
+      "kingReq\032\021.multiBookingResp0\001B-\n)com.musi" +
+      "cmantra.classbooking.addnewrecordP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -62,13 +93,37 @@ public final class BookingMethods {
     internal_static_postBookingReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_postBookingReq_descriptor,
-        new java.lang.String[] { "Studentid", "Teacherid", "Instrumentid", "Genreid", "DateTime", "Status", });
-    internal_static_postBookingResp_descriptor =
+        new java.lang.String[] { "Studentid", "Sessionid", "DateTime", "Status", });
+    internal_static_updatereq_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_postBookingResp_fieldAccessorTable = new
+    internal_static_updatereq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_postBookingResp_descriptor,
+        internal_static_updatereq_descriptor,
+        new java.lang.String[] { "Bookingid", "DateTime", "Status", });
+    internal_static_BookingResp_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_BookingResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_BookingResp_descriptor,
         new java.lang.String[] { "Msg", "Statuscode", });
+    internal_static_deleteBookingReq_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_deleteBookingReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_deleteBookingReq_descriptor,
+        new java.lang.String[] { "Bookingid", });
+    internal_static_multiBookingReq_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_multiBookingReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_multiBookingReq_descriptor,
+        new java.lang.String[] { "Userid", });
+    internal_static_multiBookingResp_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_multiBookingResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_multiBookingResp_descriptor,
+        new java.lang.String[] { "Bookinid", "Studentid", "Sessionid", "DateTime", "Status", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

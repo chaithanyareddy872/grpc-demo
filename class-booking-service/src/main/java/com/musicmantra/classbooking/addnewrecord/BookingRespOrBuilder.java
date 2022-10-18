@@ -3,8 +3,8 @@
 
 package com.musicmantra.classbooking.addnewrecord;
 
-public interface postBookingRespOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:postBookingResp)
+public interface BookingRespOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:BookingResp)
     com.google.protobuf.MessageOrBuilder {
 
   /**

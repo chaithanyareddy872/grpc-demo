@@ -3,23 +3,26 @@
 
 package com.musicmantra.classbooking.addnewrecord;
 
+import com.google.protobuf.Timestamp;
+
 /**
  * <pre>
- *defining request message format
+ *multi records response message
  * </pre>
  *
- * Protobuf type {@code postBookingReq}
+ * Protobuf type {@code multiBookingResp}
  */
-public  final class postBookingReq extends
+public  final class multiBookingResp extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:postBookingReq)
-    postBookingReqOrBuilder {
+    // @@protoc_insertion_point(message_implements:multiBookingResp)
+    multiBookingRespOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use postBookingReq.newBuilder() to construct.
-  private postBookingReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use multiBookingResp.newBuilder() to construct.
+  private multiBookingResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private postBookingReq() {
+  private multiBookingResp() {
+    bookinid_ = 0L;
     studentid_ = 0L;
     sessionid_ = 0L;
     status_ = "";
@@ -30,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private postBookingReq(
+  private multiBookingResp(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -51,15 +54,20 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            studentid_ = input.readUInt64();
+            bookinid_ = input.readUInt64();
             break;
           }
           case 16: {
 
+            studentid_ = input.readUInt64();
+            break;
+          }
+          case 24: {
+
             sessionid_ = input.readUInt64();
             break;
           }
-          case 26: {
+          case 34: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (dateTime_ != null) {
               subBuilder = dateTime_.toBuilder();
@@ -72,7 +80,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
             status_ = s;
@@ -99,67 +107,76 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_postBookingReq_descriptor;
+    return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_multiBookingResp_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_postBookingReq_fieldAccessorTable
+    return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_multiBookingResp_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.musicmantra.classbooking.addnewrecord.postBookingReq.class, com.musicmantra.classbooking.addnewrecord.postBookingReq.Builder.class);
+            com.musicmantra.classbooking.addnewrecord.multiBookingResp.class, com.musicmantra.classbooking.addnewrecord.multiBookingResp.Builder.class);
   }
 
-  public static final int STUDENTID_FIELD_NUMBER = 1;
+  public static final int BOOKINID_FIELD_NUMBER = 1;
+  private long bookinid_;
+  /**
+   * <code>uint64 bookinid = 1;</code>
+   */
+  public long getBookinid() {
+    return bookinid_;
+  }
+
+  public static final int STUDENTID_FIELD_NUMBER = 2;
   private long studentid_;
   /**
-   * <code>uint64 studentid = 1;</code>
+   * <code>uint64 studentid = 2;</code>
    */
   public long getStudentid() {
     return studentid_;
   }
 
-  public static final int SESSIONID_FIELD_NUMBER = 2;
+  public static final int SESSIONID_FIELD_NUMBER = 3;
   private long sessionid_;
   /**
-   * <code>uint64 sessionid = 2;</code>
+   * <code>uint64 sessionid = 3;</code>
    */
   public long getSessionid() {
     return sessionid_;
   }
 
-  public static final int DATETIME_FIELD_NUMBER = 3;
+  public static final int DATETIME_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp dateTime_;
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
    */
   public boolean hasDateTime() {
     return dateTime_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
    */
   public com.google.protobuf.Timestamp getDateTime() {
     return dateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
   }
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
    */
   public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
     return getDateTime();
   }
 
-  public static final int STATUS_FIELD_NUMBER = 4;
+  public static final int STATUS_FIELD_NUMBER = 5;
   private volatile java.lang.Object status_;
   /**
-   * <code>string status = 4;</code>
+   * <code>string status = 5;</code>
    */
   public java.lang.String getStatus() {
     java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       status_ = s;
@@ -167,13 +184,13 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string status = 4;</code>
+   * <code>string status = 5;</code>
    */
   public com.google.protobuf.ByteString
       getStatusBytes() {
     java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       status_ = b;
@@ -197,17 +214,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (bookinid_ != 0L) {
+      output.writeUInt64(1, bookinid_);
+    }
     if (studentid_ != 0L) {
-      output.writeUInt64(1, studentid_);
+      output.writeUInt64(2, studentid_);
     }
     if (sessionid_ != 0L) {
-      output.writeUInt64(2, sessionid_);
+      output.writeUInt64(3, sessionid_);
     }
     if (dateTime_ != null) {
-      output.writeMessage(3, getDateTime());
+      output.writeMessage(4, getDateTime());
     }
     if (!getStatusBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -218,20 +238,24 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (bookinid_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(1, bookinid_);
+    }
     if (studentid_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, studentid_);
+        .computeUInt64Size(2, studentid_);
     }
     if (sessionid_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(2, sessionid_);
+        .computeUInt64Size(3, sessionid_);
     }
     if (dateTime_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getDateTime());
+        .computeMessageSize(4, getDateTime());
     }
     if (!getStatusBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -243,12 +267,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.musicmantra.classbooking.addnewrecord.postBookingReq)) {
+    if (!(obj instanceof com.musicmantra.classbooking.addnewrecord.multiBookingResp)) {
       return super.equals(obj);
     }
-    com.musicmantra.classbooking.addnewrecord.postBookingReq other = (com.musicmantra.classbooking.addnewrecord.postBookingReq) obj;
+    com.musicmantra.classbooking.addnewrecord.multiBookingResp other = (com.musicmantra.classbooking.addnewrecord.multiBookingResp) obj;
 
     boolean result = true;
+    result = result && (getBookinid()
+        == other.getBookinid());
     result = result && (getStudentid()
         == other.getStudentid());
     result = result && (getSessionid()
@@ -271,6 +297,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + BOOKINID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBookinid());
     hash = (37 * hash) + STUDENTID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getStudentid());
@@ -288,69 +317,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(byte[] data)
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(java.io.InputStream input)
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseDelimitedFrom(java.io.InputStream input)
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseDelimitedFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq parseFrom(
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -363,7 +392,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.musicmantra.classbooking.addnewrecord.postBookingReq prototype) {
+  public static Builder newBuilder(com.musicmantra.classbooking.addnewrecord.multiBookingResp prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -380,29 +409,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *defining request message format
+   *multi records response message
    * </pre>
    *
-   * Protobuf type {@code postBookingReq}
+   * Protobuf type {@code multiBookingResp}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:postBookingReq)
-      com.musicmantra.classbooking.addnewrecord.postBookingReqOrBuilder {
+      // @@protoc_insertion_point(builder_implements:multiBookingResp)
+      com.musicmantra.classbooking.addnewrecord.multiBookingRespOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_postBookingReq_descriptor;
+      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_multiBookingResp_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_postBookingReq_fieldAccessorTable
+      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_multiBookingResp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.musicmantra.classbooking.addnewrecord.postBookingReq.class, com.musicmantra.classbooking.addnewrecord.postBookingReq.Builder.class);
+              com.musicmantra.classbooking.addnewrecord.multiBookingResp.class, com.musicmantra.classbooking.addnewrecord.multiBookingResp.Builder.class);
     }
 
-    // Construct using com.musicmantra.classbooking.addnewrecord.postBookingReq.newBuilder()
+    // Construct using com.musicmantra.classbooking.addnewrecord.multiBookingResp.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -420,6 +449,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bookinid_ = 0L;
+
       studentid_ = 0L;
 
       sessionid_ = 0L;
@@ -438,17 +469,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_postBookingReq_descriptor;
+      return com.musicmantra.classbooking.addnewrecord.BookingMethods.internal_static_multiBookingResp_descriptor;
     }
 
     @java.lang.Override
-    public com.musicmantra.classbooking.addnewrecord.postBookingReq getDefaultInstanceForType() {
-      return com.musicmantra.classbooking.addnewrecord.postBookingReq.getDefaultInstance();
+    public com.musicmantra.classbooking.addnewrecord.multiBookingResp getDefaultInstanceForType() {
+      return com.musicmantra.classbooking.addnewrecord.multiBookingResp.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.musicmantra.classbooking.addnewrecord.postBookingReq build() {
-      com.musicmantra.classbooking.addnewrecord.postBookingReq result = buildPartial();
+    public com.musicmantra.classbooking.addnewrecord.multiBookingResp build() {
+      com.musicmantra.classbooking.addnewrecord.multiBookingResp result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -456,8 +487,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.musicmantra.classbooking.addnewrecord.postBookingReq buildPartial() {
-      com.musicmantra.classbooking.addnewrecord.postBookingReq result = new com.musicmantra.classbooking.addnewrecord.postBookingReq(this);
+    public com.musicmantra.classbooking.addnewrecord.multiBookingResp buildPartial() {
+      com.musicmantra.classbooking.addnewrecord.multiBookingResp result = new com.musicmantra.classbooking.addnewrecord.multiBookingResp(this);
+      result.bookinid_ = bookinid_;
       result.studentid_ = studentid_;
       result.sessionid_ = sessionid_;
       if (dateTimeBuilder_ == null) {
@@ -504,16 +536,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.musicmantra.classbooking.addnewrecord.postBookingReq) {
-        return mergeFrom((com.musicmantra.classbooking.addnewrecord.postBookingReq)other);
+      if (other instanceof com.musicmantra.classbooking.addnewrecord.multiBookingResp) {
+        return mergeFrom((com.musicmantra.classbooking.addnewrecord.multiBookingResp)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.musicmantra.classbooking.addnewrecord.postBookingReq other) {
-      if (other == com.musicmantra.classbooking.addnewrecord.postBookingReq.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.musicmantra.classbooking.addnewrecord.multiBookingResp other) {
+      if (other == com.musicmantra.classbooking.addnewrecord.multiBookingResp.getDefaultInstance()) return this;
+      if (other.getBookinid() != 0L) {
+        setBookinid(other.getBookinid());
+      }
       if (other.getStudentid() != 0L) {
         setStudentid(other.getStudentid());
       }
@@ -542,11 +577,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.musicmantra.classbooking.addnewrecord.postBookingReq parsedMessage = null;
+      com.musicmantra.classbooking.addnewrecord.multiBookingResp parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.musicmantra.classbooking.addnewrecord.postBookingReq) e.getUnfinishedMessage();
+        parsedMessage = (com.musicmantra.classbooking.addnewrecord.multiBookingResp) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -556,27 +591,53 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long bookinid_ ;
+    /**
+     * <code>uint64 bookinid = 1;</code>
+     */
+    public long getBookinid() {
+      return bookinid_;
+    }
+    /**
+     * <code>uint64 bookinid = 1;</code>
+     */
+    public Builder setBookinid(long value) {
+
+      bookinid_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 bookinid = 1;</code>
+     */
+    public Builder clearBookinid() {
+
+      bookinid_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long studentid_ ;
     /**
-     * <code>uint64 studentid = 1;</code>
+     * <code>uint64 studentid = 2;</code>
      */
     public long getStudentid() {
       return studentid_;
     }
     /**
-     * <code>uint64 studentid = 1;</code>
+     * <code>uint64 studentid = 2;</code>
      */
     public Builder setStudentid(long value) {
-      
+
       studentid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 studentid = 1;</code>
+     * <code>uint64 studentid = 2;</code>
      */
     public Builder clearStudentid() {
-      
+
       studentid_ = 0L;
       onChanged();
       return this;
@@ -584,41 +645,41 @@ private static final long serialVersionUID = 0L;
 
     private long sessionid_ ;
     /**
-     * <code>uint64 sessionid = 2;</code>
+     * <code>uint64 sessionid = 3;</code>
      */
     public long getSessionid() {
       return sessionid_;
     }
     /**
-     * <code>uint64 sessionid = 2;</code>
+     * <code>uint64 sessionid = 3;</code>
      */
     public Builder setSessionid(long value) {
-      
+
       sessionid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 sessionid = 2;</code>
+     * <code>uint64 sessionid = 3;</code>
      */
     public Builder clearSessionid() {
-      
+
       sessionid_ = 0L;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Timestamp dateTime_ = null;
+    private Timestamp dateTime_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateTimeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public boolean hasDateTime() {
       return dateTimeBuilder_ != null || dateTime_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public com.google.protobuf.Timestamp getDateTime() {
       if (dateTimeBuilder_ == null) {
@@ -628,9 +689,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * @param value
      */
-    public Builder setDateTime(com.google.protobuf.Timestamp value) {
+    public Builder setDateTime(Timestamp value) {
       if (dateTimeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -644,7 +706,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public Builder setDateTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -658,7 +720,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public Builder mergeDateTime(com.google.protobuf.Timestamp value) {
       if (dateTimeBuilder_ == null) {
@@ -676,7 +738,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public Builder clearDateTime() {
       if (dateTimeBuilder_ == null) {
@@ -690,15 +752,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getDateTimeBuilder() {
-      
+
       onChanged();
       return getDateTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
       if (dateTimeBuilder_ != null) {
@@ -709,10 +771,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
+     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getDateTimeFieldBuilder() {
       if (dateTimeBuilder_ == null) {
         dateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -727,7 +789,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object status_ = "";
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      */
     public java.lang.String getStatus() {
       java.lang.Object ref = status_;
@@ -742,13 +804,13 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      */
     public com.google.protobuf.ByteString
         getStatusBytes() {
       java.lang.Object ref = status_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         status_ = b;
@@ -758,29 +820,29 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      */
     public Builder setStatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      */
     public Builder clearStatus() {
-      
+
       status_ = getDefaultInstance().getStatus();
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 5;</code>
      */
     public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
@@ -788,7 +850,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       status_ = value;
       onChanged();
       return this;
@@ -806,43 +868,42 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:postBookingReq)
+    // @@protoc_insertion_point(builder_scope:multiBookingResp)
   }
 
-  // @@protoc_insertion_point(class_scope:postBookingReq)
-  private static final com.musicmantra.classbooking.addnewrecord.postBookingReq DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:multiBookingResp)
+  private static final com.musicmantra.classbooking.addnewrecord.multiBookingResp DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.musicmantra.classbooking.addnewrecord.postBookingReq();
+    DEFAULT_INSTANCE = new com.musicmantra.classbooking.addnewrecord.multiBookingResp();
   }
 
-  public static com.musicmantra.classbooking.addnewrecord.postBookingReq getDefaultInstance() {
+  public static com.musicmantra.classbooking.addnewrecord.multiBookingResp getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<postBookingReq>
-      PARSER = new com.google.protobuf.AbstractParser<postBookingReq>() {
+  private static final com.google.protobuf.Parser<multiBookingResp>
+      PARSER = new com.google.protobuf.AbstractParser<multiBookingResp>() {
     @java.lang.Override
-    public postBookingReq parsePartialFrom(
+    public multiBookingResp parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new postBookingReq(input, extensionRegistry);
+      return new multiBookingResp(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<postBookingReq> parser() {
+  public static com.google.protobuf.Parser<multiBookingResp> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<postBookingReq> getParserForType() {
+  public com.google.protobuf.Parser<multiBookingResp> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.musicmantra.classbooking.addnewrecord.postBookingReq getDefaultInstanceForType() {
+  public com.musicmantra.classbooking.addnewrecord.multiBookingResp getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
 }
-
