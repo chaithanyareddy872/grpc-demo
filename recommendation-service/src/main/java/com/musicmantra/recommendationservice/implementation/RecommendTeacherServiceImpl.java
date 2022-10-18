@@ -92,7 +92,76 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
     @Override
     public void getRecommendedTeacher(Recommendteacher.recommendationRequest request, StreamObserver<Recommendteacher.recommendationResponse> responseObserver) {
 
-        getConnection();
+        //Getting student preferences
+        List<List<String>> studentPreferences=getStudentPreferences(request.getStudentId());
+
+        //Storing genres and instruments of student preferences in different lists
+        List<String> studentGenres=studentPreferences.get(0);
+        List<String> studentInstruments=studentPreferences.get(1);
+
+        //Response builder
+        Recommendteacher.recommendationResponse.Builder response=Recommendteacher.recommendationResponse.newBuilder();
+
+        Connection connection=getConnection();
+
+        //Query to fetch teacher preferences
+        String query ="select teacherid,genre,instrument from preferences p inner join teachers t on p.userid=t.userid";
+
+        try {
+            Statement simpleStatement=connection.createStatement();
+            ResultSet resultSet=simpleStatement.executeQuery(query);
+
+            //Storing each teacher genre and instrument preferences in separate lists
+            while (resultSet.next()){
+
+                Array tempGenre=resultSet.getArray(2);
+                String[] tempGenres= (String[]) tempGenre.getArray();
+                List<String> teacherGenres= List.of(tempGenres);
+
+                Array tempInstrument=resultSet.getArray(3);
+                String[] tempInstruments= (String[]) tempInstrument.getArray();
+                List<String> teacherInstruments= List.of(tempInstruments);
+
+                boolean checkGenres=false;
+                boolean checkInstruments=false;
+
+                //Checking whether teacher got genre preferences of student
+                for (String genre:
+                        teacherGenres) {
+                    checkGenres=studentGenres.contains(genre);
+                    break;
+                }
+
+                //Checking whether teacher got instrument preferences of student
+                for (String instrument:
+                        teacherInstruments) {
+                    checkInstruments=studentInstruments.contains(instrument);
+                    break;
+                }
+
+                //Checking if condition satisfies and returning the response stream
+                if(checkGenres && checkInstruments){
+
+                    //Building the response
+                    response.setResponseCode(200)
+                            .setResponseMessage("SUCCESS")
+                            .setTeacherId(resultSet.getInt(1))
+                            .addAllGenre(teacherGenres)
+                            .addAllInstrument(teacherInstruments);
+
+                    responseObserver.onNext(response.build());
+
+                    response.clearGenre().clearInstrument();
+                }
+
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        //Ending the response
+        responseObserver.onCompleted();
 
     }
 
