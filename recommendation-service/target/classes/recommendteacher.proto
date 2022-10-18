@@ -1,0 +1,25 @@
+syntax="proto3";
+
+option java_package="com.musicmantra.recommendationservice.grpc";
+
+service RecommendTeacher{
+
+  rpc getRecommendedTeacher(recommendationRequest) returns (stream recommendationResponse);
+
+}
+
+message recommendationRequest{
+
+  int32 studentId=1;
+
+}
+
+message recommendationResponse{
+
+  int32 responseCode=1;
+  string responseMessage=2;
+  int32 teacherId=3;
+  repeated string genre=4;
+  repeated string instrument=5;
+
+}
