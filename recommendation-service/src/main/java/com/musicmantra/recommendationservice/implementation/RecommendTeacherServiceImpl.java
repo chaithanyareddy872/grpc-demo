@@ -8,13 +8,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendTeacherImplBase {
 
+    //Method to get JDBC connection
     public Connection getConnection(){
         Connection connection=null;
         InputStream file;
@@ -33,7 +34,8 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        //
+        //Try JDBC Connection
         try {
             connection= DriverManager.getConnection(properties.getProperty("database.url"),
                     properties.getProperty("database.username"),
@@ -46,10 +48,52 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
         return connection;
     }
 
+    //Method to get student preferences
+    public List<List<String>> getStudentPreferences(int studentId){
+
+        Connection connection=getConnection();
+
+        List<String> genres = null;
+        List<String> instruments=null;
+
+        PreparedStatement statement=null;
+
+        //Prepared statement query
+        String query="select genre,instrument from preferences where userid in (select userid from students where studentid=?)";
+
+        try {
+            statement=connection.prepareStatement(query);
+            statement.setInt(1,studentId);
+            ResultSet resultSet=statement.executeQuery();
+
+            //Storing the result of column array by typecasting it to String
+            while (resultSet.next()){
+
+                Array tempGenre=resultSet.getArray(1);
+                String[] tempGenres= (String[]) tempGenre.getArray();
+                genres= List.of(tempGenres);
+
+                Array tempInstrument=resultSet.getArray(2);
+                String[] tempInstruments= (String[]) tempInstrument.getArray();
+                instruments= List.of(tempInstruments);;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<List<String>> studentPreferences=new ArrayList<>();
+
+        studentPreferences.add(genres);
+        studentPreferences.add(instruments);
+
+        //Returning the preferences
+        return studentPreferences;
+    }
     @Override
     public void getRecommendedTeacher(Recommendteacher.recommendationRequest request, StreamObserver<Recommendteacher.recommendationResponse> responseObserver) {
 
         getConnection();
 
     }
+
 }
