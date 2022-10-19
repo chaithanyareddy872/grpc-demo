@@ -13,16 +13,27 @@ public class AuthorizationInterceptor implements ServerInterceptor {
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> serverCall, Metadata metadata, ServerCallHandler<ReqT, RespT> serverCallHandler) {
 
-        final String auth_token=metadata.get(Metadata.Key.of("Authorization",Metadata.ASCII_STRING_MARSHALLER));
+        final String auth_token = metadata.get(Metadata.Key.of("Authorization", Metadata.ASCII_STRING_MARSHALLER));
 
-        Claims claims= Jwts.parser()
+        if (auth_token == null) {
+            throw new StatusRuntimeException(Status.UNAVAILABLE);
+        }
+
+        Claims claims = Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E="))
                 .parseClaimsJws(auth_token)
                 .getBody();
 
-        if(!claims.getAudience().equals("student") && !claims.getExpiration().before(Date.from(Instant.now()))){
+        System.out.println(claims.getExpiration().after(Date.from(Instant.now())));
+
+        if (!claims.getAudience().equals("student")) {
             throw new StatusRuntimeException(Status.PERMISSION_DENIED);
+        } else if (!claims.getExpiration().after(Date.from(Instant.now()))) {
+            throw new StatusRuntimeException(Status.DEADLINE_EXCEEDED);
         }
-        return serverCallHandler.startCall(serverCall,metadata);
+
+        return serverCallHandler.startCall(serverCall, metadata);
+
     }
 }
+
