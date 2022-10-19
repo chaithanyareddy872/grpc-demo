@@ -3,6 +3,7 @@ package org.example.service;
 
 
 
+import com.stackroute.musicmantra.noty5.emailserver.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.example.UserRegister;
@@ -88,12 +89,12 @@ public class DatabaseOperations {
         String firstName = "";
         String lastName = "";
         String password = "";
-        String email = "";
+        String email = "Hello20@gmail.com";
         String contactNo = "";
         String userType = "";
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
-            stmnt.setString(1, email);
+            stmnt.setString(1, emailId);
             ResultSet resultSet = stmnt.executeQuery();
             if (resultSet.next()) {
                 user_Id = resultSet.getInt(1);
@@ -112,12 +113,17 @@ public class DatabaseOperations {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
         sendUserDetails(user_Id,username,firstName,lastName,password,email,contactNo,userType);
     }
         public static void sendUserDetails(int user_Id,String username,String firstName,String lastName,String password,String email,String contactNo,String userType){
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8087).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9009).usePlaintext().build();
+            mailRequest request = mailRequest.newBuilder().setMailType(MailType.valueOf("REGISTER")).setUserId(String.valueOf(12)).build();
+            EmailServerGrpc.EmailServerBlockingStub userStub = EmailServerGrpc.newBlockingStub(channel);
+            apiResponse apiResponse = userStub.sendOTPMail(request);
 
-
+            System.out.println("response"+apiResponse.getMessage());
+            System.out.println("response"+apiResponse.getResponsecode());
 
 
         }

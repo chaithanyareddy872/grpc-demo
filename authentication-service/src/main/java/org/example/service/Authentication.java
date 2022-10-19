@@ -5,7 +5,7 @@ import org.example.UserRegister;
 import org.example.userRegisterGrpc;
 import java.sql.*;
 import java.util.ArrayList;
-
+import com.stackroute.musicmantra.noty5.emailserver.*;
 import java.util.List;
 import java.util.function.DoubleUnaryOperator;
 
@@ -95,8 +95,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
         //Response builder
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
         Connection connection=DatabaseConnection.getConnection();
-        String query="Select emailId,password from registration where emailId=? and password=? ";
-        String query1 = "Select user_id from registration where emailid=?";
+        String query="Select emailId,password from user_info where emailId=? and password=? ";
+        String query1 = "Select user_id from user_info where emailid=?";
         int userId=0;
         try{
             PreparedStatement stmnt= connection.prepareStatement(query);

@@ -21,7 +21,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(sendersEmail));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress("sindhu.s481@gmail.com"));
 
 			OTP = Utility.generateOTP();
 

@@ -30,7 +30,8 @@ public class EmailServiceImpl extends EmailServerImplBase {
 
     @Override
     public void sendOTPMail(mailRequest request, StreamObserver<apiResponse> responseObserver){
-        String userId = request.getUserId();
+        System.out.println("Inside OTP mail method");
+    	String userId = request.getUserId();
         MailType emailType = request.getMailType();
         Session session = null;
         
