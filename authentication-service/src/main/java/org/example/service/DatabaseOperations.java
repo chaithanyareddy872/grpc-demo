@@ -3,6 +3,8 @@ package org.example.service;
 
 
 
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.example.UserRegister;
 
 import java.sql.*;
@@ -10,8 +12,8 @@ import java.sql.*;
 public class DatabaseOperations {
     public static int addRegistraion(String username, String fname, String lname, String email, String contact, String password, String usertype) {
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Insert into registration(username,first_name,last_name,emailId,contact,password,usertype) values(?,?,?,?,?,?,?)";
-        String query1 = "Select user_id from registration where emailid=?";
+        String query = "Insert into user_info(username,fname,lname,emailid,contact,pswd,usertype) values(?,?,?,?,?,?,?)";
+        String query1 = "Select user_id from user_info where emailid=?";
         int userId = 0;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
@@ -77,5 +79,48 @@ public class DatabaseOperations {
         }
 
     }
-}
+
+    public static void getUserByEmail(String emailId) {
+        Connection connection = DatabaseConnection.getConnection();
+        String query = "Select * from user_info where emailId=?";
+        int user_Id = 0;
+        String username = "";
+        String firstName = "";
+        String lastName = "";
+        String password = "";
+        String email = "";
+        String contactNo = "";
+        String userType = "";
+        try {
+            PreparedStatement stmnt = connection.prepareStatement(query);
+            stmnt.setString(1, email);
+            ResultSet resultSet = stmnt.executeQuery();
+            if (resultSet.next()) {
+                user_Id = resultSet.getInt(1);
+                username = resultSet.getString(2);
+                firstName = resultSet.getString(3);
+                lastName = resultSet.getString(4);
+                password = resultSet.getString(5);
+                email = resultSet.getString(6);
+                contactNo = resultSet.getString(7);
+                userType = resultSet.getString(8);
+                System.out.println("Data fecteched from thr table");
+            } else {
+                System.out.println("No such user");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        sendUserDetails(user_Id,username,firstName,lastName,password,email,contactNo,userType);
+    }
+        public static void sendUserDetails(int user_Id,String username,String firstName,String lastName,String password,String email,String contactNo,String userType){
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8087).usePlaintext().build();
+
+
+
+
+        }
+    }
+
 

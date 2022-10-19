@@ -7,12 +7,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.function.DoubleUnaryOperator;
 
 public class Authentication extends userRegisterGrpc.userRegisterImplBase{
     @Override
     public void registration(UserRegister.details request, StreamObserver<UserRegister.APIResponse1> responseObserver) {
         System.out.println("Inside registration method");
-
+        //Getting userDetails
         String username = request.getUsername();
         String fname = request.getFirstName();
         String lname = request.getLastName();
@@ -23,7 +24,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
         String state = request.getAddressOrBuilder().getState();
         String pincode = request.getAddressOrBuilder().getPincode();
 
-
+        //ArrayList to String array
         List<UserRegister.Genre> genreList = request.getPreferences().getGenreList();
         List<String> genrete=new ArrayList<>() ;
         for(UserRegister.Genre g : genreList){
@@ -37,7 +38,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
             System.out.println(s);
         }
 
-
+        //ArrayList to String array
         List<UserRegister.Instruments> instList=request.getPreferences().getInstrumentList();
         List<String> Inst=new ArrayList<>() ;
 
@@ -64,7 +65,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
         System.out.println(state);
 
         UserRegister.APIResponse1.Builder regResponse = UserRegister.APIResponse1.newBuilder();
-
+        //validating and adding to registration,address and preferences tables
         if (Validations.validateEmail(email)) {
             if (Validations.validateRegistration(email)) {
                 System.out.println("User exist");
@@ -77,6 +78,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
                     DatabaseOperations.addPreferences(genArr,InstArr,userId);
                     regResponse.setResponseMessage("Registration successful");
                     regResponse.setResponseCode(200);
+                    DatabaseOperations.getUserByEmail(email);
                 }
             }
         }
@@ -90,7 +92,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
     public void login(UserRegister.authenticationRequest request, StreamObserver<UserRegister.APIResponse1> responseObserver) {
         String email=request.getEmail();
         String password= request.getPassword();
-
+        //Response builder
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
         Connection connection=DatabaseConnection.getConnection();
         String query="Select emailId,password from registration where emailId=? and password=? ";

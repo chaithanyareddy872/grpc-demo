@@ -93,7 +93,7 @@ public class Validations {
 
     public static boolean validateRegistration(String email) {
         Connection connection = DatabaseConnection.getConnection();
-        String query = "select username from registration where emailid=?";
+        String query = "select username from user_info where emailid=?";
         boolean result = true;
 
         try {
