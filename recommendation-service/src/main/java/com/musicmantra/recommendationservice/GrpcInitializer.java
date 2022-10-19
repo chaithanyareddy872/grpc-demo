@@ -1,6 +1,7 @@
 package com.musicmantra.recommendationservice;
 
 import com.musicmantra.recommendationservice.implementation.RecommendTeacherServiceImpl;
+import com.musicmantra.recommendationservice.interceptor.AuthorizationInterceptor;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
@@ -21,7 +22,7 @@ public class GrpcInitializer {
         properties.load(file);
 
         //Building GRPC server
-        Server server= ServerBuilder.forPort(Integer.valueOf(properties.getProperty("server.port"))).addService(new RecommendTeacherServiceImpl()).build();
+        Server server= ServerBuilder.forPort(Integer.valueOf(properties.getProperty("server.port"))).addService(new RecommendTeacherServiceImpl()).intercept(new AuthorizationInterceptor()).build();
 
         server.start();
 
