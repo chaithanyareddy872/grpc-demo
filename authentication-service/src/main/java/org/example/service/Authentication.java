@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.function.DoubleUnaryOperator;
 
 public class Authentication extends userRegisterGrpc.userRegisterImplBase{
+    //registration service
     @Override
     public void registration(UserRegister.details request, StreamObserver<UserRegister.APIResponse1> responseObserver) {
         System.out.println("Inside registration method");

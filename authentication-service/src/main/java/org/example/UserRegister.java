@@ -4,6 +4,7 @@
 package org.example;
 
 public final class UserRegister {
+  //user register consturctor
   private UserRegister() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {

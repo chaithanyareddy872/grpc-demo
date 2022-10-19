@@ -11,6 +11,7 @@ import org.example.UserRegister;
 import java.sql.*;
 
 public class DatabaseOperations {
+    //add reg method
     public static int addRegistraion(String username, String fname, String lname, String email, String contact, String password, String usertype) {
         Connection connection = DatabaseConnection.getConnection();
         String query = "Insert into user_info(username,fname,lname,emailid,contact,pswd,usertype) values(?,?,?,?,?,?,?)";

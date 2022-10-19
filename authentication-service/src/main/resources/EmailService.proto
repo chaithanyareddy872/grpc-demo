@@ -5,6 +5,7 @@ option java_multiple_files = true;
 
 
 service EmailServer{
+	//sending email to swetha
   rpc sendOTPMail(mailRequest) returns(apiResponse);
   rpc bookingNotification(bookingDetails)returns(bookingmailResponse);
 }

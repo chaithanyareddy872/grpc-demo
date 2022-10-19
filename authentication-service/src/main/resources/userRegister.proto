@@ -3,6 +3,7 @@ syntax ="proto3";
 option java_package="org.example";
 
 service userRegister{
+  //registration end points
   rpc registration(details) returns(APIResponse1);
   rpc login(authenticationRequest) returns(APIResponse1);
   rpc deleteuser(deleteRequest) returns (APIResponse1);
