@@ -8,65 +8,17 @@ public interface bookingDetailsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string userName = 1;</code>
+   * <code>int32 bookingId = 1;</code>
    */
-  java.lang.String getUserName();
-  /**
-   * <code>string userName = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getUserNameBytes();
+  int getBookingId();
 
   /**
-   * <code>string userEmail = 2;</code>
+   * <code>string bookingtype = 2;</code>
    */
-  java.lang.String getUserEmail();
+  java.lang.String getBookingtype();
   /**
-   * <code>string userEmail = 2;</code>
+   * <code>string bookingtype = 2;</code>
    */
   com.google.protobuf.ByteString
-      getUserEmailBytes();
-
-  /**
-   * <code>string courseName = 3;</code>
-   */
-  java.lang.String getCourseName();
-  /**
-   * <code>string courseName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getCourseNameBytes();
-
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  boolean hasTimeName();
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  com.google.protobuf.Timestamp getTimeName();
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getTimeNameOrBuilder();
-
-  /**
-   * <code>string sendersEmail = 5;</code>
-   */
-  java.lang.String getSendersEmail();
-  /**
-   * <code>string sendersEmail = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getSendersEmailBytes();
-
-  /**
-   * <code>string sendersEmailPassword = 6;</code>
-   */
-  java.lang.String getSendersEmailPassword();
-  /**
-   * <code>string sendersEmailPassword = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getSendersEmailPasswordBytes();
+      getBookingtypeBytes();
 }

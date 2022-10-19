@@ -21,17 +21,13 @@ public class Utility {
 
 	}
 	
-	public static void validateEmail(String email, EmailHolder emailHolder)  {
-		@SuppressWarnings("deprecation")
-		InternetAddress  mail = new InternetAddress();
+	public static void validateEmail(String email) {
 		try {
+		InternetAddress  mail = new InternetAddress(email);
+		
 			mail.validate();
 		} catch (AddressException e) {
-			if(emailHolder.equals("SENDER"))
 			throw new Noty5Exceptions(Noty5Errors.INVALID_SENDER_EMAIL);
-			if(emailHolder.equals("RECEIVER")) {
-				throw new Noty5Exceptions(Noty5Errors.INVALID_RECIEVER_EMAIL);
-			}
 		}
 			
 

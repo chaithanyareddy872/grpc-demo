@@ -43,22 +43,20 @@ public final class EmailService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022EmailService.proto\032\037google/protobuf/ti" +
-      "mestamp.proto\":\n\013mailRequest\022\016\n\006userId\030\001" +
-      " \001(\t\022\033\n\010mailType\030\002 \001(\0162\t.MailType\"A\n\013api" +
-      "Response\022\017\n\007message\030\001 \001(\t\022\013\n\003OTP\030\002 \001(\005\022\024" +
-      "\n\014responsecode\030\003 \001(\005\"\254\001\n\016bookingDetails\022" +
-      "\020\n\010userName\030\001 \001(\t\022\021\n\tuserEmail\030\002 \001(\t\022\022\n\n" +
-      "courseName\030\003 \001(\t\022-\n\ttime_name\030\004 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022\024\n\014sendersEmail\030" +
-      "\005 \001(\t\022\034\n\024sendersEmailPassword\030\006 \001(\t\"<\n\023b" +
-      "ookingmailResponse\022\017\n\007message\030\001 \001(\t\022\024\n\014R" +
-      "esponsecode\030\002 \001(\005*$\n\010MailType\022\014\n\010REGISTE" +
-      "R\020\000\022\n\n\006UPDATE\020\0012n\n\013EmailServer\022)\n\013sendOT" +
-      "PMail\022\014.mailRequest\032\014.apiResponse\0224\n\023boo" +
-      "kingNotification\022\017.bookingDetails\032\014.apiR" +
-      "esponseB0\n,com.stackroute.musicmantra.no" +
-      "ty5.emailserverP\001b\006proto3"
+      "\n\022EmailService.proto\":\n\013mailRequest\022\016\n\006u" +
+      "serId\030\001 \001(\t\022\033\n\010mailType\030\002 \001(\0162\t.MailType" +
+      "\"A\n\013apiResponse\022\017\n\007message\030\001 \001(\t\022\013\n\003OTP\030" +
+      "\002 \001(\005\022\024\n\014responsecode\030\003 \001(\005\"8\n\016bookingDe" +
+      "tails\022\021\n\tbookingId\030\001 \001(\005\022\023\n\013bookingtype\030" +
+      "\002 \001(\t\"<\n\023bookingmailResponse\022\017\n\007message\030" +
+      "\001 \001(\t\022\024\n\014Responsecode\030\002 \001(\005*7\n\010MailType\022" +
+      "\014\n\010REGISTER\020\000\022\n\n\006UPDATE\020\001\022\021\n\rRESETPASSWO" +
+      "RD\020\002*&\n\013bookingtype\022\013\n\007confirm\020\000\022\n\n\006canc" +
+      "el\020\0012v\n\013EmailServer\022)\n\013sendOTPMail\022\014.mai" +
+      "lRequest\032\014.apiResponse\022<\n\023bookingNotific" +
+      "ation\022\017.bookingDetails\032\024.bookingmailResp" +
+      "onseB0\n,com.stackroute.musicmantra.noty5" +
+      ".emailserverP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -71,7 +69,6 @@ public final class EmailService {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.TimestampProto.getDescriptor(),
         }, assigner);
     internal_static_mailRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -90,14 +87,13 @@ public final class EmailService {
     internal_static_bookingDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingDetails_descriptor,
-        new java.lang.String[] { "UserName", "UserEmail", "CourseName", "TimeName", "SendersEmail", "SendersEmailPassword", });
+        new java.lang.String[] { "BookingId", "Bookingtype", });
     internal_static_bookingmailResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_bookingmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingmailResponse_descriptor,
         new java.lang.String[] { "Message", "Responsecode", });
-    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

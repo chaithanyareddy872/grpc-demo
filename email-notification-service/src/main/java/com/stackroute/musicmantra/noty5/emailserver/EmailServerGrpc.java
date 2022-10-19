@@ -60,21 +60,21 @@ public final class EmailServerGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getBookingNotificationMethod;
+      com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "bookingNotification",
       requestType = com.stackroute.musicmantra.noty5.emailserver.bookingDetails.class,
-      responseType = com.stackroute.musicmantra.noty5.emailserver.apiResponse.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getBookingNotificationMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.apiResponse> getBookingNotificationMethod;
+      com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod;
     if ((getBookingNotificationMethod = EmailServerGrpc.getBookingNotificationMethod) == null) {
       synchronized (EmailServerGrpc.class) {
         if ((getBookingNotificationMethod = EmailServerGrpc.getBookingNotificationMethod) == null) {
           EmailServerGrpc.getBookingNotificationMethod = getBookingNotificationMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.apiResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "EmailServer", "bookingNotification"))
@@ -82,7 +82,7 @@ public final class EmailServerGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.stackroute.musicmantra.noty5.emailserver.bookingDetails.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.apiResponse.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("bookingNotification"))
                   .build();
           }
@@ -128,7 +128,7 @@ public final class EmailServerGrpc {
     /**
      */
     public void bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getBookingNotificationMethod(), responseObserver);
     }
 
@@ -146,7 +146,7 @@ public final class EmailServerGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-                com.stackroute.musicmantra.noty5.emailserver.apiResponse>(
+                com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>(
                   this, METHODID_BOOKING_NOTIFICATION)))
           .build();
     }
@@ -181,7 +181,7 @@ public final class EmailServerGrpc {
     /**
      */
     public void bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getBookingNotificationMethod(), getCallOptions()), request, responseObserver);
     }
@@ -214,7 +214,7 @@ public final class EmailServerGrpc {
 
     /**
      */
-    public com.stackroute.musicmantra.noty5.emailserver.apiResponse bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
+    public com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
       return blockingUnaryCall(
           getChannel(), getBookingNotificationMethod(), getCallOptions(), request);
     }
@@ -248,7 +248,7 @@ public final class EmailServerGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.apiResponse> bookingNotification(
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> bookingNotification(
         com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
       return futureUnaryCall(
           getChannel().newCall(getBookingNotificationMethod(), getCallOptions()), request);
@@ -281,7 +281,7 @@ public final class EmailServerGrpc {
           break;
         case METHODID_BOOKING_NOTIFICATION:
           serviceImpl.bookingNotification((com.stackroute.musicmantra.noty5.emailserver.bookingDetails) request,
-              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();

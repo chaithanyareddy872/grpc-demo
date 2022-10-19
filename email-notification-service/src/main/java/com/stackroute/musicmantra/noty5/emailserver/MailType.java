@@ -16,6 +16,10 @@ public enum MailType
    * <code>UPDATE = 1;</code>
    */
   UPDATE(1),
+  /**
+   * <code>RESETPASSWORD = 2;</code>
+   */
+  RESETPASSWORD(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -27,6 +31,10 @@ public enum MailType
    * <code>UPDATE = 1;</code>
    */
   public static final int UPDATE_VALUE = 1;
+  /**
+   * <code>RESETPASSWORD = 2;</code>
+   */
+  public static final int RESETPASSWORD_VALUE = 2;
 
 
   public final int getNumber() {
@@ -49,6 +57,7 @@ public enum MailType
     switch (value) {
       case 0: return REGISTER;
       case 1: return UPDATE;
+      case 2: return RESETPASSWORD;
       default: return null;
     }
   }

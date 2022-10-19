@@ -3,16 +3,21 @@ syntax = "proto3";
 option java_package = "com.stackroute.musicmantra.noty5.emailserver";
 option java_multiple_files = true;
 
-import "google/protobuf/timestamp.proto";
 
 service EmailServer{
   rpc sendOTPMail(mailRequest) returns(apiResponse);
-  rpc bookingNotification(bookingDetails)returns(apiResponse);
+  rpc bookingNotification(bookingDetails)returns(bookingmailResponse);
 }
 
 enum MailType{
 	REGISTER =0;
 	UPDATE = 1;
+	RESETPASSWORD = 2;
+}
+
+enum bookingtype{
+	confirm = 0;
+	cancel = 1;
 }
 
 message mailRequest{
@@ -27,12 +32,8 @@ message apiResponse{
 }
 
 message bookingDetails{
-	string userName = 1;
-	string userEmail = 2;
-	string courseName = 3;
-	google.protobuf.Timestamp time_name = 4;
-	string sendersEmail = 5;
-	string sendersEmailPassword = 6;
+	int32 bookingId =1;
+	string bookingtype = 2;
 }
 
 message bookingmailResponse{

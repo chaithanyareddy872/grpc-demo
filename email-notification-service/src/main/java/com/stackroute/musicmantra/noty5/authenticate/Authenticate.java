@@ -27,9 +27,7 @@ public class Authenticate {
 	     properties.put("mail.smtp.ssl.enable", "true");
 	     properties.put("mail.smtp.auth", "true");
 	     String password;
-//	     File file = new File("/home/global/IdeaProjects/Noti5/src/main/resources/DonotOpen/donotopen.txt");
 	     
-//	     BufferedReader brTest = new BufferedReader(new FileReader("/home/global/IdeaProjects/Noti5/src/main/resources/DonotOpen/donotopen.txt"));
 	     password = "";
 	   
 	     ObjectMapper mapper = new ObjectMapper();

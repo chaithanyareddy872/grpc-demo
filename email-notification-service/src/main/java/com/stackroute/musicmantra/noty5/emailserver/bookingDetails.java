@@ -16,11 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private bookingDetails() {
-    userName_ = "";
-    userEmail_ = "";
-    courseName_ = "";
-    sendersEmail_ = "";
-    sendersEmailPassword_ = "";
+    bookingId_ = 0;
+    bookingtype_ = "";
   }
 
   @java.lang.Override
@@ -47,47 +44,15 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            userName_ = s;
+            bookingId_ = input.readInt32();
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userEmail_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            courseName_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timeName_ != null) {
-              subBuilder = timeName_.toBuilder();
-            }
-            timeName_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeName_);
-              timeName_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sendersEmail_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sendersEmailPassword_ = s;
+            bookingtype_ = s;
             break;
           }
           default: {
@@ -122,191 +87,43 @@ private static final long serialVersionUID = 0L;
             com.stackroute.musicmantra.noty5.emailserver.bookingDetails.class, com.stackroute.musicmantra.noty5.emailserver.bookingDetails.Builder.class);
   }
 
-  public static final int USERNAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object userName_;
+  public static final int BOOKINGID_FIELD_NUMBER = 1;
+  private int bookingId_;
   /**
-   * <code>string userName = 1;</code>
+   * <code>int32 bookingId = 1;</code>
    */
-  public java.lang.String getUserName() {
-    java.lang.Object ref = userName_;
+  public int getBookingId() {
+    return bookingId_;
+  }
+
+  public static final int BOOKINGTYPE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object bookingtype_;
+  /**
+   * <code>string bookingtype = 2;</code>
+   */
+  public java.lang.String getBookingtype() {
+    java.lang.Object ref = bookingtype_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      userName_ = s;
+      bookingtype_ = s;
       return s;
     }
   }
   /**
-   * <code>string userName = 1;</code>
+   * <code>string bookingtype = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getUserNameBytes() {
-    java.lang.Object ref = userName_;
+      getBookingtypeBytes() {
+    java.lang.Object ref = bookingtype_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      userName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int USEREMAIL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object userEmail_;
-  /**
-   * <code>string userEmail = 2;</code>
-   */
-  public java.lang.String getUserEmail() {
-    java.lang.Object ref = userEmail_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      userEmail_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string userEmail = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getUserEmailBytes() {
-    java.lang.Object ref = userEmail_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      userEmail_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int COURSENAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object courseName_;
-  /**
-   * <code>string courseName = 3;</code>
-   */
-  public java.lang.String getCourseName() {
-    java.lang.Object ref = courseName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      courseName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string courseName = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCourseNameBytes() {
-    java.lang.Object ref = courseName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      courseName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int TIME_NAME_FIELD_NUMBER = 4;
-  private com.google.protobuf.Timestamp timeName_;
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  public boolean hasTimeName() {
-    return timeName_ != null;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  public com.google.protobuf.Timestamp getTimeName() {
-    return timeName_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timeName_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp time_name = 4;</code>
-   */
-  public com.google.protobuf.TimestampOrBuilder getTimeNameOrBuilder() {
-    return getTimeName();
-  }
-
-  public static final int SENDERSEMAIL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object sendersEmail_;
-  /**
-   * <code>string sendersEmail = 5;</code>
-   */
-  public java.lang.String getSendersEmail() {
-    java.lang.Object ref = sendersEmail_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      sendersEmail_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string sendersEmail = 5;</code>
-   */
-  public com.google.protobuf.ByteString
-      getSendersEmailBytes() {
-    java.lang.Object ref = sendersEmail_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      sendersEmail_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SENDERSEMAILPASSWORD_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sendersEmailPassword_;
-  /**
-   * <code>string sendersEmailPassword = 6;</code>
-   */
-  public java.lang.String getSendersEmailPassword() {
-    java.lang.Object ref = sendersEmailPassword_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      sendersEmailPassword_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string sendersEmailPassword = 6;</code>
-   */
-  public com.google.protobuf.ByteString
-      getSendersEmailPasswordBytes() {
-    java.lang.Object ref = sendersEmailPassword_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      sendersEmailPassword_ = b;
+      bookingtype_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -327,23 +144,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getUserNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
+    if (bookingId_ != 0) {
+      output.writeInt32(1, bookingId_);
     }
-    if (!getUserEmailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userEmail_);
-    }
-    if (!getCourseNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, courseName_);
-    }
-    if (timeName_ != null) {
-      output.writeMessage(4, getTimeName());
-    }
-    if (!getSendersEmailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, sendersEmail_);
-    }
-    if (!getSendersEmailPasswordBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sendersEmailPassword_);
+    if (!getBookingtypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, bookingtype_);
     }
     unknownFields.writeTo(output);
   }
@@ -354,24 +159,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getUserNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
-    }
-    if (!getUserEmailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userEmail_);
-    }
-    if (!getCourseNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, courseName_);
-    }
-    if (timeName_ != null) {
+    if (bookingId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getTimeName());
+        .computeInt32Size(1, bookingId_);
     }
-    if (!getSendersEmailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, sendersEmail_);
-    }
-    if (!getSendersEmailPasswordBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sendersEmailPassword_);
+    if (!getBookingtypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, bookingtype_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -389,21 +182,10 @@ private static final long serialVersionUID = 0L;
     com.stackroute.musicmantra.noty5.emailserver.bookingDetails other = (com.stackroute.musicmantra.noty5.emailserver.bookingDetails) obj;
 
     boolean result = true;
-    result = result && getUserName()
-        .equals(other.getUserName());
-    result = result && getUserEmail()
-        .equals(other.getUserEmail());
-    result = result && getCourseName()
-        .equals(other.getCourseName());
-    result = result && (hasTimeName() == other.hasTimeName());
-    if (hasTimeName()) {
-      result = result && getTimeName()
-          .equals(other.getTimeName());
-    }
-    result = result && getSendersEmail()
-        .equals(other.getSendersEmail());
-    result = result && getSendersEmailPassword()
-        .equals(other.getSendersEmailPassword());
+    result = result && (getBookingId()
+        == other.getBookingId());
+    result = result && getBookingtype()
+        .equals(other.getBookingtype());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -415,20 +197,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUserName().hashCode();
-    hash = (37 * hash) + USEREMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + getUserEmail().hashCode();
-    hash = (37 * hash) + COURSENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getCourseName().hashCode();
-    if (hasTimeName()) {
-      hash = (37 * hash) + TIME_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTimeName().hashCode();
-    }
-    hash = (37 * hash) + SENDERSEMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + getSendersEmail().hashCode();
-    hash = (37 * hash) + SENDERSEMAILPASSWORD_FIELD_NUMBER;
-    hash = (53 * hash) + getSendersEmailPassword().hashCode();
+    hash = (37 * hash) + BOOKINGID_FIELD_NUMBER;
+    hash = (53 * hash) + getBookingId();
+    hash = (37 * hash) + BOOKINGTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getBookingtype().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -562,21 +334,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userName_ = "";
+      bookingId_ = 0;
 
-      userEmail_ = "";
-
-      courseName_ = "";
-
-      if (timeNameBuilder_ == null) {
-        timeName_ = null;
-      } else {
-        timeName_ = null;
-        timeNameBuilder_ = null;
-      }
-      sendersEmail_ = "";
-
-      sendersEmailPassword_ = "";
+      bookingtype_ = "";
 
       return this;
     }
@@ -604,16 +364,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.stackroute.musicmantra.noty5.emailserver.bookingDetails buildPartial() {
       com.stackroute.musicmantra.noty5.emailserver.bookingDetails result = new com.stackroute.musicmantra.noty5.emailserver.bookingDetails(this);
-      result.userName_ = userName_;
-      result.userEmail_ = userEmail_;
-      result.courseName_ = courseName_;
-      if (timeNameBuilder_ == null) {
-        result.timeName_ = timeName_;
-      } else {
-        result.timeName_ = timeNameBuilder_.build();
-      }
-      result.sendersEmail_ = sendersEmail_;
-      result.sendersEmailPassword_ = sendersEmailPassword_;
+      result.bookingId_ = bookingId_;
+      result.bookingtype_ = bookingtype_;
       onBuilt();
       return result;
     }
@@ -662,27 +414,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.stackroute.musicmantra.noty5.emailserver.bookingDetails other) {
       if (other == com.stackroute.musicmantra.noty5.emailserver.bookingDetails.getDefaultInstance()) return this;
-      if (!other.getUserName().isEmpty()) {
-        userName_ = other.userName_;
-        onChanged();
+      if (other.getBookingId() != 0) {
+        setBookingId(other.getBookingId());
       }
-      if (!other.getUserEmail().isEmpty()) {
-        userEmail_ = other.userEmail_;
-        onChanged();
-      }
-      if (!other.getCourseName().isEmpty()) {
-        courseName_ = other.courseName_;
-        onChanged();
-      }
-      if (other.hasTimeName()) {
-        mergeTimeName(other.getTimeName());
-      }
-      if (!other.getSendersEmail().isEmpty()) {
-        sendersEmail_ = other.sendersEmail_;
-        onChanged();
-      }
-      if (!other.getSendersEmailPassword().isEmpty()) {
-        sendersEmailPassword_ = other.sendersEmailPassword_;
+      if (!other.getBookingtype().isEmpty()) {
+        bookingtype_ = other.bookingtype_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -714,464 +450,97 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object userName_ = "";
+    private int bookingId_ ;
     /**
-     * <code>string userName = 1;</code>
+     * <code>int32 bookingId = 1;</code>
      */
-    public java.lang.String getUserName() {
-      java.lang.Object ref = userName_;
+    public int getBookingId() {
+      return bookingId_;
+    }
+    /**
+     * <code>int32 bookingId = 1;</code>
+     */
+    public Builder setBookingId(int value) {
+      
+      bookingId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 bookingId = 1;</code>
+     */
+    public Builder clearBookingId() {
+      
+      bookingId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object bookingtype_ = "";
+    /**
+     * <code>string bookingtype = 2;</code>
+     */
+    public java.lang.String getBookingtype() {
+      java.lang.Object ref = bookingtype_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        userName_ = s;
+        bookingtype_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string userName = 1;</code>
+     * <code>string bookingtype = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      java.lang.Object ref = userName_;
+        getBookingtypeBytes() {
+      java.lang.Object ref = bookingtype_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        userName_ = b;
+        bookingtype_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string userName = 1;</code>
+     * <code>string bookingtype = 2;</code>
      */
-    public Builder setUserName(
+    public Builder setBookingtype(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      userName_ = value;
+      bookingtype_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string userName = 1;</code>
+     * <code>string bookingtype = 2;</code>
      */
-    public Builder clearUserName() {
+    public Builder clearBookingtype() {
       
-      userName_ = getDefaultInstance().getUserName();
+      bookingtype_ = getDefaultInstance().getBookingtype();
       onChanged();
       return this;
     }
     /**
-     * <code>string userName = 1;</code>
+     * <code>string bookingtype = 2;</code>
      */
-    public Builder setUserNameBytes(
+    public Builder setBookingtypeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      userName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object userEmail_ = "";
-    /**
-     * <code>string userEmail = 2;</code>
-     */
-    public java.lang.String getUserEmail() {
-      java.lang.Object ref = userEmail_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userEmail_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string userEmail = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getUserEmailBytes() {
-      java.lang.Object ref = userEmail_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userEmail_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string userEmail = 2;</code>
-     */
-    public Builder setUserEmail(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      userEmail_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string userEmail = 2;</code>
-     */
-    public Builder clearUserEmail() {
-      
-      userEmail_ = getDefaultInstance().getUserEmail();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string userEmail = 2;</code>
-     */
-    public Builder setUserEmailBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      userEmail_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object courseName_ = "";
-    /**
-     * <code>string courseName = 3;</code>
-     */
-    public java.lang.String getCourseName() {
-      java.lang.Object ref = courseName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        courseName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string courseName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCourseNameBytes() {
-      java.lang.Object ref = courseName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        courseName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string courseName = 3;</code>
-     */
-    public Builder setCourseName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      courseName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string courseName = 3;</code>
-     */
-    public Builder clearCourseName() {
-      
-      courseName_ = getDefaultInstance().getCourseName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string courseName = 3;</code>
-     */
-    public Builder setCourseNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      courseName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Timestamp timeName_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeNameBuilder_;
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public boolean hasTimeName() {
-      return timeNameBuilder_ != null || timeName_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public com.google.protobuf.Timestamp getTimeName() {
-      if (timeNameBuilder_ == null) {
-        return timeName_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timeName_;
-      } else {
-        return timeNameBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public Builder setTimeName(com.google.protobuf.Timestamp value) {
-      if (timeNameBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        timeName_ = value;
-        onChanged();
-      } else {
-        timeNameBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public Builder setTimeName(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (timeNameBuilder_ == null) {
-        timeName_ = builderForValue.build();
-        onChanged();
-      } else {
-        timeNameBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public Builder mergeTimeName(com.google.protobuf.Timestamp value) {
-      if (timeNameBuilder_ == null) {
-        if (timeName_ != null) {
-          timeName_ =
-            com.google.protobuf.Timestamp.newBuilder(timeName_).mergeFrom(value).buildPartial();
-        } else {
-          timeName_ = value;
-        }
-        onChanged();
-      } else {
-        timeNameBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public Builder clearTimeName() {
-      if (timeNameBuilder_ == null) {
-        timeName_ = null;
-        onChanged();
-      } else {
-        timeName_ = null;
-        timeNameBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getTimeNameBuilder() {
-      
-      onChanged();
-      return getTimeNameFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getTimeNameOrBuilder() {
-      if (timeNameBuilder_ != null) {
-        return timeNameBuilder_.getMessageOrBuilder();
-      } else {
-        return timeName_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : timeName_;
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp time_name = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getTimeNameFieldBuilder() {
-      if (timeNameBuilder_ == null) {
-        timeNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getTimeName(),
-                getParentForChildren(),
-                isClean());
-        timeName_ = null;
-      }
-      return timeNameBuilder_;
-    }
-
-    private java.lang.Object sendersEmail_ = "";
-    /**
-     * <code>string sendersEmail = 5;</code>
-     */
-    public java.lang.String getSendersEmail() {
-      java.lang.Object ref = sendersEmail_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sendersEmail_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string sendersEmail = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSendersEmailBytes() {
-      java.lang.Object ref = sendersEmail_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sendersEmail_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string sendersEmail = 5;</code>
-     */
-    public Builder setSendersEmail(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      sendersEmail_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sendersEmail = 5;</code>
-     */
-    public Builder clearSendersEmail() {
-      
-      sendersEmail_ = getDefaultInstance().getSendersEmail();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sendersEmail = 5;</code>
-     */
-    public Builder setSendersEmailBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      sendersEmail_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object sendersEmailPassword_ = "";
-    /**
-     * <code>string sendersEmailPassword = 6;</code>
-     */
-    public java.lang.String getSendersEmailPassword() {
-      java.lang.Object ref = sendersEmailPassword_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sendersEmailPassword_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string sendersEmailPassword = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSendersEmailPasswordBytes() {
-      java.lang.Object ref = sendersEmailPassword_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sendersEmailPassword_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string sendersEmailPassword = 6;</code>
-     */
-    public Builder setSendersEmailPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      sendersEmailPassword_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sendersEmailPassword = 6;</code>
-     */
-    public Builder clearSendersEmailPassword() {
-      
-      sendersEmailPassword_ = getDefaultInstance().getSendersEmailPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string sendersEmailPassword = 6;</code>
-     */
-    public Builder setSendersEmailPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      sendersEmailPassword_ = value;
+      bookingtype_ = value;
       onChanged();
       return this;
     }

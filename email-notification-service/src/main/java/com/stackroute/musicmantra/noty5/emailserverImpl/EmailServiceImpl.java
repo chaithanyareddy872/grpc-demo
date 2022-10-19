@@ -6,18 +6,18 @@ import javax.mail.Session;
 
 import org.apache.log4j.Logger;
 
-import com.google.protobuf.Timestamp;
 import com.stackroute.musicmantra.noty5.authenticate.Authenticate;
 import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
+import com.stackroute.musicmantra.noty5.domain.api.User;
 import com.stackroute.musicmantra.noty5.emailserver.EmailServerGrpc.EmailServerImplBase;
 import com.stackroute.musicmantra.noty5.emailserver.MailType;
 import com.stackroute.musicmantra.noty5.emailserver.apiResponse;
 import com.stackroute.musicmantra.noty5.emailserver.bookingDetails;
+import com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse;
 import com.stackroute.musicmantra.noty5.emailserver.mailRequest;
 import com.stackroute.musicmantra.noty5.mailSendingService.SendEmailService;
 import com.stackroute.musicmantra.noty5.mailSendingService.SendEmailServiceImpl;
-import com.stackroute.musicmantra.noty5.utility.EmailHolder;
 import com.stackroute.musicmantra.noty5.utility.Utility;
 
 import io.grpc.stub.StreamObserver;
@@ -35,9 +35,9 @@ public class EmailServiceImpl extends EmailServerImplBase {
         Session session = null;
         
         
-        String recieveremail = databaseOperationImpl.getUserEmailId(userId);
+        String userMail = databaseOperationImpl.getUserEmailId(userId);
         
-        Utility.validateEmail(recieveremail, EmailHolder.RECEIVER);
+        Utility.validateEmail(userMail);
         try {
         
         session = authenticate.createSession();
@@ -47,7 +47,7 @@ public class EmailServiceImpl extends EmailServerImplBase {
         }
 
         
-         int OTP = sendEmailService.registration(MusicMantraEmail.emailId, recieveremail, session, emailType);
+         int OTP = sendEmailService.registration(MusicMantraEmail.emailId, userMail, session, emailType);
         
 		
         apiResponse.Builder response = apiResponse.newBuilder().setMessage("running successfully").setResponsecode(200).setOTP(OTP);
@@ -56,35 +56,35 @@ public class EmailServiceImpl extends EmailServerImplBase {
     }
 
 	@Override
-	public void bookingNotification(bookingDetails request, StreamObserver<apiResponse> responseObserver){
-		Session session = null;
+	public void bookingNotification(bookingDetails request, StreamObserver<bookingmailResponse> responseObserver) {
+	 int bookingId = request.getBookingId();
+	 String bookingType = request.getBookingtype();
+	 
+	 User[] users = databaseOperationImpl.getbookingMail(1, bookingType);
+	 Session session = null;	
 		
-		String senderEmail = request.getSendersEmail();
-		String sendersMailPassword = request.getSendersEmailPassword();
-		String userNAme = request.getUserName();
-		String userMail = request.getUserEmail();
-		String courseName = request.getCourseName();
-		Timestamp timestamp = request.getTimeName();
 		
-        Utility.validateEmail(senderEmail, EmailHolder.SENDER);
-        Utility.validateEmail(userMail, EmailHolder.RECEIVER);
-        
-        try {
-			session = authenticate.createSession();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-        String bookingResponse = sendEmailService.booking(senderEmail, userNAme, userMail,courseName,timestamp, session);
-        
-		
-        apiResponse.Builder response = apiResponse.newBuilder().setMessage("running successfully").setResponsecode(200).setMessage(bookingResponse);
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
-        
-       
+//   Utility.validateEmail(bookingMap.get("student"));
+//   Utility.validateEmail(userMail);
+   
+   try {
+		session = authenticate.createSession();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
+   
+   String bookingResponse = sendEmailService.booking(users, session);
+   
+	
+   bookingmailResponse.Builder response = bookingmailResponse.newBuilder().setMessage("running successfully").setResponsecode(200).setMessage(bookingResponse);
+   responseObserver.onNext(response.build());
+   responseObserver.onCompleted();
+   
+	}
+
+
+	
     
     
 }
