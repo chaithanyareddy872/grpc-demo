@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_package = "org.grpc.generated";
+
+service UpdateService{
+  rpc updatefirstName(nameOrPasswordRequest) returns (Response);
+  rpc updatelastLast(nameOrPasswordRequest) returns (Response);
+  rpc updateContact(nameOrPasswordRequest) returns (Response);
+  rpc updateAddress(Address) returns (Response);
+  rpc updatePreference(preference) returns (Response);
+  rpc updateInterests(interests) returns (Response);
+  rpc updatePassword(nameOrPasswordRequest) returns (Response);
+}
+message nameOrPasswordRequest{
+  string updatedString = 1;
+}
+
+message Response{
+  string responseMessage = 1;
+  int32 statusCode = 2;
+}
+message preference{
+  repeated string preferences = 1;
+}
+message interests{
+  repeated string interests = 1;
+}
+message Address {
+  string city=1;
+  string state=2;
+  string pinCode=3;
+}
+
+

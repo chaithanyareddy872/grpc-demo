@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="authentication-service" />
+        <module name="project1" />
         <module name="class-booking-service" />
+        <module name="authentication-service" />
         <module name="search-service" />
         <module name="user-service" />
         <module name="email-notification-service" />

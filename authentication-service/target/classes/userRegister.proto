@@ -1,0 +1,71 @@
+syntax ="proto3";
+
+option java_package="org.example";
+
+service userRegister{
+  rpc registration(details) returns(APIResponse1);
+  rpc login(authenticationRequest) returns(APIResponse1);
+  rpc deleteuser(deleteRequest) returns (APIResponse1);
+}
+
+message  details{
+  string username=1;
+  string first_name=2;
+  string last_name=3;
+  string emailId=4;
+  string password=5;
+  string contactNo=6;
+  Address address=7;
+  Preferences preferences=8;
+  userType usertype=9;
+}
+
+message Address {
+  string city=1;
+  string state=2;
+  string pincode=3;
+
+}
+
+enum userType{
+  teacher=0;
+  student=1;
+}
+
+message Preferences{
+  repeated Genre genre=1;
+  repeated Instruments instrument=2;
+}
+
+enum Genre{
+  Classical=0;
+  Rock=1;
+  PopMusic=2;
+  Jazz=3;
+  CountryMusic=4;
+
+}
+
+enum Instruments{
+  Guitar=0;
+  Piano=1;
+  Violin=2;
+  Drums=3;
+  Flute=4;
+}
+
+
+message APIResponse1 {
+  int32 userId=1;
+  string responseMessage=2;
+  int32 responseCode=3;
+}
+
+message authenticationRequest{
+  string email=1;
+  string password=2;
+}
+
+message deleteRequest{
+  string emailId=1;
+}
