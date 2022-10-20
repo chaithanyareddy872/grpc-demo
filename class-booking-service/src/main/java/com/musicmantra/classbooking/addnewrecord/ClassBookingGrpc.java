@@ -158,6 +158,38 @@ public final class ClassBookingGrpc {
      return getGetallstudentbookingsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.multiBookingReq,
+      com.musicmantra.classbooking.addnewrecord.multiBookingResp> getGetallsessionbookingsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getallsessionbookings",
+      requestType = com.musicmantra.classbooking.addnewrecord.multiBookingReq.class,
+      responseType = com.musicmantra.classbooking.addnewrecord.multiBookingResp.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.multiBookingReq,
+      com.musicmantra.classbooking.addnewrecord.multiBookingResp> getGetallsessionbookingsMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.classbooking.addnewrecord.multiBookingReq, com.musicmantra.classbooking.addnewrecord.multiBookingResp> getGetallsessionbookingsMethod;
+    if ((getGetallsessionbookingsMethod = ClassBookingGrpc.getGetallsessionbookingsMethod) == null) {
+      synchronized (ClassBookingGrpc.class) {
+        if ((getGetallsessionbookingsMethod = ClassBookingGrpc.getGetallsessionbookingsMethod) == null) {
+          ClassBookingGrpc.getGetallsessionbookingsMethod = getGetallsessionbookingsMethod = 
+              io.grpc.MethodDescriptor.<com.musicmantra.classbooking.addnewrecord.multiBookingReq, com.musicmantra.classbooking.addnewrecord.multiBookingResp>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "ClassBooking", "getallsessionbookings"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.classbooking.addnewrecord.multiBookingReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.classbooking.addnewrecord.multiBookingResp.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClassBookingMethodDescriptorSupplier("getallsessionbookings"))
+                  .build();
+          }
+        }
+     }
+     return getGetallsessionbookingsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -219,6 +251,13 @@ public final class ClassBookingGrpc {
       asyncUnimplementedUnaryCall(getGetallstudentbookingsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getallsessionbookings(com.musicmantra.classbooking.addnewrecord.multiBookingReq request,
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.multiBookingResp> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetallsessionbookingsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -249,6 +288,13 @@ public final class ClassBookingGrpc {
                 com.musicmantra.classbooking.addnewrecord.multiBookingReq,
                 com.musicmantra.classbooking.addnewrecord.multiBookingResp>(
                   this, METHODID_GETALLSTUDENTBOOKINGS)))
+          .addMethod(
+            getGetallsessionbookingsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.musicmantra.classbooking.addnewrecord.multiBookingReq,
+                com.musicmantra.classbooking.addnewrecord.multiBookingResp>(
+                  this, METHODID_GETALLSESSIONBOOKINGS)))
           .build();
     }
   }
@@ -308,6 +354,14 @@ public final class ClassBookingGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(getGetallstudentbookingsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getallsessionbookings(com.musicmantra.classbooking.addnewrecord.multiBookingReq request,
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.multiBookingResp> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetallsessionbookingsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -361,6 +415,14 @@ public final class ClassBookingGrpc {
         com.musicmantra.classbooking.addnewrecord.multiBookingReq request) {
       return blockingServerStreamingCall(
           getChannel(), getGetallstudentbookingsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.musicmantra.classbooking.addnewrecord.multiBookingResp> getallsessionbookings(
+        com.musicmantra.classbooking.addnewrecord.multiBookingReq request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetallsessionbookingsMethod(), getCallOptions(), request);
     }
   }
 
@@ -417,6 +479,7 @@ public final class ClassBookingGrpc {
   private static final int METHODID_UPDATE_BOOKING = 1;
   private static final int METHODID_DELETE_BOOKING = 2;
   private static final int METHODID_GETALLSTUDENTBOOKINGS = 3;
+  private static final int METHODID_GETALLSESSIONBOOKINGS = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -449,6 +512,10 @@ public final class ClassBookingGrpc {
           break;
         case METHODID_GETALLSTUDENTBOOKINGS:
           serviceImpl.getallstudentbookings((com.musicmantra.classbooking.addnewrecord.multiBookingReq) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.multiBookingResp>) responseObserver);
+          break;
+        case METHODID_GETALLSESSIONBOOKINGS:
+          serviceImpl.getallsessionbookings((com.musicmantra.classbooking.addnewrecord.multiBookingReq) request,
               (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.addnewrecord.multiBookingResp>) responseObserver);
           break;
         default:
@@ -516,6 +583,7 @@ public final class ClassBookingGrpc {
               .addMethod(getUpdateBookingMethod())
               .addMethod(getDeleteBookingMethod())
               .addMethod(getGetallstudentbookingsMethod())
+              .addMethod(getGetallsessionbookingsMethod())
               .build();
         }
       }

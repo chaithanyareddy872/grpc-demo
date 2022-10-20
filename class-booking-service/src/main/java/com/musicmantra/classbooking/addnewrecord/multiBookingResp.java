@@ -3,8 +3,6 @@
 
 package com.musicmantra.classbooking.addnewrecord;
 
-import com.google.protobuf.Timestamp;
-
 /**
  * <pre>
  *multi records response message
@@ -25,7 +23,9 @@ private static final long serialVersionUID = 0L;
     bookinid_ = 0L;
     studentid_ = 0L;
     sessionid_ = 0L;
-    status_ = "";
+    bookingstatus_ = "";
+    errormsg_ = "";
+    statuscode_ = 0;
   }
 
   @java.lang.Override
@@ -83,7 +83,18 @@ private static final long serialVersionUID = 0L;
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            status_ = s;
+            bookingstatus_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            errormsg_ = s;
+            break;
+          }
+          case 56: {
+
+            statuscode_ = input.readInt32();
             break;
           }
           default: {
@@ -166,38 +177,81 @@ private static final long serialVersionUID = 0L;
     return getDateTime();
   }
 
-  public static final int STATUS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object status_;
+  public static final int BOOKINGSTATUS_FIELD_NUMBER = 5;
+  private volatile java.lang.Object bookingstatus_;
   /**
-   * <code>string status = 5;</code>
+   * <code>string bookingstatus = 5;</code>
    */
-  public java.lang.String getStatus() {
-    java.lang.Object ref = status_;
+  public java.lang.String getBookingstatus() {
+    java.lang.Object ref = bookingstatus_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs =
+      com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      status_ = s;
+      bookingstatus_ = s;
       return s;
     }
   }
   /**
-   * <code>string status = 5;</code>
+   * <code>string bookingstatus = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getStatusBytes() {
-    java.lang.Object ref = status_;
+      getBookingstatusBytes() {
+    java.lang.Object ref = bookingstatus_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b =
+      com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      status_ = b;
+      bookingstatus_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ERRORMSG_FIELD_NUMBER = 6;
+  private volatile java.lang.Object errormsg_;
+  /**
+   * <code>string errormsg = 6;</code>
+   */
+  public java.lang.String getErrormsg() {
+    java.lang.Object ref = errormsg_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      errormsg_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string errormsg = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getErrormsgBytes() {
+    java.lang.Object ref = errormsg_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      errormsg_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STATUSCODE_FIELD_NUMBER = 7;
+  private int statuscode_;
+  /**
+   * <code>int32 statuscode = 7;</code>
+   */
+  public int getStatuscode() {
+    return statuscode_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -226,8 +280,14 @@ private static final long serialVersionUID = 0L;
     if (dateTime_ != null) {
       output.writeMessage(4, getDateTime());
     }
-    if (!getStatusBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
+    if (!getBookingstatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bookingstatus_);
+    }
+    if (!getErrormsgBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, errormsg_);
+    }
+    if (statuscode_ != 0) {
+      output.writeInt32(7, statuscode_);
     }
     unknownFields.writeTo(output);
   }
@@ -254,8 +314,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getDateTime());
     }
-    if (!getStatusBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
+    if (!getBookingstatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bookingstatus_);
+    }
+    if (!getErrormsgBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, errormsg_);
+    }
+    if (statuscode_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, statuscode_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -284,8 +351,12 @@ private static final long serialVersionUID = 0L;
       result = result && getDateTime()
           .equals(other.getDateTime());
     }
-    result = result && getStatus()
-        .equals(other.getStatus());
+    result = result && getBookingstatus()
+        .equals(other.getBookingstatus());
+    result = result && getErrormsg()
+        .equals(other.getErrormsg());
+    result = result && (getStatuscode()
+        == other.getStatuscode());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -310,8 +381,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATETIME_FIELD_NUMBER;
       hash = (53 * hash) + getDateTime().hashCode();
     }
-    hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getStatus().hashCode();
+    hash = (37 * hash) + BOOKINGSTATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getBookingstatus().hashCode();
+    hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
+    hash = (53 * hash) + getErrormsg().hashCode();
+    hash = (37 * hash) + STATUSCODE_FIELD_NUMBER;
+    hash = (53 * hash) + getStatuscode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -461,7 +536,11 @@ private static final long serialVersionUID = 0L;
         dateTime_ = null;
         dateTimeBuilder_ = null;
       }
-      status_ = "";
+      bookingstatus_ = "";
+
+      errormsg_ = "";
+
+      statuscode_ = 0;
 
       return this;
     }
@@ -497,7 +576,9 @@ private static final long serialVersionUID = 0L;
       } else {
         result.dateTime_ = dateTimeBuilder_.build();
       }
-      result.status_ = status_;
+      result.bookingstatus_ = bookingstatus_;
+      result.errormsg_ = errormsg_;
+      result.statuscode_ = statuscode_;
       onBuilt();
       return result;
     }
@@ -558,9 +639,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasDateTime()) {
         mergeDateTime(other.getDateTime());
       }
-      if (!other.getStatus().isEmpty()) {
-        status_ = other.status_;
+      if (!other.getBookingstatus().isEmpty()) {
+        bookingstatus_ = other.bookingstatus_;
         onChanged();
+      }
+      if (!other.getErrormsg().isEmpty()) {
+        errormsg_ = other.errormsg_;
+        onChanged();
+      }
+      if (other.getStatuscode() != 0) {
+        setStatuscode(other.getStatuscode());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -602,7 +690,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 bookinid = 1;</code>
      */
     public Builder setBookinid(long value) {
-
+      
       bookinid_ = value;
       onChanged();
       return this;
@@ -611,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 bookinid = 1;</code>
      */
     public Builder clearBookinid() {
-
+      
       bookinid_ = 0L;
       onChanged();
       return this;
@@ -628,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 studentid = 2;</code>
      */
     public Builder setStudentid(long value) {
-
+      
       studentid_ = value;
       onChanged();
       return this;
@@ -637,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 studentid = 2;</code>
      */
     public Builder clearStudentid() {
-
+      
       studentid_ = 0L;
       onChanged();
       return this;
@@ -654,7 +742,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 sessionid = 3;</code>
      */
     public Builder setSessionid(long value) {
-
+      
       sessionid_ = value;
       onChanged();
       return this;
@@ -663,13 +751,13 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 sessionid = 3;</code>
      */
     public Builder clearSessionid() {
-
+      
       sessionid_ = 0L;
       onChanged();
       return this;
     }
 
-    private Timestamp dateTime_ = null;
+    private com.google.protobuf.Timestamp dateTime_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateTimeBuilder_;
     /**
@@ -690,9 +778,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-     * @param value
      */
-    public Builder setDateTime(Timestamp value) {
+    public Builder setDateTime(com.google.protobuf.Timestamp value) {
       if (dateTimeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -755,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getDateTimeBuilder() {
-
+      
       onChanged();
       return getDateTimeFieldBuilder().getBuilder();
     }
@@ -774,7 +861,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp dateTime = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
         getDateTimeFieldBuilder() {
       if (dateTimeBuilder_ == null) {
         dateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -787,71 +874,166 @@ private static final long serialVersionUID = 0L;
       return dateTimeBuilder_;
     }
 
-    private java.lang.Object status_ = "";
+    private java.lang.Object bookingstatus_ = "";
     /**
-     * <code>string status = 5;</code>
+     * <code>string bookingstatus = 5;</code>
      */
-    public java.lang.String getStatus() {
-      java.lang.Object ref = status_;
+    public java.lang.String getBookingstatus() {
+      java.lang.Object ref = bookingstatus_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        status_ = s;
+        bookingstatus_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string status = 5;</code>
+     * <code>string bookingstatus = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getStatusBytes() {
-      java.lang.Object ref = status_;
+        getBookingstatusBytes() {
+      java.lang.Object ref = bookingstatus_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        status_ = b;
+        bookingstatus_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string status = 5;</code>
+     * <code>string bookingstatus = 5;</code>
      */
-    public Builder setStatus(
+    public Builder setBookingstatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-
-      status_ = value;
+  
+      bookingstatus_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 5;</code>
+     * <code>string bookingstatus = 5;</code>
      */
-    public Builder clearStatus() {
-
-      status_ = getDefaultInstance().getStatus();
+    public Builder clearBookingstatus() {
+      
+      bookingstatus_ = getDefaultInstance().getBookingstatus();
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 5;</code>
+     * <code>string bookingstatus = 5;</code>
      */
-    public Builder setStatusBytes(
+    public Builder setBookingstatusBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
+      
+      bookingstatus_ = value;
+      onChanged();
+      return this;
+    }
 
-      status_ = value;
+    private java.lang.Object errormsg_ = "";
+    /**
+     * <code>string errormsg = 6;</code>
+     */
+    public java.lang.String getErrormsg() {
+      java.lang.Object ref = errormsg_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errormsg_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string errormsg = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrormsgBytes() {
+      java.lang.Object ref = errormsg_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errormsg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string errormsg = 6;</code>
+     */
+    public Builder setErrormsg(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      errormsg_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string errormsg = 6;</code>
+     */
+    public Builder clearErrormsg() {
+      
+      errormsg_ = getDefaultInstance().getErrormsg();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string errormsg = 6;</code>
+     */
+    public Builder setErrormsgBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      errormsg_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int statuscode_ ;
+    /**
+     * <code>int32 statuscode = 7;</code>
+     */
+    public int getStatuscode() {
+      return statuscode_;
+    }
+    /**
+     * <code>int32 statuscode = 7;</code>
+     */
+    public Builder setStatuscode(int value) {
+      
+      statuscode_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 statuscode = 7;</code>
+     */
+    public Builder clearStatuscode() {
+      
+      statuscode_ = 0;
       onChanged();
       return this;
     }
@@ -907,3 +1089,4 @@ private static final long serialVersionUID = 0L;
   }
 
 }
+

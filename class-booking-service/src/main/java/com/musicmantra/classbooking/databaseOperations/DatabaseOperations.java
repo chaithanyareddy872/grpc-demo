@@ -9,7 +9,11 @@ import com.musicmantra.classbooking.addnewrecord.updatereq;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,10 +21,6 @@ import java.util.Properties;
 
 //class to perform all sql operations
 public class DatabaseOperations {
-    // class to get the connection obj from database
-    private final String url = "jdbc:postgresql://localhost:5432/classbooking";
-    private final String user = "postgres";
-    private final String password = "root123";
 
     public Connection connection() throws IOException {
         InputStream input = new FileInputStream("class-booking-service/src/main/resources/application.properties");
@@ -45,7 +45,7 @@ public class DatabaseOperations {
         try {
             //preparing the insert statement
             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookinginfo(" +
-                    "studentid,sessionid,dateTime,status) values(?,?,?,?);");
+                    "studentid,sessionid,datetime,status) values(?,?,?,?);");
             //setting up the values
             preparedStatement.setLong(1,postBookingReq.getStudentid());
             preparedStatement.setLong(2,postBookingReq.getSessionid());
@@ -132,6 +132,20 @@ public class DatabaseOperations {
         try{
             PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
                     "where studentid=?");
+            preparedStatement.setLong(1,multiBookingReq.getUserid());
+            resultSet= preparedStatement.executeQuery();
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        return resultSet;
+    }
+    public ResultSet getallsessionbookings(Connection conn, multiBookingReq multiBookingReq){
+
+        ResultSet resultSet = null;
+        try{
+            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
+                    "where sessionid=?");
             preparedStatement.setLong(1,multiBookingReq.getUserid());
             resultSet= preparedStatement.executeQuery();
         }

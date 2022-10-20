@@ -36,12 +36,27 @@ public interface multiBookingRespOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder();
 
   /**
-   * <code>string status = 5;</code>
+   * <code>string bookingstatus = 5;</code>
    */
-  java.lang.String getStatus();
+  java.lang.String getBookingstatus();
   /**
-   * <code>string status = 5;</code>
+   * <code>string bookingstatus = 5;</code>
    */
   com.google.protobuf.ByteString
-      getStatusBytes();
+      getBookingstatusBytes();
+
+  /**
+   * <code>string errormsg = 6;</code>
+   */
+  java.lang.String getErrormsg();
+  /**
+   * <code>string errormsg = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getErrormsgBytes();
+
+  /**
+   * <code>int32 statuscode = 7;</code>
+   */
+  int getStatuscode();
 }
