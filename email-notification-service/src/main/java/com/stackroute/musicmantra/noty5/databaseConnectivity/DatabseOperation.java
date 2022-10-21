@@ -6,4 +6,5 @@ public interface DatabseOperation {
 
 	public String getUserEmailId(String userId);
 	public User[] getbookingMail(int userid, String bookingType);
+	public boolean checkIfnewUser(String mail);
 }

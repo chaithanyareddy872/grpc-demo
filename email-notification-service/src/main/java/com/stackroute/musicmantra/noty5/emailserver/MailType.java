@@ -9,32 +9,24 @@ package com.stackroute.musicmantra.noty5.emailserver;
 public enum MailType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>REGISTER = 0;</code>
+   * <code>UPDATE = 0;</code>
    */
-  REGISTER(0),
+  UPDATE(0),
   /**
-   * <code>UPDATE = 1;</code>
+   * <code>RESETPASSWORD = 1;</code>
    */
-  UPDATE(1),
-  /**
-   * <code>RESETPASSWORD = 2;</code>
-   */
-  RESETPASSWORD(2),
+  RESETPASSWORD(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>REGISTER = 0;</code>
+   * <code>UPDATE = 0;</code>
    */
-  public static final int REGISTER_VALUE = 0;
+  public static final int UPDATE_VALUE = 0;
   /**
-   * <code>UPDATE = 1;</code>
+   * <code>RESETPASSWORD = 1;</code>
    */
-  public static final int UPDATE_VALUE = 1;
-  /**
-   * <code>RESETPASSWORD = 2;</code>
-   */
-  public static final int RESETPASSWORD_VALUE = 2;
+  public static final int RESETPASSWORD_VALUE = 1;
 
 
   public final int getNumber() {
@@ -55,9 +47,8 @@ public enum MailType
 
   public static MailType forNumber(int value) {
     switch (value) {
-      case 0: return REGISTER;
-      case 1: return UPDATE;
-      case 2: return RESETPASSWORD;
+      case 0: return UPDATE;
+      case 1: return RESETPASSWORD;
       default: return null;
     }
   }
