@@ -19,7 +19,7 @@ service ClassBooking{
     rpc deleteBooking(deleteBookingReq) returns (BookingResp);
     rpc getallstudentbookings(multiBookingReq) returns (stream multiBookingResp);
     rpc getallsessionbookings(multiBookingReq) returns (stream multiBookingResp);
-    rpc getBooking(getBookingReq)returns(getBookingResp);
+    rpc getBooking(getBookingReq)returns(multiBookingResp);
 }
 
 
@@ -72,14 +72,5 @@ message getBookingReq
   uint64 sessionid=2;
 }
 
-//get booking resp
-message getBookingResp
-{
 
-  uint64 bookingid=1;
-  uint64 studentid =2;
-  uint64 sessionid=3;
-  string status=4;
-  google.protobuf.Timestamp bookingdatetime = 5;
-}
 

@@ -191,21 +191,21 @@ public final class ClassBookingGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.musicmantra.classbooking.generatedfiles.getBookingReq,
-      com.musicmantra.classbooking.generatedfiles.getBookingResp> getGetBookingMethod;
+      com.musicmantra.classbooking.generatedfiles.multiBookingResp> getGetBookingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getBooking",
       requestType = com.musicmantra.classbooking.generatedfiles.getBookingReq.class,
-      responseType = com.musicmantra.classbooking.generatedfiles.getBookingResp.class,
+      responseType = com.musicmantra.classbooking.generatedfiles.multiBookingResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.musicmantra.classbooking.generatedfiles.getBookingReq,
-      com.musicmantra.classbooking.generatedfiles.getBookingResp> getGetBookingMethod() {
-    io.grpc.MethodDescriptor<com.musicmantra.classbooking.generatedfiles.getBookingReq, com.musicmantra.classbooking.generatedfiles.getBookingResp> getGetBookingMethod;
+      com.musicmantra.classbooking.generatedfiles.multiBookingResp> getGetBookingMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.classbooking.generatedfiles.getBookingReq, com.musicmantra.classbooking.generatedfiles.multiBookingResp> getGetBookingMethod;
     if ((getGetBookingMethod = ClassBookingGrpc.getGetBookingMethod) == null) {
       synchronized (ClassBookingGrpc.class) {
         if ((getGetBookingMethod = ClassBookingGrpc.getGetBookingMethod) == null) {
           ClassBookingGrpc.getGetBookingMethod = getGetBookingMethod = 
-              io.grpc.MethodDescriptor.<com.musicmantra.classbooking.generatedfiles.getBookingReq, com.musicmantra.classbooking.generatedfiles.getBookingResp>newBuilder()
+              io.grpc.MethodDescriptor.<com.musicmantra.classbooking.generatedfiles.getBookingReq, com.musicmantra.classbooking.generatedfiles.multiBookingResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "ClassBooking", "getBooking"))
@@ -213,7 +213,7 @@ public final class ClassBookingGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.musicmantra.classbooking.generatedfiles.getBookingReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.musicmantra.classbooking.generatedfiles.getBookingResp.getDefaultInstance()))
+                  com.musicmantra.classbooking.generatedfiles.multiBookingResp.getDefaultInstance()))
                   .setSchemaDescriptor(new ClassBookingMethodDescriptorSupplier("getBooking"))
                   .build();
           }
@@ -293,7 +293,7 @@ public final class ClassBookingGrpc {
     /**
      */
     public void getBooking(com.musicmantra.classbooking.generatedfiles.getBookingReq request,
-        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.getBookingResp> responseObserver) {
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.multiBookingResp> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBookingMethod(), responseObserver);
     }
 
@@ -339,7 +339,7 @@ public final class ClassBookingGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 com.musicmantra.classbooking.generatedfiles.getBookingReq,
-                com.musicmantra.classbooking.generatedfiles.getBookingResp>(
+                com.musicmantra.classbooking.generatedfiles.multiBookingResp>(
                   this, METHODID_GET_BOOKING)))
           .build();
     }
@@ -412,7 +412,7 @@ public final class ClassBookingGrpc {
     /**
      */
     public void getBooking(com.musicmantra.classbooking.generatedfiles.getBookingReq request,
-        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.getBookingResp> responseObserver) {
+        io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.multiBookingResp> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetBookingMethod(), getCallOptions()), request, responseObserver);
     }
@@ -481,7 +481,7 @@ public final class ClassBookingGrpc {
 
     /**
      */
-    public com.musicmantra.classbooking.generatedfiles.getBookingResp getBooking(com.musicmantra.classbooking.generatedfiles.getBookingReq request) {
+    public com.musicmantra.classbooking.generatedfiles.multiBookingResp getBooking(com.musicmantra.classbooking.generatedfiles.getBookingReq request) {
       return blockingUnaryCall(
           getChannel(), getGetBookingMethod(), getCallOptions(), request);
     }
@@ -537,7 +537,7 @@ public final class ClassBookingGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.musicmantra.classbooking.generatedfiles.getBookingResp> getBooking(
+    public com.google.common.util.concurrent.ListenableFuture<com.musicmantra.classbooking.generatedfiles.multiBookingResp> getBooking(
         com.musicmantra.classbooking.generatedfiles.getBookingReq request) {
       return futureUnaryCall(
           getChannel().newCall(getGetBookingMethod(), getCallOptions()), request);
@@ -590,7 +590,7 @@ public final class ClassBookingGrpc {
           break;
         case METHODID_GET_BOOKING:
           serviceImpl.getBooking((com.musicmantra.classbooking.generatedfiles.getBookingReq) request,
-              (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.getBookingResp>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.musicmantra.classbooking.generatedfiles.multiBookingResp>) responseObserver);
           break;
         default:
           throw new AssertionError();

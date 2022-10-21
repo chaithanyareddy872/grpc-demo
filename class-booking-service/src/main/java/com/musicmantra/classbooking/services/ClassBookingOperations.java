@@ -6,8 +6,6 @@ import io.grpc.stub.StreamObserver;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
-
-
 //class for manupulations of records in database
 public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBase {
     //creating booking response object
@@ -21,14 +19,11 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         try{
             //getting connection by connecting to database
             Connection conn = databaseOperations.connection();
+            Long bookinid=request.getBookingid();
+            Timestamp timestamp1=request.getDateTime();
+            String status=request.getStatus();
             //setting up response based on the operation performed
-            if (databaseOperations.updateindb(conn, request)) {
-                bookingresponse.setMsg("successfully updated a record");
-                bookingresponse.setStatuscode(200);
-            } else {
-                bookingresponse.setMsg("inputs does not exist");
-                bookingresponse.setStatuscode(404);
-            }
+            bookingresponse=databaseOperations.updateindb(conn, bookinid,timestamp1,status);
         }
         //handling exception
         catch (Exception e){
@@ -47,14 +42,15 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     public void postBooking(postBookingReq request, StreamObserver<BookingResp> responseObserver) {
         //creating builder object for response
         try{
-            if(request.getStudentid()>0 && request.getSessionid()>0) {
+            if(request!=null) {
                 //getting connection by connecting to database
                 Connection conn = databaseOperations.connection();
+                Long studentid=request.getStudentid();
+                Long sessionid=request.getSessionid();
+                Timestamp timestamp1=request.getDateTime();
+                String status=request.getStatus();
                 //setting up response based on the operation performed
-                if (databaseOperations.storeindb(conn, request)) {
-                    bookingresponse.setMsg("successfully inserted a record");
-                    bookingresponse.setStatuscode(200);
-                }
+                bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,timestamp1,status);
             }
             else{
                 bookingresponse.setMsg("please provide proper inputs");
@@ -77,14 +73,14 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         try{
             //getting connection by connecting to database
             Connection conn = databaseOperations.connection();
-            //setting up response based on the operation performed
-            if (databaseOperations.deleteindb(conn, request)) {
-                bookingresponse.setMsg("successfully deleted a record");
-                bookingresponse.setStatuscode(200);
+
+            if(request.getBookingid()>0) {
+                Long bookingid=request.getBookingid();
+                //setting up response based on the operation performed
+                bookingresponse = databaseOperations.deleteindb(conn, bookingid);
             }
             else{
-                bookingresponse.setMsg("Booking does not exist");
-                bookingresponse.setStatuscode(404);
+                throw new RuntimeException();
             }
         }
         //handling exception
@@ -152,36 +148,22 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         responseObserver.onCompleted();
     }
     @Override
-    public void getBooking(getBookingReq request, StreamObserver<getBookingResp> responseObserver) {
-        int stuid= (int) request.getStudentid();
-        int sessid= (int) request.getSessionid();
-        getBookingResp booking = null;
+    public void getBooking(getBookingReq request, StreamObserver<multiBookingResp> responseObserver) {
+        Long stuid= request.getStudentid();
+        Long sessid= request.getSessionid();
+        multiBookingResp booking = null;
 
         DatabaseOperations db = new DatabaseOperations();
-        getBookingResp.Builder response = getBookingResp.newBuilder();
+        multiBookingResp.Builder response = multiBookingResp.newBuilder();
         try {
             Connection conn = db.connection();
-            booking= db.getBookingDetails(conn,stuid, sessid);
+            response= db.getBookingDetails(conn,stuid, sessid);
         } catch (Exception e) {
-            response.setStatus("bad input");
-        }
-
-        if(booking != null)
-        {
-            response.setBookingid(booking.getBookingid());
-            response.setStudentid(booking.getStudentid());
-            response.setSessionid(booking.getSessionid());
-            response.setStatus(booking.getStatus());
-            response.setBookingdatetime(booking.getBookingdatetime());
-        }
-        else {
-            response.setStatus("Not a valid studentid or sessionid");
+            response.setBookingstatus("Internal error");
+            response.setStatuscode(400);
         }
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
-
-
-
     }
 
 }

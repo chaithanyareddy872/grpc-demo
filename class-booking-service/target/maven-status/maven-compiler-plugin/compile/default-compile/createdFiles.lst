@@ -3,7 +3,6 @@ com/musicmantra/classbooking/generatedfiles/getBookingReq$1.class
 com/musicmantra/classbooking/generatedfiles/getBookingReqOrBuilder.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingImplBase.class
 com/musicmantra/classbooking/databaseOperations/DatabaseOperations.class
-com/musicmantra/classbooking/generatedfiles/getBookingResp$1.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$MethodHandlers.class
 com/musicmantra/classbooking/generatedfiles/getBookingReq.class
 com/musicmantra/classbooking/generatedfiles/getBookingRespOrBuilder.class
@@ -12,8 +11,6 @@ com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingBaseDes
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingFileDescriptorSupplier.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingStub.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingBlockingStub.class
-com/musicmantra/classbooking/generatedfiles/getBookingResp.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc.class
-com/musicmantra/classbooking/generatedfiles/getBookingResp$Builder.class
 com/musicmantra/classbooking/generatedfiles/ClassBookingGrpc$ClassBookingMethodDescriptorSupplier.class
 com/musicmantra/classbooking/generatedfiles/getBookingReq$Builder.class

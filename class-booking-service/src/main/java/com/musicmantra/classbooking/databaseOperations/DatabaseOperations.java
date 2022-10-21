@@ -1,7 +1,11 @@
 package com.musicmantra.classbooking.databaseOperations;
 
 import com.google.protobuf.Timestamp;
-import com.musicmantra.classbooking.generatedfiles.*;
+import com.musicmantra.classbooking.validation.Validations;
+import com.musicmantra.classbooking.generatedfiles.BookingResp;
+import com.musicmantra.classbooking.generatedfiles.multiBookingReq;
+import com.musicmantra.classbooking.generatedfiles.multiBookingResp;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,9 +20,14 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Properties;
 
+
+
 //class to perform all sql operations
 public class DatabaseOperations {
+    Validations validations=new Validations();
+    BookingResp.Builder bookingres= BookingResp.newBuilder();
 
+    //method to get a connection obj with coneected to database
     public Connection connection() throws IOException {
         InputStream input = new FileInputStream("class-booking-service/src/main/resources/application.properties");
 
@@ -37,111 +46,139 @@ public class DatabaseOperations {
         return conn;
     }
     //method to insert a record into the database
-    public boolean storeindb(Connection conn,postBookingReq postBookingReq) throws SQLException {
-        boolean status=false;
+    public BookingResp.Builder storeindb(Connection conn, Long studentid, Long sessionid,
+                                         Timestamp timestamp, String bookingstatus) throws SQLException {
         try {
-            //preparing the insert statement
-            PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookinginfo(" +
-                    "studentid,sessionid,datetime,status) values(?,?,?,?);");
-            //setting up the values
-            preparedStatement.setLong(1,postBookingReq.getStudentid());
-            preparedStatement.setLong(2,postBookingReq.getSessionid());
-            //converting google protobuff date to localdatetime formate
-            Instant instant =  Instant.ofEpochSecond(postBookingReq.getDateTime().getSeconds() ,
-                    postBookingReq.getDateTime().getNanos());
-            LocalDateTime ldt = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
-            preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(ldt));
-            preparedStatement.setString(4,postBookingReq.getStatus());
-            //calling the execute method and getting how many records effected
-            int noofinsertedrec = preparedStatement.executeUpdate();
-            //checking the rows created or not by using affected rows count > 0
-            //and setting the status
-            if (noofinsertedrec > 0) {
-                status=true;
-            } else {
-                status= false;
+            if(studentid>0 && sessionid >0 && bookingstatus!=null
+                    && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus)
+                    && validations.dateandtimevalidation(timestamp))) {
+                //preparing the insert statement
+                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookinginfo(" +
+                        "studentid,sessionid,datetime,status) values(?,?,?,?);");
+                //setting up the values
+                preparedStatement.setLong(1, studentid);
+                preparedStatement.setLong(2, sessionid);
+                //converting google protobuff date to localdatetime formate
+                Instant instant = Instant.ofEpochSecond(timestamp.getSeconds(),
+                        timestamp.getNanos());
+                LocalDateTime ldt = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+                preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(ldt));
+                preparedStatement.setString(4, bookingstatus);
+                //calling the execute method and getting how many records effected
+                int noofinsertedrec = preparedStatement.executeUpdate();
+                //checking the rows created or not by using affected rows count > 0
+                //and setting the status
+                if (noofinsertedrec > 0) {
+                    bookingres.setMsg("successfully inserted a record");
+                    bookingres.setStatuscode(200);
+                }
             }
+            else throw new RuntimeException("inputs are invalid");
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            bookingres.setMsg(exception.getMessage());
+            bookingres.setStatuscode(404);
         }
-        return status;
+        return bookingres;
     }
 
-    public boolean updateindb(Connection conn, updatereq updatereq) {
-        boolean status=false;
+    //method to update a record in database
+    public BookingResp.Builder updateindb(Connection conn,Long bookingid,Timestamp timestamp,String status) {
+
         try {
-      // preparing the insert statement
-      PreparedStatement preparedStatement =
-          conn.prepareStatement(
-              "UPDATE public.bookinginfo "
-                  + "SET datetime=?, status=? "
-                  + "WHERE (bookingid=? );");
+            if(bookingid>0&&validations.stringvalidation(status)&& validations.dateandtimevalidation(timestamp)){
+            // preparing the insert statement
+            PreparedStatement preparedStatement =
+                    conn.prepareStatement(
+                            "UPDATE public.bookinginfo "
+                                    + "SET datetime=?, status=? "
+                                    + "WHERE (bookingid=? );");
             //setting up the values
             //converting google protobuff date to localdatetime formate
-            Instant instant =  Instant.ofEpochSecond(updatereq.getDateTime().getSeconds() ,
-                    updatereq.getDateTime().getNanos());
+            Instant instant =  Instant.ofEpochSecond(timestamp.getSeconds() ,timestamp.getNanos());
             LocalDateTime ldt = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
             preparedStatement.setTimestamp(1,java.sql.Timestamp.valueOf(ldt));
-            preparedStatement.setString(2,updatereq.getStatus());
-            preparedStatement.setLong(3,updatereq.getBookingid());
+            preparedStatement.setString(2,status);
+            preparedStatement.setLong(3,bookingid);
             //calling the execute method and getting how many records effected
             int noofinsertedrec = preparedStatement.executeUpdate();
-            //checking the rows created or not by using affected rows count > 0
-            //and setting the status
-            if (noofinsertedrec > 0) {
-                status=true;
+
+                bookingres.setMsg("successfully updated a record");
+                bookingres.setStatuscode(200);
             } else {
-                status= false;
+                bookingres.setMsg("inputs does not exist");
+                bookingres.setStatuscode(404);
             }
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            bookingres.setMsg(exception.getMessage());
+            bookingres.setStatuscode(400);
         }
-        return status;
+        return bookingres;
     }
 
-    public boolean deleteindb(Connection conn, deleteBookingReq deletebookingreq) {
-        boolean status=false;
+    //method to delete one record from database
+    public BookingResp.Builder  deleteindb(Connection conn, Long bookingid) {
+
         try {
+
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
                             "DELETE from public.bookinginfo "
                                     + "WHERE (bookingid=?);");
             //deleting the records
-            preparedStatement.setLong(1,deletebookingreq.getBookingid());
+            preparedStatement.setLong(1,bookingid);
             //calling the execute method and getting how many records effected
             int noofinsertedrec = preparedStatement.executeUpdate();
             //checking the rows created or not by using affected rows count > 0
             //and setting the status
             if (noofinsertedrec > 0) {
-                status=true;
-            } else {
-                status= false;
+                {
+                    bookingres.setMsg("successfully deleted a record");
+                    bookingres.setStatuscode(200);
+                }
+            } else{
+                bookingres.setMsg("Booking does not exist");
+                bookingres.setStatuscode(404);
             }
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            bookingres.setMsg(exception.getMessage());
         }
-        return status;
+        return bookingres;
     }
-    public getBookingResp getBookingDetails(Connection conn , int stuid, int sessid) throws SQLException, ClassNotFoundException {
+    //method to get one record
+    public multiBookingResp.Builder getBookingDetails(Connection conn , Long stuid, Long sessid){
+        multiBookingResp.Builder booking = multiBookingResp.newBuilder();
+        try {
+            if (stuid>0&&sessid>0) {
+                String query = "SELECT bookingid, studentid, sessionid, status," +
+                        " datetime from bookinginfo where studentid = '" + stuid +
+                        "' AND sessionid= '" + sessid + "';";
+                PreparedStatement ps = conn.prepareStatement(query);
+                ResultSet rs = ps.executeQuery();
 
-        String query = "SELECT bookingid, studentid, sessionid, status, datetime from bookinginfo where studentid = '" + stuid + "' AND sessionid= '" + sessid + "';";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
-       getBookingResp.Builder booking = getBookingResp.newBuilder();
-
-
-        if (rs.next()) {
-            booking.setBookingid(rs.getInt(1));
-            booking.setStudentid(rs.getInt(2));
-            booking.setSessionid(rs.getInt(3));
-            booking.setStatus(rs.getString(4));
-            booking.setBookingdatetime(convertTimestamp(rs.getTimestamp(5)));
-            return booking.build();
-        } else {
-            return null;
+                if (rs.next()) {
+                    booking.setBookinid(rs.getInt(1));
+                    booking.setStudentid(rs.getInt(2));
+                    booking.setSessionid(rs.getInt(3));
+                    booking.setBookingstatus(rs.getString(4));
+                    booking.setDateTime(convertTimestamp(rs.getTimestamp(5)));
+                } else {
+                    booking.setStatuscode(404);
+                    booking.setBookingstatus("no record found");
+                }
+            }
+            else {
+                throw new RuntimeException("invalid input");
+            }
         }
+        catch (Exception e){
+            booking.setBookingstatus(e.getMessage());
+            booking.setStatuscode(400);
+        }
+
+        return booking;
     }
+    //method to get all bookings based on studentid
     public ResultSet getallbookings(Connection conn, multiBookingReq multiBookingReq){
 
         ResultSet resultSet = null;
@@ -172,10 +209,10 @@ public class DatabaseOperations {
     }
     public Timestamp.Builder convertTimestamp(java.sql.Timestamp timestamp){
         LocalDateTime exampleInput=timestamp.toLocalDateTime();
-    Instant javaTimeInstant = exampleInput.atZone(ZoneId.systemDefault()).toInstant();
-                Timestamp.Builder ts = com.google.protobuf.Timestamp.newBuilder();
-                        ts.setSeconds(javaTimeInstant.getEpochSecond())
-                        .setNanos(javaTimeInstant.getNano());
-                        return ts;
+        Instant javaTimeInstant = exampleInput.atZone(ZoneId.systemDefault()).toInstant();
+        Timestamp.Builder ts = com.google.protobuf.Timestamp.newBuilder();
+        ts.setSeconds(javaTimeInstant.getEpochSecond())
+                .setNanos(javaTimeInstant.getNano());
+        return ts;
     }
 }
