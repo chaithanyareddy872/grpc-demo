@@ -1,10 +1,7 @@
 package com.musicmantra.classbooking.databaseOperations;
 
 import com.google.protobuf.Timestamp;
-import com.musicmantra.classbooking.addnewrecord.deleteBookingReq;
-import com.musicmantra.classbooking.addnewrecord.multiBookingReq;
-import com.musicmantra.classbooking.addnewrecord.postBookingReq;
-import com.musicmantra.classbooking.addnewrecord.updatereq;
+import com.musicmantra.classbooking.generatedfiles.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -125,6 +122,25 @@ public class DatabaseOperations {
             System.out.println(exception.getMessage());
         }
         return status;
+    }
+    public getBookingResp getBookingDetails(Connection conn , int stuid, int sessid) throws SQLException, ClassNotFoundException {
+
+        String query = "SELECT bookingid, studentid, sessionid, status, datetime from bookinginfo where studentid = '" + stuid + "' AND sessionid= '" + sessid + "';";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+       getBookingResp.Builder booking = getBookingResp.newBuilder();
+
+
+        if (rs.next()) {
+            booking.setBookingid(rs.getInt(1));
+            booking.setStudentid(rs.getInt(2));
+            booking.setSessionid(rs.getInt(3));
+            booking.setStatus(rs.getString(4));
+            booking.setBookingdatetime(convertTimestamp(rs.getTimestamp(5)));
+            return booking.build();
+        } else {
+            return null;
+        }
     }
     public ResultSet getallbookings(Connection conn, multiBookingReq multiBookingReq){
 

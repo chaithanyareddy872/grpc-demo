@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/updatereqOrBuilder.java
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/BookingMethods.java
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/multiBookingReqOrBuilder.java
@@ -16,3 +17,12 @@
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/ClassBookingGrpc.java
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/postBookingReq.java
 /home/chaitanya/musicmantra/musicmantra/class-booking-service/src/main/java/com/musicmantra/classbooking/addnewrecord/ClassBookingMain.java
+=======
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/java/com/stackroute/musicmantra/booking/dboperations/DBConnection.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/java/com/stackroute/musicmantra/booking/BookingMethodsOuterClass.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/java/com/stackroute/musicmantra/booking/services/BookingMethodsService.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/java/com/stackroute/musicmantra/booking/services/Main.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/com/stackroute/musicmantra/booking/BookingMethodsGrpc.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/com/stackroute/musicmantra/booking/BookingMethodsOuterClass.java
+/home/shivam.dwivedi/IdeaProjects/musicmantralatest/class-booking-service/src/main/java/java/com/stackroute/musicmantra/booking/BookingMethodsGrpc.java
+>>>>>>> getbookingdetails

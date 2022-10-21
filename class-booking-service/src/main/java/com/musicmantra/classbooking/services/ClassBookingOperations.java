@@ -1,14 +1,11 @@
 package com.musicmantra.classbooking.services;
 import com.google.protobuf.Timestamp;
-import com.musicmantra.classbooking.addnewrecord.*;
-
-
+import com.musicmantra.classbooking.generatedfiles.*;
 import com.musicmantra.classbooking.databaseOperations.DatabaseOperations;
 import io.grpc.stub.StreamObserver;
-
-
 import java.sql.Connection;
 import java.sql.ResultSet;
+
 
 
 //class for manupulations of records in database
@@ -22,16 +19,16 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     //method to update an existing record based on bookingid
     public void updateBooking(updatereq request, StreamObserver<BookingResp> responseObserver) {
         try{
-                //getting connection by connecting to database
-                Connection conn = databaseOperations.connection();
-                //setting up response based on the operation performed
-                if (databaseOperations.updateindb(conn, request)) {
-                    bookingresponse.setMsg("successfully updated a record");
-                    bookingresponse.setStatuscode(200);
-                } else {
-                    bookingresponse.setMsg("inputs does not exist");
-                    bookingresponse.setStatuscode(404);
-                }
+            //getting connection by connecting to database
+            Connection conn = databaseOperations.connection();
+            //setting up response based on the operation performed
+            if (databaseOperations.updateindb(conn, request)) {
+                bookingresponse.setMsg("successfully updated a record");
+                bookingresponse.setStatuscode(200);
+            } else {
+                bookingresponse.setMsg("inputs does not exist");
+                bookingresponse.setStatuscode(404);
+            }
         }
         //handling exception
         catch (Exception e){
@@ -78,13 +75,13 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     //method to delete a single record based on booking id
     public void deleteBooking(deleteBookingReq request, StreamObserver<BookingResp> responseObserver) {
         try{
-                //getting connection by connecting to database
-                Connection conn = databaseOperations.connection();
-                //setting up response based on the operation performed
-                if (databaseOperations.deleteindb(conn, request)) {
-                    bookingresponse.setMsg("successfully deleted a record");
-                    bookingresponse.setStatuscode(200);
-                }
+            //getting connection by connecting to database
+            Connection conn = databaseOperations.connection();
+            //setting up response based on the operation performed
+            if (databaseOperations.deleteindb(conn, request)) {
+                bookingresponse.setMsg("successfully deleted a record");
+                bookingresponse.setStatuscode(200);
+            }
             else{
                 bookingresponse.setMsg("Booking does not exist");
                 bookingresponse.setStatuscode(404);
@@ -130,7 +127,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     @Override
     //method to set response to all records based on the single session
     public void getallsessionbookings(multiBookingReq request, StreamObserver<multiBookingResp> responseObserver) {
-        multiBookingResp.Builder multiBookingResp=com.musicmantra.classbooking.addnewrecord.multiBookingResp.newBuilder();
+        multiBookingResp.Builder multiBookingResp=com.musicmantra.classbooking.generatedfiles.multiBookingResp.newBuilder();
         try{
             Connection conn=databaseOperations.connection();
             ResultSet resultSet=databaseOperations.getallsessionbookings(conn,request);
@@ -154,4 +151,37 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         }
         responseObserver.onCompleted();
     }
+    @Override
+    public void getBooking(getBookingReq request, StreamObserver<getBookingResp> responseObserver) {
+        int stuid= (int) request.getStudentid();
+        int sessid= (int) request.getSessionid();
+        getBookingResp booking = null;
+
+        DatabaseOperations db = new DatabaseOperations();
+        getBookingResp.Builder response = getBookingResp.newBuilder();
+        try {
+            Connection conn = db.connection();
+            booking= db.getBookingDetails(conn,stuid, sessid);
+        } catch (Exception e) {
+            response.setStatus("bad input");
+        }
+
+        if(booking != null)
+        {
+            response.setBookingid(booking.getBookingid());
+            response.setStudentid(booking.getStudentid());
+            response.setSessionid(booking.getSessionid());
+            response.setStatus(booking.getStatus());
+            response.setBookingdatetime(booking.getBookingdatetime());
+        }
+        else {
+            response.setStatus("Not a valid studentid or sessionid");
+        }
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
+
+
+
+    }
+
 }
