@@ -3,8 +3,8 @@
 
 package com.stackroute.musicmantra.noty5.emailserver;
 
-public interface bookingmailResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bookingmailResponse)
+public interface sentmailResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:sentmailResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

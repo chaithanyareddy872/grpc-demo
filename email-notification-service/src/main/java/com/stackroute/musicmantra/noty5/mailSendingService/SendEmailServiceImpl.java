@@ -7,6 +7,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
+
+import com.stackroute.musicmantra.noty5.Exception.Noty5Errors;
+import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
+import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
 import com.stackroute.musicmantra.noty5.domain.api.User;
 import com.stackroute.musicmantra.noty5.emailserver.MailType;
@@ -14,30 +19,34 @@ import com.stackroute.musicmantra.noty5.utility.Utility;
 
 public class SendEmailServiceImpl implements SendEmailService {
 
-	@Override
-	public int registration(String sendersEmail, String userEmail, Session session, MailType mailType) {
-
-		int OTP = 000000;
+	static Logger logger = Logger.getLogger(SendEmailServiceImpl.class);
+	@Override 
+	public int sendOTP(String userEmail, Session session, String mailType) {
+		logger.info("inside registration method ");
+		Integer OTP = null;
 		try {
 			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(sendersEmail));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress("sindhu.s481@gmail.com"));
+			message.setFrom(new InternetAddress(MusicMantraEmail.emailId));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+			
+			logger.info("sender's mail is : "+ MusicMantraEmail.emailId+" and recipient mail is : "+userEmail );
+			logger.info("mail type is: " + mailType);
 
 			OTP = Utility.generateOTP();
 
-			if (mailType.equals(MailType.REGISTER)) {
+			if (mailType.equalsIgnoreCase("register")) {
 				message.setSubject("Verification Code to register for Music Manta");
 				message.setText(
 						"Thanks for registrting to Music Matra. You are just one step away to start your music journy"
 								+ "\n\n" + "Verification code is: " + OTP + ".\n\n\n" + "Thanks" + "\n"
 								+ "The Music Mantra team account");
-			} else if (mailType.equals(MailType.UPDATE)) {
+			} else  if (mailType.equalsIgnoreCase("update")) {
 				message.setSubject(" Verify to your email address");
 				message.setText(
 						"To finish updation in your Music Mantra account, we just need to make sure this email address is yours."
 								+ "\n\n" + "To verify your email address use this security code: " + OTP + ".\n\n\n"
 								+ "Thanks" + "\n" + "The Music Mantra team account");
-			}else if (mailType.equals(MailType.RESETPASSWORD)) {
+			}else if (mailType.equalsIgnoreCase("resetpassword")) {
 				message.setSubject(" Verify your email address");
 				message.setText(
 						"To update your password for your Music Mantra account, we just need to make sure this email address is yours."
@@ -49,7 +58,9 @@ public class SendEmailServiceImpl implements SendEmailService {
 			Transport.send(message);
 			System.out.println("Sent message successfully....");
 		} catch (MessagingException mex) {
+			logger.info("Exception occured while sending mail message" + mex.getMessage());
 			mex.printStackTrace();
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 
 		}
 
@@ -135,5 +146,35 @@ public class SendEmailServiceImpl implements SendEmailService {
 		}
 
 	}
+
+	@Override
+	public void sendRegistrationMail(String userEmail, Session session) {
+		logger.info("inside sendRegistrationMail method ");
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(MusicMantraEmail.emailId));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+			
+			logger.info("sender's mail is : "+ MusicMantraEmail.emailId+" and recipient mail is : "+userEmail );
+
+			message.setSubject("Successfully Registered");
+				message.setText(
+						"Congratulations !!!/n" + "You have been successfully registred to MusicMantra"
+								+"\n\n\n" + "Thanks" + "\n"
+								+ "The Music Mantra team account");
+		
+			System.out.println("sending...");
+			// Send message
+			Transport.send(message);
+			System.out.println("Sent message successfully....");
+		} catch (MessagingException mex) {
+			logger.info("Exception occured while sending mail message" + mex.getMessage());
+			mex.printStackTrace();
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
+
+		}
+
+	}
+
 
 }

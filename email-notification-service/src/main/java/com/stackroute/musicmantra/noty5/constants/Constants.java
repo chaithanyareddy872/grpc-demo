@@ -4,4 +4,5 @@ public class Constants {
 
 		public static String CONFIRM = "confirm";
 		public static String CANCEL = "cancel";
+		public static String DATABSENAME = "music_mantra";
 }

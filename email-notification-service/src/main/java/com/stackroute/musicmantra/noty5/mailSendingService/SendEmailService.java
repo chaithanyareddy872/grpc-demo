@@ -7,7 +7,9 @@ import com.stackroute.musicmantra.noty5.emailserver.MailType;
 
 public interface SendEmailService {
 
-	public int registration(String sendersEmail, String userEmail, Session session, MailType mailtype);
+	public int sendOTP(String userEmail, Session session, String mailtype);
+//	public int sendOTPToRegister(String email, String sendersMail, Session session);
 	public String booking(User[] users, Session session);
+	public void sendRegistrationMail(String email, Session session);
 		
 }

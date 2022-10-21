@@ -15,10 +15,20 @@ public final class EmailService {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mailRequest_descriptor;
+    internal_static_RegisterVerifyied_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mailRequest_fieldAccessorTable;
+      internal_static_RegisterVerifyied_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mailRequesttoregister_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mailRequesttoregister_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mailRequestforExistingUser_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mailRequestforExistingUser_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_apiResponse_descriptor;
   static final 
@@ -30,10 +40,10 @@ public final class EmailService {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bookingDetails_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bookingmailResponse_descriptor;
+    internal_static_sentmailResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bookingmailResponse_fieldAccessorTable;
+      internal_static_sentmailResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,20 +53,26 @@ public final class EmailService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022EmailService.proto\":\n\013mailRequest\022\016\n\006u" +
-      "serId\030\001 \001(\t\022\033\n\010mailType\030\002 \001(\0162\t.MailType" +
-      "\"A\n\013apiResponse\022\017\n\007message\030\001 \001(\t\022\013\n\003OTP\030" +
-      "\002 \001(\005\022\024\n\014responsecode\030\003 \001(\005\"8\n\016bookingDe" +
-      "tails\022\021\n\tbookingId\030\001 \001(\005\022\023\n\013bookingtype\030" +
-      "\002 \001(\t\"<\n\023bookingmailResponse\022\017\n\007message\030" +
-      "\001 \001(\t\022\024\n\014Responsecode\030\002 \001(\005*7\n\010MailType\022" +
-      "\014\n\010REGISTER\020\000\022\n\n\006UPDATE\020\001\022\021\n\rRESETPASSWO" +
-      "RD\020\002*&\n\013bookingtype\022\013\n\007confirm\020\000\022\n\n\006canc" +
-      "el\020\0012v\n\013EmailServer\022)\n\013sendOTPMail\022\014.mai" +
-      "lRequest\032\014.apiResponse\022<\n\023bookingNotific" +
-      "ation\022\017.bookingDetails\032\024.bookingmailResp" +
-      "onseB0\n,com.stackroute.musicmantra.noty5" +
-      ".emailserverP\001b\006proto3"
+      "\n\022EmailService.proto\"9\n\021RegisterVerifyie" +
+      "d\022\023\n\013OTPverified\030\001 \001(\010\022\017\n\007emailid\030\002 \001(\t\"" +
+      "(\n\025mailRequesttoregister\022\017\n\007emailid\030\001 \001(" +
+      "\t\"J\n\032mailRequestforExistingUser\022\017\n\007email" +
+      "id\030\001 \001(\t\022\033\n\010mailType\030\002 \001(\0162\t.MailType\"A\n" +
+      "\013apiResponse\022\017\n\007message\030\001 \001(\t\022\013\n\003OTP\030\002 \001" +
+      "(\005\022\024\n\014responsecode\030\003 \001(\005\"8\n\016bookingDetai" +
+      "ls\022\021\n\tbookingId\030\001 \001(\005\022\023\n\013bookingtype\030\002 \001" +
+      "(\t\"9\n\020sentmailResponse\022\017\n\007message\030\001 \001(\t\022" +
+      "\024\n\014Responsecode\030\002 \001(\005*)\n\010MailType\022\n\n\006UPD" +
+      "ATE\020\000\022\021\n\rRESETPASSWORD\020\001*&\n\013bookingtype\022" +
+      "\013\n\007confirm\020\000\022\n\n\006cancel\020\0012\211\002\n\013EmailServer" +
+      "\022B\n\025sendOTPtoExistingUser\022\033.mailRequestf" +
+      "orExistingUser\032\014.apiResponse\0228\n\020sendOTPT" +
+      "ONewUser\022\026.mailRequesttoregister\032\014.apiRe" +
+      "sponse\0229\n\023bookingNotification\022\017.bookingD" +
+      "etails\032\021.sentmailResponse\022A\n\024sendregistr" +
+      "ationMail\022\026.mailRequesttoregister\032\021.sent" +
+      "mailResponseB0\n,com.stackroute.musicmant" +
+      "ra.noty5.emailserverP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -70,29 +86,41 @@ public final class EmailService {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_mailRequest_descriptor =
+    internal_static_RegisterVerifyied_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_mailRequest_fieldAccessorTable = new
+    internal_static_RegisterVerifyied_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mailRequest_descriptor,
-        new java.lang.String[] { "UserId", "MailType", });
-    internal_static_apiResponse_descriptor =
+        internal_static_RegisterVerifyied_descriptor,
+        new java.lang.String[] { "OTPverified", "Emailid", });
+    internal_static_mailRequesttoregister_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_mailRequesttoregister_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mailRequesttoregister_descriptor,
+        new java.lang.String[] { "Emailid", });
+    internal_static_mailRequestforExistingUser_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_mailRequestforExistingUser_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mailRequestforExistingUser_descriptor,
+        new java.lang.String[] { "Emailid", "MailType", });
+    internal_static_apiResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_apiResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_apiResponse_descriptor,
         new java.lang.String[] { "Message", "OTP", "Responsecode", });
     internal_static_bookingDetails_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_bookingDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingDetails_descriptor,
         new java.lang.String[] { "BookingId", "Bookingtype", });
-    internal_static_bookingmailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_bookingmailResponse_fieldAccessorTable = new
+    internal_static_sentmailResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sentmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bookingmailResponse_descriptor,
+        internal_static_sentmailResponse_descriptor,
         new java.lang.String[] { "Message", "Responsecode", });
   }
 
