@@ -10,7 +10,7 @@ public interface mailRequesttoregisterOrBuilder extends
   /**
    * <code>string emailid = 1;</code>
    */
-  java.lang.String getEmailid();
+  String getEmailid();
   /**
    * <code>string emailid = 1;</code>
    */

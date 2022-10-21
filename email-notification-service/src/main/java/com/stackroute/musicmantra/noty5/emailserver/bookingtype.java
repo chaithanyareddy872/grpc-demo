@@ -31,7 +31,7 @@ public enum bookingtype
 
   public final int getNumber() {
     if (this == UNRECOGNIZED) {
-      throw new java.lang.IllegalArgumentException(
+      throw new IllegalArgumentException(
           "Can't get the number of an unknown enum value.");
     }
     return value;
@@ -40,7 +40,7 @@ public enum bookingtype
   /**
    * @deprecated Use {@link #forNumber(int)} instead.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public static bookingtype valueOf(int value) {
     return forNumber(value);
   }
@@ -75,7 +75,7 @@ public enum bookingtype
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.stackroute.musicmantra.noty5.emailserver.EmailService.getDescriptor().getEnumTypes().get(1);
+    return EmailService.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final bookingtype[] VALUES = values();
@@ -83,7 +83,7 @@ public enum bookingtype
   public static bookingtype valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
-      throw new java.lang.IllegalArgumentException(
+      throw new IllegalArgumentException(
         "EnumValueDescriptor is not for this type.");
     }
     if (desc.getIndex() == -1) {

@@ -10,7 +10,7 @@ public interface mailRequestOrBuilder extends
   /**
    * <code>string userId = 1;</code>
    */
-  java.lang.String getUserId();
+  String getUserId();
   /**
    * <code>string userId = 1;</code>
    */
@@ -24,5 +24,5 @@ public interface mailRequestOrBuilder extends
   /**
    * <code>.MailType mailType = 2;</code>
    */
-  com.stackroute.musicmantra.noty5.emailserver.MailType getMailType();
+  MailType getMailType();
 }

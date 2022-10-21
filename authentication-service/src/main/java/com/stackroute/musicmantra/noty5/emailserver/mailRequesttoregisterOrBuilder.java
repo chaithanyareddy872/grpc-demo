@@ -3,26 +3,17 @@
 
 package com.stackroute.musicmantra.noty5.emailserver;
 
-public interface mailRequestforExistingUserOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mailRequestforExistingUser)
+public interface mailRequesttoregisterOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:mailRequesttoregister)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <code>string emailid = 1;</code>
    */
-  String getEmailid();
+  java.lang.String getEmailid();
   /**
    * <code>string emailid = 1;</code>
    */
   com.google.protobuf.ByteString
       getEmailidBytes();
-
-  /**
-   * <code>.MailType mailType = 2;</code>
-   */
-  int getMailTypeValue();
-  /**
-   * <code>.MailType mailType = 2;</code>
-   */
-  MailType getMailType();
 }

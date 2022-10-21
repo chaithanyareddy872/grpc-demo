@@ -15,7 +15,7 @@ public interface RegisterVerifyiedOrBuilder extends
   /**
    * <code>string emailid = 2;</code>
    */
-  java.lang.String getEmailid();
+  String getEmailid();
   /**
    * <code>string emailid = 2;</code>
    */

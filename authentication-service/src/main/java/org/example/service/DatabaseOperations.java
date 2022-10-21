@@ -95,35 +95,35 @@ public class DatabaseOperations {
     }
 
     //getting the record using email from the user_info table
-    public static void getUserByEmail(String emailId) {
-        Connection connection = DatabaseConnection.getConnection();
-        String query = "Select * from user_info where emailId=?";
-
-        String email = "";
-
-        try {
-            PreparedStatement stmnt = connection.prepareStatement(query);
-            stmnt.setString(1, emailId);
-            ResultSet resultSet = stmnt.executeQuery();
-            if (resultSet.next()) {
-
-                email = resultSet.getString(5);
-
-                System.out.println("Data fecteched from thretable");
-            } else {
-                System.out.println("No such user");
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        System.out.println("Email: " + email);
-
-
-        Channel.verifyReg( email);
-    }
+//    public static void getUserByEmail(String emailId) {
+//        Connection connection = DatabaseConnection.getConnection();
+//        String query = "Select * from user_info where emailId=?";
+//
+//        String email = "";
+//
+//        try {
+//            PreparedStatement stmnt = connection.prepareStatement(query);
+//            stmnt.setString(1, emailId);
+//            ResultSet resultSet = stmnt.executeQuery();
+//            if (resultSet.next()) {
+//
+//                email = resultSet.getString(5);
+//
+//                System.out.println("Data fecteched from thretable");
+//            } else {
+//                System.out.println("No such user");
+//            }
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//        System.out.println("Email: " + email);
+//
+//
+//        Channel.verifyReg( email);
+//    }
 
 
 

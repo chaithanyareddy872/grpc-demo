@@ -15,7 +15,7 @@ public interface bookingDetailsOrBuilder extends
   /**
    * <code>string bookingtype = 2;</code>
    */
-  java.lang.String getBookingtype();
+  String getBookingtype();
   /**
    * <code>string bookingtype = 2;</code>
    */

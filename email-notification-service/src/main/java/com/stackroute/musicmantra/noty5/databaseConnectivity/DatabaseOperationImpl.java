@@ -48,7 +48,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 	}
 
 	@Override
-	public User[] getbookingMail(int bookingid, String bookingType) {
+	public User[] getbookingMail(int bookingid, String bookingType) { 
 
 		Connection conn = connect.getConnection();
 		String getstudentdetails = "select emailid, first_name from user_info where user_id in(select user_id from student where studentid=(select studentid from bookings where bookingid=?))";

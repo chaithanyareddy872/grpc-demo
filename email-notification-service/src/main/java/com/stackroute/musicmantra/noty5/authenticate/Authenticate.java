@@ -43,7 +43,7 @@ public class Authenticate {
 			ObjectMapper mapper = new ObjectMapper();
 
 			mmEmail = mapper.readValue(
-					new File("/home/global/IdeaProjects/Noti5/src/main/resources/SenderEmailInfo/EmailIdPassword.txt"),
+					new File("/home/sindhu/Documents/musicmantra/email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt"),
 					MusicMantraEmail.class);
 
 			logger.info("Validating senders mail and password");

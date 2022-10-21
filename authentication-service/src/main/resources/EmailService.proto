@@ -5,24 +5,33 @@ option java_multiple_files = true;
 
 
 service EmailServer{
-	//sending email to swetha
-  rpc sendOTPMail(mailRequest) returns(apiResponse);
-  rpc bookingNotification(bookingDetails)returns(bookingmailResponse);
+  rpc sendOTPtoExistingUser(mailRequestforExistingUser) returns(apiResponse);
+  rpc sendOTPTONewUser(mailRequesttoregister)returns(apiResponse);
+  rpc bookingNotification(bookingDetails)returns(sentmailResponse);
+  rpc sendregistrationMail(mailRequesttoregister)returns(sentmailResponse);
 }
 
 enum MailType{
-	REGISTER =0;
-	UPDATE = 1;
-	RESETPASSWORD = 2;
+	UPDATE = 0;
+	RESETPASSWORD = 1;
 }
+
 
 enum bookingtype{
 	confirm = 0;
 	cancel = 1;
 }
 
-message mailRequest{
-  string userId = 1;
+message RegisterVerifyied{
+	bool OTPverified = 1;
+	string emailid = 2;
+}
+message mailRequesttoregister{
+	string emailid = 1;
+}
+
+message mailRequestforExistingUser{
+  string emailid = 1;
   MailType mailType = 2; 
 }
 
@@ -37,7 +46,7 @@ message bookingDetails{
 	string bookingtype = 2;
 }
 
-message bookingmailResponse{
+message sentmailResponse{
 	string message = 1;
 	int32 Responsecode = 2;
 }

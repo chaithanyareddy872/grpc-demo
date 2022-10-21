@@ -10,7 +10,7 @@ public interface apiResponseOrBuilder extends
   /**
    * <code>string message = 1;</code>
    */
-  java.lang.String getMessage();
+  String getMessage();
   /**
    * <code>string message = 1;</code>
    */

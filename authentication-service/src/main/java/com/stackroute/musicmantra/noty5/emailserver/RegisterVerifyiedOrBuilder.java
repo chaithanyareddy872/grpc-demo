@@ -3,8 +3,8 @@
 
 package com.stackroute.musicmantra.noty5.emailserver;
 
-public interface RegisterVerifyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:RegisterVerify)
+public interface RegisterVerifyiedOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:RegisterVerifyied)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -15,7 +15,7 @@ public interface RegisterVerifyOrBuilder extends
   /**
    * <code>string emailid = 2;</code>
    */
-  String getEmailid();
+  java.lang.String getEmailid();
   /**
    * <code>string emailid = 2;</code>
    */

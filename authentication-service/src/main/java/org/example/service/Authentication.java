@@ -28,11 +28,12 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
 
         if (Validations.validateEmail(email)) {
             if (Validations.validateRegistration(email)) {
-                Ootp = GenerateOTP.generateOTP();
-                VerificationDetails.getVerify().put(email,Ootp);
-                System.out.println("Forget Password : "+VerificationDetails.getVerify().get(email));
-                System.out.println("OTP : "+Ootp);
+//                Ootp = GenerateOTP.generateOTP();
                 int otpSentFromNot5=Channel.ResetPswd(email);
+                VerificationDetails.getVerify().put(email,otpSentFromNot5);
+                System.out.println("Forget Password : "+VerificationDetails.getVerify().get(email));
+                System.out.println("OTP : "+otpSentFromNot5);
+
                 System.out.println(email);
                 response.setMessageForget("OTP succesfully sent").setResponseCode(200);
 
@@ -55,7 +56,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
         UserRegister.resetPswdResponse.Builder response = UserRegister.resetPswdResponse.newBuilder();
         if (Validations.validateEmail(email)) {
             if (Validations.validateRegistration(email)) {
-                if (Ootp == otp) {
+                int generatedOTp=VerificationDetails.getVerify().get(email);
+                if (generatedOTp == otp) {
                     DatabaseOperations.upDatePassword(email, password);
                     response.setMessageReset("Password Reset Successful").setResponseCode(200);
 
@@ -155,7 +157,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
             {
 //                Ootp = GenerateOTP.generateOTP();
 //                System.out.println("OTP : " + Ootp);
-
+                int Ootp= Channel.verifyReg(email);
                 VerificationDetails.getVerify().put(email,Ootp);
                 System.out.println("Verify registration : "+VerificationDetails.getVerify().get(email));
                 System.out.println("OTP : "+Ootp);
@@ -185,7 +187,9 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
         UserRegister.APIResponseR.Builder response = UserRegister.APIResponseR.newBuilder();
         if (Validations.validateEmail(email)) {
             System.out.println(otp);
-                if (Ootp == otp) {
+            int generatedOtp=VerificationDetails.getVerify().get(email);
+            System.out.println("generated otp : "+generatedOtp);
+                if (generatedOtp == otp) {
                     System.out.println("adding user to the registartion table");
                     if (Validations.validateFirstName(fname) && Validations.validateLastName(lname) && Validations.validateUsername(username)
                             && Validations.validateEmail(email) && Validations.validateContact(contact) && Validations.validatePassword(password) && usertype != "")
@@ -196,7 +200,10 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase{
                             if (usertype == "student") {
                                 DatabaseOperations.addstudent(userId);
                             }
+
+                            Channel.verifiedRegistration(email);
                             response.setResponseMessage("Registration successful").setResponseCode(200);
+
 
 
                         }else{

@@ -27,54 +27,86 @@ public final class EmailServerGrpc {
   public static final String SERVICE_NAME = "EmailServer";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequest,
-      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPMailMethod;
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser,
+      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPtoExistingUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "sendOTPMail",
-      requestType = com.stackroute.musicmantra.noty5.emailserver.mailRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "sendOTPtoExistingUser",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser.class,
       responseType = com.stackroute.musicmantra.noty5.emailserver.apiResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequest,
-      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPMailMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequest, com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPMailMethod;
-    if ((getSendOTPMailMethod = EmailServerGrpc.getSendOTPMailMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser,
+      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPtoExistingUserMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser, com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPtoExistingUserMethod;
+    if ((getSendOTPtoExistingUserMethod = EmailServerGrpc.getSendOTPtoExistingUserMethod) == null) {
       synchronized (EmailServerGrpc.class) {
-        if ((getSendOTPMailMethod = EmailServerGrpc.getSendOTPMailMethod) == null) {
-          EmailServerGrpc.getSendOTPMailMethod = getSendOTPMailMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.mailRequest, com.stackroute.musicmantra.noty5.emailserver.apiResponse>newBuilder()
+        if ((getSendOTPtoExistingUserMethod = EmailServerGrpc.getSendOTPtoExistingUserMethod) == null) {
+          EmailServerGrpc.getSendOTPtoExistingUserMethod = getSendOTPtoExistingUserMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser, com.stackroute.musicmantra.noty5.emailserver.apiResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EmailServer", "sendOTPMail"))
+                  "EmailServer", "sendOTPtoExistingUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.mailRequest.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.stackroute.musicmantra.noty5.emailserver.apiResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("sendOTPMail"))
+                  .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("sendOTPtoExistingUser"))
                   .build();
           }
         }
      }
-     return getSendOTPMailMethod;
+     return getSendOTPtoExistingUserMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPTONewUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "sendOTPTONewUser",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.apiResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+      com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPTONewUserMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.apiResponse> getSendOTPTONewUserMethod;
+    if ((getSendOTPTONewUserMethod = EmailServerGrpc.getSendOTPTONewUserMethod) == null) {
+      synchronized (EmailServerGrpc.class) {
+        if ((getSendOTPTONewUserMethod = EmailServerGrpc.getSendOTPTONewUserMethod) == null) {
+          EmailServerGrpc.getSendOTPTONewUserMethod = getSendOTPTONewUserMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.apiResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "EmailServer", "sendOTPTONewUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.musicmantra.noty5.emailserver.apiResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("sendOTPTONewUser"))
+                  .build();
+          }
+        }
+     }
+     return getSendOTPTONewUserMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-      com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod;
+      com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getBookingNotificationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "bookingNotification",
       requestType = com.stackroute.musicmantra.noty5.emailserver.bookingDetails.class,
-      responseType = com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.sentmailResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-      com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> getBookingNotificationMethod;
+      com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getBookingNotificationMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getBookingNotificationMethod;
     if ((getBookingNotificationMethod = EmailServerGrpc.getBookingNotificationMethod) == null) {
       synchronized (EmailServerGrpc.class) {
         if ((getBookingNotificationMethod = EmailServerGrpc.getBookingNotificationMethod) == null) {
           EmailServerGrpc.getBookingNotificationMethod = getBookingNotificationMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.bookingDetails, com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "EmailServer", "bookingNotification"))
@@ -82,13 +114,45 @@ public final class EmailServerGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.stackroute.musicmantra.noty5.emailserver.bookingDetails.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.sentmailResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("bookingNotification"))
                   .build();
           }
         }
      }
      return getBookingNotificationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+      com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getSendregistrationMailMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "sendregistrationMail",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.sentmailResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+      com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getSendregistrationMailMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> getSendregistrationMailMethod;
+    if ((getSendregistrationMailMethod = EmailServerGrpc.getSendregistrationMailMethod) == null) {
+      synchronized (EmailServerGrpc.class) {
+        if ((getSendregistrationMailMethod = EmailServerGrpc.getSendregistrationMailMethod) == null) {
+          EmailServerGrpc.getSendregistrationMailMethod = getSendregistrationMailMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "EmailServer", "sendregistrationMail"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.musicmantra.noty5.emailserver.sentmailResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EmailServerMethodDescriptorSupplier("sendregistrationMail"))
+                  .build();
+          }
+        }
+     }
+     return getSendregistrationMailMethod;
   }
 
   /**
@@ -119,38 +183,63 @@ public final class EmailServerGrpc {
   public static abstract class EmailServerImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     *sending email to swetha
-     * </pre>
      */
-    public void sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request,
+    public void sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendOTPMailMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getSendOTPtoExistingUserMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendOTPTONewUserMethod(), responseObserver);
     }
 
     /**
      */
     public void bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getBookingNotificationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendregistrationMailMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSendOTPMailMethod(),
+            getSendOTPtoExistingUserMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.stackroute.musicmantra.noty5.emailserver.mailRequest,
+                com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser,
                 com.stackroute.musicmantra.noty5.emailserver.apiResponse>(
-                  this, METHODID_SEND_OTPMAIL)))
+                  this, METHODID_SEND_OTPTO_EXISTING_USER)))
+          .addMethod(
+            getSendOTPTONewUserMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+                com.stackroute.musicmantra.noty5.emailserver.apiResponse>(
+                  this, METHODID_SEND_OTPTONEW_USER)))
           .addMethod(
             getBookingNotificationMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 com.stackroute.musicmantra.noty5.emailserver.bookingDetails,
-                com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>(
+                com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>(
                   this, METHODID_BOOKING_NOTIFICATION)))
+          .addMethod(
+            getSendregistrationMailMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister,
+                com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>(
+                  this, METHODID_SENDREGISTRATION_MAIL)))
           .build();
     }
   }
@@ -174,22 +263,35 @@ public final class EmailServerGrpc {
     }
 
     /**
-     * <pre>
-     *sending email to swetha
-     * </pre>
      */
-    public void sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request,
+    public void sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSendOTPMailMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSendOTPtoExistingUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSendOTPTONewUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
     public void bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getBookingNotificationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSendregistrationMailMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -212,20 +314,31 @@ public final class EmailServerGrpc {
     }
 
     /**
-     * <pre>
-     *sending email to swetha
-     * </pre>
      */
-    public com.stackroute.musicmantra.noty5.emailserver.apiResponse sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request) {
+    public com.stackroute.musicmantra.noty5.emailserver.apiResponse sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser request) {
       return blockingUnaryCall(
-          getChannel(), getSendOTPMailMethod(), getCallOptions(), request);
+          getChannel(), getSendOTPtoExistingUserMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
+    public com.stackroute.musicmantra.noty5.emailserver.apiResponse sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request) {
+      return blockingUnaryCall(
+          getChannel(), getSendOTPTONewUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.stackroute.musicmantra.noty5.emailserver.sentmailResponse bookingNotification(com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
       return blockingUnaryCall(
           getChannel(), getBookingNotificationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.stackroute.musicmantra.noty5.emailserver.sentmailResponse sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request) {
+      return blockingUnaryCall(
+          getChannel(), getSendregistrationMailMethod(), getCallOptions(), request);
     }
   }
 
@@ -248,27 +361,42 @@ public final class EmailServerGrpc {
     }
 
     /**
-     * <pre>
-     *sending email to swetha
-     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.apiResponse> sendOTPMail(
-        com.stackroute.musicmantra.noty5.emailserver.mailRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.apiResponse> sendOTPtoExistingUser(
+        com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser request) {
       return futureUnaryCall(
-          getChannel().newCall(getSendOTPMailMethod(), getCallOptions()), request);
+          getChannel().newCall(getSendOTPtoExistingUserMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse> bookingNotification(
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.apiResponse> sendOTPTONewUser(
+        com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSendOTPTONewUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> bookingNotification(
         com.stackroute.musicmantra.noty5.emailserver.bookingDetails request) {
       return futureUnaryCall(
           getChannel().newCall(getBookingNotificationMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse> sendregistrationMail(
+        com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSendregistrationMailMethod(), getCallOptions()), request);
+    }
   }
 
-  private static final int METHODID_SEND_OTPMAIL = 0;
-  private static final int METHODID_BOOKING_NOTIFICATION = 1;
+  private static final int METHODID_SEND_OTPTO_EXISTING_USER = 0;
+  private static final int METHODID_SEND_OTPTONEW_USER = 1;
+  private static final int METHODID_BOOKING_NOTIFICATION = 2;
+  private static final int METHODID_SENDREGISTRATION_MAIL = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -287,13 +415,21 @@ public final class EmailServerGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SEND_OTPMAIL:
-          serviceImpl.sendOTPMail((com.stackroute.musicmantra.noty5.emailserver.mailRequest) request,
+        case METHODID_SEND_OTPTO_EXISTING_USER:
+          serviceImpl.sendOTPtoExistingUser((com.stackroute.musicmantra.noty5.emailserver.mailRequestforExistingUser) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse>) responseObserver);
+          break;
+        case METHODID_SEND_OTPTONEW_USER:
+          serviceImpl.sendOTPTONewUser((com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister) request,
               (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse>) responseObserver);
           break;
         case METHODID_BOOKING_NOTIFICATION:
           serviceImpl.bookingNotification((com.stackroute.musicmantra.noty5.emailserver.bookingDetails) request,
-              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.bookingmailResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>) responseObserver);
+          break;
+        case METHODID_SENDREGISTRATION_MAIL:
+          serviceImpl.sendregistrationMail((com.stackroute.musicmantra.noty5.emailserver.mailRequesttoregister) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.sentmailResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -356,8 +492,10 @@ public final class EmailServerGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new EmailServerFileDescriptorSupplier())
-              .addMethod(getSendOTPMailMethod())
+              .addMethod(getSendOTPtoExistingUserMethod())
+              .addMethod(getSendOTPTONewUserMethod())
               .addMethod(getBookingNotificationMethod())
+              .addMethod(getSendregistrationMailMethod())
               .build();
         }
       }

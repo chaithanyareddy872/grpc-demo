@@ -149,6 +149,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 
 	@Override
 	public void sendRegistrationMail(String userEmail, Session session) {
+		System.out.println("inside sendRegistrationMail method");
 		logger.info("inside sendRegistrationMail method ");
 		try {
 			MimeMessage message = new MimeMessage(session);

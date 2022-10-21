@@ -52,7 +52,7 @@ public final class EmailService {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\022EmailService.proto\"9\n\021RegisterVerifyie" +
       "d\022\023\n\013OTPverified\030\001 \001(\010\022\017\n\007emailid\030\002 \001(\t\"" +
       "(\n\025mailRequesttoregister\022\017\n\007emailid\030\001 \001(" +
@@ -91,37 +91,37 @@ public final class EmailService {
     internal_static_RegisterVerifyied_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegisterVerifyied_descriptor,
-        new java.lang.String[] { "OTPverified", "Emailid", });
+        new String[] { "OTPverified", "Emailid", });
     internal_static_mailRequesttoregister_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_mailRequesttoregister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mailRequesttoregister_descriptor,
-        new java.lang.String[] { "Emailid", });
+        new String[] { "Emailid", });
     internal_static_mailRequestforExistingUser_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_mailRequestforExistingUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mailRequestforExistingUser_descriptor,
-        new java.lang.String[] { "Emailid", "MailType", });
+        new String[] { "Emailid", "MailType", });
     internal_static_apiResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_apiResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_apiResponse_descriptor,
-        new java.lang.String[] { "Message", "OTP", "Responsecode", });
+        new String[] { "Message", "OTP", "Responsecode", });
     internal_static_bookingDetails_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_bookingDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingDetails_descriptor,
-        new java.lang.String[] { "BookingId", "Bookingtype", });
+        new String[] { "BookingId", "Bookingtype", });
     internal_static_sentmailResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_sentmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sentmailResponse_descriptor,
-        new java.lang.String[] { "Message", "Responsecode", });
+        new String[] { "Message", "Responsecode", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

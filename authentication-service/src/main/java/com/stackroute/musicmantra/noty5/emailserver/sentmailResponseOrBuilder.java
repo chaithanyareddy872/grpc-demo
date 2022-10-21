@@ -10,7 +10,7 @@ public interface sentmailResponseOrBuilder extends
   /**
    * <code>string message = 1;</code>
    */
-  String getMessage();
+  java.lang.String getMessage();
   /**
    * <code>string message = 1;</code>
    */

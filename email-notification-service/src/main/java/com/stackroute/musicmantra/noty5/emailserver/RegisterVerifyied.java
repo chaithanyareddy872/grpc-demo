@@ -20,7 +20,7 @@ private static final long serialVersionUID = 0L;
     emailid_ = "";
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             emailid_ = s;
             break;
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.stackroute.musicmantra.noty5.emailserver.EmailService.internal_static_RegisterVerifyied_descriptor;
+    return EmailService.internal_static_RegisterVerifyied_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.stackroute.musicmantra.noty5.emailserver.EmailService.internal_static_RegisterVerifyied_fieldAccessorTable
+    return EmailService.internal_static_RegisterVerifyied_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.class, com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.Builder.class);
+            RegisterVerifyied.class, Builder.class);
   }
 
   public static final int OTPVERIFIED_FIELD_NUMBER = 1;
@@ -97,18 +97,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMAILID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object emailid_;
+  private volatile Object emailid_;
   /**
    * <code>string emailid = 2;</code>
    */
-  public java.lang.String getEmailid() {
-    java.lang.Object ref = emailid_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  public String getEmailid() {
+    Object ref = emailid_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       emailid_ = s;
       return s;
     }
@@ -118,11 +118,11 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.protobuf.ByteString
       getEmailidBytes() {
-    java.lang.Object ref = emailid_;
-    if (ref instanceof java.lang.String) {
+    Object ref = emailid_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       emailid_ = b;
       return b;
     } else {
@@ -131,7 +131,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -141,7 +141,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (oTPverified_ != false) {
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -171,15 +171,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied)) {
+    if (!(obj instanceof RegisterVerifyied)) {
       return super.equals(obj);
     }
-    com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied other = (com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied) obj;
+    RegisterVerifyied other = (RegisterVerifyied) obj;
 
     boolean result = true;
     result = result && (getOTPverified()
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
     return result;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -207,69 +207,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(byte[] data)
+  public static RegisterVerifyied parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(java.io.InputStream input)
+  public static RegisterVerifyied parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseDelimitedFrom(java.io.InputStream input)
+  public static RegisterVerifyied parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseDelimitedFrom(
+  public static RegisterVerifyied parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parseFrom(
+  public static RegisterVerifyied parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -277,23 +277,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied prototype) {
+  public static Builder newBuilder(RegisterVerifyied prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -303,18 +303,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:RegisterVerifyied)
-      com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyiedOrBuilder {
+      RegisterVerifyiedOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.stackroute.musicmantra.noty5.emailserver.EmailService.internal_static_RegisterVerifyied_descriptor;
+      return EmailService.internal_static_RegisterVerifyied_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.stackroute.musicmantra.noty5.emailserver.EmailService.internal_static_RegisterVerifyied_fieldAccessorTable
+      return EmailService.internal_static_RegisterVerifyied_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.class, com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.Builder.class);
+              RegisterVerifyied.class, Builder.class);
     }
 
     // Construct using com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.newBuilder()
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -332,7 +332,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       oTPverified_ = false;
@@ -342,79 +342,79 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.stackroute.musicmantra.noty5.emailserver.EmailService.internal_static_RegisterVerifyied_descriptor;
+      return EmailService.internal_static_RegisterVerifyied_descriptor;
     }
 
-    @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied getDefaultInstanceForType() {
-      return com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.getDefaultInstance();
+    @Override
+    public RegisterVerifyied getDefaultInstanceForType() {
+      return RegisterVerifyied.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied build() {
-      com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied result = buildPartial();
+    @Override
+    public RegisterVerifyied build() {
+      RegisterVerifyied result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied buildPartial() {
-      com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied result = new com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied(this);
+    @Override
+    public RegisterVerifyied buildPartial() {
+      RegisterVerifyied result = new RegisterVerifyied(this);
       result.oTPverified_ = oTPverified_;
       result.emailid_ = emailid_;
       onBuilt();
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return (Builder) super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied) {
-        return mergeFrom((com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied)other);
+      if (other instanceof RegisterVerifyied) {
+        return mergeFrom((RegisterVerifyied)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied other) {
-      if (other == com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied.getDefaultInstance()) return this;
+    public Builder mergeFrom(RegisterVerifyied other) {
+      if (other == RegisterVerifyied.getDefaultInstance()) return this;
       if (other.getOTPverified() != false) {
         setOTPverified(other.getOTPverified());
       }
@@ -427,21 +427,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied parsedMessage = null;
+      RegisterVerifyied parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied) e.getUnfinishedMessage();
+        parsedMessage = (RegisterVerifyied) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -477,20 +477,20 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object emailid_ = "";
+    private Object emailid_ = "";
     /**
      * <code>string emailid = 2;</code>
      */
-    public java.lang.String getEmailid() {
-      java.lang.Object ref = emailid_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getEmailid() {
+      Object ref = emailid_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         emailid_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -498,11 +498,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getEmailidBytes() {
-      java.lang.Object ref = emailid_;
+      Object ref = emailid_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         emailid_ = b;
         return b;
       } else {
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
      * <code>string emailid = 2;</code>
      */
     public Builder setEmailid(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -545,13 +545,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFieldsProto3(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -562,18 +562,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:RegisterVerifyied)
-  private static final com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied DEFAULT_INSTANCE;
+  private static final RegisterVerifyied DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied();
+    DEFAULT_INSTANCE = new RegisterVerifyied();
   }
 
-  public static com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied getDefaultInstance() {
+  public static RegisterVerifyied getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<RegisterVerifyied>
       PARSER = new com.google.protobuf.AbstractParser<RegisterVerifyied>() {
-    @java.lang.Override
+    @Override
     public RegisterVerifyied parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -586,13 +586,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<RegisterVerifyied> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.stackroute.musicmantra.noty5.emailserver.RegisterVerifyied getDefaultInstanceForType() {
+  @Override
+  public RegisterVerifyied getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
