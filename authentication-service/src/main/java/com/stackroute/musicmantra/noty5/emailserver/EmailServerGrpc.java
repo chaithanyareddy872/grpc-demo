@@ -119,6 +119,9 @@ public final class EmailServerGrpc {
   public static abstract class EmailServerImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *sending email to swetha
+     * </pre>
      */
     public void sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
@@ -171,6 +174,9 @@ public final class EmailServerGrpc {
     }
 
     /**
+     * <pre>
+     *sending email to swetha
+     * </pre>
      */
     public void sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.apiResponse> responseObserver) {
@@ -206,6 +212,9 @@ public final class EmailServerGrpc {
     }
 
     /**
+     * <pre>
+     *sending email to swetha
+     * </pre>
      */
     public com.stackroute.musicmantra.noty5.emailserver.apiResponse sendOTPMail(com.stackroute.musicmantra.noty5.emailserver.mailRequest request) {
       return blockingUnaryCall(
@@ -239,6 +248,9 @@ public final class EmailServerGrpc {
     }
 
     /**
+     * <pre>
+     *sending email to swetha
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.apiResponse> sendOTPMail(
         com.stackroute.musicmantra.noty5.emailserver.mailRequest request) {

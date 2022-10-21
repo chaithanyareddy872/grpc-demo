@@ -3,10 +3,26 @@ syntax ="proto3";
 option java_package="org.example";
 
 service userRegister{
-  rpc registration(details) returns(APIResponse1);
+  //registration end points
+  rpc registration(details) returns(APIResponseR);
+  rpc verifyRegistration(verify) returns (APIResponseR);
   rpc login(authenticationRequest) returns(APIResponse1);
   rpc deleteuser(deleteRequest) returns (APIResponse1);
+  rpc forgetPassword(forgetPswdRequest) returns (forgetPswdResponse);
+  rpc resetPassword(resetPswdRequest) returns (resetPswdResponse);
+
 }
+message APIResponseR {
+
+  string responseMessage=1;
+  int32 responseCode=2;
+
+}
+message verify{
+  int32 otp=1;
+  string email=2;
+    }
+
 
 message  details{
   string username=1;
@@ -59,12 +75,34 @@ message APIResponse1 {
   int32 userId=1;
   string responseMessage=2;
   int32 responseCode=3;
+  string token=4;
 }
 
 message authenticationRequest{
   string email=1;
   string password=2;
 }
+
+message forgetPswdRequest {
+  string email=1;
+}
+
+message forgetPswdResponse{
+  string messageForget=1;
+  int32 responseCode=2;
+}
+
+message resetPswdRequest{
+  string emailId=1;
+  string password=2;
+  int32 otp=3;
+}
+
+message resetPswdResponse{
+  string messageReset=1;
+  int32 responseCode=2;
+}
+
 
 message deleteRequest{
   string emailId=1;
