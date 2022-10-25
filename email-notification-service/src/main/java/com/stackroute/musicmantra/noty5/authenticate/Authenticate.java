@@ -1,8 +1,6 @@
 package com.stackroute.musicmantra.noty5.authenticate;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,7 +12,7 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.musicmantra.noty5.Exception.Noty5Errors;
 import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
-import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
+import com.stackroute.musicmantra.noty5.constants.Constants;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
 
 public class Authenticate {
@@ -43,7 +41,7 @@ public class Authenticate {
 			ObjectMapper mapper = new ObjectMapper();
 
 			mmEmail = mapper.readValue(
-					new File("/home/sindhu/Documents/musicmantra/email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt"),
+					new File(Constants.EMAILDETAILS),
 					MusicMantraEmail.class);
 
 			logger.info("Validating senders mail and password");
