@@ -13,8 +13,8 @@ import com.stackroute.musicmantra.noty5.constants.Constants;
 public class Connect {
 
 	private static final String url = "jdbc:postgresql://localhost:5432/" + Constants.DATABSENAME;
-	private static final String psqlname = "postgres";
-	private static final String psqlpassword = "postgres";
+	private static final String psqlname = Constants.DATABASEUSERNAME;
+	private static final String psqlpassword = Constants.DATABASEPASSWORD;
 	Logger logger = Logger.getLogger(Connect.class);
 
 	public Connection getConnection() {

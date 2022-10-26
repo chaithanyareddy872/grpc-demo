@@ -14,7 +14,7 @@ import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
 import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
 import com.stackroute.musicmantra.noty5.domain.api.User;
-import com.stackroute.musicmantra.noty5.emailserver.MailType;
+//import com.stackroute.musicmantra.noty5.emailserver.MailType;
 import com.stackroute.musicmantra.noty5.utility.Utility;
 
 public class SendEmailServiceImpl implements SendEmailService {
@@ -41,10 +41,9 @@ public class SendEmailServiceImpl implements SendEmailService {
 								+ "\n\n" + "Verification code is: " + OTP + ".\n\n\n" + "Thanks" + "\n"
 								+ "The Music Mantra team account");
 			} else  if (mailType.equalsIgnoreCase("update")) {
-				message.setSubject(" Verify to your email address");
+				message.setSubject(" Updated details");
 				message.setText(
-						"To finish updation in your Music Mantra account, we just need to make sure this email address is yours."
-								+ "\n\n" + "To verify your email address use this security code: " + OTP + ".\n\n\n"
+						"Greetings from Music Mantra team!" + "/n"+ "Your have successfully updated your details on music mantra account" + ".\n\n\n"
 								+ "Thanks" + "\n" + "The Music Mantra team account");
 			}else if (mailType.equalsIgnoreCase("resetpassword")) {
 				message.setSubject(" Verify your email address");
@@ -176,6 +175,37 @@ public class SendEmailServiceImpl implements SendEmailService {
 		}
 
 	}
+	
+	@Override
+	public void sendUpdationMail(String userEmail, Session session) {
+		System.out.println("inside sendUpdationMail method");
+		logger.info("inside sendUpdationMail method ");
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(MusicMantraEmail.emailId));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+			
+			logger.info("sender's mail is : "+ MusicMantraEmail.emailId+" and recipient mail is : "+userEmail );
+
+			message.setSubject("Successfully Updated Details");
+				message.setText(
+						"Congratulations !!!/n" + "You have been successfully updated your details for MusicMantra account."
+								+"\n\n\n" + "Thanks" + "\n"
+								+ "The Music Mantra team account");
+		
+			System.out.println("sending...");
+			// Send message
+			Transport.send(message);
+			System.out.println("Sent message successfully....");
+		} catch (MessagingException mex) {
+			logger.info("Exception occured while sending mail message" + mex.getMessage());
+			mex.printStackTrace();
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
+
+		}
+
+	}
+
 
 
 }

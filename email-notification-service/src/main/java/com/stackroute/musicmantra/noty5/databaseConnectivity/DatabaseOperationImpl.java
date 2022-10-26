@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import com.stackroute.musicmantra.noty5.Exception.Noty5Errors;
 import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
+import com.stackroute.musicmantra.noty5.constants.Constants;
 import com.stackroute.musicmantra.noty5.constants.UserType;
 import com.stackroute.musicmantra.noty5.domain.api.Booking;
 import com.stackroute.musicmantra.noty5.domain.api.User;
@@ -20,16 +21,16 @@ public class DatabaseOperationImpl implements DatabseOperation {
 	static Logger logger = Logger.getLogger(DatabaseOperationImpl.class);
 
 	@Override
-	public String getUserEmailId(String userId) {
+	public String getUserEmailId(int userId) {
 		logger.info("inside getUserEMailId method with userid : " + userId);
 		String emailId = null;
-		String query = "select emailid from user_info where user_id=?";
+		String query = "select " + Constants.EMAILID+" from "+ Constants.TABLE +" where "+ Constants.USERID+"=?";
 
 		try {
 
 			PreparedStatement stmnt = conn.prepareStatement(query);
 
-			stmnt.setInt(1, Integer.parseInt(userId));
+			stmnt.setInt(1, userId);
 			ResultSet resultSet = stmnt.executeQuery();
 
 			if (resultSet.next()) {
@@ -51,9 +52,9 @@ public class DatabaseOperationImpl implements DatabseOperation {
 	public User[] getbookingMail(int bookingid, String bookingType) { 
 
 		Connection conn = connect.getConnection();
-		String getstudentdetails = "select emailid, first_name from user_info where user_id in(select user_id from student where studentid=(select studentid from bookings where bookingid=?))";
-		String getTeacherDetails = "select emailid, first_name from user_info where user_id in(select user_id from teacher where teacherid=(select teacherid from bookings where bookingid=?))";
-		String getInstumentname = "select instrumrntname from instrument where instrumentid = (select instrumentid from bookings where bookingid ="
+		String getstudentdetails = "select"+ Constants.EMAILID+"," +Constants.FIRSTNAME+ " from "+Constants.TABLE +" where"+ Constants.USERID+ "in(select"+ Constants.USERID +"from" +Constants.STUDENT +"where"+  Constants.STUDENTID+ "=(select"+ Constants.STUDENTID+ "from"+ Constants.BOOKINGTABLE +"where"+ Constants.BOOKINGID+"=?))";
+		String getTeacherDetails = "select"+ Constants.EMAILID+","+Constants.FIRSTNAME+ " from "+Constants.TABLE+" where"+ Constants.USERID +"in(select "+ Constants.USERID+ "from" +Constants.TEACHER +"where"+  Constants.TEACHERID+ "=(select"+ Constants.TEACHERID+ "from"+ Constants.BOOKINGTABLE +"where"+ Constants.BOOKINGID+"=?))";
+		String getInstumentname = "select" + Constants.INSTRUMENTNAME+ "from" + Constants.INSTRUMENT +"where"+ Constants.INSTRUMENTID+ "= (select"+ Constants.INSTRUMENTID+ "from"+ Constants.BOOKINGTABLE+ "where" + Constants.BOOKINGID+ "="
 				+ bookingid + ")";
 		String getDate = "";
 
