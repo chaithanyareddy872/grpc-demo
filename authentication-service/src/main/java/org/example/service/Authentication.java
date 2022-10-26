@@ -10,7 +10,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
-import com.stackroute.musicmantra.noty5.emailserver.*;
+
 import io.jsonwebtoken.*;
 
 import java.util.Date;
@@ -163,26 +163,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                 System.out.println("Verify registration : " + VerificationDetails.getVerify().get(email));
                 System.out.println("OTP : " + Ootp);
                 regResponse.setResponseMessage("OTP sent successfully").setResponseCode(200);
-            } else {
-                if (Validations.validateFirstName(fname) == false) {
-                    regResponse.setResponseMessage("Invalid firstName");
-                    regResponse.setResponseCode(300);
-                } else if (Validations.validateLastName(lname) == false) {
-                    regResponse.setResponseMessage("Invalid lastName");
-                    regResponse.setResponseCode(300);
-                } else if (Validations.validateUsername(username) == false) {
-                    regResponse.setResponseMessage("Invalid username");
-                    regResponse.setResponseCode(300);
-                } else if (Validations.validateEmail(email) == false) {
-                    regResponse.setResponseMessage("Invalid email");
-                    regResponse.setResponseCode(300);
-                } else if (Validations.validateContact(contact) == false) {
-                    regResponse.setResponseMessage("Invalid contact no");
-                    regResponse.setResponseCode(300);
-                } else if (Validations.validatePassword(password) == false) {
-                    regResponse.setResponseMessage("Invalid password");
-                    regResponse.setResponseCode(300);
-                }
+
             }
         }
 

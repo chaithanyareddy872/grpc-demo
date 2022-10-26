@@ -1,0 +1,25 @@
+
+Update/reset password service call
+
+1. happy path
+		request: user_id(any valid userid ), mailType(update/resetpassword)
+		response : message(mail sent successfully), otp(any random number), response code(200)
+	
+2. invalid userId
+		request: user_id(any invalid userid ), mailType(update/resetpassword)
+		response : message(main not sent,user id is not present in database, register first ), otp(null), response code(400)
+		
+
+		
+3. invalid mail wrt given user id
+		request: user_id(any valid userid with wrong mail format/mail not present), mailType(update/resetpassword)
+		response : message(main not sent,user id is not present in database), otp(null), response code(400)
+		
+4. request is valid, senders mail is incorrect/password wrong/issue with smtp server/ timeout/file read error/databse connection failed
+		request: user_id(any invalid userid ), mailType(update/resetpassword)
+		response : message(main not sent,Internal server error), otp(null), response code(500)
+	
+5. valid userId with no mail present in databse 
+		request: user_id(any valid userid with no mail presnet in db ), mailType(update/resetpassword)
+		response : message(main not sent,No mail is associated with the gievn user id, register first ), otp(null), response code(400)
+		
