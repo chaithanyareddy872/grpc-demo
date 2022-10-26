@@ -62,6 +62,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                 if (generatedOTp == otp) {
                     System.out.println(password);
                     DatabaseOperations.upDatePassword(email, password);
+                    VerificationDetails.getVerify().remove(email, otp);
                     response.setMessageReset("Password Reset Successful").setResponseCode(200);
 
                 } else {
@@ -73,7 +74,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
             }
         }
 
-        VerificationDetails.getVerify().remove(email, otp);
+
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
 
@@ -97,6 +98,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
     @Override
     public void registration(UserRegister.details request, StreamObserver<UserRegister.APIResponseR> responseObserver) {
         System.out.println("Inside registration method");
+
         //Getting userDetails
         username = request.getUsername();
         fname = request.getFirstName();
@@ -155,18 +157,40 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
             if (Validations.validateRegistration(email)) {
                 System.out.println("User exist");
                 regResponse.setResponseMessage("User exist").setResponseCode(200);
+            } else {
+                if (Validations.validateFirstName(fname) && Validations.validateLastName(lname) && Validations.validateUsername(username)
+                        && Validations.validateEmail(email) && Validations.validateContact(contact) && Validations.validatePassword(password) && usertype != "") {
+                    int Ootp = Channel.verifyReg(email);
+                    VerificationDetails.getVerify().put(email, Ootp);
+                    System.out.println("Verify registration : " + VerificationDetails.getVerify().get(email));
+                    System.out.println("OTP : " + Ootp);
+                    regResponse.setResponseMessage("OTP sent successfully").setResponseCode(200);
+                } else {
+                    if (Validations.validateUsername(username) == false) {
+                        regResponse.setResponseMessage("Invalid Username");
+                        regResponse.setResponseCode(400);
+                    } else if (Validations.validateFirstName(fname) == false) {
+                        regResponse.setResponseMessage("Invalid FirstName");
+                        regResponse.setResponseCode(400);
 
-            } else if (Validations.validateFirstName(fname) && Validations.validateLastName(lname) && Validations.validateUsername(username)
-                    && Validations.validateEmail(email) && Validations.validateContact(contact) && Validations.validatePassword(password) && usertype != "") {
-                int Ootp = Channel.verifyReg(email);
-                VerificationDetails.getVerify().put(email, Ootp);
-                System.out.println("Verify registration : " + VerificationDetails.getVerify().get(email));
-                System.out.println("OTP : " + Ootp);
-                regResponse.setResponseMessage("OTP sent successfully").setResponseCode(200);
-
+                    } else if (Validations.validateLastName(lname) == false) {
+                        regResponse.setResponseMessage("invalid LastName");
+                        regResponse.setResponseCode(400);
+                    } else if (Validations.validateEmail(email) == false) {
+                        regResponse.setResponseMessage("Invalid Email");
+                        regResponse.setResponseCode(400);
+                    } else if (Validations.validatePassword(password) == false) {
+                        regResponse.setResponseMessage("Invalid password");
+                        regResponse.setResponseCode(400);
+                    } else if (Validations.validateContact(contact) == false) {
+                        regResponse.setResponseMessage("Invalid contact");
+                        regResponse.setResponseCode(400);
+                    }
+                }
             }
+        }else {
+            regResponse.setResponseMessage("Invalid email").setResponseCode(400);
         }
-
 
         responseObserver.onNext(regResponse.build());
         responseObserver.onCompleted();
@@ -201,6 +225,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                     DatabaseOperations.addstudent(userId);
                 }
 
+                VerificationDetails.getVerify().remove(email, otp);
+
                 Channel.verifiedRegistration(email);
                 response.setResponseMessage("Registration successful").setResponseCode(200);
 
@@ -214,8 +240,6 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
 
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
-
-        VerificationDetails.getVerify().remove(email, otp);
     }
 
     @Override
@@ -228,8 +252,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
 
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Select emailId,pswd from user_info where emailId=? and pswd=? ";
-        String query1 = "Select user_id from user_info where emailid=?";
+        String query = ConstantQuery.GETEMAILPASSWORD;
+        String query1 = ConstantQuery.GETUSERID;
         int userId = 0;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
@@ -240,7 +264,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
             if (resultSet.next()) {
                 email = resultSet.getString(1);
                 password = resultSet.getString(2);
-                String last_login_query = "update  user_info set last_login=current_timestamp(2) where emailid=? and pswd=?; ";
+                String last_login_query = ConstantQuery.UPDATELASTLOGIN;
                 PreparedStatement stmnt2 = connection.prepareStatement(last_login_query);
                 stmnt2.setString(1, email);
                 stmnt2.setString(2, encdPassword);
@@ -278,8 +302,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
         Connection connection = DatabaseConnection.getConnection();
 
-        String query = "Delete from user_info where emailId=?";
-        String query1 = "Select user_id from user_info where emailid=?";
+        String query = ConstantQuery.DELETEUSER;
+        String query1 = ConstantQuery.GETUSERID;
         int userId = 0;
         try {
 

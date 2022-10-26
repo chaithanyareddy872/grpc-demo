@@ -1,7 +1,7 @@
 package org.example.service;
 
 
-import com.stackroute.musicmantra.noty5.emailserver.*;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.example.UserRegister;
@@ -16,8 +16,8 @@ public class DatabaseOperations {
         Base64.Encoder encoder = Base64.getEncoder();
         String encdPassword = encoder.encodeToString(password.getBytes());
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Insert into user_info(username,fname,lname,emailid,contact,pswd,usertype) values(?,?,?,?,?,?,?)";
-        String query1 = "Select user_id from user_info where emailid=?";
+        String query = ConstantQuery.INSERTUSERINFO;
+        String query1 = ConstantQuery.GETUSERID;
         int userId = 0;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
@@ -46,7 +46,7 @@ public class DatabaseOperations {
 
     public static void addstudent(int userID) {
         Connection connection = DatabaseConnection.getConnection();
-        String query1 = "Insert into student(user_id) values(?);";
+        String query1 = ConstantQuery.INSERTSTUDENTINFO;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query1);
             stmnt.setInt(1, userID);
@@ -59,7 +59,7 @@ public class DatabaseOperations {
 
     public static void addAddress(String city, String state, String pincode, int userID) {
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Insert into address(user_id,city,state,pincode) values(?,?,?,?)";
+        String query = ConstantQuery.INSERTADDRESS;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
             stmnt.setInt(1, userID);
@@ -78,7 +78,7 @@ public class DatabaseOperations {
     public static void addPreferences(String[] genre, String[] instrument, int userID) {
         Connection connection = DatabaseConnection.getConnection();
 
-        String query = "INSERT INTO public.preferences( user_id, genre, instruments) VALUES (?,?,?)";
+        String query = ConstantQuery.INSERTPREFRENCES;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
             Array array = connection.createArrayOf("VARCHAR", genre);
@@ -102,7 +102,7 @@ public class DatabaseOperations {
         System.out.println(email);
         System.out.println(password);
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Update user_info set pswd=? where emailId=?";
+        String query = ConstantQuery.UPDATEPASSWORD;
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
             stmnt.setString(1, encdPassword);
