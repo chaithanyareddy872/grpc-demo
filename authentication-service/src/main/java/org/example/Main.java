@@ -12,7 +12,7 @@ public class Main {
         Server server = ServerBuilder.forPort(8095).addService(new Authentication()).build();
 
         server.start();
-        System.out.println("Server started on port number:"+ server.getPort());
+        System.out.println("Server started on port number:" + server.getPort());
         server.awaitTermination();
     }
 }

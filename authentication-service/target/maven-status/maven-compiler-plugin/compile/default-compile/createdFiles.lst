@@ -62,6 +62,7 @@ org/example/UserRegister$resetPswdResponse$Builder.class
 com/stackroute/musicmantra/noty5/emailserver/MailType$1.class
 org/example/UserRegister$resetPswdResponseOrBuilder.class
 org/example/UserRegister$Preferences$3.class
+com/stackroute/musicmantra/noty5/emailserver/EmailServerGrpc$1.class
 org/example/UserRegister$details$Builder.class
 org/example/UserRegister$userType.class
 org/example/UserRegister$APIResponse1$Builder.class

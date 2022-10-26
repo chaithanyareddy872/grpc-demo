@@ -7731,11 +7731,11 @@ public final class UserRegister {
         getEmailIdBytes();
 
     /**
-     * <code>string password = 2;</code>
+     * <code>string Password = 2;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 2;</code>
+     * <code>string Password = 2;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
@@ -7873,7 +7873,7 @@ public final class UserRegister {
     public static final int PASSWORD_FIELD_NUMBER = 2;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 2;</code>
+     * <code>string Password = 2;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -7888,7 +7888,7 @@ public final class UserRegister {
       }
     }
     /**
-     * <code>string password = 2;</code>
+     * <code>string Password = 2;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -8321,7 +8321,7 @@ public final class UserRegister {
 
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 2;</code>
+       * <code>string Password = 2;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -8336,7 +8336,7 @@ public final class UserRegister {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string Password = 2;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -8352,7 +8352,7 @@ public final class UserRegister {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string Password = 2;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -8365,7 +8365,7 @@ public final class UserRegister {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string Password = 2;</code>
        */
       public Builder clearPassword() {
         
@@ -8374,7 +8374,7 @@ public final class UserRegister {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string Password = 2;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -9717,7 +9717,7 @@ public final class UserRegister {
       "\005email\030\001 \001(\t\"A\n\022forgetPswdResponse\022\025\n\rme" +
       "ssageForget\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\005\"" +
       "B\n\020resetPswdRequest\022\017\n\007emailId\030\001 \001(\t\022\020\n\010" +
-      "password\030\002 \001(\t\022\013\n\003otp\030\003 \001(\005\"?\n\021resetPswd" +
+      "Password\030\002 \001(\t\022\013\n\003otp\030\003 \001(\005\"?\n\021resetPswd" +
       "Response\022\024\n\014messageReset\030\001 \001(\t\022\024\n\014respon" +
       "seCode\030\002 \001(\005\" \n\rdeleteRequest\022\017\n\007emailId" +
       "\030\001 \001(\t*$\n\010userType\022\013\n\007teacher\020\000\022\013\n\007stude" +

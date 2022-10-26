@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VerificationDetails {
-    static Map<String, Integer> verify=new HashMap<>();
+    static Map<String, Integer> verify = new HashMap<>();
 
     public VerificationDetails() {
     }
