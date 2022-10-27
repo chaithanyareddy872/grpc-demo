@@ -1,13 +1,12 @@
 package org.example.service;
 
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Validations {
+public class Validations {//validation class
 
     public static boolean validateFirstName(String firstname) {
         try {

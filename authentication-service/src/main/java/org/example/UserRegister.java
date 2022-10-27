@@ -362,6 +362,1232 @@ public final class UserRegister {
     // @@protoc_insertion_point(enum_scope:Instruments)
   }
 
+  public interface APIResponseROrBuilder extends
+      // @@protoc_insertion_point(interface_extends:APIResponseR)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string responseMessage = 1;</code>
+     */
+    java.lang.String getResponseMessage();
+    /**
+     * <code>string responseMessage = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getResponseMessageBytes();
+
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    int getResponseCode();
+  }
+  /**
+   * Protobuf type {@code APIResponseR}
+   */
+  public  static final class APIResponseR extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:APIResponseR)
+      APIResponseROrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use APIResponseR.newBuilder() to construct.
+    private APIResponseR(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private APIResponseR() {
+      responseMessage_ = "";
+      responseCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private APIResponseR(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              responseMessage_ = s;
+              break;
+            }
+            case 16: {
+
+              responseCode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_APIResponseR_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_APIResponseR_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.APIResponseR.class, org.example.UserRegister.APIResponseR.Builder.class);
+    }
+
+    public static final int RESPONSEMESSAGE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object responseMessage_;
+    /**
+     * <code>string responseMessage = 1;</code>
+     */
+    public java.lang.String getResponseMessage() {
+      java.lang.Object ref = responseMessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        responseMessage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string responseMessage = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getResponseMessageBytes() {
+      java.lang.Object ref = responseMessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        responseMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RESPONSECODE_FIELD_NUMBER = 2;
+    private int responseCode_;
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    public int getResponseCode() {
+      return responseCode_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getResponseMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, responseMessage_);
+      }
+      if (responseCode_ != 0) {
+        output.writeInt32(2, responseCode_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getResponseMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, responseMessage_);
+      }
+      if (responseCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, responseCode_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.APIResponseR)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.APIResponseR other = (org.example.UserRegister.APIResponseR) obj;
+
+      boolean result = true;
+      result = result && getResponseMessage()
+          .equals(other.getResponseMessage());
+      result = result && (getResponseCode()
+          == other.getResponseCode());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseMessage().hashCode();
+      hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.APIResponseR parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.APIResponseR parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.APIResponseR parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.APIResponseR prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code APIResponseR}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:APIResponseR)
+        org.example.UserRegister.APIResponseROrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_APIResponseR_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_APIResponseR_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.APIResponseR.class, org.example.UserRegister.APIResponseR.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.APIResponseR.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        responseMessage_ = "";
+
+        responseCode_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_APIResponseR_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.APIResponseR getDefaultInstanceForType() {
+        return org.example.UserRegister.APIResponseR.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.APIResponseR build() {
+        org.example.UserRegister.APIResponseR result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.APIResponseR buildPartial() {
+        org.example.UserRegister.APIResponseR result = new org.example.UserRegister.APIResponseR(this);
+        result.responseMessage_ = responseMessage_;
+        result.responseCode_ = responseCode_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.APIResponseR) {
+          return mergeFrom((org.example.UserRegister.APIResponseR)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.APIResponseR other) {
+        if (other == org.example.UserRegister.APIResponseR.getDefaultInstance()) return this;
+        if (!other.getResponseMessage().isEmpty()) {
+          responseMessage_ = other.responseMessage_;
+          onChanged();
+        }
+        if (other.getResponseCode() != 0) {
+          setResponseCode(other.getResponseCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.APIResponseR parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.APIResponseR) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object responseMessage_ = "";
+      /**
+       * <code>string responseMessage = 1;</code>
+       */
+      public java.lang.String getResponseMessage() {
+        java.lang.Object ref = responseMessage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          responseMessage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string responseMessage = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getResponseMessageBytes() {
+        java.lang.Object ref = responseMessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          responseMessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string responseMessage = 1;</code>
+       */
+      public Builder setResponseMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        responseMessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string responseMessage = 1;</code>
+       */
+      public Builder clearResponseMessage() {
+        
+        responseMessage_ = getDefaultInstance().getResponseMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string responseMessage = 1;</code>
+       */
+      public Builder setResponseMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        responseMessage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int responseCode_ ;
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public int getResponseCode() {
+        return responseCode_;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder setResponseCode(int value) {
+        
+        responseCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder clearResponseCode() {
+        
+        responseCode_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:APIResponseR)
+    }
+
+    // @@protoc_insertion_point(class_scope:APIResponseR)
+    private static final org.example.UserRegister.APIResponseR DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.APIResponseR();
+    }
+
+    public static org.example.UserRegister.APIResponseR getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<APIResponseR>
+        PARSER = new com.google.protobuf.AbstractParser<APIResponseR>() {
+      @java.lang.Override
+      public APIResponseR parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new APIResponseR(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<APIResponseR> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<APIResponseR> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.APIResponseR getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface verifyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:verify)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 otp = 1;</code>
+     */
+    int getOtp();
+
+    /**
+     * <code>string email = 2;</code>
+     */
+    java.lang.String getEmail();
+    /**
+     * <code>string email = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getEmailBytes();
+  }
+  /**
+   * Protobuf type {@code verify}
+   */
+  public  static final class verify extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:verify)
+      verifyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use verify.newBuilder() to construct.
+    private verify(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private verify() {
+      otp_ = 0;
+      email_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private verify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              otp_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              email_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_verify_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_verify_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.verify.class, org.example.UserRegister.verify.Builder.class);
+    }
+
+    public static final int OTP_FIELD_NUMBER = 1;
+    private int otp_;
+    /**
+     * <code>int32 otp = 1;</code>
+     */
+    public int getOtp() {
+      return otp_;
+    }
+
+    public static final int EMAIL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object email_;
+    /**
+     * <code>string email = 2;</code>
+     */
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string email = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (otp_ != 0) {
+        output.writeInt32(1, otp_);
+      }
+      if (!getEmailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, email_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (otp_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, otp_);
+      }
+      if (!getEmailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, email_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.verify)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.verify other = (org.example.UserRegister.verify) obj;
+
+      boolean result = true;
+      result = result && (getOtp()
+          == other.getOtp());
+      result = result && getEmail()
+          .equals(other.getEmail());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OTP_FIELD_NUMBER;
+      hash = (53 * hash) + getOtp();
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.verify parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.verify parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.verify parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.verify parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.verify parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.verify parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.verify prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code verify}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:verify)
+        org.example.UserRegister.verifyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_verify_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_verify_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.verify.class, org.example.UserRegister.verify.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.verify.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        otp_ = 0;
+
+        email_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_verify_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.verify getDefaultInstanceForType() {
+        return org.example.UserRegister.verify.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.verify build() {
+        org.example.UserRegister.verify result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.verify buildPartial() {
+        org.example.UserRegister.verify result = new org.example.UserRegister.verify(this);
+        result.otp_ = otp_;
+        result.email_ = email_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.verify) {
+          return mergeFrom((org.example.UserRegister.verify)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.verify other) {
+        if (other == org.example.UserRegister.verify.getDefaultInstance()) return this;
+        if (other.getOtp() != 0) {
+          setOtp(other.getOtp());
+        }
+        if (!other.getEmail().isEmpty()) {
+          email_ = other.email_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.verify parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.verify) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int otp_ ;
+      /**
+       * <code>int32 otp = 1;</code>
+       */
+      public int getOtp() {
+        return otp_;
+      }
+      /**
+       * <code>int32 otp = 1;</code>
+       */
+      public Builder setOtp(int value) {
+        
+        otp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 otp = 1;</code>
+       */
+      public Builder clearOtp() {
+        
+        otp_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object email_ = "";
+      /**
+       * <code>string email = 2;</code>
+       */
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          email_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string email = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string email = 2;</code>
+       */
+      public Builder setEmail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        email_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 2;</code>
+       */
+      public Builder clearEmail() {
+        
+        email_ = getDefaultInstance().getEmail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 2;</code>
+       */
+      public Builder setEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        email_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:verify)
+    }
+
+    // @@protoc_insertion_point(class_scope:verify)
+    private static final org.example.UserRegister.verify DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.verify();
+    }
+
+    public static org.example.UserRegister.verify getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<verify>
+        PARSER = new com.google.protobuf.AbstractParser<verify>() {
+      @java.lang.Override
+      public verify parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new verify(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<verify> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<verify> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.verify getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface detailsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:details)
       com.google.protobuf.MessageOrBuilder {
@@ -3850,6 +5076,16 @@ public final class UserRegister {
      * <code>int32 responseCode = 3;</code>
      */
     int getResponseCode();
+
+    /**
+     * <code>string token = 4;</code>
+     */
+    java.lang.String getToken();
+    /**
+     * <code>string token = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
   }
   /**
    * Protobuf type {@code APIResponse1}
@@ -3867,6 +5103,7 @@ public final class UserRegister {
       userId_ = 0;
       responseMessage_ = "";
       responseCode_ = 0;
+      token_ = "";
     }
 
     @java.lang.Override
@@ -3907,6 +5144,12 @@ public final class UserRegister {
             case 24: {
 
               responseCode_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              token_ = s;
               break;
             }
             default: {
@@ -3993,6 +5236,40 @@ public final class UserRegister {
       return responseCode_;
     }
 
+    public static final int TOKEN_FIELD_NUMBER = 4;
+    private volatile java.lang.Object token_;
+    /**
+     * <code>string token = 4;</code>
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string token = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4016,6 +5293,9 @@ public final class UserRegister {
       if (responseCode_ != 0) {
         output.writeInt32(3, responseCode_);
       }
+      if (!getTokenBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, token_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4035,6 +5315,9 @@ public final class UserRegister {
       if (responseCode_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, responseCode_);
+      }
+      if (!getTokenBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, token_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4058,6 +5341,8 @@ public final class UserRegister {
           .equals(other.getResponseMessage());
       result = result && (getResponseCode()
           == other.getResponseCode());
+      result = result && getToken()
+          .equals(other.getToken());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4075,6 +5360,8 @@ public final class UserRegister {
       hash = (53 * hash) + getResponseMessage().hashCode();
       hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
       hash = (53 * hash) + getResponseCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4214,6 +5501,8 @@ public final class UserRegister {
 
         responseCode_ = 0;
 
+        token_ = "";
+
         return this;
       }
 
@@ -4243,6 +5532,7 @@ public final class UserRegister {
         result.userId_ = userId_;
         result.responseMessage_ = responseMessage_;
         result.responseCode_ = responseCode_;
+        result.token_ = token_;
         onBuilt();
         return result;
       }
@@ -4300,6 +5590,10 @@ public final class UserRegister {
         }
         if (other.getResponseCode() != 0) {
           setResponseCode(other.getResponseCode());
+        }
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4447,6 +5741,75 @@ public final class UserRegister {
       public Builder clearResponseCode() {
         
         responseCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>string token = 4;</code>
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string token = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string token = 4;</code>
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 4;</code>
+       */
+      public Builder clearToken() {
+        
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 4;</code>
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        token_ = value;
         onChanged();
         return this;
       }
@@ -5190,6 +6553,2532 @@ public final class UserRegister {
 
   }
 
+  public interface forgetPswdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:forgetPswdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string email = 1;</code>
+     */
+    java.lang.String getEmail();
+    /**
+     * <code>string email = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getEmailBytes();
+  }
+  /**
+   * Protobuf type {@code forgetPswdRequest}
+   */
+  public  static final class forgetPswdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:forgetPswdRequest)
+      forgetPswdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use forgetPswdRequest.newBuilder() to construct.
+    private forgetPswdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private forgetPswdRequest() {
+      email_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private forgetPswdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              email_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_forgetPswdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_forgetPswdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.forgetPswdRequest.class, org.example.UserRegister.forgetPswdRequest.Builder.class);
+    }
+
+    public static final int EMAIL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object email_;
+    /**
+     * <code>string email = 1;</code>
+     */
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string email = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getEmailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getEmailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.forgetPswdRequest)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.forgetPswdRequest other = (org.example.UserRegister.forgetPswdRequest) obj;
+
+      boolean result = true;
+      result = result && getEmail()
+          .equals(other.getEmail());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.forgetPswdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code forgetPswdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:forgetPswdRequest)
+        org.example.UserRegister.forgetPswdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_forgetPswdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_forgetPswdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.forgetPswdRequest.class, org.example.UserRegister.forgetPswdRequest.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.forgetPswdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        email_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_forgetPswdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdRequest getDefaultInstanceForType() {
+        return org.example.UserRegister.forgetPswdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdRequest build() {
+        org.example.UserRegister.forgetPswdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdRequest buildPartial() {
+        org.example.UserRegister.forgetPswdRequest result = new org.example.UserRegister.forgetPswdRequest(this);
+        result.email_ = email_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.forgetPswdRequest) {
+          return mergeFrom((org.example.UserRegister.forgetPswdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.forgetPswdRequest other) {
+        if (other == org.example.UserRegister.forgetPswdRequest.getDefaultInstance()) return this;
+        if (!other.getEmail().isEmpty()) {
+          email_ = other.email_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.forgetPswdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.forgetPswdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object email_ = "";
+      /**
+       * <code>string email = 1;</code>
+       */
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          email_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string email = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string email = 1;</code>
+       */
+      public Builder setEmail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        email_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 1;</code>
+       */
+      public Builder clearEmail() {
+        
+        email_ = getDefaultInstance().getEmail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 1;</code>
+       */
+      public Builder setEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        email_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:forgetPswdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:forgetPswdRequest)
+    private static final org.example.UserRegister.forgetPswdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.forgetPswdRequest();
+    }
+
+    public static org.example.UserRegister.forgetPswdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<forgetPswdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<forgetPswdRequest>() {
+      @java.lang.Override
+      public forgetPswdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new forgetPswdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<forgetPswdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<forgetPswdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.forgetPswdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface forgetPswdResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:forgetPswdResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string messageForget = 1;</code>
+     */
+    java.lang.String getMessageForget();
+    /**
+     * <code>string messageForget = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageForgetBytes();
+
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    int getResponseCode();
+  }
+  /**
+   * Protobuf type {@code forgetPswdResponse}
+   */
+  public  static final class forgetPswdResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:forgetPswdResponse)
+      forgetPswdResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use forgetPswdResponse.newBuilder() to construct.
+    private forgetPswdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private forgetPswdResponse() {
+      messageForget_ = "";
+      responseCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private forgetPswdResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageForget_ = s;
+              break;
+            }
+            case 16: {
+
+              responseCode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_forgetPswdResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_forgetPswdResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.forgetPswdResponse.class, org.example.UserRegister.forgetPswdResponse.Builder.class);
+    }
+
+    public static final int MESSAGEFORGET_FIELD_NUMBER = 1;
+    private volatile java.lang.Object messageForget_;
+    /**
+     * <code>string messageForget = 1;</code>
+     */
+    public java.lang.String getMessageForget() {
+      java.lang.Object ref = messageForget_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageForget_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string messageForget = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageForgetBytes() {
+      java.lang.Object ref = messageForget_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageForget_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RESPONSECODE_FIELD_NUMBER = 2;
+    private int responseCode_;
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    public int getResponseCode() {
+      return responseCode_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getMessageForgetBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageForget_);
+      }
+      if (responseCode_ != 0) {
+        output.writeInt32(2, responseCode_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getMessageForgetBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageForget_);
+      }
+      if (responseCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, responseCode_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.forgetPswdResponse)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.forgetPswdResponse other = (org.example.UserRegister.forgetPswdResponse) obj;
+
+      boolean result = true;
+      result = result && getMessageForget()
+          .equals(other.getMessageForget());
+      result = result && (getResponseCode()
+          == other.getResponseCode());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGEFORGET_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageForget().hashCode();
+      hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.forgetPswdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.forgetPswdResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code forgetPswdResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:forgetPswdResponse)
+        org.example.UserRegister.forgetPswdResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_forgetPswdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_forgetPswdResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.forgetPswdResponse.class, org.example.UserRegister.forgetPswdResponse.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.forgetPswdResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        messageForget_ = "";
+
+        responseCode_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_forgetPswdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdResponse getDefaultInstanceForType() {
+        return org.example.UserRegister.forgetPswdResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdResponse build() {
+        org.example.UserRegister.forgetPswdResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.forgetPswdResponse buildPartial() {
+        org.example.UserRegister.forgetPswdResponse result = new org.example.UserRegister.forgetPswdResponse(this);
+        result.messageForget_ = messageForget_;
+        result.responseCode_ = responseCode_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.forgetPswdResponse) {
+          return mergeFrom((org.example.UserRegister.forgetPswdResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.forgetPswdResponse other) {
+        if (other == org.example.UserRegister.forgetPswdResponse.getDefaultInstance()) return this;
+        if (!other.getMessageForget().isEmpty()) {
+          messageForget_ = other.messageForget_;
+          onChanged();
+        }
+        if (other.getResponseCode() != 0) {
+          setResponseCode(other.getResponseCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.forgetPswdResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.forgetPswdResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object messageForget_ = "";
+      /**
+       * <code>string messageForget = 1;</code>
+       */
+      public java.lang.String getMessageForget() {
+        java.lang.Object ref = messageForget_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageForget_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string messageForget = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageForgetBytes() {
+        java.lang.Object ref = messageForget_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageForget_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string messageForget = 1;</code>
+       */
+      public Builder setMessageForget(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageForget_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string messageForget = 1;</code>
+       */
+      public Builder clearMessageForget() {
+        
+        messageForget_ = getDefaultInstance().getMessageForget();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string messageForget = 1;</code>
+       */
+      public Builder setMessageForgetBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageForget_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int responseCode_ ;
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public int getResponseCode() {
+        return responseCode_;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder setResponseCode(int value) {
+        
+        responseCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder clearResponseCode() {
+        
+        responseCode_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:forgetPswdResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:forgetPswdResponse)
+    private static final org.example.UserRegister.forgetPswdResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.forgetPswdResponse();
+    }
+
+    public static org.example.UserRegister.forgetPswdResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<forgetPswdResponse>
+        PARSER = new com.google.protobuf.AbstractParser<forgetPswdResponse>() {
+      @java.lang.Override
+      public forgetPswdResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new forgetPswdResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<forgetPswdResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<forgetPswdResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.forgetPswdResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface resetPswdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:resetPswdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string emailId = 1;</code>
+     */
+    java.lang.String getEmailId();
+    /**
+     * <code>string emailId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getEmailIdBytes();
+
+    /**
+     * <code>string Password = 2;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string Password = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <code>int32 otp = 3;</code>
+     */
+    int getOtp();
+  }
+  /**
+   * Protobuf type {@code resetPswdRequest}
+   */
+  public  static final class resetPswdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:resetPswdRequest)
+      resetPswdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use resetPswdRequest.newBuilder() to construct.
+    private resetPswdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private resetPswdRequest() {
+      emailId_ = "";
+      password_ = "";
+      otp_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private resetPswdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              emailId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 24: {
+
+              otp_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_resetPswdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_resetPswdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.resetPswdRequest.class, org.example.UserRegister.resetPswdRequest.Builder.class);
+    }
+
+    public static final int EMAILID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object emailId_;
+    /**
+     * <code>string emailId = 1;</code>
+     */
+    public java.lang.String getEmailId() {
+      java.lang.Object ref = emailId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        emailId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string emailId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEmailIdBytes() {
+      java.lang.Object ref = emailId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        emailId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string Password = 2;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Password = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OTP_FIELD_NUMBER = 3;
+    private int otp_;
+    /**
+     * <code>int32 otp = 3;</code>
+     */
+    public int getOtp() {
+      return otp_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getEmailIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, emailId_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+      }
+      if (otp_ != 0) {
+        output.writeInt32(3, otp_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getEmailIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, emailId_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+      }
+      if (otp_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, otp_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.resetPswdRequest)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.resetPswdRequest other = (org.example.UserRegister.resetPswdRequest) obj;
+
+      boolean result = true;
+      result = result && getEmailId()
+          .equals(other.getEmailId());
+      result = result && getPassword()
+          .equals(other.getPassword());
+      result = result && (getOtp()
+          == other.getOtp());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EMAILID_FIELD_NUMBER;
+      hash = (53 * hash) + getEmailId().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + OTP_FIELD_NUMBER;
+      hash = (53 * hash) + getOtp();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.resetPswdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code resetPswdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:resetPswdRequest)
+        org.example.UserRegister.resetPswdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_resetPswdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_resetPswdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.resetPswdRequest.class, org.example.UserRegister.resetPswdRequest.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.resetPswdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        emailId_ = "";
+
+        password_ = "";
+
+        otp_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_resetPswdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdRequest getDefaultInstanceForType() {
+        return org.example.UserRegister.resetPswdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdRequest build() {
+        org.example.UserRegister.resetPswdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdRequest buildPartial() {
+        org.example.UserRegister.resetPswdRequest result = new org.example.UserRegister.resetPswdRequest(this);
+        result.emailId_ = emailId_;
+        result.password_ = password_;
+        result.otp_ = otp_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.resetPswdRequest) {
+          return mergeFrom((org.example.UserRegister.resetPswdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.resetPswdRequest other) {
+        if (other == org.example.UserRegister.resetPswdRequest.getDefaultInstance()) return this;
+        if (!other.getEmailId().isEmpty()) {
+          emailId_ = other.emailId_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.getOtp() != 0) {
+          setOtp(other.getOtp());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.resetPswdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.resetPswdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object emailId_ = "";
+      /**
+       * <code>string emailId = 1;</code>
+       */
+      public java.lang.String getEmailId() {
+        java.lang.Object ref = emailId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          emailId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string emailId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailIdBytes() {
+        java.lang.Object ref = emailId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          emailId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string emailId = 1;</code>
+       */
+      public Builder setEmailId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        emailId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string emailId = 1;</code>
+       */
+      public Builder clearEmailId() {
+        
+        emailId_ = getDefaultInstance().getEmailId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string emailId = 1;</code>
+       */
+      public Builder setEmailIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        emailId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string Password = 2;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Password = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Password = 2;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Password = 2;</code>
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Password = 2;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int otp_ ;
+      /**
+       * <code>int32 otp = 3;</code>
+       */
+      public int getOtp() {
+        return otp_;
+      }
+      /**
+       * <code>int32 otp = 3;</code>
+       */
+      public Builder setOtp(int value) {
+        
+        otp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 otp = 3;</code>
+       */
+      public Builder clearOtp() {
+        
+        otp_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:resetPswdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:resetPswdRequest)
+    private static final org.example.UserRegister.resetPswdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.resetPswdRequest();
+    }
+
+    public static org.example.UserRegister.resetPswdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<resetPswdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<resetPswdRequest>() {
+      @java.lang.Override
+      public resetPswdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new resetPswdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<resetPswdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<resetPswdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.resetPswdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface resetPswdResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:resetPswdResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string messageReset = 1;</code>
+     */
+    java.lang.String getMessageReset();
+    /**
+     * <code>string messageReset = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageResetBytes();
+
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    int getResponseCode();
+  }
+  /**
+   * Protobuf type {@code resetPswdResponse}
+   */
+  public  static final class resetPswdResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:resetPswdResponse)
+      resetPswdResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use resetPswdResponse.newBuilder() to construct.
+    private resetPswdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private resetPswdResponse() {
+      messageReset_ = "";
+      responseCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private resetPswdResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageReset_ = s;
+              break;
+            }
+            case 16: {
+
+              responseCode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.UserRegister.internal_static_resetPswdResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.UserRegister.internal_static_resetPswdResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.UserRegister.resetPswdResponse.class, org.example.UserRegister.resetPswdResponse.Builder.class);
+    }
+
+    public static final int MESSAGERESET_FIELD_NUMBER = 1;
+    private volatile java.lang.Object messageReset_;
+    /**
+     * <code>string messageReset = 1;</code>
+     */
+    public java.lang.String getMessageReset() {
+      java.lang.Object ref = messageReset_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageReset_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string messageReset = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageResetBytes() {
+      java.lang.Object ref = messageReset_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageReset_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RESPONSECODE_FIELD_NUMBER = 2;
+    private int responseCode_;
+    /**
+     * <code>int32 responseCode = 2;</code>
+     */
+    public int getResponseCode() {
+      return responseCode_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getMessageResetBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageReset_);
+      }
+      if (responseCode_ != 0) {
+        output.writeInt32(2, responseCode_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getMessageResetBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageReset_);
+      }
+      if (responseCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, responseCode_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.UserRegister.resetPswdResponse)) {
+        return super.equals(obj);
+      }
+      org.example.UserRegister.resetPswdResponse other = (org.example.UserRegister.resetPswdResponse) obj;
+
+      boolean result = true;
+      result = result && getMessageReset()
+          .equals(other.getMessageReset());
+      result = result && (getResponseCode()
+          == other.getResponseCode());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGERESET_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageReset().hashCode();
+      hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.UserRegister.resetPswdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.UserRegister.resetPswdResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code resetPswdResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:resetPswdResponse)
+        org.example.UserRegister.resetPswdResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.UserRegister.internal_static_resetPswdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.UserRegister.internal_static_resetPswdResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.UserRegister.resetPswdResponse.class, org.example.UserRegister.resetPswdResponse.Builder.class);
+      }
+
+      // Construct using org.example.UserRegister.resetPswdResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        messageReset_ = "";
+
+        responseCode_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.UserRegister.internal_static_resetPswdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdResponse getDefaultInstanceForType() {
+        return org.example.UserRegister.resetPswdResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdResponse build() {
+        org.example.UserRegister.resetPswdResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.UserRegister.resetPswdResponse buildPartial() {
+        org.example.UserRegister.resetPswdResponse result = new org.example.UserRegister.resetPswdResponse(this);
+        result.messageReset_ = messageReset_;
+        result.responseCode_ = responseCode_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.UserRegister.resetPswdResponse) {
+          return mergeFrom((org.example.UserRegister.resetPswdResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.UserRegister.resetPswdResponse other) {
+        if (other == org.example.UserRegister.resetPswdResponse.getDefaultInstance()) return this;
+        if (!other.getMessageReset().isEmpty()) {
+          messageReset_ = other.messageReset_;
+          onChanged();
+        }
+        if (other.getResponseCode() != 0) {
+          setResponseCode(other.getResponseCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.example.UserRegister.resetPswdResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.example.UserRegister.resetPswdResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object messageReset_ = "";
+      /**
+       * <code>string messageReset = 1;</code>
+       */
+      public java.lang.String getMessageReset() {
+        java.lang.Object ref = messageReset_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageReset_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string messageReset = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageResetBytes() {
+        java.lang.Object ref = messageReset_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageReset_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string messageReset = 1;</code>
+       */
+      public Builder setMessageReset(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageReset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string messageReset = 1;</code>
+       */
+      public Builder clearMessageReset() {
+        
+        messageReset_ = getDefaultInstance().getMessageReset();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string messageReset = 1;</code>
+       */
+      public Builder setMessageResetBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageReset_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int responseCode_ ;
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public int getResponseCode() {
+        return responseCode_;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder setResponseCode(int value) {
+        
+        responseCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 responseCode = 2;</code>
+       */
+      public Builder clearResponseCode() {
+        
+        responseCode_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:resetPswdResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:resetPswdResponse)
+    private static final org.example.UserRegister.resetPswdResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.UserRegister.resetPswdResponse();
+    }
+
+    public static org.example.UserRegister.resetPswdResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<resetPswdResponse>
+        PARSER = new com.google.protobuf.AbstractParser<resetPswdResponse>() {
+      @java.lang.Override
+      public resetPswdResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new resetPswdResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<resetPswdResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<resetPswdResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.UserRegister.resetPswdResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface deleteRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:deleteRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -5741,6 +9630,16 @@ public final class UserRegister {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_APIResponseR_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_APIResponseR_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_verify_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_verify_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_details_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5766,6 +9665,26 @@ public final class UserRegister {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_authenticationRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_forgetPswdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_forgetPswdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_forgetPswdResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_forgetPswdResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_resetPswdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_resetPswdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_resetPswdResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_resetPswdResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_deleteRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5779,29 +9698,42 @@ public final class UserRegister {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022userRegister.proto\"\323\001\n\007details\022\020\n\010user" +
-      "name\030\001 \001(\t\022\022\n\nfirst_name\030\002 \001(\t\022\021\n\tlast_n" +
-      "ame\030\003 \001(\t\022\017\n\007emailId\030\004 \001(\t\022\020\n\010password\030\005" +
-      " \001(\t\022\021\n\tcontactNo\030\006 \001(\t\022\031\n\007address\030\007 \001(\013" +
-      "2\010.Address\022!\n\013preferences\030\010 \001(\0132\014.Prefer" +
-      "ences\022\033\n\010usertype\030\t \001(\0162\t.userType\"7\n\007Ad" +
-      "dress\022\014\n\004city\030\001 \001(\t\022\r\n\005state\030\002 \001(\t\022\017\n\007pi" +
-      "ncode\030\003 \001(\t\"F\n\013Preferences\022\025\n\005genre\030\001 \003(" +
-      "\0162\006.Genre\022 \n\ninstrument\030\002 \003(\0162\014.Instrume" +
-      "nts\"M\n\014APIResponse1\022\016\n\006userId\030\001 \001(\005\022\027\n\017r" +
-      "esponseMessage\030\002 \001(\t\022\024\n\014responseCode\030\003 \001" +
-      "(\005\"8\n\025authenticationRequest\022\r\n\005email\030\001 \001" +
-      "(\t\022\020\n\010password\030\002 \001(\t\" \n\rdeleteRequest\022\017\n" +
-      "\007emailId\030\001 \001(\t*$\n\010userType\022\013\n\007teacher\020\000\022" +
-      "\013\n\007student\020\001*J\n\005Genre\022\r\n\tClassical\020\000\022\010\n\004" +
-      "Rock\020\001\022\014\n\010PopMusic\020\002\022\010\n\004Jazz\020\003\022\020\n\014Countr" +
-      "yMusic\020\004*F\n\013Instruments\022\n\n\006Guitar\020\000\022\t\n\005P" +
-      "iano\020\001\022\n\n\006Violin\020\002\022\t\n\005Drums\020\003\022\t\n\005Flute\020\004" +
-      "2\224\001\n\014userRegister\022\'\n\014registration\022\010.deta" +
-      "ils\032\r.APIResponse1\022.\n\005login\022\026.authentica" +
-      "tionRequest\032\r.APIResponse1\022+\n\ndeleteuser" +
-      "\022\016.deleteRequest\032\r.APIResponse1B\r\n\013org.e" +
-      "xampleb\006proto3"
+      "\n\022userRegister.proto\"=\n\014APIResponseR\022\027\n\017" +
+      "responseMessage\030\001 \001(\t\022\024\n\014responseCode\030\002 " +
+      "\001(\005\"$\n\006verify\022\013\n\003otp\030\001 \001(\005\022\r\n\005email\030\002 \001(" +
+      "\t\"\323\001\n\007details\022\020\n\010username\030\001 \001(\t\022\022\n\nfirst" +
+      "_name\030\002 \001(\t\022\021\n\tlast_name\030\003 \001(\t\022\017\n\007emailI" +
+      "d\030\004 \001(\t\022\020\n\010password\030\005 \001(\t\022\021\n\tcontactNo\030\006" +
+      " \001(\t\022\031\n\007address\030\007 \001(\0132\010.Address\022!\n\013prefe" +
+      "rences\030\010 \001(\0132\014.Preferences\022\033\n\010usertype\030\t" +
+      " \001(\0162\t.userType\"7\n\007Address\022\014\n\004city\030\001 \001(\t" +
+      "\022\r\n\005state\030\002 \001(\t\022\017\n\007pincode\030\003 \001(\t\"F\n\013Pref" +
+      "erences\022\025\n\005genre\030\001 \003(\0162\006.Genre\022 \n\ninstru" +
+      "ment\030\002 \003(\0162\014.Instruments\"\\\n\014APIResponse1" +
+      "\022\016\n\006userId\030\001 \001(\005\022\027\n\017responseMessage\030\002 \001(" +
+      "\t\022\024\n\014responseCode\030\003 \001(\005\022\r\n\005token\030\004 \001(\t\"8" +
+      "\n\025authenticationRequest\022\r\n\005email\030\001 \001(\t\022\020" +
+      "\n\010password\030\002 \001(\t\"\"\n\021forgetPswdRequest\022\r\n" +
+      "\005email\030\001 \001(\t\"A\n\022forgetPswdResponse\022\025\n\rme" +
+      "ssageForget\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\005\"" +
+      "B\n\020resetPswdRequest\022\017\n\007emailId\030\001 \001(\t\022\020\n\010" +
+      "Password\030\002 \001(\t\022\013\n\003otp\030\003 \001(\005\"?\n\021resetPswd" +
+      "Response\022\024\n\014messageReset\030\001 \001(\t\022\024\n\014respon" +
+      "seCode\030\002 \001(\005\" \n\rdeleteRequest\022\017\n\007emailId" +
+      "\030\001 \001(\t*$\n\010userType\022\013\n\007teacher\020\000\022\013\n\007stude" +
+      "nt\020\001*J\n\005Genre\022\r\n\tClassical\020\000\022\010\n\004Rock\020\001\022\014" +
+      "\n\010PopMusic\020\002\022\010\n\004Jazz\020\003\022\020\n\014CountryMusic\020\004" +
+      "*F\n\013Instruments\022\n\n\006Guitar\020\000\022\t\n\005Piano\020\001\022\n" +
+      "\n\006Violin\020\002\022\t\n\005Drums\020\003\022\t\n\005Flute\020\0042\265\002\n\014use" +
+      "rRegister\022\'\n\014registration\022\010.details\032\r.AP" +
+      "IResponseR\022,\n\022verifyRegistration\022\007.verif" +
+      "y\032\r.APIResponseR\022.\n\005login\022\026.authenticati" +
+      "onRequest\032\r.APIResponse1\022+\n\ndeleteuser\022\016" +
+      ".deleteRequest\032\r.APIResponse1\0229\n\016forgetP" +
+      "assword\022\022.forgetPswdRequest\032\023.forgetPswd" +
+      "Response\0226\n\rresetPassword\022\021.resetPswdReq" +
+      "uest\032\022.resetPswdResponseB\r\n\013org.exampleb" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5815,38 +9747,74 @@ public final class UserRegister {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_details_descriptor =
+    internal_static_APIResponseR_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_APIResponseR_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_APIResponseR_descriptor,
+        new java.lang.String[] { "ResponseMessage", "ResponseCode", });
+    internal_static_verify_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_verify_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_verify_descriptor,
+        new java.lang.String[] { "Otp", "Email", });
+    internal_static_details_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_details_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_details_descriptor,
         new java.lang.String[] { "Username", "FirstName", "LastName", "EmailId", "Password", "ContactNo", "Address", "Preferences", "Usertype", });
     internal_static_Address_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Address_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Address_descriptor,
         new java.lang.String[] { "City", "State", "Pincode", });
     internal_static_Preferences_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Preferences_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Preferences_descriptor,
         new java.lang.String[] { "Genre", "Instrument", });
     internal_static_APIResponse1_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_APIResponse1_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_APIResponse1_descriptor,
-        new java.lang.String[] { "UserId", "ResponseMessage", "ResponseCode", });
+        new java.lang.String[] { "UserId", "ResponseMessage", "ResponseCode", "Token", });
     internal_static_authenticationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_authenticationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authenticationRequest_descriptor,
         new java.lang.String[] { "Email", "Password", });
+    internal_static_forgetPswdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_forgetPswdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_forgetPswdRequest_descriptor,
+        new java.lang.String[] { "Email", });
+    internal_static_forgetPswdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_forgetPswdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_forgetPswdResponse_descriptor,
+        new java.lang.String[] { "MessageForget", "ResponseCode", });
+    internal_static_resetPswdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_resetPswdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_resetPswdRequest_descriptor,
+        new java.lang.String[] { "EmailId", "Password", "Otp", });
+    internal_static_resetPswdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_resetPswdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_resetPswdResponse_descriptor,
+        new java.lang.String[] { "MessageReset", "ResponseCode", });
     internal_static_deleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_deleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteRequest_descriptor,

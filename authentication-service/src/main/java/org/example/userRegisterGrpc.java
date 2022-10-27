@@ -28,21 +28,21 @@ public final class userRegisterGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.example.UserRegister.details,
-      org.example.UserRegister.APIResponse1> getRegistrationMethod;
+      org.example.UserRegister.APIResponseR> getRegistrationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "registration",
       requestType = org.example.UserRegister.details.class,
-      responseType = org.example.UserRegister.APIResponse1.class,
+      responseType = org.example.UserRegister.APIResponseR.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.example.UserRegister.details,
-      org.example.UserRegister.APIResponse1> getRegistrationMethod() {
-    io.grpc.MethodDescriptor<org.example.UserRegister.details, org.example.UserRegister.APIResponse1> getRegistrationMethod;
+      org.example.UserRegister.APIResponseR> getRegistrationMethod() {
+    io.grpc.MethodDescriptor<org.example.UserRegister.details, org.example.UserRegister.APIResponseR> getRegistrationMethod;
     if ((getRegistrationMethod = userRegisterGrpc.getRegistrationMethod) == null) {
       synchronized (userRegisterGrpc.class) {
         if ((getRegistrationMethod = userRegisterGrpc.getRegistrationMethod) == null) {
           userRegisterGrpc.getRegistrationMethod = getRegistrationMethod = 
-              io.grpc.MethodDescriptor.<org.example.UserRegister.details, org.example.UserRegister.APIResponse1>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.UserRegister.details, org.example.UserRegister.APIResponseR>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "userRegister", "registration"))
@@ -50,13 +50,45 @@ public final class userRegisterGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.UserRegister.details.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.UserRegister.APIResponse1.getDefaultInstance()))
+                  org.example.UserRegister.APIResponseR.getDefaultInstance()))
                   .setSchemaDescriptor(new userRegisterMethodDescriptorSupplier("registration"))
                   .build();
           }
         }
      }
      return getRegistrationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.example.UserRegister.verify,
+      org.example.UserRegister.APIResponseR> getVerifyRegistrationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "verifyRegistration",
+      requestType = org.example.UserRegister.verify.class,
+      responseType = org.example.UserRegister.APIResponseR.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.example.UserRegister.verify,
+      org.example.UserRegister.APIResponseR> getVerifyRegistrationMethod() {
+    io.grpc.MethodDescriptor<org.example.UserRegister.verify, org.example.UserRegister.APIResponseR> getVerifyRegistrationMethod;
+    if ((getVerifyRegistrationMethod = userRegisterGrpc.getVerifyRegistrationMethod) == null) {
+      synchronized (userRegisterGrpc.class) {
+        if ((getVerifyRegistrationMethod = userRegisterGrpc.getVerifyRegistrationMethod) == null) {
+          userRegisterGrpc.getVerifyRegistrationMethod = getVerifyRegistrationMethod = 
+              io.grpc.MethodDescriptor.<org.example.UserRegister.verify, org.example.UserRegister.APIResponseR>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "userRegister", "verifyRegistration"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.verify.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.APIResponseR.getDefaultInstance()))
+                  .setSchemaDescriptor(new userRegisterMethodDescriptorSupplier("verifyRegistration"))
+                  .build();
+          }
+        }
+     }
+     return getVerifyRegistrationMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.example.UserRegister.authenticationRequest,
@@ -123,6 +155,70 @@ public final class userRegisterGrpc {
      return getDeleteuserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.example.UserRegister.forgetPswdRequest,
+      org.example.UserRegister.forgetPswdResponse> getForgetPasswordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "forgetPassword",
+      requestType = org.example.UserRegister.forgetPswdRequest.class,
+      responseType = org.example.UserRegister.forgetPswdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.example.UserRegister.forgetPswdRequest,
+      org.example.UserRegister.forgetPswdResponse> getForgetPasswordMethod() {
+    io.grpc.MethodDescriptor<org.example.UserRegister.forgetPswdRequest, org.example.UserRegister.forgetPswdResponse> getForgetPasswordMethod;
+    if ((getForgetPasswordMethod = userRegisterGrpc.getForgetPasswordMethod) == null) {
+      synchronized (userRegisterGrpc.class) {
+        if ((getForgetPasswordMethod = userRegisterGrpc.getForgetPasswordMethod) == null) {
+          userRegisterGrpc.getForgetPasswordMethod = getForgetPasswordMethod = 
+              io.grpc.MethodDescriptor.<org.example.UserRegister.forgetPswdRequest, org.example.UserRegister.forgetPswdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "userRegister", "forgetPassword"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.forgetPswdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.forgetPswdResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new userRegisterMethodDescriptorSupplier("forgetPassword"))
+                  .build();
+          }
+        }
+     }
+     return getForgetPasswordMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.example.UserRegister.resetPswdRequest,
+      org.example.UserRegister.resetPswdResponse> getResetPasswordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "resetPassword",
+      requestType = org.example.UserRegister.resetPswdRequest.class,
+      responseType = org.example.UserRegister.resetPswdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.example.UserRegister.resetPswdRequest,
+      org.example.UserRegister.resetPswdResponse> getResetPasswordMethod() {
+    io.grpc.MethodDescriptor<org.example.UserRegister.resetPswdRequest, org.example.UserRegister.resetPswdResponse> getResetPasswordMethod;
+    if ((getResetPasswordMethod = userRegisterGrpc.getResetPasswordMethod) == null) {
+      synchronized (userRegisterGrpc.class) {
+        if ((getResetPasswordMethod = userRegisterGrpc.getResetPasswordMethod) == null) {
+          userRegisterGrpc.getResetPasswordMethod = getResetPasswordMethod = 
+              io.grpc.MethodDescriptor.<org.example.UserRegister.resetPswdRequest, org.example.UserRegister.resetPswdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "userRegister", "resetPassword"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.resetPswdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.UserRegister.resetPswdResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new userRegisterMethodDescriptorSupplier("resetPassword"))
+                  .build();
+          }
+        }
+     }
+     return getResetPasswordMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -151,10 +247,20 @@ public final class userRegisterGrpc {
   public static abstract class userRegisterImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *registration end points
+     * </pre>
      */
     public void registration(org.example.UserRegister.details request,
-        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponse1> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR> responseObserver) {
       asyncUnimplementedUnaryCall(getRegistrationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void verifyRegistration(org.example.UserRegister.verify request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR> responseObserver) {
+      asyncUnimplementedUnaryCall(getVerifyRegistrationMethod(), responseObserver);
     }
 
     /**
@@ -171,6 +277,20 @@ public final class userRegisterGrpc {
       asyncUnimplementedUnaryCall(getDeleteuserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void forgetPassword(org.example.UserRegister.forgetPswdRequest request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.forgetPswdResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getForgetPasswordMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void resetPassword(org.example.UserRegister.resetPswdRequest request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.resetPswdResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getResetPasswordMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -178,8 +298,15 @@ public final class userRegisterGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.example.UserRegister.details,
-                org.example.UserRegister.APIResponse1>(
+                org.example.UserRegister.APIResponseR>(
                   this, METHODID_REGISTRATION)))
+          .addMethod(
+            getVerifyRegistrationMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.example.UserRegister.verify,
+                org.example.UserRegister.APIResponseR>(
+                  this, METHODID_VERIFY_REGISTRATION)))
           .addMethod(
             getLoginMethod(),
             asyncUnaryCall(
@@ -194,6 +321,20 @@ public final class userRegisterGrpc {
                 org.example.UserRegister.deleteRequest,
                 org.example.UserRegister.APIResponse1>(
                   this, METHODID_DELETEUSER)))
+          .addMethod(
+            getForgetPasswordMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.example.UserRegister.forgetPswdRequest,
+                org.example.UserRegister.forgetPswdResponse>(
+                  this, METHODID_FORGET_PASSWORD)))
+          .addMethod(
+            getResetPasswordMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.example.UserRegister.resetPswdRequest,
+                org.example.UserRegister.resetPswdResponse>(
+                  this, METHODID_RESET_PASSWORD)))
           .build();
     }
   }
@@ -217,11 +358,22 @@ public final class userRegisterGrpc {
     }
 
     /**
+     * <pre>
+     *registration end points
+     * </pre>
      */
     public void registration(org.example.UserRegister.details request,
-        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponse1> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRegistrationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void verifyRegistration(org.example.UserRegister.verify request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getVerifyRegistrationMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -238,6 +390,22 @@ public final class userRegisterGrpc {
         io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponse1> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getDeleteuserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void forgetPassword(org.example.UserRegister.forgetPswdRequest request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.forgetPswdResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getForgetPasswordMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void resetPassword(org.example.UserRegister.resetPswdRequest request,
+        io.grpc.stub.StreamObserver<org.example.UserRegister.resetPswdResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getResetPasswordMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -260,10 +428,20 @@ public final class userRegisterGrpc {
     }
 
     /**
+     * <pre>
+     *registration end points
+     * </pre>
      */
-    public org.example.UserRegister.APIResponse1 registration(org.example.UserRegister.details request) {
+    public org.example.UserRegister.APIResponseR registration(org.example.UserRegister.details request) {
       return blockingUnaryCall(
           getChannel(), getRegistrationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.example.UserRegister.APIResponseR verifyRegistration(org.example.UserRegister.verify request) {
+      return blockingUnaryCall(
+          getChannel(), getVerifyRegistrationMethod(), getCallOptions(), request);
     }
 
     /**
@@ -278,6 +456,20 @@ public final class userRegisterGrpc {
     public org.example.UserRegister.APIResponse1 deleteuser(org.example.UserRegister.deleteRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteuserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.example.UserRegister.forgetPswdResponse forgetPassword(org.example.UserRegister.forgetPswdRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getForgetPasswordMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.example.UserRegister.resetPswdResponse resetPassword(org.example.UserRegister.resetPswdRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getResetPasswordMethod(), getCallOptions(), request);
     }
   }
 
@@ -300,11 +492,22 @@ public final class userRegisterGrpc {
     }
 
     /**
+     * <pre>
+     *registration end points
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.UserRegister.APIResponse1> registration(
+    public com.google.common.util.concurrent.ListenableFuture<org.example.UserRegister.APIResponseR> registration(
         org.example.UserRegister.details request) {
       return futureUnaryCall(
           getChannel().newCall(getRegistrationMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.example.UserRegister.APIResponseR> verifyRegistration(
+        org.example.UserRegister.verify request) {
+      return futureUnaryCall(
+          getChannel().newCall(getVerifyRegistrationMethod(), getCallOptions()), request);
     }
 
     /**
@@ -322,11 +525,30 @@ public final class userRegisterGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeleteuserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.example.UserRegister.forgetPswdResponse> forgetPassword(
+        org.example.UserRegister.forgetPswdRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getForgetPasswordMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.example.UserRegister.resetPswdResponse> resetPassword(
+        org.example.UserRegister.resetPswdRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getResetPasswordMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTRATION = 0;
-  private static final int METHODID_LOGIN = 1;
-  private static final int METHODID_DELETEUSER = 2;
+  private static final int METHODID_VERIFY_REGISTRATION = 1;
+  private static final int METHODID_LOGIN = 2;
+  private static final int METHODID_DELETEUSER = 3;
+  private static final int METHODID_FORGET_PASSWORD = 4;
+  private static final int METHODID_RESET_PASSWORD = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -347,7 +569,11 @@ public final class userRegisterGrpc {
       switch (methodId) {
         case METHODID_REGISTRATION:
           serviceImpl.registration((org.example.UserRegister.details) request,
-              (io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponse1>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR>) responseObserver);
+          break;
+        case METHODID_VERIFY_REGISTRATION:
+          serviceImpl.verifyRegistration((org.example.UserRegister.verify) request,
+              (io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponseR>) responseObserver);
           break;
         case METHODID_LOGIN:
           serviceImpl.login((org.example.UserRegister.authenticationRequest) request,
@@ -356,6 +582,14 @@ public final class userRegisterGrpc {
         case METHODID_DELETEUSER:
           serviceImpl.deleteuser((org.example.UserRegister.deleteRequest) request,
               (io.grpc.stub.StreamObserver<org.example.UserRegister.APIResponse1>) responseObserver);
+          break;
+        case METHODID_FORGET_PASSWORD:
+          serviceImpl.forgetPassword((org.example.UserRegister.forgetPswdRequest) request,
+              (io.grpc.stub.StreamObserver<org.example.UserRegister.forgetPswdResponse>) responseObserver);
+          break;
+        case METHODID_RESET_PASSWORD:
+          serviceImpl.resetPassword((org.example.UserRegister.resetPswdRequest) request,
+              (io.grpc.stub.StreamObserver<org.example.UserRegister.resetPswdResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -419,8 +653,11 @@ public final class userRegisterGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new userRegisterFileDescriptorSupplier())
               .addMethod(getRegistrationMethod())
+              .addMethod(getVerifyRegistrationMethod())
               .addMethod(getLoginMethod())
               .addMethod(getDeleteuserMethod())
+              .addMethod(getForgetPasswordMethod())
+              .addMethod(getResetPasswordMethod())
               .build();
         }
       }
