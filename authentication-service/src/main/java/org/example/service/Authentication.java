@@ -221,8 +221,10 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                 int userId = DatabaseOperations.addRegistraion(username, fname, lname, email, contact, password, usertype);
                 DatabaseOperations.addAddress(city, state, pincode, userId);
                 DatabaseOperations.addPreferences(genArr, InstArr, userId);
-                if (usertype == "student") {
+                if (usertype.equals("student")) {
                     DatabaseOperations.addstudent(userId);
+                } else if (usertype.equals("teacher")) {
+                    DatabaseOperations.addteacher(userId);
                 }
 
                 VerificationDetails.getVerify().remove(email, otp);
@@ -248,38 +250,65 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         String password = request.getPassword();
         Base64.Encoder encoder = Base64.getEncoder();
         Base64.Decoder decoder = Base64.getDecoder();
-        String encdPassword = encoder.encodeToString(password.getBytes());
+//        String encdPassword = encoder.encodeToString(password.getBytes());
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
 
         Connection connection = DatabaseConnection.getConnection();
         String query = ConstantQuery.GETEMAILPASSWORD;
         String query1 = ConstantQuery.GETUSERID;
         int userId = 0;
+        String userType="";
+        String token="";
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
             stmnt.setString(1, email);
-            stmnt.setString(2, encdPassword);
+            stmnt.setString(2, password);
             ResultSet resultSet = stmnt.executeQuery();
             String em = "";
             if (resultSet.next()) {
-                email = resultSet.getString(1);
+/*                email = resultSet.getString(1);
                 password = resultSet.getString(2);
                 String last_login_query = ConstantQuery.UPDATELASTLOGIN;
                 PreparedStatement stmnt2 = connection.prepareStatement(last_login_query);
                 stmnt2.setString(1, email);
                 stmnt2.setString(2, encdPassword);
-                stmnt2.executeUpdate();
+                stmnt2.executeUpdate();*/
 
                 PreparedStatement stmnt1 = connection.prepareStatement(query1);
                 stmnt1.setString(1, email);
                 ResultSet rs = stmnt1.executeQuery();
                 if (rs.next()) {
                     userId = rs.getInt(1);
+                    userType=rs.getString(2);
                     System.out.println("Log in successfull");
-                    String token = GetJwtToken.getToken(email);
-                    response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
 
+                    if(userType.equals("student")){
+                        int studentId=0;
+                        String getStduentId=ConstantQuery.GETSTUDENTID;
+                        PreparedStatement statement=connection.prepareStatement(getStduentId);
+                        statement.setInt(1,userId);
+                        ResultSet result=statement.executeQuery();
+                        while (result.next()){
+                            studentId=result.getInt(1);
+                        }
+                         token = GetJwtToken.getToken(email,studentId,userType);
+                        Channel.getRecommendedTeachers(token,studentId);
+                        System.out.println("reacher");
+
+                    } else if (usertype.equals("teacher")) {
+                        int teacherId=0;
+                        String getStduentId=ConstantQuery.GETTEACHERID;
+                        PreparedStatement statement=connection.prepareStatement(getStduentId);
+                        statement.setInt(1,userId);
+                        ResultSet result=statement.executeQuery();
+                        while (result.next()){
+                            teacherId=result.getInt(1);
+                        }
+                        token = GetJwtToken.getToken(email,teacherId,userType);
+                        //response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
+                    }
                 }
+                response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
             } else {
                 System.out.println("Invalid Email or password");
                 response.setResponseMessage("Invalid Email or password").setResponseCode(400);

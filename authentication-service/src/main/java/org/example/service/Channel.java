@@ -1,9 +1,14 @@
 package org.example.service;
 
+import com.musicmantra.recommendationservice.grpc.RecommendTeacherGrpc;
+import com.musicmantra.recommendationservice.grpc.Recommendteacher;
 import com.stackroute.musicmantra.noty5.emailserver.*;
 import com.stackroute.musicmantra.noty5.emailserver.register.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.example.utility.BearerToken;
+
+import java.util.Iterator;
 
 public class Channel {
     public static int verifyReg(String email) {
@@ -41,6 +46,19 @@ public class Channel {
 
         System.out.println(apiResponse.getOTP());
         return apiResponse.getOTP();
+    }
+
+    public static void getRecommendedTeachers(String token,int studentId){
+        System.out.println("inside channel "+token);
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8081).usePlaintext().build();
+        BearerToken bearerToken=new BearerToken(token);
+        RecommendTeacherGrpc.RecommendTeacherBlockingStub recommendTeacherStub=RecommendTeacherGrpc.newBlockingStub(channel).withCallCredentials(bearerToken);
+        Recommendteacher.recommendationRequest request= Recommendteacher.recommendationRequest.newBuilder().setStudentId(studentId).build();
+        Iterator<Recommendteacher.recommendationResponse> response=recommendTeacherStub.getRecommendedTeacher(request);
+
+        while (response.hasNext()){
+            System.out.println(response.next().toString());
+        }
     }
 
 }

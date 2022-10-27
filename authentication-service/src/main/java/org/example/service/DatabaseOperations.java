@@ -56,6 +56,18 @@ public class DatabaseOperations {
         }
     }
 
+    public static void addteacher(int userID) {
+        Connection connection = DatabaseConnection.getConnection();
+        String query1 = ConstantQuery.INSERTTEACHERINFO;
+        try {
+            PreparedStatement stmnt = connection.prepareStatement(query1);
+            stmnt.setInt(1, userID);
+            stmnt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public static void addAddress(String city, String state, String pincode, int userID) {
         Connection connection = DatabaseConnection.getConnection();

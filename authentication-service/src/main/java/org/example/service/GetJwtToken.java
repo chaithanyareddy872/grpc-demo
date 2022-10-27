@@ -7,18 +7,21 @@ import io.jsonwebtoken.impl.TextCodec;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.UUID;
 
 public class GetJwtToken {
 
-    public static String getToken(String email) {
+    public static String getToken(String email,int id,String role) {
         Instant now = Instant.now();
         return Jwts.builder()
-                .claim("email:", email)
+                .setId(String.valueOf(id))
                 .setSubject(email)
-                .setId(UUID.randomUUID().toString())
+                .setAudience(role)
                 .setIssuedAt(Date.from(now))
-                .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
+                .setExpiration(Date.from(now.plus(5, ChronoUnit.MINUTES)))
+                .signWith(
+                        SignatureAlgorithm.HS256,
+                        TextCodec.BASE64.decode("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=")
+                )
                 .compact();
     }
 }
