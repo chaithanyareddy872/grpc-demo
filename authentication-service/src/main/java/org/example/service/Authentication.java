@@ -250,7 +250,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         String password = request.getPassword();
         Base64.Encoder encoder = Base64.getEncoder();
         Base64.Decoder decoder = Base64.getDecoder();
-//        String encdPassword = encoder.encodeToString(password.getBytes());
+        String encdPassword = encoder.encodeToString(password.getBytes());
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
 
         Connection connection = DatabaseConnection.getConnection();
@@ -262,17 +262,17 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         try {
             PreparedStatement stmnt = connection.prepareStatement(query);
             stmnt.setString(1, email);
-            stmnt.setString(2, password);
+            stmnt.setString(2, encdPassword);
             ResultSet resultSet = stmnt.executeQuery();
             String em = "";
             if (resultSet.next()) {
-/*                email = resultSet.getString(1);
+                email = resultSet.getString(1);
                 password = resultSet.getString(2);
                 String last_login_query = ConstantQuery.UPDATELASTLOGIN;
                 PreparedStatement stmnt2 = connection.prepareStatement(last_login_query);
                 stmnt2.setString(1, email);
                 stmnt2.setString(2, encdPassword);
-                stmnt2.executeUpdate();*/
+                stmnt2.executeUpdate();
 
                 PreparedStatement stmnt1 = connection.prepareStatement(query1);
                 stmnt1.setString(1, email);
@@ -293,7 +293,6 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                         }
                          token = GetJwtToken.getToken(email,studentId,userType);
                         Channel.getRecommendedTeachers(token,studentId);
-                        System.out.println("reacher");
 
                     } else if (usertype.equals("teacher")) {
                         int teacherId=0;

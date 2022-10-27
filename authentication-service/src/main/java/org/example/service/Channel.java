@@ -49,7 +49,7 @@ public class Channel {
     }
 
     public static void getRecommendedTeachers(String token,int studentId){
-        System.out.println("inside channel "+token);
+
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8081).usePlaintext().build();
         BearerToken bearerToken=new BearerToken(token);
         RecommendTeacherGrpc.RecommendTeacherBlockingStub recommendTeacherStub=RecommendTeacherGrpc.newBlockingStub(channel).withCallCredentials(bearerToken);
@@ -59,6 +59,7 @@ public class Channel {
         while (response.hasNext()){
             System.out.println(response.next().toString());
         }
+
     }
 
 }
