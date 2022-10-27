@@ -13,7 +13,7 @@ import java.util.Properties;
 
 public class ClassBookingMain {
     public static void main(String[] args) throws IOException, InterruptedException {
-        InputStream input = new FileInputStream("class-booking-service/src/main/resources/application.properties");
+        InputStream input = new FileInputStream("/home/global/git/musicmantra/masterr/class-booking-service/src/main/resources/application.properties");
         Properties prop = new Properties();
         // load a properties file
         prop.load(input);

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "com.stackroute.musicmantra.noty5.emailserver.booking_session";
+option java_multiple_files = true;
+
+
+service BookingSessionEmailServer{
+  rpc bookingNotification(bookingDetails)returns(bookingResponse);
+}
+
+
+enum bookingtype{
+	confirm = 0;
+	cancel = 1;
+}
+
+message bookingDetails{
+	int32 bookingId =1;
+	string bookingtype = 2;
+}
+
+message bookingResponse{
+	string message = 1;
+	int32 Responsecode = 2;
+}

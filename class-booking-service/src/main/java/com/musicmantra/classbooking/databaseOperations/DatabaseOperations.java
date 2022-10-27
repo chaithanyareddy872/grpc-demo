@@ -29,7 +29,7 @@ public class DatabaseOperations {
 
     //method to get a connection obj with coneected to database
     public Connection connection() throws IOException {
-        InputStream input = new FileInputStream("class-booking-service/src/main/resources/application.properties");
+        InputStream input = new FileInputStream("/home/global/git/musicmantra/masterr/class-booking-service/src/main/resources/application.properties");
 
         Properties prop = new Properties();
 
@@ -53,7 +53,7 @@ public class DatabaseOperations {
                     && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus)
                     && validations.dateandtimevalidation(timestamp))) {
                 //preparing the insert statement
-                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookinginfo(" +
+                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookings(" +
                         "studentid,sessionid,datetime,status) values(?,?,?,?);");
                 //setting up the values
                 preparedStatement.setLong(1, studentid);

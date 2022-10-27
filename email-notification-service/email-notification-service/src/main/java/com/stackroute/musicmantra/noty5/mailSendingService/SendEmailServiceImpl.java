@@ -134,7 +134,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 				}
 				System.out.println("sending...");
 				// Send message
-				Transport.send(message);
+//				Transport.send(message);
 			}
 
 			System.out.println("Sent message successfully....");

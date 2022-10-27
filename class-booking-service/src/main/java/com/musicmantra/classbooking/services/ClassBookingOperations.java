@@ -1,6 +1,7 @@
 package com.musicmantra.classbooking.services;
 import com.google.protobuf.Timestamp;
 import com.musicmantra.classbooking.generatedfiles.*;
+import com.musicmantra.classbooking.channel.ConnectToNoty;
 import com.musicmantra.classbooking.databaseOperations.DatabaseOperations;
 import io.grpc.stub.StreamObserver;
 import java.sql.Connection;
@@ -51,6 +52,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                 String status=request.getStatus();
                 //setting up response based on the operation performed
                 bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,timestamp1,status);
+                ConnectToNoty.sendBookingMail(1, "confirm");
             }
             else{
                 bookingresponse.setMsg("please provide proper inputs");
@@ -166,4 +168,5 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         responseObserver.onCompleted();
     }
 
+  
 }
