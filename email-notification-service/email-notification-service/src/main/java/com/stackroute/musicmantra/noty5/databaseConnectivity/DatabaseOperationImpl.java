@@ -77,6 +77,9 @@ public class DatabaseOperationImpl implements DatabseOperation {
 			if (rs.next()) {
 				booking.setInstrumentName(rs.getString(1));
 			}
+			else {
+				throw new Noty5Exceptions(Noty5Errors.NO_BOOKINGS_AVILABLE);
+			}
 
 			student.setBookings(booking);
 			teacher.setBookings(booking);
@@ -85,9 +88,10 @@ public class DatabaseOperationImpl implements DatabseOperation {
 			users[1] = teacher;
 
 		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			logger.error("exception occured while reading the mail for userid : "  + e.getMessage());
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 		}
-
+		
 		return users;
 	}
 
