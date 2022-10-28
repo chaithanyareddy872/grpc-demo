@@ -29,7 +29,7 @@ public class DatabaseOperations {
 
     //method to get a connection obj with coneected to database
     public Connection connection() throws IOException {
-        InputStream input = new FileInputStream("/home/global/git/musicmantra/masterr/class-booking-service/src/main/resources/application.properties");
+        InputStream input = new FileInputStream("class-booking-service/src/main/resources/application.properties");
 
         Properties prop = new Properties();
 
@@ -151,7 +151,7 @@ public class DatabaseOperations {
         try {
             if (stuid>0&&sessid>0) {
                 String query = "SELECT bookingid, studentid, sessionid, status," +
-                        " datetime from bookinginfo where studentid = '" + stuid +
+                        " datetime from bookings where studentid = '" + stuid +
                         "' AND sessionid= '" + sessid + "';";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ResultSet rs = ps.executeQuery();

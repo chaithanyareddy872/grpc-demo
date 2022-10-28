@@ -12,9 +12,9 @@ import com.stackroute.musicmantra.noty5.constants.Constants;
 
 public class Connect {
 
-	private static final String url = "jdbc:postgresql://localhost:5432/" + Constants.DATABSENAME;
-	private static final String psqlname = Constants.DATABASEUSERNAME;
-	private static final String psqlpassword = Constants.DATABASEPASSWORD;
+//	private static final String url = "jdbc:postgresql://localhost:5432/" + Constants.DATABSENAME;
+//	private static final String psqlname = Constants.DATABASEUSERNAME;
+//	private static final String psqlpassword = Constants.DATABASEPASSWORD;
 	Logger logger = Logger.getLogger(Connect.class);
 
 	public Connection getConnection() {
@@ -23,7 +23,7 @@ public class Connect {
 			logger.info("creating database connection...");
 			logger.info("Databsename is: " + Constants.DATABSENAME);
 
-			connection = DriverManager.getConnection(url, psqlname, psqlpassword);
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/music_mantra", "postgres", "root123");
 
 			logger.info("connected to databse successfully");
 			return connection;

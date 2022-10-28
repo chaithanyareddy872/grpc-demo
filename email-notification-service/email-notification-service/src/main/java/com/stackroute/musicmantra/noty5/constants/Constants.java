@@ -5,13 +5,13 @@ public class Constants {
 		public static String CONFIRM = "confirm";
 		public static String CANCEL = "cancel";
 		public static String DATABSENAME = "music_mantra";
-		public static String DATABASEPASSWORD = "postgres";
+		public static String DATABASEPASSWORD = "root123";
 		public static String DATABASEUSERNAME = "postgres";
 		public static String TABLE = "user_info";
 		public static String EMAILID = "emailid";
 		public static String BOOKINGTABLE = "bookings";
 		public static String BOOKINGID = "bookingid";
-		public static String EMAILDETAILS = "/home/global/git/musicmantra/neww/email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt";
+		public static String EMAILDETAILS = "email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt";
 		public static String STUDENT = "student";
 		public static String TEACHER = "teacher";
 		public static String STUDENTID = "studentid";

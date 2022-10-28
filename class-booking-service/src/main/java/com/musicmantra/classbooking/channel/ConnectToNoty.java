@@ -12,7 +12,7 @@ public class ConnectToNoty {
 
 	public static void sendBookingMail(int bookingId, String bookingType) {
 		
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9008).usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9009).usePlaintext().build();
         bookingDetails request = bookingDetails.newBuilder().setBookingId(bookingId).setBookingtype(bookingType).build();
         BookingSessionEmailServerGrpc.BookingSessionEmailServerBlockingStub userStub = BookingSessionEmailServerGrpc.newBlockingStub(channel);
 

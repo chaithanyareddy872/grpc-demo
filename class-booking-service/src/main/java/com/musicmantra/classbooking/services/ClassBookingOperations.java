@@ -3,6 +3,7 @@ import com.google.protobuf.Timestamp;
 import com.musicmantra.classbooking.generatedfiles.*;
 import com.musicmantra.classbooking.channel.ConnectToNoty;
 import com.musicmantra.classbooking.databaseOperations.DatabaseOperations;
+import com.musicmantra.classbooking.validation.Validations;
 import io.grpc.stub.StreamObserver;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,17 +15,26 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     //database operation object creation
     DatabaseOperations databaseOperations=new DatabaseOperations();
     Timestamp timestamp;
+    Validations validations=new Validations();
     @Override
     //method to update an existing record based on bookingid
     public void updateBooking(updatereq request, StreamObserver<BookingResp> responseObserver) {
         try{
-            //getting connection by connecting to database
-            Connection conn = databaseOperations.connection();
-            Long bookinid=request.getBookingid();
-            Timestamp timestamp1=request.getDateTime();
-            String status=request.getStatus();
-            //setting up response based on the operation performed
-            bookingresponse=databaseOperations.updateindb(conn, bookinid,timestamp1,status);
+            if(request!=null && validations.statusvalidation(request.getStatus())) {
+                //getting connection by connecting to database
+                Connection conn = databaseOperations.connection();
+                Long bookinid = request.getBookingid();
+                Timestamp timestamp1 = request.getDateTime();
+                String status = request.getStatus();
+                //setting up response based on the operation performed
+                bookingresponse = databaseOperations.updateindb(conn, bookinid, timestamp1, status);
+                if(bookinid !=0 && validations.statusvalidation(status)) {
+                    ConnectToNoty.sendBookingMail(Math.toIntExact(bookinid), status);
+                }
+                else {
+                    throw new RuntimeException("status should be confirm or cancel");
+                }
+            }
         }
         //handling exception
         catch (Exception e){
@@ -43,7 +53,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
     public void postBooking(postBookingReq request, StreamObserver<BookingResp> responseObserver) {
         //creating builder object for response
         try{
-            if(request!=null) {
+            if(request!=null && validations.statusvalidation(request.getStatus())) {
                 //getting connection by connecting to database
                 Connection conn = databaseOperations.connection();
                 Long studentid=request.getStudentid();
@@ -52,7 +62,13 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                 String status=request.getStatus();
                 //setting up response based on the operation performed
                 bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,timestamp1,status);
-                ConnectToNoty.sendBookingMail(1, "confirm");
+                multiBookingResp.Builder bookinginfo=databaseOperations.getBookingDetails(conn,studentid,sessionid);
+                if(bookinginfo.getBookinid() !=0 && validations.statusvalidation(bookinginfo.getBookingstatus())) {
+                    ConnectToNoty.sendBookingMail((int) bookinginfo.getBookinid(), bookinginfo.getBookingstatus());
+                }
+                else {
+                    throw new RuntimeException("status should be confirm or cancel");
+                }
             }
             else{
                 bookingresponse.setMsg("please provide proper inputs");
@@ -62,6 +78,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         //handling exception
         catch (Exception e){
             bookingresponse.setMsg(e.getMessage());
+            bookingresponse.setStatuscode(404);
         }
 
         //building the response object and calling oncompleted on it for completion of responseobserver

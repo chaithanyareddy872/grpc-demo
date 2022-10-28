@@ -19,12 +19,17 @@ import com.stackroute.musicmantra.noty5.utility.Utility;
 
 import io.grpc.stub.StreamObserver;
 
+import java.io.IOException;
+
 public class RegisterMailService extends RegistrationEmailServerImplBase {
 
 	static Logger logger = Logger.getLogger(RegisterMailService.class.getName());
 	DatabaseOperationImpl databaseOperationImpl = new DatabaseOperationImpl();
 	SendEmailService sendEmailService = new SendEmailServiceImpl();
 	Authenticate authenticate = new Authenticate();
+
+	public RegisterMailService() throws IOException {
+	}
 
 	@Override
 	public void sendOTPtoExistingUser(mailRequestforExistingUser request,

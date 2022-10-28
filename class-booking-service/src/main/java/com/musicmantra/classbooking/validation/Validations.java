@@ -17,4 +17,7 @@ public class Validations {
         LocalDateTime nowdate =LocalDateTime.now();
         return timestamp.isInitialized() && givendate.isAfter(nowdate);
     }
+    public boolean statusvalidation(String val){
+        return val.equalsIgnoreCase("confirm")||val.equalsIgnoreCase("cancel");
+    }
 }
