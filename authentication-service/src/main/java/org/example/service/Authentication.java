@@ -304,6 +304,8 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                             teacherId=result.getInt(1);
                         }
                         token = GetJwtToken.getToken(email,teacherId,userType);
+                        Channel.getSessionsofTeacher(teacherId);
+
                         //response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
                     }
                 }

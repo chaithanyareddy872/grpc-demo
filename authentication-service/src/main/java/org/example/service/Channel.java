@@ -2,6 +2,8 @@ package org.example.service;
 
 import com.musicmantra.recommendationservice.grpc.RecommendTeacherGrpc;
 import com.musicmantra.recommendationservice.grpc.Recommendteacher;
+import com.musicmantra.sessionservice.grpc.SessionServiceGrpc;
+import com.musicmantra.sessionservice.grpc.Sessionservice;
 import com.stackroute.musicmantra.noty5.emailserver.*;
 import com.stackroute.musicmantra.noty5.emailserver.register.*;
 import io.grpc.ManagedChannel;
@@ -60,6 +62,14 @@ public class Channel {
             System.out.println(response.next().toString());
         }
 
+    }
+
+    public static void getSessionsofTeacher(int teacherid){
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8081).usePlaintext().build();
+        SessionServiceGrpc.SessionServiceBlockingStub sessionServiceBlockingStub=SessionServiceGrpc.newBlockingStub(channel);
+        Sessionservice.GetSessionRequest request=Sessionservice.GetSessionRequest.newBuilder().setTeacherid(teacherid).build();
+        Sessionservice.GetSessionResponse response= sessionServiceBlockingStub.getSessions(request);
+        System.out.println(response.toString());
     }
 
 }
