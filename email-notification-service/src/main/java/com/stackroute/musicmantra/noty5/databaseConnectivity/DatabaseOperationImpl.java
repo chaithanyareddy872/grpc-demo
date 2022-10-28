@@ -100,7 +100,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 		while (rs.next()) {
 			for (int i = 1; i <= 1; i++) {
 				user.setEmailid(rs.getString("emailid"));
-				user.setFirstName(rs.getString("first_name"));
+				user.setFirstName(rs.getString("fname"));
 			}
 
 		}

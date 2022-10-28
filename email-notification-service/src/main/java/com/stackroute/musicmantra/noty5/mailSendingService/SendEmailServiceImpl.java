@@ -89,9 +89,10 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+						continue;
 					} else if (user.getBookings().getBookingType().equalsIgnoreCase("cancel")) {
 
-						message.setSubject("Booking to learn" + user.getBookings().getSessionTime() + " is ,cancelled");
+						message.setSubject("Booking to learn " + user.getBookings().getSessionTime() + " is ,cancelled");
 
 						message.setText("Hi " + user.getFirstName() + "," + "\n\n" + "!!!" + "\n\n"
 								+ "You have successfully caclled your booking for  session to learn "
@@ -101,6 +102,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+						continue;
 					}
 				}
 				if (user.getType().getUserType().equalsIgnoreCase("teacher")) {
@@ -117,6 +119,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+						continue;
 					} else if (user.getBookings().getBookingType().equalsIgnoreCase("cancel")) {
 
 						message.setSubject(
@@ -130,11 +133,12 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+						continue;
 					}
 				}
 				System.out.println("sending...");
 				// Send message
-				Transport.send(message);
+//				Transport.send(message);
 			}
 
 			System.out.println("Sent message successfully....");

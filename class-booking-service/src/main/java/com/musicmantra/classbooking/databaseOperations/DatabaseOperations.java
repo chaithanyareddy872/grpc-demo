@@ -89,7 +89,7 @@ public class DatabaseOperations {
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
-                            "UPDATE public.bookinginfo "
+                            "UPDATE public.bookings "
                                     + "SET datetime=?, status=? "
                                     + "WHERE (bookingid=? );");
             //setting up the values
@@ -123,7 +123,7 @@ public class DatabaseOperations {
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
-                            "DELETE from public.bookinginfo "
+                            "DELETE from public.bookings "
                                     + "WHERE (bookingid=?);");
             //deleting the records
             preparedStatement.setLong(1,bookingid);
@@ -183,7 +183,7 @@ public class DatabaseOperations {
 
         ResultSet resultSet = null;
         try{
-            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
+            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookings " +
                     "where studentid=?");
             preparedStatement.setLong(1,multiBookingReq.getUserid());
             resultSet= preparedStatement.executeQuery();
@@ -197,7 +197,7 @@ public class DatabaseOperations {
 
         ResultSet resultSet = null;
         try{
-            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
+            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookings " +
                     "where sessionid=?");
             preparedStatement.setLong(1,multiBookingReq.getUserid());
             resultSet= preparedStatement.executeQuery();

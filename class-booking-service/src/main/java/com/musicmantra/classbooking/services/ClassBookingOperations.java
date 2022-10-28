@@ -63,11 +63,11 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                 //setting up response based on the operation performed
                 bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,timestamp1,status);
                 multiBookingResp.Builder bookinginfo=databaseOperations.getBookingDetails(conn,studentid,sessionid);
-                if(bookinginfo.getBookinid() !=0 && validations.statusvalidation(bookinginfo.getBookingstatus())) {
+                if(bookinginfo.getBookinid() !=0) {
                     ConnectToNoty.sendBookingMail((int) bookinginfo.getBookinid(), bookinginfo.getBookingstatus());
                 }
                 else {
-                    throw new RuntimeException("status should be confirm or cancel");
+                    throw new RuntimeException("record does not saved");
                 }
             }
             else{
