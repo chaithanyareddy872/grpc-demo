@@ -22,5 +22,6 @@ public class Constants {
 		public static String INSTRUMENTNAME = "instrumrntname";
 		public static String INSTRUMENTID = "instrumentid";
 		public static String INSTRUMENT = "instrument";
+		public static String SESSIONS = "sessionss";
 		
 }

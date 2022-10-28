@@ -4,6 +4,7 @@ import javax.mail.Session;
 
 import org.apache.log4j.Logger;
 
+import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
 import com.stackroute.musicmantra.noty5.authenticate.Authenticate;
 import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.User;
@@ -30,6 +31,7 @@ public class BookingEmailServer extends BookingSessionEmailServerImplBase{
 		int bookingId = request.getBookingId();
 		String bookingType = request.getBookingtype();
 
+		try {
 		User[] users = databaseOperationImpl.getbookingMail(bookingId, bookingType);
 		Session session = null;
 
@@ -42,11 +44,18 @@ public class BookingEmailServer extends BookingSessionEmailServerImplBase{
 
 		String bookingResponsee = sendEmailService.booking(users, session);
 
-		bookingResponse.Builder response = bookingResponse.newBuilder().setMessage("running successfully")
+		bookingResponse.Builder response = bookingResponse.newBuilder()
 				.setResponsecode(200).setMessage(bookingResponsee);
 		responseObserver.onNext(response.build());
 		responseObserver.onCompleted();
+		}
+		catch(Noty5Exceptions ne) {
 
+			bookingResponse.Builder response = bookingResponse.newBuilder().setMessage("running successfully")
+					.setResponsecode(ne.getErrorCode()).setMessage(ne.getErrorMsg());
+			responseObserver.onNext(response.build());
+			responseObserver.onCompleted();
+		}
 	
 	}
 

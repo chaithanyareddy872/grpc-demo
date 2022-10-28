@@ -141,7 +141,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 			return "successfully sent mail for booking";
 		} catch (MessagingException mex) {
 			mex.printStackTrace();
-			return "some issue in sending mail";
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 		}
 
 	}
