@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.stackroute";
+
+
+service FeedbackService{
+  rpc Feedback(FeedbackReq)returns(FeedbackResp);
+  rpc Session(SessionReq)returns(SessionResp);
+}
+message FeedbackReq{
+  int32 FeedbackId=1;
+  int32 BookingId=2;
+  int32 FeedbackRating=3;
+  string Message=4;
+}
+message FeedbackResp{
+  int32 responceCode=1;
+  string responceMessage=2;
+
+}
+message SessionReq{
+  int32 SessionId=1;
+  string Enddate=2;
+}
+message SessionResp{
+  int32 responceCode=1;
+  string responceMessage=2;
+}
