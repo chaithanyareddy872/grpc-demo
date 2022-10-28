@@ -1,0 +1,40 @@
+syntax="proto3";
+
+option java_package="com.musicmantra.searchservice.grpc";
+
+service SearchService{
+
+  rpc search(searchRequest) returns (stream searchResponse);
+}
+
+message searchRequest{
+  string city=1;
+  Genres genre=2;
+  Instruments instrument=3;
+  int32 fees=4;
+}
+
+message searchResponse{
+  int32 responsecode=1;
+  string responseMessage=2;
+  int32 sessionid=3;
+  int32 teacherid=4;
+  string sessioname=5;
+}
+
+enum Genres{
+  Classical = 0;
+  Rock = 1;
+  PopMusic = 2;
+  Jazz = 3;
+  CountryMusic = 4;
+
+}
+
+enum Instruments{
+  Guitar = 0;
+  Piano = 1;
+  Violin = 2;
+  Drums = 3;
+  Flute = 4;
+}
