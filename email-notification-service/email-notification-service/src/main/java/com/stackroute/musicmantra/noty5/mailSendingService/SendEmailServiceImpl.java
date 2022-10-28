@@ -14,7 +14,6 @@ import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
 import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
 import com.stackroute.musicmantra.noty5.domain.api.User;
-//import com.stackroute.musicmantra.noty5.emailserver.MailType;
 import com.stackroute.musicmantra.noty5.utility.Utility;
 
 public class SendEmailServiceImpl implements SendEmailService {
@@ -141,7 +140,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 			return "successfully sent mail for booking";
 		} catch (MessagingException mex) {
 			mex.printStackTrace();
-			return "some issue in sending mail";
+			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 		}
 
 	}
