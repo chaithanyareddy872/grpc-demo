@@ -16,7 +16,7 @@ public class AuthorizationInterceptor implements ServerInterceptor {
         final String auth_token = metadata.get(Metadata.Key.of("Authorization", Metadata.ASCII_STRING_MARSHALLER));
 
         if (auth_token == null) {
-            throw new StatusRuntimeException(Status.UNAVAILABLE);
+            throw new StatusRuntimeException(Status.UNAUTHENTICATED);
         }
 
         Claims claims = Jwts.parser()
