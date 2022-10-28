@@ -20,6 +20,9 @@ message searchResponse{
   int32 sessionid=3;
   int32 teacherid=4;
   string sessioname=5;
+  string sessionStartDate = 6;
+  string sessionStartTime = 7;
+  int32 fees = 8;
 }
 
 enum Genres{

@@ -55,7 +55,7 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
         genreid=ids.get(0);
         instrumentid=ids.get(1);
 
-        String query="select sessionid,teacherid,sessionname from sessionstable where instrumentid=? and genreid=? and fees=? and teacherid in\n" +
+        String query="select sessionid,teacherid,sessionname,startdate,fees from sessionstable where instrumentid=? and genreid=? and fees=? and teacherid in\n" +
                 "(select teacherid from teachers where userid in\n" +
                 " (select userid from users where usertype='teacher' and userid in \n" +
                 "\t\t\t\t\t\t\t\t\t\t\t   (select userid from address where city=?)))";
@@ -71,7 +71,13 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
             ResultSet resultSet=statement.executeQuery();
 
             while (resultSet.next()){
-                respone.setSessionid(resultSet.getInt(1)).setTeacherid(resultSet.getInt(2)).setSessioname(resultSet.getString(3));
+                respone.setResponsecode(200)
+                .setSessionid(resultSet.getInt(1))
+                        .setTeacherid(resultSet.getInt(2))
+                        .setSessioname(resultSet.getString(3))
+                        .setSessionStartDate(String.valueOf(resultSet.getDate(4)))
+                                .setSessionStartTime(String.valueOf(resultSet.getTime(4)))
+                                        .setFees(resultSet.getInt(5));
 
                 responses.add(respone);
 

@@ -1103,6 +1103,31 @@ public final class SearchServiceOuterClass {
      */
     com.google.protobuf.ByteString
         getSessionameBytes();
+
+    /**
+     * <code>string sessionStartDate = 6;</code>
+     */
+    java.lang.String getSessionStartDate();
+    /**
+     * <code>string sessionStartDate = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getSessionStartDateBytes();
+
+    /**
+     * <code>string sessionStartTime = 7;</code>
+     */
+    java.lang.String getSessionStartTime();
+    /**
+     * <code>string sessionStartTime = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getSessionStartTimeBytes();
+
+    /**
+     * <code>int32 fees = 8;</code>
+     */
+    int getFees();
   }
   /**
    * Protobuf type {@code searchResponse}
@@ -1122,6 +1147,9 @@ public final class SearchServiceOuterClass {
       sessionid_ = 0;
       teacherid_ = 0;
       sessioname_ = "";
+      sessionStartDate_ = "";
+      sessionStartTime_ = "";
+      fees_ = 0;
     }
 
     @java.lang.Override
@@ -1173,6 +1201,23 @@ public final class SearchServiceOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               sessioname_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sessionStartDate_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sessionStartTime_ = s;
+              break;
+            }
+            case 64: {
+
+              fees_ = input.readInt32();
               break;
             }
             default: {
@@ -1302,6 +1347,83 @@ public final class SearchServiceOuterClass {
       }
     }
 
+    public static final int SESSIONSTARTDATE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object sessionStartDate_;
+    /**
+     * <code>string sessionStartDate = 6;</code>
+     */
+    public java.lang.String getSessionStartDate() {
+      java.lang.Object ref = sessionStartDate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sessionStartDate_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sessionStartDate = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSessionStartDateBytes() {
+      java.lang.Object ref = sessionStartDate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sessionStartDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SESSIONSTARTTIME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object sessionStartTime_;
+    /**
+     * <code>string sessionStartTime = 7;</code>
+     */
+    public java.lang.String getSessionStartTime() {
+      java.lang.Object ref = sessionStartTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sessionStartTime_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sessionStartTime = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSessionStartTimeBytes() {
+      java.lang.Object ref = sessionStartTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sessionStartTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FEES_FIELD_NUMBER = 8;
+    private int fees_;
+    /**
+     * <code>int32 fees = 8;</code>
+     */
+    public int getFees() {
+      return fees_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1331,6 +1453,15 @@ public final class SearchServiceOuterClass {
       if (!getSessionameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, sessioname_);
       }
+      if (!getSessionStartDateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sessionStartDate_);
+      }
+      if (!getSessionStartTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sessionStartTime_);
+      }
+      if (fees_ != 0) {
+        output.writeInt32(8, fees_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1358,6 +1489,16 @@ public final class SearchServiceOuterClass {
       if (!getSessionameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, sessioname_);
       }
+      if (!getSessionStartDateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sessionStartDate_);
+      }
+      if (!getSessionStartTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sessionStartTime_);
+      }
+      if (fees_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, fees_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1384,6 +1525,12 @@ public final class SearchServiceOuterClass {
           == other.getTeacherid());
       result = result && getSessioname()
           .equals(other.getSessioname());
+      result = result && getSessionStartDate()
+          .equals(other.getSessionStartDate());
+      result = result && getSessionStartTime()
+          .equals(other.getSessionStartTime());
+      result = result && (getFees()
+          == other.getFees());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1405,6 +1552,12 @@ public final class SearchServiceOuterClass {
       hash = (53 * hash) + getTeacherid();
       hash = (37 * hash) + SESSIONAME_FIELD_NUMBER;
       hash = (53 * hash) + getSessioname().hashCode();
+      hash = (37 * hash) + SESSIONSTARTDATE_FIELD_NUMBER;
+      hash = (53 * hash) + getSessionStartDate().hashCode();
+      hash = (37 * hash) + SESSIONSTARTTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getSessionStartTime().hashCode();
+      hash = (37 * hash) + FEES_FIELD_NUMBER;
+      hash = (53 * hash) + getFees();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1548,6 +1701,12 @@ public final class SearchServiceOuterClass {
 
         sessioname_ = "";
 
+        sessionStartDate_ = "";
+
+        sessionStartTime_ = "";
+
+        fees_ = 0;
+
         return this;
       }
 
@@ -1579,6 +1738,9 @@ public final class SearchServiceOuterClass {
         result.sessionid_ = sessionid_;
         result.teacherid_ = teacherid_;
         result.sessioname_ = sessioname_;
+        result.sessionStartDate_ = sessionStartDate_;
+        result.sessionStartTime_ = sessionStartTime_;
+        result.fees_ = fees_;
         onBuilt();
         return result;
       }
@@ -1643,6 +1805,17 @@ public final class SearchServiceOuterClass {
         if (!other.getSessioname().isEmpty()) {
           sessioname_ = other.sessioname_;
           onChanged();
+        }
+        if (!other.getSessionStartDate().isEmpty()) {
+          sessionStartDate_ = other.sessionStartDate_;
+          onChanged();
+        }
+        if (!other.getSessionStartTime().isEmpty()) {
+          sessionStartTime_ = other.sessionStartTime_;
+          onChanged();
+        }
+        if (other.getFees() != 0) {
+          setFees(other.getFees());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1888,6 +2061,170 @@ public final class SearchServiceOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object sessionStartDate_ = "";
+      /**
+       * <code>string sessionStartDate = 6;</code>
+       */
+      public java.lang.String getSessionStartDate() {
+        java.lang.Object ref = sessionStartDate_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sessionStartDate_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sessionStartDate = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSessionStartDateBytes() {
+        java.lang.Object ref = sessionStartDate_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sessionStartDate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sessionStartDate = 6;</code>
+       */
+      public Builder setSessionStartDate(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sessionStartDate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sessionStartDate = 6;</code>
+       */
+      public Builder clearSessionStartDate() {
+        
+        sessionStartDate_ = getDefaultInstance().getSessionStartDate();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sessionStartDate = 6;</code>
+       */
+      public Builder setSessionStartDateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sessionStartDate_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object sessionStartTime_ = "";
+      /**
+       * <code>string sessionStartTime = 7;</code>
+       */
+      public java.lang.String getSessionStartTime() {
+        java.lang.Object ref = sessionStartTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sessionStartTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sessionStartTime = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSessionStartTimeBytes() {
+        java.lang.Object ref = sessionStartTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sessionStartTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sessionStartTime = 7;</code>
+       */
+      public Builder setSessionStartTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sessionStartTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sessionStartTime = 7;</code>
+       */
+      public Builder clearSessionStartTime() {
+        
+        sessionStartTime_ = getDefaultInstance().getSessionStartTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sessionStartTime = 7;</code>
+       */
+      public Builder setSessionStartTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sessionStartTime_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int fees_ ;
+      /**
+       * <code>int32 fees = 8;</code>
+       */
+      public int getFees() {
+        return fees_;
+      }
+      /**
+       * <code>int32 fees = 8;</code>
+       */
+      public Builder setFees(int value) {
+        
+        fees_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 fees = 8;</code>
+       */
+      public Builder clearFees() {
+        
+        fees_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1963,16 +2300,18 @@ public final class SearchServiceOuterClass {
       "\n\023SearchService.proto\"e\n\rsearchRequest\022\014" +
       "\n\004city\030\001 \001(\t\022\026\n\005genre\030\002 \001(\0162\007.Genres\022 \n\n" +
       "instrument\030\003 \001(\0162\014.Instruments\022\014\n\004fees\030\004" +
-      " \001(\005\"y\n\016searchResponse\022\024\n\014responsecode\030\001" +
-      " \001(\005\022\027\n\017responseMessage\030\002 \001(\t\022\021\n\tsession" +
-      "id\030\003 \001(\005\022\021\n\tteacherid\030\004 \001(\005\022\022\n\nsessionam" +
-      "e\030\005 \001(\t*K\n\006Genres\022\r\n\tClassical\020\000\022\010\n\004Rock" +
-      "\020\001\022\014\n\010PopMusic\020\002\022\010\n\004Jazz\020\003\022\020\n\014CountryMus" +
-      "ic\020\004*F\n\013Instruments\022\n\n\006Guitar\020\000\022\t\n\005Piano" +
-      "\020\001\022\n\n\006Violin\020\002\022\t\n\005Drums\020\003\022\t\n\005Flute\020\0042<\n\r" +
-      "SearchService\022+\n\006search\022\016.searchRequest\032" +
-      "\017.searchResponse0\001B$\n\"com.musicmantra.se" +
-      "archservice.grpcb\006proto3"
+      " \001(\005\"\273\001\n\016searchResponse\022\024\n\014responsecode\030" +
+      "\001 \001(\005\022\027\n\017responseMessage\030\002 \001(\t\022\021\n\tsessio" +
+      "nid\030\003 \001(\005\022\021\n\tteacherid\030\004 \001(\005\022\022\n\nsessiona" +
+      "me\030\005 \001(\t\022\030\n\020sessionStartDate\030\006 \001(\t\022\030\n\020se" +
+      "ssionStartTime\030\007 \001(\t\022\014\n\004fees\030\010 \001(\005*K\n\006Ge" +
+      "nres\022\r\n\tClassical\020\000\022\010\n\004Rock\020\001\022\014\n\010PopMusi" +
+      "c\020\002\022\010\n\004Jazz\020\003\022\020\n\014CountryMusic\020\004*F\n\013Instr" +
+      "uments\022\n\n\006Guitar\020\000\022\t\n\005Piano\020\001\022\n\n\006Violin\020" +
+      "\002\022\t\n\005Drums\020\003\022\t\n\005Flute\020\0042<\n\rSearchService" +
+      "\022+\n\006search\022\016.searchRequest\032\017.searchRespo" +
+      "nse0\001B$\n\"com.musicmantra.searchservice.g" +
+      "rpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1997,7 +2336,7 @@ public final class SearchServiceOuterClass {
     internal_static_searchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_searchResponse_descriptor,
-        new java.lang.String[] { "Responsecode", "ResponseMessage", "Sessionid", "Teacherid", "Sessioname", });
+        new java.lang.String[] { "Responsecode", "ResponseMessage", "Sessionid", "Teacherid", "Sessioname", "SessionStartDate", "SessionStartTime", "Fees", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
