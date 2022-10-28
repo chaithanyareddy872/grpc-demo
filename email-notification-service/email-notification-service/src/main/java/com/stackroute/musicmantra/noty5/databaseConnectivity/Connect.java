@@ -23,7 +23,7 @@ public class Connect {
 			logger.info("creating database connection...");
 			logger.info("Databsename is: " + Constants.DATABSENAME);
 
-			connection = DriverManager.getConnection(url, psqlname, psqlpassword);
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/musicmantradb", "postgres", "postgres");
 
 			logger.info("connected to databse successfully");
 			return connection;
