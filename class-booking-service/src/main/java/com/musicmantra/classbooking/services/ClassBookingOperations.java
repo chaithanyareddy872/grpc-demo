@@ -80,6 +80,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                 Long bookingid=request.getBookingid();
                 //setting up response based on the operation performed
                 bookingresponse = databaseOperations.deleteindb(conn, bookingid);
+                ConnectToNoty.sendBookingMail(1, "cancel");
             }
             else{
                 throw new RuntimeException();

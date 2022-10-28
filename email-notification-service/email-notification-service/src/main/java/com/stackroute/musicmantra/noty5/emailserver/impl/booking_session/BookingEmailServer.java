@@ -51,8 +51,8 @@ public class BookingEmailServer extends BookingSessionEmailServerImplBase{
 		}
 		catch(Noty5Exceptions ne) {
 
-			bookingResponse.Builder response = bookingResponse.newBuilder().setMessage("running successfully")
-					.setResponsecode(ne.getErrorCode()).setMessage(ne.getErrorMsg());
+
+			bookingResponse.Builder response = bookingResponse.newBuilder().setResponsecode(ne.getErrorCode()).setMessage(ne.getErrorMsg());
 			responseObserver.onNext(response.build());
 			responseObserver.onCompleted();
 		}

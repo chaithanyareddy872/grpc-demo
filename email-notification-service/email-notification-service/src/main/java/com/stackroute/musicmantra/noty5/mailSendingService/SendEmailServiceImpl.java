@@ -14,7 +14,6 @@ import com.stackroute.musicmantra.noty5.Exception.Noty5Exceptions;
 import com.stackroute.musicmantra.noty5.databaseConnectivity.DatabaseOperationImpl;
 import com.stackroute.musicmantra.noty5.domain.api.MusicMantraEmail;
 import com.stackroute.musicmantra.noty5.domain.api.User;
-//import com.stackroute.musicmantra.noty5.emailserver.MailType;
 import com.stackroute.musicmantra.noty5.utility.Utility;
 
 public class SendEmailServiceImpl implements SendEmailService {

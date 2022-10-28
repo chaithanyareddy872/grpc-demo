@@ -29,3 +29,12 @@ Update/reset password service call
 		
 		
 select emailid,first_name from user_info where user_id in(select user_id from teacher where teacherid =(select teacherid from session where sessionid =(select sessionid from bookings where bookingid =?)))
+
+
+
+
+
+insturmemt name query
+sending 200 response with mail not sent msg
+system variables
+
