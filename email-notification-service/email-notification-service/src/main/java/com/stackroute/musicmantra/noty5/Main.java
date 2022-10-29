@@ -19,7 +19,7 @@ public class Main {
     	prop.setProperty("log4j.rootLogger", "WARN");
     	PropertyConfigurator.configure(prop);
        System.out.println("starting the server");
-       Server server = ServerBuilder.forPort(9009).addService(new UpdateMailService()).addService(new BookingEmailServer()).addService(new RegisterMailService()).build();
+       Server server = ServerBuilder.forPort(9008).addService(new UpdateMailService()).addService(new BookingEmailServer()).addService(new RegisterMailService()).build();
 
        server.start();
        server.awaitTermination();

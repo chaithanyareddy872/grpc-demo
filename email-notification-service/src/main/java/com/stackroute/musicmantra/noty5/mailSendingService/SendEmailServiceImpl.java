@@ -89,25 +89,27 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+
 					} else if (user.getBookings().getBookingType().equalsIgnoreCase("cancel")) {
 
-						message.setSubject("Booking to learn" + user.getBookings().getSessionTime() + " is ,cancelled");
+						message.setSubject("Booking to learn " + user.getBookings().getInstrumentName() + " is ,cancelled");
 
 						message.setText("Hi " + user.getFirstName() + "," + "\n\n" + "!!!" + "\n\n"
-								+ "You have successfully caclled your booking for  session to learn "
+								+ "You have successfully cancelled your booking for  session to learn "
 								+ user.getBookings().getInstrumentName()
 
 								+ ".\n\n\n" + "Thanks" + "\n" + "The Music Mantra team account");
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+
 					}
 				}
 				if (user.getType().getUserType().equalsIgnoreCase("teacher")) {
 					if (user.getBookings().getBookingType().equalsIgnoreCase("confirm")) {
 
 						message.setSubject(
-								"Booking to teach" + user.getBookings().getInstrumentName() + " is confirmed");
+								"Booking to teach " + user.getBookings().getInstrumentName() + " is confirmed");
 
 						message.setText("Hi " + user.getFirstName() + "," + "\n\n" + "Congratulations!!!" + "\n\n"
 								+ "user have successfully booked a session to learn "
@@ -117,24 +119,24 @@ public class SendEmailServiceImpl implements SendEmailService {
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+
 					} else if (user.getBookings().getBookingType().equalsIgnoreCase("cancel")) {
 
 						message.setSubject(
 								"Booking to learn" + user.getBookings().getInstrumentName() + " is ,cancelled");
 
-						message.setText("Hi " + user.getFirstName() + "," + "\n\n" + "!!!" + "\n\n"
-								+ "student have successfully caclled your booking for  session to learn "
+						message.setText("Hi " + user.getFirstName() + "," + "\n\n"
+								+ "student have successfully cancelled your booking for  session to learn "
 								+ user.getBookings().getInstrumentName()
 
 								+ ".\n\n\n" + "Thanks" + "\n" + "The Music Mantra team account");
 						System.out.println("sending...");
 						// Send message
 						Transport.send(message);
+
 					}
 				}
-				System.out.println("sending...");
-				// Send message
-				Transport.send(message);
+
 			}
 
 			System.out.println("Sent message successfully....");

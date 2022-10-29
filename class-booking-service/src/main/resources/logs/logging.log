@@ -1,0 +1,14 @@
+Oct 27, 2022 12:05:37 PM com.musicmantra.classbooking.ClassBookingMain main
+INFO: server started on port: 8095
+Oct 27, 2022 12:47:48 PM com.musicmantra.classbooking.ClassBookingMain main
+INFO: server started on port: 8095
+Oct 27, 2022 12:49:57 PM com.musicmantra.classbooking.ClassBookingMain main
+INFO: server started on port: 8095
+Oct 27, 2022 12:51:18 PM com.musicmantra.classbooking.ClassBookingMain main
+INFO: server started on port: 8095
+Oct 27, 2022 1:16:25 PM com.musicmantra.classbooking.ClassBookingMain main
+INFO: server started on port: 8095
+Oct 27, 2022 1:33:41 PM com.musicmantra.classbooking.services.ClassBookingOperations updateBooking
+INFO: connection established successfully
+Oct 27, 2022 1:34:04 PM com.musicmantra.classbooking.services.ClassBookingOperations updateBooking
+INFO: connection established successfully

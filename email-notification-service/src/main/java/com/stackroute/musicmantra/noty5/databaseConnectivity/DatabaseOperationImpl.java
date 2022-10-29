@@ -52,9 +52,9 @@ public class DatabaseOperationImpl implements DatabseOperation {
 	public User[] getbookingMail(int bookingid, String bookingType) { 
 
 		Connection conn = connect.getConnection();
-		String getstudentdetails = "select"+ Constants.EMAILID+"," +Constants.FIRSTNAME+ " from "+Constants.TABLE +" where"+ Constants.USERID+ "in(select"+ Constants.USERID +"from" +Constants.STUDENT +"where"+  Constants.STUDENTID+ "=(select"+ Constants.STUDENTID+ "from"+ Constants.BOOKINGTABLE +"where"+ Constants.BOOKINGID+"=?))";
-		String getTeacherDetails = "select"+ Constants.EMAILID+","+Constants.FIRSTNAME+ " from "+Constants.TABLE+" where"+ Constants.USERID +"in(select "+ Constants.USERID+ "from" +Constants.TEACHER +"where"+  Constants.TEACHERID+ "=(select"+ Constants.TEACHERID+ "from"+ Constants.BOOKINGTABLE +"where"+ Constants.BOOKINGID+"=?))";
-		String getInstumentname = "select" + Constants.INSTRUMENTNAME+ "from" + Constants.INSTRUMENT +"where"+ Constants.INSTRUMENTID+ "= (select"+ Constants.INSTRUMENTID+ "from"+ Constants.BOOKINGTABLE+ "where" + Constants.BOOKINGID+ "="
+		String getstudentdetails = " select "+ Constants.EMAILID+"," +Constants.FIRSTNAME+ " from "+Constants.TABLE +" where "+ Constants.USERID+ " in(select "+ Constants.USERID +" from " +Constants.STUDENT +" where "+  Constants.STUDENTID+ "=(select "+ Constants.STUDENTID+ " from "+ Constants.BOOKINGTABLE +" where "+ Constants.BOOKINGID+" =?))";
+		String getTeacherDetails = " select "+ Constants.EMAILID+","+Constants.FIRSTNAME+ " from "+Constants.TABLE+" where "+ Constants.USERID +" in(select "+ Constants.USERID+ " from " +Constants.TEACHER +" where "+  Constants.TEACHERID+ "=(select "+ Constants.TEACHERID+ " from "+ Constants.BOOKINGTABLE +" where "+ Constants.BOOKINGID+"=?))";
+		String getInstumentname = "select " + Constants.INSTRUMENTNAME+ " from " + Constants.INSTRUMENT +" where "+ Constants.INSTRUMENTID+ "= (select "+ Constants.INSTRUMENTID+ " from "+ Constants.BOOKINGTABLE+ " where " + Constants.BOOKINGID+ "="
 				+ bookingid + ")";
 		String getDate = "";
 
@@ -100,7 +100,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 		while (rs.next()) {
 			for (int i = 1; i <= 1; i++) {
 				user.setEmailid(rs.getString("emailid"));
-				user.setFirstName(rs.getString("first_name"));
+				user.setFirstName(rs.getString("fname"));
 			}
 
 		}

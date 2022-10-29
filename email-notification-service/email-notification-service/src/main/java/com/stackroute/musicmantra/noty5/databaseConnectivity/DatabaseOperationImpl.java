@@ -52,10 +52,11 @@ public class DatabaseOperationImpl implements DatabseOperation {
 	public User[] getbookingMail(int bookingid, String bookingType) { 
 
 		Connection conn = connect.getConnection();
+		String getTeacherDetails = 		
+				"select emailid,fname from users where userid in(select userid from teachers where teacherid =(select teacherid from sessions where sessionid =(select sessionid from bookings where bookingid =?)))";
 		String getstudentdetails = "select "+ Constants.EMAILID+"," +Constants.FIRSTNAME+ " from "+Constants.TABLE +" where "+ Constants.USERID+ " in(select "+ Constants.USERID +" from " +Constants.STUDENT +" where "+  Constants.STUDENTID+ " =(select "+ Constants.STUDENTID+ " from "+ Constants.BOOKINGTABLE +" where "+ Constants.BOOKINGID+" =?))";
-		String getTeacherDetails = "select "+ Constants.EMAILID+","+Constants.FIRSTNAME+ " from "+Constants.TABLE+" where "+ Constants.USERID +" in(select "+ Constants.USERID+ " from " +Constants.TEACHER +" where "+  Constants.TEACHERID+ " =(select "+ Constants.TEACHERID+ " from "+ Constants.BOOKINGTABLE +" where "+ Constants.BOOKINGID+" =?))";
-		String getInstumentname = "select " + Constants.INSTRUMENTNAME+ " from " + Constants.INSTRUMENT +" where "+ Constants.INSTRUMENTID+ " = (select "+ Constants.INSTRUMENTID+ " from "+ Constants.BOOKINGTABLE+ " where " + Constants.BOOKINGID+ "="
-				+ bookingid + ")";
+//		String getTeacherDetails = "select "+ Constants.EMAILID+","+Constants.FIRSTNAME+ " from "+Constants.TABLE+" where "+ Constants.USERID +" in(select "+ Constants.USERID+ " from " +Constants.TEACHER +" where "+  Constants.TEACHERID+ " =(select "+ Constants.TEACHERID+ " from "+ Constants.BOOKINGTABLE +" where "+ Constants.BOOKINGID+" =?))";
+		String getInstumentname = "select " + Constants.INSTRUMENTNAME+ " from " + Constants.INSTRUMENT +" where "+ Constants.INSTRUMENTID+ " = (select "+ Constants.INSTRUMENTID+ " from "+ Constants.SESSIONS+ " where sessionid =(select sessionid from bookings where bookingid ="+bookingid+"))";
 		String getDate = "";
 
 		User[] users = new User[2];
@@ -104,7 +105,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 		while (rs.next()) {
 			for (int i = 1; i <= 1; i++) {
 				user.setEmailid(rs.getString("emailid"));
-				user.setFirstName(rs.getString("first_name"));
+				user.setFirstName(rs.getString("fname"));
 			}
 
 		}
@@ -114,7 +115,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 public boolean checkIfnewUser(String email) {
 	logger.info("inside checkIfUserIsPresent method with email : " + email);
 	String emailId = null;
-	String query = "select * from user_info where emailid=?";
+	String query = "select * from users where emailid=?";
 	boolean newUser;
 
 	try {
