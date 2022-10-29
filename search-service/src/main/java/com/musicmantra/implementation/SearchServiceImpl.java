@@ -11,7 +11,7 @@ import java.util.List;
 public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
 
     public static Connection getConnection(){
-        String url = "jdbc:postgresql://localhost:5432/musicmantra";
+        String url = "jdbc:postgresql://localhost:5432/musicmantradb";
         String psqlname = "postgres";
         String psqlpassword = "root123";
 
@@ -55,7 +55,7 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
         genreid=ids.get(0);
         instrumentid=ids.get(1);
 
-        String query="select sessionid,teacherid,sessionname,startdate,fees from sessionstable where instrumentid=? and genreid=? and fees=? and teacherid in\n" +
+        String query="select sessionid,teacherid,sessionname,startdate,fees from sessions where instrumentid=? and genreid=? and fees=? and teacherid in\n" +
                 "(select teacherid from teachers where userid in\n" +
                 " (select userid from users where usertype='teacher' and userid in \n" +
                 "\t\t\t\t\t\t\t\t\t\t\t   (select userid from address where city=?)))";

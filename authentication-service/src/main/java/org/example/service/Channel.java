@@ -59,13 +59,13 @@ public class Channel {
         Iterator<Recommendteacher.recommendationResponse> response=recommendTeacherStub.getRecommendedTeacher(request);
 
         while (response.hasNext()){
-            System.out.println(response.next().toString());
+            System.out.println(response.next());
         }
 
     }
 
     public static void getSessionsofTeacher(int teacherid){
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8081).usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8087).usePlaintext().build();
         SessionServiceGrpc.SessionServiceBlockingStub sessionServiceBlockingStub=SessionServiceGrpc.newBlockingStub(channel);
         Sessionservice.GetSessionRequest request=Sessionservice.GetSessionRequest.newBuilder().setTeacherid(teacherid).build();
         Sessionservice.GetSessionResponse response= sessionServiceBlockingStub.getSessions(request);

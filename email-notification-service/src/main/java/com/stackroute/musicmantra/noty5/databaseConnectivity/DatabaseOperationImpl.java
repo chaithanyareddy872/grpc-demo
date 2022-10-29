@@ -110,7 +110,7 @@ public class DatabaseOperationImpl implements DatabseOperation {
 public boolean checkIfnewUser(String email) {
 	logger.info("inside checkIfUserIsPresent method with email : " + email);
 	String emailId = null;
-	String query = "select * from user_info where emailid=?";
+	String query = "select * from users where emailid=?";
 	boolean newUser;
 
 	try {

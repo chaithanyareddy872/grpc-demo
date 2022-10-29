@@ -53,7 +53,7 @@ public class DatabaseOperations {
                     && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus)
                     && validations.dateandtimevalidation(timestamp))) {
                 //preparing the insert statement
-                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookinginfo(" +
+                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookings(" +
                         "studentid,sessionid,datetime,status) values(?,?,?,?);");
                 //setting up the values
                 preparedStatement.setLong(1, studentid);
@@ -89,7 +89,7 @@ public class DatabaseOperations {
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
-                            "UPDATE public.bookinginfo "
+                            "UPDATE bookings "
                                     + "SET datetime=?, status=? "
                                     + "WHERE (bookingid=? );");
             //setting up the values
@@ -123,7 +123,7 @@ public class DatabaseOperations {
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
-                            "DELETE from public.bookinginfo "
+                            "DELETE from bookings "
                                     + "WHERE (bookingid=?);");
             //deleting the records
             preparedStatement.setLong(1,bookingid);
@@ -151,7 +151,7 @@ public class DatabaseOperations {
         try {
             if (stuid>0&&sessid>0) {
                 String query = "SELECT bookingid, studentid, sessionid, status," +
-                        " datetime from bookinginfo where studentid = '" + stuid +
+                        " datetime from bookings where studentid = '" + stuid +
                         "' AND sessionid= '" + sessid + "';";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ResultSet rs = ps.executeQuery();
@@ -183,7 +183,7 @@ public class DatabaseOperations {
 
         ResultSet resultSet = null;
         try{
-            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
+            PreparedStatement preparedStatement=conn.prepareStatement("select * from bookings " +
                     "where studentid=?");
             preparedStatement.setLong(1,multiBookingReq.getUserid());
             resultSet= preparedStatement.executeQuery();
@@ -197,7 +197,7 @@ public class DatabaseOperations {
 
         ResultSet resultSet = null;
         try{
-            PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookinginfo " +
+            PreparedStatement preparedStatement=conn.prepareStatement("select * from bookings " +
                     "where sessionid=?");
             preparedStatement.setLong(1,multiBookingReq.getUserid());
             resultSet= preparedStatement.executeQuery();
