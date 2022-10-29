@@ -59,36 +59,36 @@ public final class FeedbackServiceGrpc {
      return getFeedbackMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.stackroute.User.SessionReq,
-      com.stackroute.User.SessionResp> getSessionMethod;
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.User.getfeedbackReq,
+      com.stackroute.User.getfeedbackResp> getGetfeedbackMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Session",
-      requestType = com.stackroute.User.SessionReq.class,
-      responseType = com.stackroute.User.SessionResp.class,
+      fullMethodName = SERVICE_NAME + '/' + "getfeedback",
+      requestType = com.stackroute.User.getfeedbackReq.class,
+      responseType = com.stackroute.User.getfeedbackResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.stackroute.User.SessionReq,
-      com.stackroute.User.SessionResp> getSessionMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.User.SessionReq, com.stackroute.User.SessionResp> getSessionMethod;
-    if ((getSessionMethod = FeedbackServiceGrpc.getSessionMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.stackroute.User.getfeedbackReq,
+      com.stackroute.User.getfeedbackResp> getGetfeedbackMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.User.getfeedbackReq, com.stackroute.User.getfeedbackResp> getGetfeedbackMethod;
+    if ((getGetfeedbackMethod = FeedbackServiceGrpc.getGetfeedbackMethod) == null) {
       synchronized (FeedbackServiceGrpc.class) {
-        if ((getSessionMethod = FeedbackServiceGrpc.getSessionMethod) == null) {
-          FeedbackServiceGrpc.getSessionMethod = getSessionMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.User.SessionReq, com.stackroute.User.SessionResp>newBuilder()
+        if ((getGetfeedbackMethod = FeedbackServiceGrpc.getGetfeedbackMethod) == null) {
+          FeedbackServiceGrpc.getGetfeedbackMethod = getGetfeedbackMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.User.getfeedbackReq, com.stackroute.User.getfeedbackResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "FeedbackService", "Session"))
+                  "FeedbackService", "getfeedback"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.User.SessionReq.getDefaultInstance()))
+                  com.stackroute.User.getfeedbackReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.User.SessionResp.getDefaultInstance()))
-                  .setSchemaDescriptor(new FeedbackServiceMethodDescriptorSupplier("Session"))
+                  com.stackroute.User.getfeedbackResp.getDefaultInstance()))
+                  .setSchemaDescriptor(new FeedbackServiceMethodDescriptorSupplier("getfeedback"))
                   .build();
           }
         }
      }
-     return getSessionMethod;
+     return getGetfeedbackMethod;
   }
 
   /**
@@ -127,9 +127,9 @@ public final class FeedbackServiceGrpc {
 
     /**
      */
-    public void session(com.stackroute.User.SessionReq request,
-        io.grpc.stub.StreamObserver<com.stackroute.User.SessionResp> responseObserver) {
-      asyncUnimplementedUnaryCall(getSessionMethod(), responseObserver);
+    public void getfeedback(com.stackroute.User.getfeedbackReq request,
+        io.grpc.stub.StreamObserver<com.stackroute.User.getfeedbackResp> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetfeedbackMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -142,12 +142,12 @@ public final class FeedbackServiceGrpc {
                 com.stackroute.User.FeedbackResp>(
                   this, METHODID_FEEDBACK)))
           .addMethod(
-            getSessionMethod(),
+            getGetfeedbackMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.stackroute.User.SessionReq,
-                com.stackroute.User.SessionResp>(
-                  this, METHODID_SESSION)))
+                com.stackroute.User.getfeedbackReq,
+                com.stackroute.User.getfeedbackResp>(
+                  this, METHODID_GETFEEDBACK)))
           .build();
     }
   }
@@ -180,10 +180,10 @@ public final class FeedbackServiceGrpc {
 
     /**
      */
-    public void session(com.stackroute.User.SessionReq request,
-        io.grpc.stub.StreamObserver<com.stackroute.User.SessionResp> responseObserver) {
+    public void getfeedback(com.stackroute.User.getfeedbackReq request,
+        io.grpc.stub.StreamObserver<com.stackroute.User.getfeedbackResp> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSessionMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetfeedbackMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -214,9 +214,9 @@ public final class FeedbackServiceGrpc {
 
     /**
      */
-    public com.stackroute.User.SessionResp session(com.stackroute.User.SessionReq request) {
+    public com.stackroute.User.getfeedbackResp getfeedback(com.stackroute.User.getfeedbackReq request) {
       return blockingUnaryCall(
-          getChannel(), getSessionMethod(), getCallOptions(), request);
+          getChannel(), getGetfeedbackMethod(), getCallOptions(), request);
     }
   }
 
@@ -248,15 +248,15 @@ public final class FeedbackServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.User.SessionResp> session(
-        com.stackroute.User.SessionReq request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.User.getfeedbackResp> getfeedback(
+        com.stackroute.User.getfeedbackReq request) {
       return futureUnaryCall(
-          getChannel().newCall(getSessionMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetfeedbackMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_FEEDBACK = 0;
-  private static final int METHODID_SESSION = 1;
+  private static final int METHODID_GETFEEDBACK = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -279,9 +279,9 @@ public final class FeedbackServiceGrpc {
           serviceImpl.feedback((com.stackroute.User.FeedbackReq) request,
               (io.grpc.stub.StreamObserver<com.stackroute.User.FeedbackResp>) responseObserver);
           break;
-        case METHODID_SESSION:
-          serviceImpl.session((com.stackroute.User.SessionReq) request,
-              (io.grpc.stub.StreamObserver<com.stackroute.User.SessionResp>) responseObserver);
+        case METHODID_GETFEEDBACK:
+          serviceImpl.getfeedback((com.stackroute.User.getfeedbackReq) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.User.getfeedbackResp>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -345,7 +345,7 @@ public final class FeedbackServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FeedbackServiceFileDescriptorSupplier())
               .addMethod(getFeedbackMethod())
-              .addMethod(getSessionMethod())
+              .addMethod(getGetfeedbackMethod())
               .build();
         }
       }

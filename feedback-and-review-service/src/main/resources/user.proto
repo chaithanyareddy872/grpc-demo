@@ -5,7 +5,7 @@ option java_package = "com.stackroute";
 
 service FeedbackService{
   rpc Feedback(FeedbackReq)returns(FeedbackResp);
-  rpc Session(SessionReq)returns(SessionResp);
+  rpc getfeedback(getfeedbackReq)returns(getfeedbackResp);
 }
 message FeedbackReq{
   int32 FeedbackId=1;
@@ -18,11 +18,15 @@ message FeedbackResp{
   string responceMessage=2;
 
 }
-message SessionReq{
-  int32 SessionId=1;
-  string Enddate=2;
+message getfeedbackReq{
+  int32 feedbcakId=1;
+
 }
-message SessionResp{
-  int32 responceCode=1;
-  string responceMessage=2;
+message getfeedbackResp{
+  int32 FeedbackId=1;
+  int32 BookingId=2;
+  int32 FeedbackRating=3;
+  string Message=4;
+  int32 responceCode=5;
+  string errorMessage=6;
 }
