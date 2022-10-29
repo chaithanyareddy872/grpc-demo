@@ -11,7 +11,7 @@ public class Constants {
 		public static String EMAILID = "emailid";
 		public static String BOOKINGTABLE = "bookings";
 		public static String BOOKINGID = "bookingid";
-		public static String EMAILDETAILS = "/home/global/git/musicmantra/neww/email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt";
+		public static String EMAILDETAILS = "email-notification-service/src/main/resources/SenderEmailInfo/EmailIdPassword.txt";
     	public static String STUDENT = "students";
 		public static String TEACHER = "teachers";
 		public static String STUDENTID = "studentid";
