@@ -3,32 +3,56 @@ syntax = "proto3";
 option java_package = "org.grpc.generated";
 
 service UpdateService{
-  rpc updatefirstName(nameOrPasswordRequest) returns (Response);
-  rpc updatelastLast(nameOrPasswordRequest) returns (Response);
-  rpc updateContact(nameOrPasswordRequest) returns (Response);
+
+  //  rpc singleUpdateMethod(UpdatedRequest) returns (Response);
+  rpc updateFirstName(firstName) returns (Response);
+  rpc updateLastName(lastName) returns (Response);
+  rpc updateContact(contact) returns (Response);
   rpc updateAddress(Address) returns (Response);
-  rpc updatePreference(preference) returns (Response);
-  rpc updateInterests(interests) returns (Response);
-  rpc updatePassword(nameOrPasswordRequest) returns (Response);
-}
-message nameOrPasswordRequest{
-  string updatedString = 1;
+  rpc updatePreference(Preference) returns (Response);
+  rpc updatePassword(password) returns (Response);
 }
 
+message firstName{
+  string firstname = 1;
+  int32 id = 2;
+}
+message lastName{
+  string lastname = 1;
+  int32 id = 2;
+}
+message contact{
+  string contact = 1;
+  int32 id = 2;
+}
+message password{
+  string password = 1;
+  int32 id = 2;
+}
 message Response{
   string responseMessage = 1;
   int32 statusCode = 2;
+  Profile profile = 3;
 }
-message preference{
-  repeated string preferences = 1;
-}
-message interests{
-  repeated string interests = 1;
+message Preference{
+  repeated string genre = 1;
+  repeated string intrument = 2;
+  int32 id = 3;
 }
 message Address {
   string city=1;
   string state=2;
   string pinCode=3;
+  int32 id = 4;
+}
+
+message Profile{
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
+  string contact = 4;
+  Address address = 5;
+  Preference preference = 6;
 }
 
 
