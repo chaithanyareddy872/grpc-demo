@@ -23,17 +23,14 @@ public interface multiBookingRespOrBuilder extends
   long getSessionid();
 
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+   * <code>string lastupdate = 4;</code>
    */
-  boolean hasDateTime();
+  java.lang.String getLastupdate();
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+   * <code>string lastupdate = 4;</code>
    */
-  com.google.protobuf.Timestamp getDateTime();
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder();
+  com.google.protobuf.ByteString
+      getLastupdateBytes();
 
   /**
    * <code>string bookingstatus = 5;</code>

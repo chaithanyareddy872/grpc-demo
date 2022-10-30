@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     bookinid_ = 0L;
     studentid_ = 0L;
     sessionid_ = 0L;
+    lastupdate_ = "";
     bookingstatus_ = "";
     errormsg_ = "";
     statuscode_ = 0;
@@ -68,16 +69,9 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (dateTime_ != null) {
-              subBuilder = dateTime_.toBuilder();
-            }
-            dateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dateTime_);
-              dateTime_ = subBuilder.buildPartial();
-            }
+            java.lang.String s = input.readStringRequireUtf8();
 
+            lastupdate_ = s;
             break;
           }
           case 42: {
@@ -156,25 +150,38 @@ private static final long serialVersionUID = 0L;
     return sessionid_;
   }
 
-  public static final int DATETIME_FIELD_NUMBER = 4;
-  private com.google.protobuf.Timestamp dateTime_;
+  public static final int LASTUPDATE_FIELD_NUMBER = 4;
+  private volatile java.lang.Object lastupdate_;
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+   * <code>string lastupdate = 4;</code>
    */
-  public boolean hasDateTime() {
-    return dateTime_ != null;
+  public java.lang.String getLastupdate() {
+    java.lang.Object ref = lastupdate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      lastupdate_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+   * <code>string lastupdate = 4;</code>
    */
-  public com.google.protobuf.Timestamp getDateTime() {
-    return dateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-   */
-  public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
-    return getDateTime();
+  public com.google.protobuf.ByteString
+      getLastupdateBytes() {
+    java.lang.Object ref = lastupdate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      lastupdate_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int BOOKINGSTATUS_FIELD_NUMBER = 5;
@@ -277,8 +284,8 @@ private static final long serialVersionUID = 0L;
     if (sessionid_ != 0L) {
       output.writeUInt64(3, sessionid_);
     }
-    if (dateTime_ != null) {
-      output.writeMessage(4, getDateTime());
+    if (!getLastupdateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, lastupdate_);
     }
     if (!getBookingstatusBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bookingstatus_);
@@ -310,9 +317,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(3, sessionid_);
     }
-    if (dateTime_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getDateTime());
+    if (!getLastupdateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, lastupdate_);
     }
     if (!getBookingstatusBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bookingstatus_);
@@ -346,11 +352,8 @@ private static final long serialVersionUID = 0L;
         == other.getStudentid());
     result = result && (getSessionid()
         == other.getSessionid());
-    result = result && (hasDateTime() == other.hasDateTime());
-    if (hasDateTime()) {
-      result = result && getDateTime()
-          .equals(other.getDateTime());
-    }
+    result = result && getLastupdate()
+        .equals(other.getLastupdate());
     result = result && getBookingstatus()
         .equals(other.getBookingstatus());
     result = result && getErrormsg()
@@ -377,10 +380,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SESSIONID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSessionid());
-    if (hasDateTime()) {
-      hash = (37 * hash) + DATETIME_FIELD_NUMBER;
-      hash = (53 * hash) + getDateTime().hashCode();
-    }
+    hash = (37 * hash) + LASTUPDATE_FIELD_NUMBER;
+    hash = (53 * hash) + getLastupdate().hashCode();
     hash = (37 * hash) + BOOKINGSTATUS_FIELD_NUMBER;
     hash = (53 * hash) + getBookingstatus().hashCode();
     hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
@@ -530,12 +531,8 @@ private static final long serialVersionUID = 0L;
 
       sessionid_ = 0L;
 
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = null;
-      } else {
-        dateTime_ = null;
-        dateTimeBuilder_ = null;
-      }
+      lastupdate_ = "";
+
       bookingstatus_ = "";
 
       errormsg_ = "";
@@ -571,11 +568,7 @@ private static final long serialVersionUID = 0L;
       result.bookinid_ = bookinid_;
       result.studentid_ = studentid_;
       result.sessionid_ = sessionid_;
-      if (dateTimeBuilder_ == null) {
-        result.dateTime_ = dateTime_;
-      } else {
-        result.dateTime_ = dateTimeBuilder_.build();
-      }
+      result.lastupdate_ = lastupdate_;
       result.bookingstatus_ = bookingstatus_;
       result.errormsg_ = errormsg_;
       result.statuscode_ = statuscode_;
@@ -636,8 +629,9 @@ private static final long serialVersionUID = 0L;
       if (other.getSessionid() != 0L) {
         setSessionid(other.getSessionid());
       }
-      if (other.hasDateTime()) {
-        mergeDateTime(other.getDateTime());
+      if (!other.getLastupdate().isEmpty()) {
+        lastupdate_ = other.lastupdate_;
+        onChanged();
       }
       if (!other.getBookingstatus().isEmpty()) {
         bookingstatus_ = other.bookingstatus_;
@@ -757,121 +751,73 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Timestamp dateTime_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateTimeBuilder_;
+    private java.lang.Object lastupdate_ = "";
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * <code>string lastupdate = 4;</code>
      */
-    public boolean hasDateTime() {
-      return dateTimeBuilder_ != null || dateTime_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-     */
-    public com.google.protobuf.Timestamp getDateTime() {
-      if (dateTimeBuilder_ == null) {
-        return dateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
+    public java.lang.String getLastupdate() {
+      java.lang.Object ref = lastupdate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lastupdate_ = s;
+        return s;
       } else {
-        return dateTimeBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * <code>string lastupdate = 4;</code>
      */
-    public Builder setDateTime(com.google.protobuf.Timestamp value) {
-      if (dateTimeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        dateTime_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getLastupdateBytes() {
+      java.lang.Object ref = lastupdate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lastupdate_ = b;
+        return b;
       } else {
-        dateTimeBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * <code>string lastupdate = 4;</code>
      */
-    public Builder setDateTime(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = builderForValue.build();
-        onChanged();
-      } else {
-        dateTimeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-     */
-    public Builder mergeDateTime(com.google.protobuf.Timestamp value) {
-      if (dateTimeBuilder_ == null) {
-        if (dateTime_ != null) {
-          dateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(dateTime_).mergeFrom(value).buildPartial();
-        } else {
-          dateTime_ = value;
-        }
-        onChanged();
-      } else {
-        dateTimeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-     */
-    public Builder clearDateTime() {
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = null;
-        onChanged();
-      } else {
-        dateTime_ = null;
-        dateTimeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getDateTimeBuilder() {
-      
+    public Builder setLastupdate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      lastupdate_ = value;
       onChanged();
-      return getDateTimeFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * <code>string lastupdate = 4;</code>
      */
-    public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
-      if (dateTimeBuilder_ != null) {
-        return dateTimeBuilder_.getMessageOrBuilder();
-      } else {
-        return dateTime_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
-      }
+    public Builder clearLastupdate() {
+      
+      lastupdate_ = getDefaultInstance().getLastupdate();
+      onChanged();
+      return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp dateTime = 4;</code>
+     * <code>string lastupdate = 4;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getDateTimeFieldBuilder() {
-      if (dateTimeBuilder_ == null) {
-        dateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getDateTime(),
-                getParentForChildren(),
-                isClean());
-        dateTime_ = null;
-      }
-      return dateTimeBuilder_;
+    public Builder setLastupdateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      lastupdate_ = value;
+      onChanged();
+      return this;
     }
 
     private java.lang.Object bookingstatus_ = "";

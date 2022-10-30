@@ -1,8 +1,7 @@
 
 syntax = "proto3";
 
-//for dateformate input
-import "google/protobuf/timestamp.proto";
+
 
 
 //setting java package name where the generated files need to store
@@ -17,8 +16,8 @@ service ClassBooking{
     rpc postBooking(postBookingReq) returns (BookingResp);
     rpc updateBooking(updatereq) returns (BookingResp);
     rpc deleteBooking(deleteBookingReq) returns (BookingResp);
-    rpc getallstudentbookings(multiBookingReq) returns (stream multiBookingResp);
-    rpc getallsessionbookings(multiBookingReq) returns (stream multiBookingResp);
+    rpc getallstudentbookings(studentRecordsReq) returns (stream multiBookingResp);
+    rpc getallsessionbookings(sessionBookingReq) returns (stream multiBookingResp);
     rpc getBooking(getBookingReq)returns(multiBookingResp);
 }
 
@@ -27,14 +26,12 @@ service ClassBooking{
 message postBookingReq {
     uint64 studentid=1;
     uint64 sessionid=2;
-    google.protobuf.Timestamp dateTime = 3;
     string status=4;
 }
 
 //update a record
 message updatereq{
     uint64 bookingid=1;
-    google.protobuf.Timestamp dateTime = 2;
     string status=3;
 }
 //defining response message format
@@ -49,8 +46,11 @@ message deleteBookingReq {
 }
 
 //multi record req message
-message multiBookingReq{
-    uint64 userid=1;
+message studentRecordsReq{
+    uint64 studentid=1;
+}
+message sessionBookingReq{
+  uint64 sessionid=1;
 }
 //multi records response message
 message  multiBookingResp
@@ -58,7 +58,7 @@ message  multiBookingResp
      uint64 bookinid=1;
      uint64 studentid=2;
      uint64 sessionid=3;
-     google.protobuf.Timestamp dateTime = 4;
+     string lastupdate = 4;
      string bookingstatus=5;
      string errormsg=6;
      int32 statuscode=7;

@@ -53,8 +53,8 @@ public class RegisterMailService extends RegistrationEmailServerImplBase {
 			OTP = sendEmailService.sendOTP(emailId, session, emailType);
 
 			logger.info("creating response...");
-			apiResponse.Builder response = apiResponse.newBuilder().setMessage("running successfully")
-					.setResponsecode(OTP).setOTP(OTP);
+			apiResponse.Builder response = apiResponse.newBuilder().setMessage("email sent successfully")
+					.setResponsecode(200).setOTP(OTP);
 			responseObserver.onNext(response.build());
 			responseObserver.onCompleted();
 		} catch (Noty5Exceptions ne) {

@@ -13,19 +13,6 @@ public interface updatereqOrBuilder extends
   long getBookingid();
 
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 2;</code>
-   */
-  boolean hasDateTime();
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 2;</code>
-   */
-  com.google.protobuf.Timestamp getDateTime();
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 2;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder();
-
-  /**
    * <code>string status = 3;</code>
    */
   java.lang.String getStatus();

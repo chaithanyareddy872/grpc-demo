@@ -2,14 +2,20 @@ package service;
 
 import com.stackroute.FeedbackServiceGrpc;
 import com.stackroute.User;
+import interceptor.Constants;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
 {
+/*
     @Override
     public void getfeedback(User.getfeedbackReq request, StreamObserver<User.getfeedbackResp> responseObserver) {
         int feedbackid = request.getFeedbcakId();
@@ -40,47 +46,99 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
         responseObserver.onNext(feedbackresp.build());
         responseObserver.onCompleted();
     }
+*/
+
+    @Override
+    public void getFeedbackforSession(User.getfeedbackReq request, StreamObserver<User.getfeedbackResp> responseObserver) {
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+
+            String url = "jdbc:postgresql://localhost:5432/musicmantradb";
+            String postgresqlUname="postgres";
+            String postgresqlPass="root123";
+
+            int sessionid=request.getSessionid();
+
+            User.getfeedbackResp.Builder response=User.getfeedbackResp.newBuilder();
+
+            List<User.getfeedbackResp.Builder> responses=new ArrayList<>();
+
+            String query="select * from feedback where bookingid in (select bookingid from bookings where sessionid=?)";
+
+            try {
+                Connection connection=DriverManager.getConnection(url,postgresqlUname,postgresqlPass);
+
+                System.out.println("***Connection Established***");
+
+                PreparedStatement preparedStatement=connection.prepareStatement(query);
+                preparedStatement.setInt(1,sessionid);
+
+                ResultSet resultSet=preparedStatement.executeQuery();
+
+                while(resultSet.next()){
+                    response.setFeedbackId(resultSet.getInt(1))
+                            .setBookingId(resultSet.getInt(2))
+                            .setFeedbackRating(resultSet.getInt(3))
+                            .setMessage(resultSet.getString(4))
+                            .setResponceCode(200);
+
+                    responses.add(response);
+
+                    responseObserver.onNext(response.build());
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (responses.isEmpty()){
+                response.setResponceCode(303).setErrorMessage("No feedbacks found for this session");
+                responseObserver.onNext(response.build());
+            }
+
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
+
+    }
 
     @Override
     public void feedback(User.FeedbackReq request, StreamObserver<User.FeedbackResp> responseObserver)
     {
-        System.out.println("Inside Feedback service");
-        int feedbackid = request.getFeedbackId();
-        int bookingid = request.getBookingId();
-        int feedbackrating = request.getFeedbackRating();
-        String message = request.getMessage();
-        System.out.println("FeedbackId:" + feedbackid);
-        System.out.println("BookingId:" + bookingid);
-        System.out.println("FeedbackRating:" + feedbackrating);
-        System.out.println("Message:" + message);
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
+            System.out.println("Inside Feedback service");
+            int bookingid = request.getBookingId();
+            int feedbackrating = request.getFeedbackRating();
+            String message = request.getMessage();
+            System.out.println("BookingId:" + bookingid);
+            System.out.println("FeedbackRating:" + feedbackrating);
+            System.out.println("Message:" + message);
 
 
 
-        User.FeedbackResp.Builder response = User.FeedbackResp.newBuilder();
+            User.FeedbackResp.Builder response = User.FeedbackResp.newBuilder();
 
-            if (feedbackid != 0) {
-                response.setResponceMessage("SUCCESS").setResponceCode(200);
-            } else {
-                response.setResponceMessage("Invalid feedbackId").setResponceCode(400);
-            }
 
             if (bookingid != 0 && feedbackrating <=5) {
-                response=storeDetails(feedbackid,bookingid,feedbackrating,message);
+                response=storeDetails(bookingid,feedbackrating,message);
             } else {
-                response.setResponceMessage("Invalid bookingId").setResponceCode(400);
+                response.setResponceMessage("Invalid Details").setResponceCode(400);
             }
 
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
-
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
 
     }
-    public User.FeedbackResp.Builder storeDetails(int FeedbackId,int BookingId,int FeedbackRating,String Message)
+    public User.FeedbackResp.Builder storeDetails(int BookingId,int FeedbackRating,String Message)
     {
         User.FeedbackResp.Builder response = User.FeedbackResp.newBuilder();
         String url = "jdbc:postgresql://localhost:5432/musicmantradb";
         String postgresqlUname="postgres";
-        String postgresqlPass="Jaga@6565";
+        String postgresqlPass="root123";
 
         try{
             Connection connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);

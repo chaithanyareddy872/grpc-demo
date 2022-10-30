@@ -9,8 +9,9 @@ import java.sql.SQLException;
 public class Validations {//validation class
 
     public static boolean validateFirstName(String firstname) {
+        System.out.println(firstname);
         try {
-            if (firstname.matches("[A-Z][a-z]*")) {
+            if (firstname.matches("^[a-zA-Z]*$")) {
 
                 return true;
             } else

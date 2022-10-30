@@ -1,11 +1,8 @@
 package com.musicmantra.classbooking.databaseOperations;
 
-import com.google.protobuf.Timestamp;
 import com.musicmantra.classbooking.validation.Validations;
 import com.musicmantra.classbooking.generatedfiles.BookingResp;
-import com.musicmantra.classbooking.generatedfiles.multiBookingReq;
 import com.musicmantra.classbooking.generatedfiles.multiBookingResp;
-
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,9 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Properties;
 
 
@@ -47,22 +42,17 @@ public class DatabaseOperations {
     }
     //method to insert a record into the database
     public BookingResp.Builder storeindb(Connection conn, Long studentid, Long sessionid,
-                                         Timestamp timestamp, String bookingstatus) throws SQLException {
+                                         LocalDateTime timestamp, String bookingstatus) throws SQLException {
         try {
             if(studentid>0 && sessionid >0 && bookingstatus!=null
-                    && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus)
-                    && validations.dateandtimevalidation(timestamp))) {
+                    && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus))) {
                 //preparing the insert statement
                 PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookings(" +
                         "studentid,sessionid,datetime,status) values(?,?,?,?);");
                 //setting up the values
                 preparedStatement.setLong(1, studentid);
                 preparedStatement.setLong(2, sessionid);
-                //converting google protobuff date to localdatetime formate
-                Instant instant = Instant.ofEpochSecond(timestamp.getSeconds(),
-                        timestamp.getNanos());
-                LocalDateTime ldt = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
-                preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(ldt));
+                preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(timestamp));
                 preparedStatement.setString(4, bookingstatus);
                 //calling the execute method and getting how many records effected
                 int noofinsertedrec = preparedStatement.executeUpdate();
@@ -82,10 +72,9 @@ public class DatabaseOperations {
     }
 
     //method to update a record in database
-    public BookingResp.Builder updateindb(Connection conn,Long bookingid,Timestamp timestamp,String status) {
-
+    public BookingResp.Builder updateindb(Connection conn,Long bookingid,LocalDateTime timestamp,String status) {
         try {
-            if(bookingid>0&&validations.stringvalidation(status)&& validations.dateandtimevalidation(timestamp)){
+            if(bookingid>0&&validations.stringvalidation(status)){
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(
@@ -95,9 +84,8 @@ public class DatabaseOperations {
                                     + "WHERE (bookingid=? );");
             //setting up the values
             //converting google protobuff date to localdatetime formate
-            Instant instant =  Instant.ofEpochSecond(timestamp.getSeconds() ,timestamp.getNanos());
-            LocalDateTime ldt = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
-            preparedStatement.setTimestamp(1,java.sql.Timestamp.valueOf(ldt));
+
+            preparedStatement.setTimestamp(1,java.sql.Timestamp.valueOf(timestamp));
             preparedStatement.setString(2,status);
             preparedStatement.setLong(3,bookingid);
             //calling the execute method and getting how many records effected
@@ -162,10 +150,10 @@ public class DatabaseOperations {
                     booking.setStudentid(rs.getInt(2));
                     booking.setSessionid(rs.getInt(3));
                     booking.setBookingstatus(rs.getString(4));
-                    booking.setDateTime(convertTimestamp(rs.getTimestamp(5)));
+                    booking.setLastupdate(String.valueOf(rs.getTimestamp(5)));
                 } else {
                     booking.setStatuscode(404);
-                    booking.setBookingstatus("no record found");
+                    booking.setErrormsg("no record found");
                 }
             }
             else {
@@ -173,20 +161,20 @@ public class DatabaseOperations {
             }
         }
         catch (Exception e){
-            booking.setBookingstatus(e.getMessage());
+            booking.setErrormsg(e.getMessage());
             booking.setStatuscode(400);
         }
 
         return booking;
     }
     //method to get all bookings based on studentid
-    public ResultSet getallbookings(Connection conn, multiBookingReq multiBookingReq){
+    public ResultSet getallbookings(Connection conn, Long studentid){
 
         ResultSet resultSet = null;
         try{
             PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookings " +
                     "where studentid=?");
-            preparedStatement.setLong(1,multiBookingReq.getUserid());
+            preparedStatement.setLong(1,studentid);
             resultSet= preparedStatement.executeQuery();
         }
         catch (Exception exception) {
@@ -194,26 +182,18 @@ public class DatabaseOperations {
         }
         return resultSet;
     }
-    public ResultSet getallsessionbookings(Connection conn, multiBookingReq multiBookingReq){
+    public ResultSet getallsessionbookings(Connection conn, Long sessionid){
 
         ResultSet resultSet = null;
         try{
             PreparedStatement preparedStatement=conn.prepareStatement("select * from public.bookings " +
                     "where sessionid=?");
-            preparedStatement.setLong(1,multiBookingReq.getUserid());
+            preparedStatement.setLong(1,sessionid);
             resultSet= preparedStatement.executeQuery();
         }
         catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
         return resultSet;
-    }
-    public Timestamp.Builder convertTimestamp(java.sql.Timestamp timestamp){
-        LocalDateTime exampleInput=timestamp.toLocalDateTime();
-        Instant javaTimeInstant = exampleInput.atZone(ZoneId.systemDefault()).toInstant();
-        Timestamp.Builder ts = com.google.protobuf.Timestamp.newBuilder();
-        ts.setSeconds(javaTimeInstant.getEpochSecond())
-                .setNanos(javaTimeInstant.getNano());
-        return ts;
     }
 }

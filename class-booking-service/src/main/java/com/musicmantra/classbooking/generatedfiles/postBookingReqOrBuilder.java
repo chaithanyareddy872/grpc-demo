@@ -18,19 +18,6 @@ public interface postBookingReqOrBuilder extends
   long getSessionid();
 
   /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  boolean hasDateTime();
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  com.google.protobuf.Timestamp getDateTime();
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder();
-
-  /**
    * <code>string status = 4;</code>
    */
   java.lang.String getStatus();
