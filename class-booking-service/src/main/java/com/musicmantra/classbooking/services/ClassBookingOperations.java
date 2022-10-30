@@ -10,6 +10,7 @@ import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
 
 //class for manupulations of records in database
 public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBase {
@@ -28,10 +29,9 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     //getting connection by connecting to database
                     Connection conn = databaseOperations.connection();
                     Long bookinid = request.getBookingid();
-                    Timestamp timestamp1 = request.getDateTime();
                     String status = request.getStatus();
                     //setting up response based on the operation performed
-                    bookingresponse = databaseOperations.updateindb(conn, bookinid, timestamp1, status);
+                    bookingresponse = databaseOperations.updateindb(conn, bookinid, LocalDateTime.now(), status);
                     if(bookinid !=0 && validations.statusvalidation(status)) {
                         ConnectToNoty.sendBookingMail(Math.toIntExact(bookinid), status);
                     }
@@ -65,10 +65,9 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     Connection conn = databaseOperations.connection();
                     Long studentid=request.getStudentid();
                     Long sessionid=request.getSessionid();
-                    Timestamp timestamp1=request.getDateTime();
                     String status=request.getStatus();
                     //setting up response based on the operation performed
-                    bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,timestamp1,status);
+                    bookingresponse=databaseOperations.storeindb(conn, studentid,sessionid,LocalDateTime.now(),status);
                     multiBookingResp.Builder bookinginfo=databaseOperations.getBookingDetails(conn,studentid,sessionid);
                     if(bookinginfo.getBookinid() !=0) {
                         ConnectToNoty.sendBookingMail((int) bookinginfo.getBookinid(), bookinginfo.getBookingstatus());
@@ -130,13 +129,13 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
 
     @Override
     //method to set response to all records based on the single  student
-    public void getallstudentbookings(multiBookingReq request, StreamObserver<multiBookingResp> responseObserver) {
+    public void getallstudentbookings(studentRecordsReq request, StreamObserver<multiBookingResp> responseObserver) {
         if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
             multiBookingResp.Builder multiresp=multiBookingResp.newBuilder();
 
             try{
                 Connection conn=databaseOperations.connection();
-                ResultSet resultSet=databaseOperations.getallbookings(conn,request);
+                ResultSet resultSet=databaseOperations.getallbookings(conn,request.getStudentid());
                 if (!resultSet.isBeforeFirst()){
                     throw new RuntimeException("no record found");
                 }
@@ -144,7 +143,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     multiresp.setBookinid(resultSet.getLong(1));
                     multiresp.setStudentid(resultSet.getLong(2));
                     multiresp.setSessionid(resultSet.getLong(3));
-                    multiresp.setDateTime(databaseOperations.convertTimestamp(resultSet.getTimestamp(4)));
+                    multiresp.setLastupdate(String.valueOf(resultSet.getTimestamp(4)));
                     multiresp.setBookingstatus(resultSet.getString(5));
                     multiresp.setStatuscode(200).build();
                     responseObserver.onNext(multiresp.build());
@@ -164,12 +163,12 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
 
     @Override
     //method to set response to all records based on the single session
-    public void getallsessionbookings(multiBookingReq request, StreamObserver<multiBookingResp> responseObserver) {
+    public void getallsessionbookings(sessionBookingReq request, StreamObserver<multiBookingResp> responseObserver) {
         if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
             multiBookingResp.Builder multiBookingResp=com.musicmantra.classbooking.generatedfiles.multiBookingResp.newBuilder();
             try{
                 Connection conn=databaseOperations.connection();
-                ResultSet resultSet=databaseOperations.getallsessionbookings(conn,request);
+                ResultSet resultSet=databaseOperations.getallsessionbookings(conn,request.getSessionid());
                 if (!resultSet.isBeforeFirst()){
                     throw new RuntimeException("no record found");
                 }
@@ -177,7 +176,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     multiBookingResp.setBookinid(resultSet.getLong(1));
                     multiBookingResp.setStudentid(resultSet.getLong(2));
                     multiBookingResp.setSessionid(resultSet.getLong(3));
-                    multiBookingResp.setDateTime(databaseOperations.convertTimestamp(resultSet.getTimestamp(4)));
+                    multiBookingResp.setLastupdate(String.valueOf(resultSet.getTimestamp(4)));
                     multiBookingResp.setBookingstatus(resultSet.getString(5));
                     multiBookingResp.setStatuscode(200);
                     responseObserver.onNext(multiBookingResp.build());
@@ -199,7 +198,6 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
         if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
             Long stuid= request.getStudentid();
             Long sessid= request.getSessionid();
-            multiBookingResp booking = null;
 
             DatabaseOperations db = new DatabaseOperations();
             multiBookingResp.Builder response = multiBookingResp.newBuilder();
@@ -207,7 +205,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                 Connection conn = db.connection();
                 response= db.getBookingDetails(conn,stuid, sessid);
             } catch (Exception e) {
-                response.setBookingstatus("Internal error");
+                response.setErrormsg("Internal error");
                 response.setStatuscode(400);
             }
             responseObserver.onNext(response.build());

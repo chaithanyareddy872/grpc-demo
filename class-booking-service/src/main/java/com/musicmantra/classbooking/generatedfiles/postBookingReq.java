@@ -59,19 +59,6 @@ private static final long serialVersionUID = 0L;
             sessionid_ = input.readUInt64();
             break;
           }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (dateTime_ != null) {
-              subBuilder = dateTime_.toBuilder();
-            }
-            dateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dateTime_);
-              dateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -128,27 +115,6 @@ private static final long serialVersionUID = 0L;
     return sessionid_;
   }
 
-  public static final int DATETIME_FIELD_NUMBER = 3;
-  private com.google.protobuf.Timestamp dateTime_;
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  public boolean hasDateTime() {
-    return dateTime_ != null;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  public com.google.protobuf.Timestamp getDateTime() {
-    return dateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-   */
-  public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
-    return getDateTime();
-  }
-
   public static final int STATUS_FIELD_NUMBER = 4;
   private volatile java.lang.Object status_;
   /**
@@ -203,9 +169,6 @@ private static final long serialVersionUID = 0L;
     if (sessionid_ != 0L) {
       output.writeUInt64(2, sessionid_);
     }
-    if (dateTime_ != null) {
-      output.writeMessage(3, getDateTime());
-    }
     if (!getStatusBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
     }
@@ -225,10 +188,6 @@ private static final long serialVersionUID = 0L;
     if (sessionid_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(2, sessionid_);
-    }
-    if (dateTime_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getDateTime());
     }
     if (!getStatusBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
@@ -253,11 +212,6 @@ private static final long serialVersionUID = 0L;
         == other.getStudentid());
     result = result && (getSessionid()
         == other.getSessionid());
-    result = result && (hasDateTime() == other.hasDateTime());
-    if (hasDateTime()) {
-      result = result && getDateTime()
-          .equals(other.getDateTime());
-    }
     result = result && getStatus()
         .equals(other.getStatus());
     result = result && unknownFields.equals(other.unknownFields);
@@ -277,10 +231,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SESSIONID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSessionid());
-    if (hasDateTime()) {
-      hash = (37 * hash) + DATETIME_FIELD_NUMBER;
-      hash = (53 * hash) + getDateTime().hashCode();
-    }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -424,12 +374,6 @@ private static final long serialVersionUID = 0L;
 
       sessionid_ = 0L;
 
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = null;
-      } else {
-        dateTime_ = null;
-        dateTimeBuilder_ = null;
-      }
       status_ = "";
 
       return this;
@@ -460,11 +404,6 @@ private static final long serialVersionUID = 0L;
       com.musicmantra.classbooking.generatedfiles.postBookingReq result = new com.musicmantra.classbooking.generatedfiles.postBookingReq(this);
       result.studentid_ = studentid_;
       result.sessionid_ = sessionid_;
-      if (dateTimeBuilder_ == null) {
-        result.dateTime_ = dateTime_;
-      } else {
-        result.dateTime_ = dateTimeBuilder_.build();
-      }
       result.status_ = status_;
       onBuilt();
       return result;
@@ -519,9 +458,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getSessionid() != 0L) {
         setSessionid(other.getSessionid());
-      }
-      if (other.hasDateTime()) {
-        mergeDateTime(other.getDateTime());
       }
       if (!other.getStatus().isEmpty()) {
         status_ = other.status_;
@@ -606,123 +542,6 @@ private static final long serialVersionUID = 0L;
       sessionid_ = 0L;
       onChanged();
       return this;
-    }
-
-    private com.google.protobuf.Timestamp dateTime_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateTimeBuilder_;
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public boolean hasDateTime() {
-      return dateTimeBuilder_ != null || dateTime_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public com.google.protobuf.Timestamp getDateTime() {
-      if (dateTimeBuilder_ == null) {
-        return dateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
-      } else {
-        return dateTimeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public Builder setDateTime(com.google.protobuf.Timestamp value) {
-      if (dateTimeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        dateTime_ = value;
-        onChanged();
-      } else {
-        dateTimeBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public Builder setDateTime(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = builderForValue.build();
-        onChanged();
-      } else {
-        dateTimeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public Builder mergeDateTime(com.google.protobuf.Timestamp value) {
-      if (dateTimeBuilder_ == null) {
-        if (dateTime_ != null) {
-          dateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(dateTime_).mergeFrom(value).buildPartial();
-        } else {
-          dateTime_ = value;
-        }
-        onChanged();
-      } else {
-        dateTimeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public Builder clearDateTime() {
-      if (dateTimeBuilder_ == null) {
-        dateTime_ = null;
-        onChanged();
-      } else {
-        dateTime_ = null;
-        dateTimeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getDateTimeBuilder() {
-      
-      onChanged();
-      return getDateTimeFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getDateTimeOrBuilder() {
-      if (dateTimeBuilder_ != null) {
-        return dateTimeBuilder_.getMessageOrBuilder();
-      } else {
-        return dateTime_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : dateTime_;
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp dateTime = 3;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getDateTimeFieldBuilder() {
-      if (dateTimeBuilder_ == null) {
-        dateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getDateTime(),
-                getParentForChildren(),
-                isClean());
-        dateTime_ = null;
-      }
-      return dateTimeBuilder_;
     }
 
     private java.lang.Object status_ = "";
