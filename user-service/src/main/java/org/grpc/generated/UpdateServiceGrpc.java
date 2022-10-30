@@ -27,92 +27,92 @@ public final class UpdateServiceGrpc {
   public static final String SERVICE_NAME = "UpdateService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
-      org.grpc.generated.Userprofile.Response> getUpdatefirstNameMethod;
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.firstName,
+      org.grpc.generated.Userprofile.Response> getUpdateFirstNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "updatefirstName",
-      requestType = org.grpc.generated.Userprofile.nameOrPasswordRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "updateFirstName",
+      requestType = org.grpc.generated.Userprofile.firstName.class,
       responseType = org.grpc.generated.Userprofile.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
-      org.grpc.generated.Userprofile.Response> getUpdatefirstNameMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response> getUpdatefirstNameMethod;
-    if ((getUpdatefirstNameMethod = UpdateServiceGrpc.getUpdatefirstNameMethod) == null) {
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.firstName,
+      org.grpc.generated.Userprofile.Response> getUpdateFirstNameMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.firstName, org.grpc.generated.Userprofile.Response> getUpdateFirstNameMethod;
+    if ((getUpdateFirstNameMethod = UpdateServiceGrpc.getUpdateFirstNameMethod) == null) {
       synchronized (UpdateServiceGrpc.class) {
-        if ((getUpdatefirstNameMethod = UpdateServiceGrpc.getUpdatefirstNameMethod) == null) {
-          UpdateServiceGrpc.getUpdatefirstNameMethod = getUpdatefirstNameMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response>newBuilder()
+        if ((getUpdateFirstNameMethod = UpdateServiceGrpc.getUpdateFirstNameMethod) == null) {
+          UpdateServiceGrpc.getUpdateFirstNameMethod = getUpdateFirstNameMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.firstName, org.grpc.generated.Userprofile.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "UpdateService", "updatefirstName"))
+                  "UpdateService", "updateFirstName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.nameOrPasswordRequest.getDefaultInstance()))
+                  org.grpc.generated.Userprofile.firstName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.grpc.generated.Userprofile.Response.getDefaultInstance()))
-                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updatefirstName"))
+                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updateFirstName"))
                   .build();
           }
         }
      }
-     return getUpdatefirstNameMethod;
+     return getUpdateFirstNameMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
-      org.grpc.generated.Userprofile.Response> getUpdatelastLastMethod;
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.lastName,
+      org.grpc.generated.Userprofile.Response> getUpdateLastNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "updatelastLast",
-      requestType = org.grpc.generated.Userprofile.nameOrPasswordRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "updateLastName",
+      requestType = org.grpc.generated.Userprofile.lastName.class,
       responseType = org.grpc.generated.Userprofile.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
-      org.grpc.generated.Userprofile.Response> getUpdatelastLastMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response> getUpdatelastLastMethod;
-    if ((getUpdatelastLastMethod = UpdateServiceGrpc.getUpdatelastLastMethod) == null) {
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.lastName,
+      org.grpc.generated.Userprofile.Response> getUpdateLastNameMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.lastName, org.grpc.generated.Userprofile.Response> getUpdateLastNameMethod;
+    if ((getUpdateLastNameMethod = UpdateServiceGrpc.getUpdateLastNameMethod) == null) {
       synchronized (UpdateServiceGrpc.class) {
-        if ((getUpdatelastLastMethod = UpdateServiceGrpc.getUpdatelastLastMethod) == null) {
-          UpdateServiceGrpc.getUpdatelastLastMethod = getUpdatelastLastMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response>newBuilder()
+        if ((getUpdateLastNameMethod = UpdateServiceGrpc.getUpdateLastNameMethod) == null) {
+          UpdateServiceGrpc.getUpdateLastNameMethod = getUpdateLastNameMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.lastName, org.grpc.generated.Userprofile.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "UpdateService", "updatelastLast"))
+                  "UpdateService", "updateLastName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.nameOrPasswordRequest.getDefaultInstance()))
+                  org.grpc.generated.Userprofile.lastName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.grpc.generated.Userprofile.Response.getDefaultInstance()))
-                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updatelastLast"))
+                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updateLastName"))
                   .build();
           }
         }
      }
-     return getUpdatelastLastMethod;
+     return getUpdateLastNameMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.contact,
       org.grpc.generated.Userprofile.Response> getUpdateContactMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updateContact",
-      requestType = org.grpc.generated.Userprofile.nameOrPasswordRequest.class,
+      requestType = org.grpc.generated.Userprofile.contact.class,
       responseType = org.grpc.generated.Userprofile.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.contact,
       org.grpc.generated.Userprofile.Response> getUpdateContactMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response> getUpdateContactMethod;
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.contact, org.grpc.generated.Userprofile.Response> getUpdateContactMethod;
     if ((getUpdateContactMethod = UpdateServiceGrpc.getUpdateContactMethod) == null) {
       synchronized (UpdateServiceGrpc.class) {
         if ((getUpdateContactMethod = UpdateServiceGrpc.getUpdateContactMethod) == null) {
           UpdateServiceGrpc.getUpdateContactMethod = getUpdateContactMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response>newBuilder()
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.contact, org.grpc.generated.Userprofile.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "UpdateService", "updateContact"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.nameOrPasswordRequest.getDefaultInstance()))
+                  org.grpc.generated.Userprofile.contact.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.grpc.generated.Userprofile.Response.getDefaultInstance()))
                   .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updateContact"))
@@ -155,28 +155,28 @@ public final class UpdateServiceGrpc {
      return getUpdateAddressMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.preference,
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.Preference,
       org.grpc.generated.Userprofile.Response> getUpdatePreferenceMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updatePreference",
-      requestType = org.grpc.generated.Userprofile.preference.class,
+      requestType = org.grpc.generated.Userprofile.Preference.class,
       responseType = org.grpc.generated.Userprofile.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.preference,
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.Preference,
       org.grpc.generated.Userprofile.Response> getUpdatePreferenceMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.preference, org.grpc.generated.Userprofile.Response> getUpdatePreferenceMethod;
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.Preference, org.grpc.generated.Userprofile.Response> getUpdatePreferenceMethod;
     if ((getUpdatePreferenceMethod = UpdateServiceGrpc.getUpdatePreferenceMethod) == null) {
       synchronized (UpdateServiceGrpc.class) {
         if ((getUpdatePreferenceMethod = UpdateServiceGrpc.getUpdatePreferenceMethod) == null) {
           UpdateServiceGrpc.getUpdatePreferenceMethod = getUpdatePreferenceMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.preference, org.grpc.generated.Userprofile.Response>newBuilder()
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.Preference, org.grpc.generated.Userprofile.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "UpdateService", "updatePreference"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.preference.getDefaultInstance()))
+                  org.grpc.generated.Userprofile.Preference.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.grpc.generated.Userprofile.Response.getDefaultInstance()))
                   .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updatePreference"))
@@ -187,60 +187,28 @@ public final class UpdateServiceGrpc {
      return getUpdatePreferenceMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.interests,
-      org.grpc.generated.Userprofile.Response> getUpdateInterestsMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "updateInterests",
-      requestType = org.grpc.generated.Userprofile.interests.class,
-      responseType = org.grpc.generated.Userprofile.Response.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.interests,
-      org.grpc.generated.Userprofile.Response> getUpdateInterestsMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.interests, org.grpc.generated.Userprofile.Response> getUpdateInterestsMethod;
-    if ((getUpdateInterestsMethod = UpdateServiceGrpc.getUpdateInterestsMethod) == null) {
-      synchronized (UpdateServiceGrpc.class) {
-        if ((getUpdateInterestsMethod = UpdateServiceGrpc.getUpdateInterestsMethod) == null) {
-          UpdateServiceGrpc.getUpdateInterestsMethod = getUpdateInterestsMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.interests, org.grpc.generated.Userprofile.Response>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "UpdateService", "updateInterests"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.interests.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.Response.getDefaultInstance()))
-                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updateInterests"))
-                  .build();
-          }
-        }
-     }
-     return getUpdateInterestsMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.password,
       org.grpc.generated.Userprofile.Response> getUpdatePasswordMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updatePassword",
-      requestType = org.grpc.generated.Userprofile.nameOrPasswordRequest.class,
+      requestType = org.grpc.generated.Userprofile.password.class,
       responseType = org.grpc.generated.Userprofile.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest,
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.password,
       org.grpc.generated.Userprofile.Response> getUpdatePasswordMethod() {
-    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response> getUpdatePasswordMethod;
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.password, org.grpc.generated.Userprofile.Response> getUpdatePasswordMethod;
     if ((getUpdatePasswordMethod = UpdateServiceGrpc.getUpdatePasswordMethod) == null) {
       synchronized (UpdateServiceGrpc.class) {
         if ((getUpdatePasswordMethod = UpdateServiceGrpc.getUpdatePasswordMethod) == null) {
           UpdateServiceGrpc.getUpdatePasswordMethod = getUpdatePasswordMethod = 
-              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.nameOrPasswordRequest, org.grpc.generated.Userprofile.Response>newBuilder()
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.password, org.grpc.generated.Userprofile.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "UpdateService", "updatePassword"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.grpc.generated.Userprofile.nameOrPasswordRequest.getDefaultInstance()))
+                  org.grpc.generated.Userprofile.password.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.grpc.generated.Userprofile.Response.getDefaultInstance()))
                   .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("updatePassword"))
@@ -279,22 +247,25 @@ public final class UpdateServiceGrpc {
   public static abstract class UpdateServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *  rpc singleUpdateMethod(UpdatedRequest) returns (Response);
+     * </pre>
      */
-    public void updatefirstName(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateFirstName(org.grpc.generated.Userprofile.firstName request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
-      asyncUnimplementedUnaryCall(getUpdatefirstNameMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getUpdateFirstNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void updatelastLast(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateLastName(org.grpc.generated.Userprofile.lastName request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
-      asyncUnimplementedUnaryCall(getUpdatelastLastMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getUpdateLastNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateContact(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateContact(org.grpc.generated.Userprofile.contact request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateContactMethod(), responseObserver);
     }
@@ -308,21 +279,14 @@ public final class UpdateServiceGrpc {
 
     /**
      */
-    public void updatePreference(org.grpc.generated.Userprofile.preference request,
+    public void updatePreference(org.grpc.generated.Userprofile.Preference request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdatePreferenceMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateInterests(org.grpc.generated.Userprofile.interests request,
-        io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
-      asyncUnimplementedUnaryCall(getUpdateInterestsMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void updatePassword(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updatePassword(org.grpc.generated.Userprofile.password request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdatePasswordMethod(), responseObserver);
     }
@@ -330,24 +294,24 @@ public final class UpdateServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getUpdatefirstNameMethod(),
+            getUpdateFirstNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.grpc.generated.Userprofile.nameOrPasswordRequest,
+                org.grpc.generated.Userprofile.firstName,
                 org.grpc.generated.Userprofile.Response>(
-                  this, METHODID_UPDATEFIRST_NAME)))
+                  this, METHODID_UPDATE_FIRST_NAME)))
           .addMethod(
-            getUpdatelastLastMethod(),
+            getUpdateLastNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.grpc.generated.Userprofile.nameOrPasswordRequest,
+                org.grpc.generated.Userprofile.lastName,
                 org.grpc.generated.Userprofile.Response>(
-                  this, METHODID_UPDATELAST_LAST)))
+                  this, METHODID_UPDATE_LAST_NAME)))
           .addMethod(
             getUpdateContactMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.grpc.generated.Userprofile.nameOrPasswordRequest,
+                org.grpc.generated.Userprofile.contact,
                 org.grpc.generated.Userprofile.Response>(
                   this, METHODID_UPDATE_CONTACT)))
           .addMethod(
@@ -361,21 +325,14 @@ public final class UpdateServiceGrpc {
             getUpdatePreferenceMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.grpc.generated.Userprofile.preference,
+                org.grpc.generated.Userprofile.Preference,
                 org.grpc.generated.Userprofile.Response>(
                   this, METHODID_UPDATE_PREFERENCE)))
-          .addMethod(
-            getUpdateInterestsMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.grpc.generated.Userprofile.interests,
-                org.grpc.generated.Userprofile.Response>(
-                  this, METHODID_UPDATE_INTERESTS)))
           .addMethod(
             getUpdatePasswordMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.grpc.generated.Userprofile.nameOrPasswordRequest,
+                org.grpc.generated.Userprofile.password,
                 org.grpc.generated.Userprofile.Response>(
                   this, METHODID_UPDATE_PASSWORD)))
           .build();
@@ -401,24 +358,27 @@ public final class UpdateServiceGrpc {
     }
 
     /**
+     * <pre>
+     *  rpc singleUpdateMethod(UpdatedRequest) returns (Response);
+     * </pre>
      */
-    public void updatefirstName(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateFirstName(org.grpc.generated.Userprofile.firstName request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getUpdatefirstNameMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getUpdateFirstNameMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updatelastLast(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateLastName(org.grpc.generated.Userprofile.lastName request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getUpdatelastLastMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getUpdateLastNameMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateContact(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updateContact(org.grpc.generated.Userprofile.contact request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdateContactMethod(), getCallOptions()), request, responseObserver);
@@ -434,7 +394,7 @@ public final class UpdateServiceGrpc {
 
     /**
      */
-    public void updatePreference(org.grpc.generated.Userprofile.preference request,
+    public void updatePreference(org.grpc.generated.Userprofile.Preference request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdatePreferenceMethod(), getCallOptions()), request, responseObserver);
@@ -442,15 +402,7 @@ public final class UpdateServiceGrpc {
 
     /**
      */
-    public void updateInterests(org.grpc.generated.Userprofile.interests request,
-        io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getUpdateInterestsMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void updatePassword(org.grpc.generated.Userprofile.nameOrPasswordRequest request,
+    public void updatePassword(org.grpc.generated.Userprofile.password request,
         io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdatePasswordMethod(), getCallOptions()), request, responseObserver);
@@ -476,22 +428,25 @@ public final class UpdateServiceGrpc {
     }
 
     /**
+     * <pre>
+     *  rpc singleUpdateMethod(UpdatedRequest) returns (Response);
+     * </pre>
      */
-    public org.grpc.generated.Userprofile.Response updatefirstName(org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public org.grpc.generated.Userprofile.Response updateFirstName(org.grpc.generated.Userprofile.firstName request) {
       return blockingUnaryCall(
-          getChannel(), getUpdatefirstNameMethod(), getCallOptions(), request);
+          getChannel(), getUpdateFirstNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.grpc.generated.Userprofile.Response updatelastLast(org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public org.grpc.generated.Userprofile.Response updateLastName(org.grpc.generated.Userprofile.lastName request) {
       return blockingUnaryCall(
-          getChannel(), getUpdatelastLastMethod(), getCallOptions(), request);
+          getChannel(), getUpdateLastNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.grpc.generated.Userprofile.Response updateContact(org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public org.grpc.generated.Userprofile.Response updateContact(org.grpc.generated.Userprofile.contact request) {
       return blockingUnaryCall(
           getChannel(), getUpdateContactMethod(), getCallOptions(), request);
     }
@@ -505,21 +460,14 @@ public final class UpdateServiceGrpc {
 
     /**
      */
-    public org.grpc.generated.Userprofile.Response updatePreference(org.grpc.generated.Userprofile.preference request) {
+    public org.grpc.generated.Userprofile.Response updatePreference(org.grpc.generated.Userprofile.Preference request) {
       return blockingUnaryCall(
           getChannel(), getUpdatePreferenceMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.grpc.generated.Userprofile.Response updateInterests(org.grpc.generated.Userprofile.interests request) {
-      return blockingUnaryCall(
-          getChannel(), getUpdateInterestsMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public org.grpc.generated.Userprofile.Response updatePassword(org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public org.grpc.generated.Userprofile.Response updatePassword(org.grpc.generated.Userprofile.password request) {
       return blockingUnaryCall(
           getChannel(), getUpdatePasswordMethod(), getCallOptions(), request);
     }
@@ -544,25 +492,28 @@ public final class UpdateServiceGrpc {
     }
 
     /**
+     * <pre>
+     *  rpc singleUpdateMethod(UpdatedRequest) returns (Response);
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updatefirstName(
-        org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updateFirstName(
+        org.grpc.generated.Userprofile.firstName request) {
       return futureUnaryCall(
-          getChannel().newCall(getUpdatefirstNameMethod(), getCallOptions()), request);
+          getChannel().newCall(getUpdateFirstNameMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updatelastLast(
-        org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updateLastName(
+        org.grpc.generated.Userprofile.lastName request) {
       return futureUnaryCall(
-          getChannel().newCall(getUpdatelastLastMethod(), getCallOptions()), request);
+          getChannel().newCall(getUpdateLastNameMethod(), getCallOptions()), request);
     }
 
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updateContact(
-        org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+        org.grpc.generated.Userprofile.contact request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateContactMethod(), getCallOptions()), request);
     }
@@ -578,35 +529,26 @@ public final class UpdateServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updatePreference(
-        org.grpc.generated.Userprofile.preference request) {
+        org.grpc.generated.Userprofile.Preference request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdatePreferenceMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updateInterests(
-        org.grpc.generated.Userprofile.interests request) {
-      return futureUnaryCall(
-          getChannel().newCall(getUpdateInterestsMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.Response> updatePassword(
-        org.grpc.generated.Userprofile.nameOrPasswordRequest request) {
+        org.grpc.generated.Userprofile.password request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdatePasswordMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_UPDATEFIRST_NAME = 0;
-  private static final int METHODID_UPDATELAST_LAST = 1;
+  private static final int METHODID_UPDATE_FIRST_NAME = 0;
+  private static final int METHODID_UPDATE_LAST_NAME = 1;
   private static final int METHODID_UPDATE_CONTACT = 2;
   private static final int METHODID_UPDATE_ADDRESS = 3;
   private static final int METHODID_UPDATE_PREFERENCE = 4;
-  private static final int METHODID_UPDATE_INTERESTS = 5;
-  private static final int METHODID_UPDATE_PASSWORD = 6;
+  private static final int METHODID_UPDATE_PASSWORD = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -625,16 +567,16 @@ public final class UpdateServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_UPDATEFIRST_NAME:
-          serviceImpl.updatefirstName((org.grpc.generated.Userprofile.nameOrPasswordRequest) request,
+        case METHODID_UPDATE_FIRST_NAME:
+          serviceImpl.updateFirstName((org.grpc.generated.Userprofile.firstName) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
-        case METHODID_UPDATELAST_LAST:
-          serviceImpl.updatelastLast((org.grpc.generated.Userprofile.nameOrPasswordRequest) request,
+        case METHODID_UPDATE_LAST_NAME:
+          serviceImpl.updateLastName((org.grpc.generated.Userprofile.lastName) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
         case METHODID_UPDATE_CONTACT:
-          serviceImpl.updateContact((org.grpc.generated.Userprofile.nameOrPasswordRequest) request,
+          serviceImpl.updateContact((org.grpc.generated.Userprofile.contact) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
         case METHODID_UPDATE_ADDRESS:
@@ -642,15 +584,11 @@ public final class UpdateServiceGrpc {
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
         case METHODID_UPDATE_PREFERENCE:
-          serviceImpl.updatePreference((org.grpc.generated.Userprofile.preference) request,
-              (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
-          break;
-        case METHODID_UPDATE_INTERESTS:
-          serviceImpl.updateInterests((org.grpc.generated.Userprofile.interests) request,
+          serviceImpl.updatePreference((org.grpc.generated.Userprofile.Preference) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
         case METHODID_UPDATE_PASSWORD:
-          serviceImpl.updatePassword((org.grpc.generated.Userprofile.nameOrPasswordRequest) request,
+          serviceImpl.updatePassword((org.grpc.generated.Userprofile.password) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
           break;
         default:
@@ -714,12 +652,11 @@ public final class UpdateServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UpdateServiceFileDescriptorSupplier())
-              .addMethod(getUpdatefirstNameMethod())
-              .addMethod(getUpdatelastLastMethod())
+              .addMethod(getUpdateFirstNameMethod())
+              .addMethod(getUpdateLastNameMethod())
               .addMethod(getUpdateContactMethod())
               .addMethod(getUpdateAddressMethod())
               .addMethod(getUpdatePreferenceMethod())
-              .addMethod(getUpdateInterestsMethod())
               .addMethod(getUpdatePasswordMethod())
               .build();
         }

@@ -1,10 +1,11 @@
 package org.example;
 
-import com.stackroute.musicmantra.noty5.emailserver.update_profile.UpdateProfileEmailServerGrpc;
-import com.stackroute.musicmantra.noty5.emailserver.update_profile.mailRequesttoUpdate;
-import com.stackroute.musicmantra.noty5.emailserver.update_profile.updateProfileResponse;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.grpc.generated.UpdateProfileEmailServerGrpc;
+import org.grpc.generated.mailRequesttoUpdate;
+import org.grpc.generated.updateProfileResponse;
 
 public class ChannelCreate {
     public void connetToNoty5(int id) {

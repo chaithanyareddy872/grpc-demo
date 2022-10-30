@@ -43,6 +43,6 @@ public class AuthorizationInterceptor implements ServerInterceptor {
         return new ServerCall.Listener<>() {
             // noop
         };
-    }
+   }
 }
 

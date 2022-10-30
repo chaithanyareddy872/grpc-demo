@@ -21,13 +21,8 @@ public class AuthorizationInterceptor implements ServerInterceptor {
                     .setSigningKey(DatatypeConverter.parseBase64Binary("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E="))
                     .parseClaimsJws(auth_token)
                     .getBody();
-            if (!claims.getAudience().equals("student")) {
-                status = Status.PERMISSION_DENIED.withDescription("Permission Denied");
-                serverCall.close(status, metadata);
-                return new ServerCall.Listener<>() {
-                    // noop
-                };
-            } else if (!claims.getExpiration().after(Date.from(Instant.now()))) {
+
+            if (!claims.getExpiration().after(Date.from(Instant.now()))) {
                 status = Status.DEADLINE_EXCEEDED.withDescription("Token Expired");
                 serverCall.close(status, metadata);
                 return new ServerCall.Listener<>() {
@@ -35,7 +30,9 @@ public class AuthorizationInterceptor implements ServerInterceptor {
                 };
             }
 
-            return serverCallHandler.startCall(serverCall, metadata);
+            Context context=Context.current().withValue(Constants.CLIENT_TYPE_CONTEXT_KEY,claims.getAudience());
+
+            return Contexts.interceptCall(context,serverCall,metadata,serverCallHandler);
 
         }
 
