@@ -11,7 +11,7 @@ public class DatabaseService {
     public Connection getConnection() {
         String url = "jdbc:postgresql://localhost:5432/musicmantradb";
         String psqlname = "postgres";
-        String psqlpassword = "vishal123";
+        String psqlpassword = "root123";
         Connection connection;
         try {
             connection = DriverManager.getConnection(url, psqlname, psqlpassword);
