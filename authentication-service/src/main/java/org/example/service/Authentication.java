@@ -251,6 +251,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         Base64.Encoder encoder = Base64.getEncoder();
         Base64.Decoder decoder = Base64.getDecoder();
         String encdPassword = encoder.encodeToString(password.getBytes());
+        System.out.println(encdPassword);
         UserRegister.APIResponse1.Builder response = UserRegister.APIResponse1.newBuilder();
 
         Connection connection = DatabaseConnection.getConnection();
@@ -264,7 +265,6 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
             stmnt.setString(1, email);
             stmnt.setString(2, encdPassword);
             ResultSet resultSet = stmnt.executeQuery();
-            String em = "";
             if (resultSet.next()) {
                 email = resultSet.getString(1);
                 password = resultSet.getString(2);
@@ -292,9 +292,9 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                             studentId=result.getInt(1);
                         }
                          token = GetJwtToken.getToken(email,studentId,userType);
-                        Channel.getRecommendedTeachers(token,studentId);
+                        //Channel.getRecommendedTeachers(token,studentId);
 
-                    } else if (usertype.equals("teacher")) {
+                    } else if (userType.equals("teacher")) {
                         int teacherId=0;
                         String getStduentId=ConstantQuery.GETTEACHERID;
                         PreparedStatement statement=connection.prepareStatement(getStduentId);
@@ -304,12 +304,12 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                             teacherId=result.getInt(1);
                         }
                         token = GetJwtToken.getToken(email,teacherId,userType);
-                        Channel.getSessionsofTeacher(teacherId);
+                        //Channel.getSessionsofTeacher(teacherId);
 
-                        //response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
                     }
+                    response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
                 }
-                response.setResponseMessage("Log in successfull for : " + email).setResponseCode(200).setUserId(userId).setToken(token);
+
             } else {
                 System.out.println("Invalid Email or password");
                 response.setResponseMessage("Invalid Email or password").setResponseCode(400);

@@ -1,4 +1,4 @@
-package com.musicmantra.recommendationservice.interceptor;
+package interceptor;
 
 import io.grpc.*;
 import io.jsonwebtoken.Claims;
@@ -9,10 +9,8 @@ import java.time.Instant;
 import java.util.Date;
 
 public class AuthorizationInterceptor implements ServerInterceptor {
-
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> serverCall, Metadata metadata, ServerCallHandler<ReqT, RespT> serverCallHandler) {
-
         final String auth_token = metadata.get(Metadata.Key.of("Authorization", Metadata.ASCII_STRING_MARSHALLER));
         Status status = null;
 
