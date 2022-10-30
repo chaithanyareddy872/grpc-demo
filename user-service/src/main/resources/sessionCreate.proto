@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package = "org.grpc.generated";
+
+//for dateformate input
+import "google/protobuf/timestamp.proto";
+
+
+service SessionService{
+  rpc sessionCreate(SessionRequest) returns (SessionResponse);
+  rpc getSessions(GetSessionRequest) returns ( GetSessionResponse);
+}
+
+
+message  GetSessionRequest{
+  int32 teacherid = 1;
+}
+message GetSessionResponse{
+  repeated SessionResponse sessionresponse = 1;
+}
+message SessionRequest{
+  int32 teacherId = 2;
+  string sessionName = 3;
+  string sessionStartDate = 4;
+  string sessionStartTime = 5;
+  string sessionEndDate = 6;
+  string sessionEndTime = 7;
+  int32 instrumentId = 8;
+  int32 genreId = 9;
+  int32 fees = 10;
+
+}
+message SessionResponse{
+  int32 sessionId = 1;
+  int32 teacherId = 2;
+  string sessionName = 3;
+  string sessionStartDate = 4;
+  string sessionStartTime = 5;
+  string sessionEndDate = 6;
+  string sessionEndTime = 7;
+  int32 instrumentId = 8;
+  int32 genreId = 9;
+  int32 fees = 10;
+  string responseMessage = 11;
+  int32 statusCode = 12;
+}
