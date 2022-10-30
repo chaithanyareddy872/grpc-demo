@@ -20,6 +20,7 @@ public class SessionServer extends SessionServiceGrpc.SessionServiceImplBase {
         int genreId = request.getGenreId();
         int sessionFees = request.getFees();
         DatabaseService databaseService = new DatabaseService();
+
         int sessionId = 0;
         try {
             sessionId = databaseService.storeSession(teacherId,sessionName,startDate,startTime,endDate,endTime,instrumentId,genreId,sessionFees);
