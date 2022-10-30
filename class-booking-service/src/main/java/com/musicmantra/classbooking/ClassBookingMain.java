@@ -2,6 +2,7 @@ package com.musicmantra.classbooking;
 
 //import com.musicmantra.classbooking.services.ClassBookingOperations;
 
+import com.musicmantra.classbooking.interceptor.AuthorizationInterceptor;
 import com.musicmantra.classbooking.services.ClassBookingOperations;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -18,7 +19,8 @@ public class ClassBookingMain {
         // load a properties file
         prop.load(input);
         Server server= ServerBuilder.forPort(Integer.parseInt(prop.getProperty("server.port")))
-                .addService(new ClassBookingOperations()).build();
+                .addService(new ClassBookingOperations())
+                .intercept(new AuthorizationInterceptor()).build();
         server.start();
         System.out.println("server startd on port: "+server.getPort());
         server.awaitTermination();

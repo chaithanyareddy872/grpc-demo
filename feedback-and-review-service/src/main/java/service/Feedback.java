@@ -100,23 +100,23 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
             responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
         }
 
-
     }
 
     @Override
     public void feedback(User.FeedbackReq request, StreamObserver<User.FeedbackResp> responseObserver)
     {
-        System.out.println("Inside Feedback service");
-        int bookingid = request.getBookingId();
-        int feedbackrating = request.getFeedbackRating();
-        String message = request.getMessage();
-        System.out.println("BookingId:" + bookingid);
-        System.out.println("FeedbackRating:" + feedbackrating);
-        System.out.println("Message:" + message);
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
+            System.out.println("Inside Feedback service");
+            int bookingid = request.getBookingId();
+            int feedbackrating = request.getFeedbackRating();
+            String message = request.getMessage();
+            System.out.println("BookingId:" + bookingid);
+            System.out.println("FeedbackRating:" + feedbackrating);
+            System.out.println("Message:" + message);
 
 
 
-        User.FeedbackResp.Builder response = User.FeedbackResp.newBuilder();
+            User.FeedbackResp.Builder response = User.FeedbackResp.newBuilder();
 
 
             if (bookingid != 0 && feedbackrating <=5) {
@@ -125,9 +125,12 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
                 response.setResponceMessage("Invalid Details").setResponceCode(400);
             }
 
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
-
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
 
     }
     public User.FeedbackResp.Builder storeDetails(int BookingId,int FeedbackRating,String Message)
