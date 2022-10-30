@@ -1,8 +1,10 @@
 package org.Service;
 import io.grpc.internal.DnsNameResolver;
 import io.grpc.stub.StreamObserver;
+import org.grpc.generated.SessionCreate;
 import org.grpc.generated.Userprofile;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -182,5 +184,70 @@ public class DatabaseService {
             return user;
         }
         return null;
+    }
+    public boolean validateDate(String startDate, String startTime, String endDate, String endTIme){
+        String start = startDate + " " + startTime;
+        String end = endDate + " " + endTIme;
+        Timestamp starting = Timestamp.valueOf(start);
+        Timestamp ending = Timestamp.valueOf(end);
+        LocalDate currentDate = LocalDate.parse(startDate);
+        LocalDate localDate = LocalDate.now();
+        if((currentDate.getYear() == localDate.getYear()) && (currentDate.getMonth() == localDate.getMonth()) && (currentDate.getDayOfMonth() >= localDate.getDayOfMonth())){
+            if(starting.before(ending)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int storeSession(int teacherId, String sessionName, String startDate, String startTime, String endDate, String endTIme, int instrumentId, int genreId, int fees) throws SQLException {
+        String start = startDate + " " + startTime;
+        String end = endDate + " " + endTIme;
+        Timestamp starting = Timestamp.valueOf(start);
+        Timestamp ending = Timestamp.valueOf(end);
+        Connection connection = getConnection();
+        boolean result = validateDate(startDate,startTime,endDate,endTIme);
+        if (result == true) {
+            String query = "insert into sessions(teacherid,sessionname,startdate,enddate, instrumentid,genreid,fees) values(?,?,?,?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, teacherId);
+            preparedStatement.setString(2, sessionName);
+            preparedStatement.setTimestamp(3, starting);
+            preparedStatement.setTimestamp(4, ending);
+            preparedStatement.setInt(5, instrumentId);
+            preparedStatement.setInt(6, genreId);
+            preparedStatement.setInt(7, fees);
+            preparedStatement.executeUpdate();
+            int sessionId = 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet.next())
+                sessionId = resultSet.getInt(1);
+            return sessionId;
+        }
+        return 0;
+    }
+    public List<SessionCreate.SessionResponse> getAllSessionsBasedOnID(int teacherid) throws SQLException {
+        Connection connection = getConnection();
+        List<SessionCreate.SessionResponse> list = new ArrayList<>();
+        String query = "select * from sessions where teacherid = ?;";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,teacherid);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            SessionCreate.SessionResponse.Builder response = SessionCreate.SessionResponse.newBuilder();
+            response.setSessionId(resultSet.getInt(1));
+            response.setTeacherId(resultSet.getInt(2));
+            response.setSessionName(resultSet.getString(3));
+            response.setSessionStartDate(String.valueOf(resultSet.getDate(4)));
+            response.setSessionStartTime(String.valueOf(resultSet.getTime(4)));
+            response.setSessionEndDate(String.valueOf(resultSet.getDate(5)));
+            response.setSessionEndTime(String.valueOf(resultSet.getTime(5)));
+            response.setInstrumentId(resultSet.getInt(6));
+            response.setGenreId(resultSet.getInt(7));
+            response.setFees(resultSet.getInt(8));
+            response.setResponseMessage("SessionID "+resultSet.getInt(1));
+            response.setStatusCode(200);
+            list.add(response.build());
+        }
+        return list;
     }
 }
