@@ -53,8 +53,6 @@ public class DatabaseOperations {
                 LocalDateTime localDateTime=null;
                 while (resultSet.next()){
                     localDateTime= resultSet.getTimestamp(1).toLocalDateTime();
-                    System.out.println(resultSet.getTimestamp(1));
-//                ConnectToNoty.sendBookingMail(resultSet.getLong(1),resultSet.getLong(2));
                 }
                 if(localDateTime.isAfter(LocalDateTime.now())) {
                     //preparing the insert statement

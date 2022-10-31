@@ -73,7 +73,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                         ConnectToNoty.sendBookingMail((int) bookinginfo.getBookinid(), bookinginfo.getBookingstatus());
                     }
                     else {
-                        throw new RuntimeException("record does not saved");
+                        throw new RuntimeException(bookingresponse.getMsg());
                     }
                 }
                 else{
