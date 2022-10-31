@@ -59,8 +59,19 @@ public class SessionServer extends SessionServiceGrpc.SessionServiceImplBase {
             throw new RuntimeException(e);
         }
         SessionCreate.GetSessionResponse.Builder response = SessionCreate.GetSessionResponse.newBuilder();
-        response.addAllSessionresponse(list);
-        responseObserver.onNext(response.build());
+        SessionCreate.SessionResponse.Builder tempResp=SessionCreate.SessionResponse.newBuilder();
+
+        if(!list.isEmpty()){
+            response.addAllSessionresponse(list);
+            responseObserver.onNext(response.build());
+        }
+        else {
+            tempResp.setStatusCode(303).setResponseMessage("No existing sessions/classes please create one").build();
+            response.addSessionresponse(tempResp);
+            responseObserver.onNext(response.build());
+
+        }
+
         responseObserver.onCompleted();
     }
 }

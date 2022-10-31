@@ -11,6 +11,7 @@ service SessionService{
   rpc getSessions(GetSessionRequest) returns ( GetSessionResponse);
 }
 
+
 message  GetSessionRequest{
   int32 teacherid = 1;
 }
