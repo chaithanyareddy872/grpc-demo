@@ -65,12 +65,11 @@ public class Channel {
 
     }
 
-    public static void getSessionsofTeacher(int teacherid){
+    public static void getSessionsofTeacher(String token,int teacherid){
         System.out.println("inside- seesion");
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8086).usePlaintext().build();
-
-
-        SessionServiceGrpc.SessionServiceBlockingStub sessionServiceBlockingStub=SessionServiceGrpc.newBlockingStub(channel);
+        BearerToken bearerToken=new BearerToken(token);
+        SessionServiceGrpc.SessionServiceBlockingStub sessionServiceBlockingStub=SessionServiceGrpc.newBlockingStub(channel).withCallCredentials(bearerToken);
         SessionCreate.GetSessionRequest request=SessionCreate.GetSessionRequest.newBuilder().setTeacherid(teacherid).build();
         SessionCreate.GetSessionResponse response= sessionServiceBlockingStub.getSessions(request);
         System.out.println(response.toString());

@@ -19,7 +19,6 @@ message FeedbackResp{
 }
 message getfeedbackReq{
   int32 sessionid=1;
-
 }
 message getfeedbackResp{
   int32 FeedbackId=1;
