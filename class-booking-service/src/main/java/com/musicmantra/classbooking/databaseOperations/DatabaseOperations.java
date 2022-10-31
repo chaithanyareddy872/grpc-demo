@@ -46,22 +46,36 @@ public class DatabaseOperations {
         try {
             if(studentid>0 && sessionid >0 && bookingstatus!=null
                     && (bookingstatus.length()>0&&validations.stringvalidation(bookingstatus))) {
-                //preparing the insert statement
-                PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookings(" +
-                        "studentid,sessionid,datetime,status) values(?,?,?,?);");
-                //setting up the values
-                preparedStatement.setLong(1, studentid);
-                preparedStatement.setLong(2, sessionid);
-                preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(timestamp));
-                preparedStatement.setString(4, bookingstatus);
-                //calling the execute method and getting how many records effected
-                int noofinsertedrec = preparedStatement.executeUpdate();
-                //checking the rows created or not by using affected rows count > 0
-                //and setting the status
-                if (noofinsertedrec > 0) {
-                    bookingres.setMsg("successfully inserted a record");
-                    bookingres.setStatuscode(200);
+                PreparedStatement preparedStatement1=conn.prepareStatement(
+                        "select startdate from public.sessions where sessionid=?;");
+                preparedStatement1.setLong(1,sessionid);
+                ResultSet resultSet= preparedStatement1.executeQuery();
+                LocalDateTime localDateTime=null;
+                while (resultSet.next()){
+                    localDateTime= resultSet.getTimestamp(1).toLocalDateTime();
+                    System.out.println(resultSet.getTimestamp(1));
+//                ConnectToNoty.sendBookingMail(resultSet.getLong(1),resultSet.getLong(2));
                 }
+                if(localDateTime.isAfter(LocalDateTime.now())) {
+                    //preparing the insert statement
+                    PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO bookings(" +
+                            "studentid,sessionid,datetime,status) values(?,?,?,?);");
+                    //setting up the values
+                    preparedStatement.setLong(1, studentid);
+                    preparedStatement.setLong(2, sessionid);
+                    preparedStatement.setTimestamp(3, java.sql.Timestamp.valueOf(timestamp));
+                    preparedStatement.setString(4, bookingstatus);
+                    //calling the execute method and getting how many records effected
+                    int noofinsertedrec = preparedStatement.executeUpdate();
+                    //checking the rows created or not by using affected rows count > 0
+                    //and setting the status
+                    if (noofinsertedrec > 0) {
+                        bookingres.setMsg("successfully inserted a record");
+                        bookingres.setStatuscode(200);
+                    }
+                }
+                else throw new RuntimeException("sorry, we can't book this session for" +
+                        " you because the session already expired");
             }
             else throw new RuntimeException("inputs are invalid");
         } catch (Exception exception) {
@@ -75,21 +89,22 @@ public class DatabaseOperations {
     public BookingResp.Builder updateindb(Connection conn,Long bookingid,LocalDateTime timestamp,String status) {
         try {
             if(bookingid>0&&validations.stringvalidation(status)){
-            // preparing the insert statement
-            PreparedStatement preparedStatement =
-                    conn.prepareStatement(
 
-                            "UPDATE public.bookings "
-                                    + "SET datetime=?, status=? "
-                                    + "WHERE (bookingid=? );");
-            //setting up the values
-            //converting google protobuff date to localdatetime formate
+                // preparing the insert statement
+                PreparedStatement preparedStatement =
+                        conn.prepareStatement(
 
-            preparedStatement.setTimestamp(1,java.sql.Timestamp.valueOf(timestamp));
-            preparedStatement.setString(2,status);
-            preparedStatement.setLong(3,bookingid);
-            //calling the execute method and getting how many records effected
-            int noofinsertedrec = preparedStatement.executeUpdate();
+                                "UPDATE public.bookings "
+                                        + "SET datetime=?, status=? "
+                                        + "WHERE (bookingid=? );");
+                //setting up the values
+                //converting google protobuff date to localdatetime formate
+
+                preparedStatement.setTimestamp(1,java.sql.Timestamp.valueOf(timestamp));
+                preparedStatement.setString(2,status);
+                preparedStatement.setLong(3,bookingid);
+                //calling the execute method and getting how many records effected
+                int noofinsertedrec = preparedStatement.executeUpdate();
 
                 bookingres.setMsg("successfully updated a record");
                 bookingres.setStatuscode(200);
@@ -108,6 +123,16 @@ public class DatabaseOperations {
     public BookingResp.Builder  deleteindb(Connection conn, Long bookingid) {
 
         try {
+//            PreparedStatement preparedStatement1=conn.prepareStatement(
+//                    "select studentid,sessionid from public.bookings where bookingid=?;");
+//            preparedStatement1.setLong(1,bookingid);
+//            ResultSet resultSet= preparedStatement1.executeQuery();
+//            while (resultSet.next()){
+//                System.out.println(resultSet.getLong(1));
+//                System.out.println(resultSet.getLong(2));
+////                ConnectToNoty.sendBookingMail(resultSet.getLong(1),resultSet.getLong(2));
+//            }
+
 
             // preparing the insert statement
             PreparedStatement preparedStatement =
@@ -116,15 +141,15 @@ public class DatabaseOperations {
                                     + "WHERE (bookingid=?);");
             //deleting the records
             preparedStatement.setLong(1,bookingid);
+
             //calling the execute method and getting how many records effected
             int noofinsertedrec = preparedStatement.executeUpdate();
+            System.out.println("deleted no of records:"+noofinsertedrec);
             //checking the rows created or not by using affected rows count > 0
             //and setting the status
             if (noofinsertedrec > 0) {
-                {
-                    bookingres.setMsg("successfully deleted a record");
-                    bookingres.setStatuscode(200);
-                }
+                bookingres.setMsg("successfully deleted a record");
+                bookingres.setStatuscode(200);
             } else{
                 bookingres.setMsg("Booking does not exist");
                 bookingres.setStatuscode(404);
