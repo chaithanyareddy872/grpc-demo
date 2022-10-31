@@ -26,15 +26,11 @@ public class AuthorizationInterceptor implements ServerInterceptor {
             if (!claims.getAudience().equals("student")) {
                 status = Status.PERMISSION_DENIED.withDescription("Permission Denied");
                 serverCall.close(status, metadata);
-                return new ServerCall.Listener<>() {
-                    // noop
-                };
+                throw new StatusRuntimeException(status);
             } else if (!claims.getExpiration().after(Date.from(Instant.now()))) {
                 status = Status.DEADLINE_EXCEEDED.withDescription("Token Expired");
                 serverCall.close(status, metadata);
-                return new ServerCall.Listener<>() {
-                    // noop
-                };
+                throw new StatusRuntimeException(status);
             }
 
             return serverCallHandler.startCall(serverCall, metadata);
@@ -47,4 +43,5 @@ public class AuthorizationInterceptor implements ServerInterceptor {
         };
     }
 }
+
 

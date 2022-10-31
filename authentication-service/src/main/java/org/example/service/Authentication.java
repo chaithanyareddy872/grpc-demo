@@ -291,7 +291,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                         while (result.next()){
                             studentId=result.getInt(1);
                         }
-                         token = GetJwtToken.getToken(email,studentId,userType);
+                        token = GetJwtToken.getToken(email,studentId,userType);
                         Channel.getRecommendedTeachers(token,studentId);
 
                     } else if (userType.equals("teacher")) {
