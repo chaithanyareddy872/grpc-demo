@@ -490,6 +490,482 @@ public final class SessionCreate {
 
   }
 
+  public interface SessionByIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SessionByIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 sessionid = 1;</code>
+     */
+    int getSessionid();
+  }
+  /**
+   * Protobuf type {@code SessionByIdRequest}
+   */
+  public  static final class SessionByIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SessionByIdRequest)
+      SessionByIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SessionByIdRequest.newBuilder() to construct.
+    private SessionByIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SessionByIdRequest() {
+      sessionid_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SessionByIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sessionid_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.grpc.generated.SessionCreate.internal_static_SessionByIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.grpc.generated.SessionCreate.internal_static_SessionByIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.grpc.generated.SessionCreate.SessionByIdRequest.class, org.grpc.generated.SessionCreate.SessionByIdRequest.Builder.class);
+    }
+
+    public static final int SESSIONID_FIELD_NUMBER = 1;
+    private int sessionid_;
+    /**
+     * <code>int32 sessionid = 1;</code>
+     */
+    public int getSessionid() {
+      return sessionid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sessionid_ != 0) {
+        output.writeInt32(1, sessionid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sessionid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, sessionid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.grpc.generated.SessionCreate.SessionByIdRequest)) {
+        return super.equals(obj);
+      }
+      org.grpc.generated.SessionCreate.SessionByIdRequest other = (org.grpc.generated.SessionCreate.SessionByIdRequest) obj;
+
+      boolean result = true;
+      result = result && (getSessionid()
+          == other.getSessionid());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SESSIONID_FIELD_NUMBER;
+      hash = (53 * hash) + getSessionid();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.grpc.generated.SessionCreate.SessionByIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SessionByIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SessionByIdRequest)
+        org.grpc.generated.SessionCreate.SessionByIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.grpc.generated.SessionCreate.internal_static_SessionByIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.grpc.generated.SessionCreate.internal_static_SessionByIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.grpc.generated.SessionCreate.SessionByIdRequest.class, org.grpc.generated.SessionCreate.SessionByIdRequest.Builder.class);
+      }
+
+      // Construct using org.grpc.generated.SessionCreate.SessionByIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sessionid_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.grpc.generated.SessionCreate.internal_static_SessionByIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public org.grpc.generated.SessionCreate.SessionByIdRequest getDefaultInstanceForType() {
+        return org.grpc.generated.SessionCreate.SessionByIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.grpc.generated.SessionCreate.SessionByIdRequest build() {
+        org.grpc.generated.SessionCreate.SessionByIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.grpc.generated.SessionCreate.SessionByIdRequest buildPartial() {
+        org.grpc.generated.SessionCreate.SessionByIdRequest result = new org.grpc.generated.SessionCreate.SessionByIdRequest(this);
+        result.sessionid_ = sessionid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.grpc.generated.SessionCreate.SessionByIdRequest) {
+          return mergeFrom((org.grpc.generated.SessionCreate.SessionByIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.grpc.generated.SessionCreate.SessionByIdRequest other) {
+        if (other == org.grpc.generated.SessionCreate.SessionByIdRequest.getDefaultInstance()) return this;
+        if (other.getSessionid() != 0) {
+          setSessionid(other.getSessionid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.grpc.generated.SessionCreate.SessionByIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.grpc.generated.SessionCreate.SessionByIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int sessionid_ ;
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public int getSessionid() {
+        return sessionid_;
+      }
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public Builder setSessionid(int value) {
+        
+        sessionid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public Builder clearSessionid() {
+        
+        sessionid_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SessionByIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:SessionByIdRequest)
+    private static final org.grpc.generated.SessionCreate.SessionByIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.grpc.generated.SessionCreate.SessionByIdRequest();
+    }
+
+    public static org.grpc.generated.SessionCreate.SessionByIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SessionByIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SessionByIdRequest>() {
+      @java.lang.Override
+      public SessionByIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SessionByIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SessionByIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SessionByIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.grpc.generated.SessionCreate.SessionByIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetSessionResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:GetSessionResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -7758,6 +8234,11 @@ public final class SessionCreate {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetSessionRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SessionByIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SessionByIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GetSessionResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7808,42 +8289,44 @@ public final class SessionCreate {
     java.lang.String[] descriptorData = {
       "\n\023sessionCreate.proto\032\037google/protobuf/t" +
       "imestamp.proto\"&\n\021GetSessionRequest\022\021\n\tt" +
-      "eacherid\030\001 \001(\005\"?\n\022GetSessionResponse\022)\n\017" +
-      "sessionresponse\030\001 \003(\0132\020.SessionResponse\"" +
-      "\321\001\n\016SessionRequest\022\021\n\tteacherId\030\002 \001(\005\022\023\n" +
-      "\013sessionName\030\003 \001(\t\022\030\n\020sessionStartDate\030\004" +
-      " \001(\t\022\030\n\020sessionStartTime\030\005 \001(\t\022\026\n\016sessio" +
-      "nEndDate\030\006 \001(\t\022\026\n\016sessionEndTime\030\007 \001(\t\022\024" +
-      "\n\014instrumentId\030\010 \001(\005\022\017\n\007genreId\030\t \001(\005\022\014\n" +
-      "\004fees\030\n \001(\005\"O\n\022SessionNameRequest\022\021\n\tses" +
-      "sionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\023\n\013sessi" +
-      "onName\030\003 \001(\t\"\240\001\n\024SessionTimingRequest\022\021\n" +
-      "\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\030\n\020s" +
-      "essionStartDate\030\003 \001(\t\022\030\n\020sessionStartTim" +
-      "e\030\004 \001(\t\022\026\n\016sessionEndDate\030\005 \001(\t\022\026\n\016sessi" +
-      "onEndTime\030\006 \001(\t\"H\n\022SessionFeesRequest\022\021\n" +
-      "\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\014\n\004f" +
-      "ees\030\003 \001(\005\"<\n\024DeleteSessionRequest\022\021\n\tses" +
-      "sionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\"B\n\025Delet" +
-      "eSessionResponse\022\022\n\nstatusCode\030\001 \001(\005\022\025\n\r" +
-      "statusMessage\030\002 \001(\t\"\222\002\n\017SessionResponse\022" +
-      "\021\n\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\023\n" +
-      "\013sessionName\030\003 \001(\t\022\030\n\020sessionStartDate\030\004" +
-      " \001(\t\022\030\n\020sessionStartTime\030\005 \001(\t\022\026\n\016sessio" +
-      "nEndDate\030\006 \001(\t\022\026\n\016sessionEndTime\030\007 \001(\t\022\024" +
-      "\n\014instrumentId\030\010 \001(\005\022\017\n\007genreId\030\t \001(\005\022\014\n" +
-      "\004fees\030\n \001(\005\022\027\n\017responseMessage\030\013 \001(\t\022\022\n\n" +
-      "statusCode\030\014 \001(\0052\365\002\n\016SessionService\0222\n\rs" +
-      "essionCreate\022\017.SessionRequest\032\020.SessionR" +
-      "esponse\0226\n\013getSessions\022\022.GetSessionReque" +
-      "st\032\023.GetSessionResponse\022:\n\021updateSession" +
-      "Name\022\023.SessionNameRequest\032\020.SessionRespo" +
-      "nse\022?\n\024updateSessionTimings\022\025.SessionTim" +
-      "ingRequest\032\020.SessionResponse\022:\n\021updateSe" +
-      "ssionFees\022\023.SessionFeesRequest\032\020.Session" +
-      "Response\022>\n\rdeleteSession\022\025.DeleteSessio" +
-      "nRequest\032\026.DeleteSessionResponseB\024\n\022org." +
-      "grpc.generatedb\006proto3"
+      "eacherid\030\001 \001(\005\"\'\n\022SessionByIdRequest\022\021\n\t" +
+      "sessionid\030\001 \001(\005\"?\n\022GetSessionResponse\022)\n" +
+      "\017sessionresponse\030\001 \003(\0132\020.SessionResponse" +
+      "\"\321\001\n\016SessionRequest\022\021\n\tteacherId\030\002 \001(\005\022\023" +
+      "\n\013sessionName\030\003 \001(\t\022\030\n\020sessionStartDate\030" +
+      "\004 \001(\t\022\030\n\020sessionStartTime\030\005 \001(\t\022\026\n\016sessi" +
+      "onEndDate\030\006 \001(\t\022\026\n\016sessionEndTime\030\007 \001(\t\022" +
+      "\024\n\014instrumentId\030\010 \001(\005\022\017\n\007genreId\030\t \001(\005\022\014" +
+      "\n\004fees\030\n \001(\005\"O\n\022SessionNameRequest\022\021\n\tse" +
+      "ssionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\023\n\013sess" +
+      "ionName\030\003 \001(\t\"\240\001\n\024SessionTimingRequest\022\021" +
+      "\n\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\030\n\020" +
+      "sessionStartDate\030\003 \001(\t\022\030\n\020sessionStartTi" +
+      "me\030\004 \001(\t\022\026\n\016sessionEndDate\030\005 \001(\t\022\026\n\016sess" +
+      "ionEndTime\030\006 \001(\t\"H\n\022SessionFeesRequest\022\021" +
+      "\n\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\014\n\004" +
+      "fees\030\003 \001(\005\"<\n\024DeleteSessionRequest\022\021\n\tse" +
+      "ssionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\"B\n\025Dele" +
+      "teSessionResponse\022\022\n\nstatusCode\030\001 \001(\005\022\025\n" +
+      "\rstatusMessage\030\002 \001(\t\"\222\002\n\017SessionResponse" +
+      "\022\021\n\tsessionId\030\001 \001(\005\022\021\n\tteacherId\030\002 \001(\005\022\023" +
+      "\n\013sessionName\030\003 \001(\t\022\030\n\020sessionStartDate\030" +
+      "\004 \001(\t\022\030\n\020sessionStartTime\030\005 \001(\t\022\026\n\016sessi" +
+      "onEndDate\030\006 \001(\t\022\026\n\016sessionEndTime\030\007 \001(\t\022" +
+      "\024\n\014instrumentId\030\010 \001(\005\022\017\n\007genreId\030\t \001(\005\022\014" +
+      "\n\004fees\030\n \001(\005\022\027\n\017responseMessage\030\013 \001(\t\022\022\n" +
+      "\nstatusCode\030\014 \001(\0052\256\003\n\016SessionService\0222\n\r" +
+      "sessionCreate\022\017.SessionRequest\032\020.Session" +
+      "Response\0226\n\013getSessions\022\022.GetSessionRequ" +
+      "est\032\023.GetSessionResponse\022:\n\021updateSessio" +
+      "nName\022\023.SessionNameRequest\032\020.SessionResp" +
+      "onse\022?\n\024updateSessionTimings\022\025.SessionTi" +
+      "mingRequest\032\020.SessionResponse\022:\n\021updateS" +
+      "essionFees\022\023.SessionFeesRequest\032\020.Sessio" +
+      "nResponse\022>\n\rdeleteSession\022\025.DeleteSessi" +
+      "onRequest\032\026.DeleteSessionResponse\0227\n\016get" +
+      "SessionById\022\023.SessionByIdRequest\032\020.Sessi" +
+      "onResponseB\024\n\022org.grpc.generatedb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7864,50 +8347,56 @@ public final class SessionCreate {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetSessionRequest_descriptor,
         new java.lang.String[] { "Teacherid", });
-    internal_static_GetSessionResponse_descriptor =
+    internal_static_SessionByIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_SessionByIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SessionByIdRequest_descriptor,
+        new java.lang.String[] { "Sessionid", });
+    internal_static_GetSessionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_GetSessionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetSessionResponse_descriptor,
         new java.lang.String[] { "Sessionresponse", });
     internal_static_SessionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_SessionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionRequest_descriptor,
         new java.lang.String[] { "TeacherId", "SessionName", "SessionStartDate", "SessionStartTime", "SessionEndDate", "SessionEndTime", "InstrumentId", "GenreId", "Fees", });
     internal_static_SessionNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_SessionNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionNameRequest_descriptor,
         new java.lang.String[] { "SessionId", "TeacherId", "SessionName", });
     internal_static_SessionTimingRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_SessionTimingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionTimingRequest_descriptor,
         new java.lang.String[] { "SessionId", "TeacherId", "SessionStartDate", "SessionStartTime", "SessionEndDate", "SessionEndTime", });
     internal_static_SessionFeesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_SessionFeesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionFeesRequest_descriptor,
         new java.lang.String[] { "SessionId", "TeacherId", "Fees", });
     internal_static_DeleteSessionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_DeleteSessionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteSessionRequest_descriptor,
         new java.lang.String[] { "SessionId", "TeacherId", });
     internal_static_DeleteSessionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_DeleteSessionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteSessionResponse_descriptor,
         new java.lang.String[] { "StatusCode", "StatusMessage", });
     internal_static_SessionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_SessionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionResponse_descriptor,

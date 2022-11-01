@@ -219,6 +219,38 @@ public final class SessionServiceGrpc {
      return getDeleteSessionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest,
+      com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> getGetSessionByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getSessionById",
+      requestType = com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest.class,
+      responseType = com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest,
+      com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> getGetSessionByIdMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest, com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> getGetSessionByIdMethod;
+    if ((getGetSessionByIdMethod = SessionServiceGrpc.getGetSessionByIdMethod) == null) {
+      synchronized (SessionServiceGrpc.class) {
+        if ((getGetSessionByIdMethod = SessionServiceGrpc.getGetSessionByIdMethod) == null) {
+          SessionServiceGrpc.getGetSessionByIdMethod = getGetSessionByIdMethod = 
+              io.grpc.MethodDescriptor.<com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest, com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "SessionService", "getSessionById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SessionServiceMethodDescriptorSupplier("getSessionById"))
+                  .build();
+          }
+        }
+     }
+     return getGetSessionByIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -288,6 +320,13 @@ public final class SessionServiceGrpc {
       asyncUnimplementedUnaryCall(getDeleteSessionMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getSessionById(com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetSessionByIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -332,6 +371,13 @@ public final class SessionServiceGrpc {
                 com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionRequest,
                 com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionResponse>(
                   this, METHODID_DELETE_SESSION)))
+          .addMethod(
+            getGetSessionByIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest,
+                com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse>(
+                  this, METHODID_GET_SESSION_BY_ID)))
           .build();
     }
   }
@@ -401,6 +447,14 @@ public final class SessionServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeleteSessionMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getSessionById(com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetSessionByIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -461,6 +515,13 @@ public final class SessionServiceGrpc {
     public com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionResponse deleteSession(com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteSessionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse getSessionById(com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetSessionByIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -529,6 +590,14 @@ public final class SessionServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeleteSessionMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse> getSessionById(
+        com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetSessionByIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SESSION_CREATE = 0;
@@ -537,6 +606,7 @@ public final class SessionServiceGrpc {
   private static final int METHODID_UPDATE_SESSION_TIMINGS = 3;
   private static final int METHODID_UPDATE_SESSION_FEES = 4;
   private static final int METHODID_DELETE_SESSION = 5;
+  private static final int METHODID_GET_SESSION_BY_ID = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -578,6 +648,10 @@ public final class SessionServiceGrpc {
         case METHODID_DELETE_SESSION:
           serviceImpl.deleteSession((com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionRequest) request,
               (io.grpc.stub.StreamObserver<com.musicmantra.sessionservice.grpc.SessionCreate.DeleteSessionResponse>) responseObserver);
+          break;
+        case METHODID_GET_SESSION_BY_ID:
+          serviceImpl.getSessionById((com.musicmantra.sessionservice.grpc.SessionCreate.SessionByIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.sessionservice.grpc.SessionCreate.SessionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -646,6 +720,7 @@ public final class SessionServiceGrpc {
               .addMethod(getUpdateSessionTimingsMethod())
               .addMethod(getUpdateSessionFeesMethod())
               .addMethod(getDeleteSessionMethod())
+              .addMethod(getGetSessionByIdMethod())
               .build();
         }
       }

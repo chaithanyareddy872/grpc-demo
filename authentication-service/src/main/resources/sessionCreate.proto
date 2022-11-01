@@ -13,11 +13,16 @@ service SessionService{
   rpc updateSessionTimings(SessionTimingRequest) returns(SessionResponse);
   rpc updateSessionFees(SessionFeesRequest) returns(SessionResponse);
   rpc deleteSession(DeleteSessionRequest) returns(DeleteSessionResponse);
+  rpc getSessionById(SessionByIdRequest) returns(SessionResponse);
 }
 
 
 message  GetSessionRequest{
   int32 teacherid = 1;
+}
+
+message SessionByIdRequest{
+  int32 sessionid=1;
 }
 message GetSessionResponse{
   repeated SessionResponse sessionresponse = 1;

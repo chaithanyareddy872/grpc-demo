@@ -2718,6 +2718,1158 @@ public final class User {
 
   }
 
+  public interface RatingReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RatingReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 sessionid = 1;</code>
+     */
+    int getSessionid();
+  }
+  /**
+   * Protobuf type {@code RatingReq}
+   */
+  public  static final class RatingReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RatingReq)
+      RatingReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RatingReq.newBuilder() to construct.
+    private RatingReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RatingReq() {
+      sessionid_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RatingReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sessionid_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.stackroute.User.internal_static_RatingReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.stackroute.User.internal_static_RatingReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.stackroute.User.RatingReq.class, com.stackroute.User.RatingReq.Builder.class);
+    }
+
+    public static final int SESSIONID_FIELD_NUMBER = 1;
+    private int sessionid_;
+    /**
+     * <code>int32 sessionid = 1;</code>
+     */
+    public int getSessionid() {
+      return sessionid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sessionid_ != 0) {
+        output.writeInt32(1, sessionid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sessionid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, sessionid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.stackroute.User.RatingReq)) {
+        return super.equals(obj);
+      }
+      com.stackroute.User.RatingReq other = (com.stackroute.User.RatingReq) obj;
+
+      boolean result = true;
+      result = result && (getSessionid()
+          == other.getSessionid());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SESSIONID_FIELD_NUMBER;
+      hash = (53 * hash) + getSessionid();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.stackroute.User.RatingReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.stackroute.User.RatingReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RatingReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RatingReq)
+        com.stackroute.User.RatingReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.stackroute.User.internal_static_RatingReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.stackroute.User.internal_static_RatingReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.stackroute.User.RatingReq.class, com.stackroute.User.RatingReq.Builder.class);
+      }
+
+      // Construct using com.stackroute.User.RatingReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sessionid_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.stackroute.User.internal_static_RatingReq_descriptor;
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingReq getDefaultInstanceForType() {
+        return com.stackroute.User.RatingReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingReq build() {
+        com.stackroute.User.RatingReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingReq buildPartial() {
+        com.stackroute.User.RatingReq result = new com.stackroute.User.RatingReq(this);
+        result.sessionid_ = sessionid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.stackroute.User.RatingReq) {
+          return mergeFrom((com.stackroute.User.RatingReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.stackroute.User.RatingReq other) {
+        if (other == com.stackroute.User.RatingReq.getDefaultInstance()) return this;
+        if (other.getSessionid() != 0) {
+          setSessionid(other.getSessionid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.stackroute.User.RatingReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.stackroute.User.RatingReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int sessionid_ ;
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public int getSessionid() {
+        return sessionid_;
+      }
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public Builder setSessionid(int value) {
+        
+        sessionid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sessionid = 1;</code>
+       */
+      public Builder clearSessionid() {
+        
+        sessionid_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RatingReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:RatingReq)
+    private static final com.stackroute.User.RatingReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.stackroute.User.RatingReq();
+    }
+
+    public static com.stackroute.User.RatingReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RatingReq>
+        PARSER = new com.google.protobuf.AbstractParser<RatingReq>() {
+      @java.lang.Override
+      public RatingReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RatingReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RatingReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RatingReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.stackroute.User.RatingReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RatingRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RatingResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 responseCode = 1;</code>
+     */
+    int getResponseCode();
+
+    /**
+     * <code>string responseMessage = 2;</code>
+     */
+    java.lang.String getResponseMessage();
+    /**
+     * <code>string responseMessage = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getResponseMessageBytes();
+
+    /**
+     * <code>int32 rating = 3;</code>
+     */
+    int getRating();
+  }
+  /**
+   * Protobuf type {@code RatingResp}
+   */
+  public  static final class RatingResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RatingResp)
+      RatingRespOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RatingResp.newBuilder() to construct.
+    private RatingResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RatingResp() {
+      responseCode_ = 0;
+      responseMessage_ = "";
+      rating_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RatingResp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              responseCode_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              responseMessage_ = s;
+              break;
+            }
+            case 24: {
+
+              rating_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.stackroute.User.internal_static_RatingResp_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.stackroute.User.internal_static_RatingResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.stackroute.User.RatingResp.class, com.stackroute.User.RatingResp.Builder.class);
+    }
+
+    public static final int RESPONSECODE_FIELD_NUMBER = 1;
+    private int responseCode_;
+    /**
+     * <code>int32 responseCode = 1;</code>
+     */
+    public int getResponseCode() {
+      return responseCode_;
+    }
+
+    public static final int RESPONSEMESSAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object responseMessage_;
+    /**
+     * <code>string responseMessage = 2;</code>
+     */
+    public java.lang.String getResponseMessage() {
+      java.lang.Object ref = responseMessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        responseMessage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string responseMessage = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getResponseMessageBytes() {
+      java.lang.Object ref = responseMessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        responseMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RATING_FIELD_NUMBER = 3;
+    private int rating_;
+    /**
+     * <code>int32 rating = 3;</code>
+     */
+    public int getRating() {
+      return rating_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (responseCode_ != 0) {
+        output.writeInt32(1, responseCode_);
+      }
+      if (!getResponseMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, responseMessage_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(3, rating_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (responseCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, responseCode_);
+      }
+      if (!getResponseMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, responseMessage_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, rating_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.stackroute.User.RatingResp)) {
+        return super.equals(obj);
+      }
+      com.stackroute.User.RatingResp other = (com.stackroute.User.RatingResp) obj;
+
+      boolean result = true;
+      result = result && (getResponseCode()
+          == other.getResponseCode());
+      result = result && getResponseMessage()
+          .equals(other.getResponseMessage());
+      result = result && (getRating()
+          == other.getRating());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseCode();
+      hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseMessage().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.stackroute.User.RatingResp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.stackroute.User.RatingResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.stackroute.User.RatingResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RatingResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RatingResp)
+        com.stackroute.User.RatingRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.stackroute.User.internal_static_RatingResp_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.stackroute.User.internal_static_RatingResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.stackroute.User.RatingResp.class, com.stackroute.User.RatingResp.Builder.class);
+      }
+
+      // Construct using com.stackroute.User.RatingResp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        responseCode_ = 0;
+
+        responseMessage_ = "";
+
+        rating_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.stackroute.User.internal_static_RatingResp_descriptor;
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingResp getDefaultInstanceForType() {
+        return com.stackroute.User.RatingResp.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingResp build() {
+        com.stackroute.User.RatingResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.stackroute.User.RatingResp buildPartial() {
+        com.stackroute.User.RatingResp result = new com.stackroute.User.RatingResp(this);
+        result.responseCode_ = responseCode_;
+        result.responseMessage_ = responseMessage_;
+        result.rating_ = rating_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.stackroute.User.RatingResp) {
+          return mergeFrom((com.stackroute.User.RatingResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.stackroute.User.RatingResp other) {
+        if (other == com.stackroute.User.RatingResp.getDefaultInstance()) return this;
+        if (other.getResponseCode() != 0) {
+          setResponseCode(other.getResponseCode());
+        }
+        if (!other.getResponseMessage().isEmpty()) {
+          responseMessage_ = other.responseMessage_;
+          onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.stackroute.User.RatingResp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.stackroute.User.RatingResp) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int responseCode_ ;
+      /**
+       * <code>int32 responseCode = 1;</code>
+       */
+      public int getResponseCode() {
+        return responseCode_;
+      }
+      /**
+       * <code>int32 responseCode = 1;</code>
+       */
+      public Builder setResponseCode(int value) {
+        
+        responseCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 responseCode = 1;</code>
+       */
+      public Builder clearResponseCode() {
+        
+        responseCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object responseMessage_ = "";
+      /**
+       * <code>string responseMessage = 2;</code>
+       */
+      public java.lang.String getResponseMessage() {
+        java.lang.Object ref = responseMessage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          responseMessage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string responseMessage = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getResponseMessageBytes() {
+        java.lang.Object ref = responseMessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          responseMessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string responseMessage = 2;</code>
+       */
+      public Builder setResponseMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        responseMessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string responseMessage = 2;</code>
+       */
+      public Builder clearResponseMessage() {
+        
+        responseMessage_ = getDefaultInstance().getResponseMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string responseMessage = 2;</code>
+       */
+      public Builder setResponseMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        responseMessage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 3;</code>
+       */
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 3;</code>
+       */
+      public Builder setRating(int value) {
+        
+        rating_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 3;</code>
+       */
+      public Builder clearRating() {
+        
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RatingResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:RatingResp)
+    private static final com.stackroute.User.RatingResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.stackroute.User.RatingResp();
+    }
+
+    public static com.stackroute.User.RatingResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RatingResp>
+        PARSER = new com.google.protobuf.AbstractParser<RatingResp>() {
+      @java.lang.Override
+      public RatingResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RatingResp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RatingResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RatingResp> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.stackroute.User.RatingResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FeedbackReq_descriptor;
   private static final 
@@ -2738,6 +3890,16 @@ public final class User {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_getfeedbackResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RatingReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RatingReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RatingResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RatingResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2755,10 +3917,14 @@ public final class User {
       "ackResp\022\022\n\nFeedbackId\030\001 \001(\005\022\021\n\tBookingId" +
       "\030\002 \001(\005\022\026\n\016FeedbackRating\030\003 \001(\005\022\017\n\007Messag" +
       "e\030\004 \001(\t\022\024\n\014responceCode\030\005 \001(\005\022\024\n\014errorMe" +
-      "ssage\030\006 \001(\t2x\n\017FeedbackService\022\'\n\010feedba" +
-      "ck\022\014.FeedbackReq\032\r.FeedbackResp\022<\n\025getFe" +
-      "edbackforSession\022\017.getfeedbackReq\032\020.getf" +
-      "eedbackResp0\001B\020\n\016com.stackrouteb\006proto3"
+      "ssage\030\006 \001(\t\"\036\n\tRatingReq\022\021\n\tsessionid\030\001 " +
+      "\001(\005\"K\n\nRatingResp\022\024\n\014responseCode\030\001 \001(\005\022" +
+      "\027\n\017responseMessage\030\002 \001(\t\022\016\n\006rating\030\003 \001(\005" +
+      "2\250\001\n\017FeedbackService\022\'\n\010feedback\022\014.Feedb" +
+      "ackReq\032\r.FeedbackResp\022<\n\025getFeedbackforS" +
+      "ession\022\017.getfeedbackReq\032\020.getfeedbackRes" +
+      "p0\001\022.\n\023getRatingforSession\022\n.RatingReq\032\013" +
+      ".RatingRespB\020\n\016com.stackrouteb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2796,6 +3962,18 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getfeedbackResp_descriptor,
         new java.lang.String[] { "FeedbackId", "BookingId", "FeedbackRating", "Message", "ResponceCode", "ErrorMessage", });
+    internal_static_RatingReq_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_RatingReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RatingReq_descriptor,
+        new java.lang.String[] { "Sessionid", });
+    internal_static_RatingResp_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_RatingResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RatingResp_descriptor,
+        new java.lang.String[] { "ResponseCode", "ResponseMessage", "Rating", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

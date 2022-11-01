@@ -22,6 +22,57 @@ public class DatabaseService {
             throw new RuntimeException(e);
         }
     }
+
+    public  Userprofile.GetProfileResp.Builder getUser(int id){
+
+        Connection connection = getConnection();
+
+        String query = "select username,fname,lname,emailid,contact,city,state,pincode,genre,instrument from users u \n" +
+                "inner join address a on u.userid=a.userid \n" +
+                "inner join preferences p on u.userid=p.userid where u.userid=?";
+
+        Userprofile.GetProfileResp.Builder response=Userprofile.GetProfileResp.newBuilder();
+
+        Array array = null;
+        String[] strings = null;
+        List<String> list = new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet resultSet=statement.executeQuery();
+
+            if(resultSet.next()){
+
+                array = resultSet.getArray(9);
+                strings = (String[]) array.getArray();
+                list = Arrays.asList(strings);
+                array = resultSet.getArray(10);
+                strings = (String[]) array.getArray();
+                list1 = Arrays.asList(strings);
+
+                return response.setUsername(resultSet.getString(1))
+                        .setFirstname(resultSet.getString(2))
+                        .setLastname(resultSet.getString(3))
+                        .setEmail(resultSet.getString(4))
+                        .setContact(resultSet.getString(5))
+                        .setCity(resultSet.getString(6))
+                        .setState(resultSet.getString(7))
+                        .setPincode(resultSet.getString(8))
+                        .addAllGenre(list)
+                        .addAllInstrument(list1)
+                        .setStatuscode(200)
+                        .setStatusMessage("SUCCESS");
+            }
+            else {
+                return response.setStatuscode(404).setStatusMessage("Profile not found");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
     public Userprofile.Address getAddressFromID(int id) throws SQLException {
         Connection connection = getConnection();
         String query = "select * from address where userid = '"+id+"';";

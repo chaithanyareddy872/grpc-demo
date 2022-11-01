@@ -219,6 +219,38 @@ public final class UpdateServiceGrpc {
      return getUpdatePasswordMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.GetProfileReq,
+      org.grpc.generated.Userprofile.GetProfileResp> getGetProfileByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getProfileById",
+      requestType = org.grpc.generated.Userprofile.GetProfileReq.class,
+      responseType = org.grpc.generated.Userprofile.GetProfileResp.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.GetProfileReq,
+      org.grpc.generated.Userprofile.GetProfileResp> getGetProfileByIdMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.Userprofile.GetProfileReq, org.grpc.generated.Userprofile.GetProfileResp> getGetProfileByIdMethod;
+    if ((getGetProfileByIdMethod = UpdateServiceGrpc.getGetProfileByIdMethod) == null) {
+      synchronized (UpdateServiceGrpc.class) {
+        if ((getGetProfileByIdMethod = UpdateServiceGrpc.getGetProfileByIdMethod) == null) {
+          UpdateServiceGrpc.getGetProfileByIdMethod = getGetProfileByIdMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.Userprofile.GetProfileReq, org.grpc.generated.Userprofile.GetProfileResp>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UpdateService", "getProfileById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.Userprofile.GetProfileReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.Userprofile.GetProfileResp.getDefaultInstance()))
+                  .setSchemaDescriptor(new UpdateServiceMethodDescriptorSupplier("getProfileById"))
+                  .build();
+          }
+        }
+     }
+     return getGetProfileByIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -291,6 +323,13 @@ public final class UpdateServiceGrpc {
       asyncUnimplementedUnaryCall(getUpdatePasswordMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getProfileById(org.grpc.generated.Userprofile.GetProfileReq request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.GetProfileResp> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetProfileByIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -335,6 +374,13 @@ public final class UpdateServiceGrpc {
                 org.grpc.generated.Userprofile.password,
                 org.grpc.generated.Userprofile.Response>(
                   this, METHODID_UPDATE_PASSWORD)))
+          .addMethod(
+            getGetProfileByIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.grpc.generated.Userprofile.GetProfileReq,
+                org.grpc.generated.Userprofile.GetProfileResp>(
+                  this, METHODID_GET_PROFILE_BY_ID)))
           .build();
     }
   }
@@ -407,6 +453,14 @@ public final class UpdateServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getUpdatePasswordMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getProfileById(org.grpc.generated.Userprofile.GetProfileReq request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.GetProfileResp> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetProfileByIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -470,6 +524,13 @@ public final class UpdateServiceGrpc {
     public org.grpc.generated.Userprofile.Response updatePassword(org.grpc.generated.Userprofile.password request) {
       return blockingUnaryCall(
           getChannel(), getUpdatePasswordMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.grpc.generated.Userprofile.GetProfileResp getProfileById(org.grpc.generated.Userprofile.GetProfileReq request) {
+      return blockingUnaryCall(
+          getChannel(), getGetProfileByIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -541,6 +602,14 @@ public final class UpdateServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getUpdatePasswordMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.Userprofile.GetProfileResp> getProfileById(
+        org.grpc.generated.Userprofile.GetProfileReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetProfileByIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_UPDATE_FIRST_NAME = 0;
@@ -549,6 +618,7 @@ public final class UpdateServiceGrpc {
   private static final int METHODID_UPDATE_ADDRESS = 3;
   private static final int METHODID_UPDATE_PREFERENCE = 4;
   private static final int METHODID_UPDATE_PASSWORD = 5;
+  private static final int METHODID_GET_PROFILE_BY_ID = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -590,6 +660,10 @@ public final class UpdateServiceGrpc {
         case METHODID_UPDATE_PASSWORD:
           serviceImpl.updatePassword((org.grpc.generated.Userprofile.password) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.Response>) responseObserver);
+          break;
+        case METHODID_GET_PROFILE_BY_ID:
+          serviceImpl.getProfileById((org.grpc.generated.Userprofile.GetProfileReq) request,
+              (io.grpc.stub.StreamObserver<org.grpc.generated.Userprofile.GetProfileResp>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -658,6 +732,7 @@ public final class UpdateServiceGrpc {
               .addMethod(getUpdateAddressMethod())
               .addMethod(getUpdatePreferenceMethod())
               .addMethod(getUpdatePasswordMethod())
+              .addMethod(getGetProfileByIdMethod())
               .build();
         }
       }

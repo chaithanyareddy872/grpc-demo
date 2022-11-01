@@ -91,6 +91,38 @@ public final class FeedbackServiceGrpc {
      return getGetFeedbackforSessionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.User.RatingReq,
+      com.stackroute.User.RatingResp> getGetRatingforSessionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getRatingforSession",
+      requestType = com.stackroute.User.RatingReq.class,
+      responseType = com.stackroute.User.RatingResp.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.stackroute.User.RatingReq,
+      com.stackroute.User.RatingResp> getGetRatingforSessionMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.User.RatingReq, com.stackroute.User.RatingResp> getGetRatingforSessionMethod;
+    if ((getGetRatingforSessionMethod = FeedbackServiceGrpc.getGetRatingforSessionMethod) == null) {
+      synchronized (FeedbackServiceGrpc.class) {
+        if ((getGetRatingforSessionMethod = FeedbackServiceGrpc.getGetRatingforSessionMethod) == null) {
+          FeedbackServiceGrpc.getGetRatingforSessionMethod = getGetRatingforSessionMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.User.RatingReq, com.stackroute.User.RatingResp>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "FeedbackService", "getRatingforSession"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.User.RatingReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.stackroute.User.RatingResp.getDefaultInstance()))
+                  .setSchemaDescriptor(new FeedbackServiceMethodDescriptorSupplier("getRatingforSession"))
+                  .build();
+          }
+        }
+     }
+     return getGetRatingforSessionMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +164,13 @@ public final class FeedbackServiceGrpc {
       asyncUnimplementedUnaryCall(getGetFeedbackforSessionMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getRatingforSession(com.stackroute.User.RatingReq request,
+        io.grpc.stub.StreamObserver<com.stackroute.User.RatingResp> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetRatingforSessionMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +187,13 @@ public final class FeedbackServiceGrpc {
                 com.stackroute.User.getfeedbackReq,
                 com.stackroute.User.getfeedbackResp>(
                   this, METHODID_GET_FEEDBACKFOR_SESSION)))
+          .addMethod(
+            getGetRatingforSessionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.stackroute.User.RatingReq,
+                com.stackroute.User.RatingResp>(
+                  this, METHODID_GET_RATINGFOR_SESSION)))
           .build();
     }
   }
@@ -185,6 +231,14 @@ public final class FeedbackServiceGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(getGetFeedbackforSessionMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getRatingforSession(com.stackroute.User.RatingReq request,
+        io.grpc.stub.StreamObserver<com.stackroute.User.RatingResp> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetRatingforSessionMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -219,6 +273,13 @@ public final class FeedbackServiceGrpc {
       return blockingServerStreamingCall(
           getChannel(), getGetFeedbackforSessionMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public com.stackroute.User.RatingResp getRatingforSession(com.stackroute.User.RatingReq request) {
+      return blockingUnaryCall(
+          getChannel(), getGetRatingforSessionMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -246,10 +307,19 @@ public final class FeedbackServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getFeedbackMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.User.RatingResp> getRatingforSession(
+        com.stackroute.User.RatingReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetRatingforSessionMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_FEEDBACK = 0;
   private static final int METHODID_GET_FEEDBACKFOR_SESSION = 1;
+  private static final int METHODID_GET_RATINGFOR_SESSION = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -275,6 +345,10 @@ public final class FeedbackServiceGrpc {
         case METHODID_GET_FEEDBACKFOR_SESSION:
           serviceImpl.getFeedbackforSession((com.stackroute.User.getfeedbackReq) request,
               (io.grpc.stub.StreamObserver<com.stackroute.User.getfeedbackResp>) responseObserver);
+          break;
+        case METHODID_GET_RATINGFOR_SESSION:
+          serviceImpl.getRatingforSession((com.stackroute.User.RatingReq) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.User.RatingResp>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -339,6 +413,7 @@ public final class FeedbackServiceGrpc {
               .setSchemaDescriptor(new FeedbackServiceFileDescriptorSupplier())
               .addMethod(getFeedbackMethod())
               .addMethod(getGetFeedbackforSessionMethod())
+              .addMethod(getGetRatingforSessionMethod())
               .build();
         }
       }

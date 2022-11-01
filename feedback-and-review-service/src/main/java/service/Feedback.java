@@ -50,7 +50,7 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
 
     @Override
     public void getFeedbackforSession(User.getfeedbackReq request, StreamObserver<User.getfeedbackResp> responseObserver) {
-        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher") || Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
 
             String url = "jdbc:postgresql://localhost:5432/musicmantradb";
             String postgresqlUname="postgres";
@@ -170,5 +170,40 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
             throw new RuntimeException(e);
         }
         return response;
+    }
+
+    @Override
+    public void getRatingforSession(User.RatingReq request, StreamObserver<User.RatingResp> responseObserver) {
+
+        String url = "jdbc:postgresql://localhost:5432/musicmantradb";
+        String postgresqlUname="postgres";
+        String postgresqlPass="root123";
+
+        User.RatingResp.Builder response=User.RatingResp.newBuilder();
+
+        String query="select round(avg(feedbackrating),1)Rating from feedback where bookingid in (select bookingid from bookings where sessionid=?)";
+
+        try {
+            Connection connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
+
+            System.out.println("***Connection Established***");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, request.getSessionid());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                response.setResponseCode(200).setResponseMessage("SUCCESS").setRating(resultSet.getInt(1));
+            }
+            else {
+                response.setResponseCode(303).setResponseMessage("No ratings found for this session");
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
     }
 }

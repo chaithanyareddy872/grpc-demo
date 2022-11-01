@@ -181,4 +181,19 @@ public class UserProfileServer extends UpdateServiceGrpc.UpdateServiceImplBase {
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void getProfileById(Userprofile.GetProfileReq request, StreamObserver<Userprofile.GetProfileResp> responseObserver) {
+        int id=request.getUserid();
+
+        DatabaseService service=new DatabaseService();
+
+        Userprofile.GetProfileResp.Builder response;
+
+        response=service.getUser(id);
+
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
+
+    }
 }

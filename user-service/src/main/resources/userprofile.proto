@@ -11,6 +11,11 @@ service UpdateService{
   rpc updateAddress(Address) returns (Response);
   rpc updatePreference(Preference) returns (Response);
   rpc updatePassword(password) returns (Response);
+  rpc getProfileById(GetProfileReq) returns (GetProfileResp);
+}
+
+message GetProfileReq{
+  int32 userid=1;
 }
 
 message firstName{
@@ -53,6 +58,21 @@ message Profile{
   string contact = 4;
   Address address = 5;
   Preference preference = 6;
+}
+
+message GetProfileResp{
+  string username=1;
+  string firstname = 2;
+  string lastname = 3;
+  string email = 4;
+  string contact = 5;
+  string city=6;
+  string state=7;
+  string pincode=8;
+  repeated string genre = 9;
+  repeated string instrument = 10;
+  int32 statuscode=11;
+  string statusMessage=12;
 }
 
 

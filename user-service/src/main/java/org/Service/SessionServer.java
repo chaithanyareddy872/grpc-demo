@@ -86,44 +86,78 @@ public class SessionServer extends SessionServiceGrpc.SessionServiceImplBase {
 
     @Override
     public void updateSessionName(SessionCreate.SessionNameRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
-        SessionCreate.SessionResponse.Builder response;
-        DatabaseService service=new DatabaseService();
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+            SessionCreate.SessionResponse.Builder response;
+            DatabaseService service=new DatabaseService();
 
-        response=service.updateSessionNameById(request.getSessionId(),request.getTeacherId(),request.getSessionName());
+            response=service.updateSessionNameById(request.getSessionId(),request.getTeacherId(),request.getSessionName());
 
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
+
     }
 
     @Override
     public void updateSessionTimings(SessionCreate.SessionTimingRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
-        SessionCreate.SessionResponse.Builder response;
-        DatabaseService service=new DatabaseService();
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+            SessionCreate.SessionResponse.Builder response;
+            DatabaseService service=new DatabaseService();
 
-        response=service.updateSessionTimingsById(request);
+            response=service.updateSessionTimingsById(request);
 
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
+
     }
 
     @Override
     public void updateSessionFees(SessionCreate.SessionFeesRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+            SessionCreate.SessionResponse.Builder response;
+            DatabaseService service=new DatabaseService();
 
-        SessionCreate.SessionResponse.Builder response;
-        DatabaseService service=new DatabaseService();
+            response=service.updateSessionFeesById(request.getSessionId(),request.getTeacherId(),request.getFees());
 
-        response=service.updateSessionFeesById(request.getSessionId(),request.getTeacherId(),request.getFees());
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
 
-        responseObserver.onNext(response.build());
-        responseObserver.onCompleted();
     }
 
     @Override
     public void deleteSession(SessionCreate.DeleteSessionRequest request, StreamObserver<SessionCreate.DeleteSessionResponse> responseObserver) {
-        SessionCreate.DeleteSessionResponse.Builder response;
+        if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher")){
+            SessionCreate.DeleteSessionResponse.Builder response;
+            DatabaseService service=new DatabaseService();
+
+            response=service.deleteSessionById(request.getSessionId(),request.getTeacherId());
+
+            responseObserver.onNext(response.build());
+            responseObserver.onCompleted();
+        }
+        else{
+            responseObserver.onError(new StatusRuntimeException(Status.PERMISSION_DENIED));
+        }
+
+    }
+
+    @Override
+    public void getSessionById(SessionCreate.SessionByIdRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
+        SessionCreate.SessionResponse.Builder response;
         DatabaseService service=new DatabaseService();
 
-        response=service.deleteSessionById(request.getSessionId(),request.getTeacherId());
+        response=service.findSessionById(request.getSessionid());
 
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
