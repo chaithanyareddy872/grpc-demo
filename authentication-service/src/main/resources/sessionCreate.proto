@@ -9,6 +9,10 @@ import "google/protobuf/timestamp.proto";
 service SessionService{
   rpc sessionCreate(SessionRequest) returns (SessionResponse);
   rpc getSessions(GetSessionRequest) returns ( GetSessionResponse);
+  rpc updateSessionName(SessionNameRequest) returns(SessionResponse);
+  rpc updateSessionTimings(SessionTimingRequest) returns(SessionResponse);
+  rpc updateSessionFees(SessionFeesRequest) returns(SessionResponse);
+  rpc deleteSession(DeleteSessionRequest) returns(DeleteSessionResponse);
 }
 
 
@@ -30,6 +34,38 @@ message SessionRequest{
   int32 fees = 10;
 
 }
+
+message SessionNameRequest{
+  int32 sessionId=1;
+  int32 teacherId=2;
+  string sessionName=3;
+}
+
+message SessionTimingRequest{
+  int32 sessionId = 1;
+  int32 teacherId=2;
+  string sessionStartDate = 3;
+  string sessionStartTime = 4;
+  string sessionEndDate = 5;
+  string sessionEndTime = 6;
+}
+
+message SessionFeesRequest{
+  int32 sessionId = 1;
+  int32 teacherId=2;
+  int32 fees = 3;
+}
+
+message DeleteSessionRequest{
+  int32 sessionId=1;
+  int32 teacherId=2;
+}
+
+message DeleteSessionResponse{
+  int32 statusCode=1;
+  string statusMessage=2;
+}
+
 message SessionResponse{
   int32 sessionId = 1;
   int32 teacherId = 2;

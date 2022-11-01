@@ -43,7 +43,7 @@ public class SessionServer extends SessionServiceGrpc.SessionServiceImplBase {
                 response.setInstrumentId(instrumentId);
                 response.setGenreId(genreId);
                 response.setFees(sessionFees);
-                response.setResponseMessage("Session Booked");
+                response.setResponseMessage("Session Created");
                 response.setStatusCode(200);
             }else {
                 response.setResponseMessage("Please enter the valid date!");
@@ -81,6 +81,51 @@ public class SessionServer extends SessionServiceGrpc.SessionServiceImplBase {
 
         }
 
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateSessionName(SessionCreate.SessionNameRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
+        SessionCreate.SessionResponse.Builder response;
+        DatabaseService service=new DatabaseService();
+
+        response=service.updateSessionNameById(request.getSessionId(),request.getTeacherId(),request.getSessionName());
+
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateSessionTimings(SessionCreate.SessionTimingRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
+        SessionCreate.SessionResponse.Builder response;
+        DatabaseService service=new DatabaseService();
+
+        response=service.updateSessionTimingsById(request);
+
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateSessionFees(SessionCreate.SessionFeesRequest request, StreamObserver<SessionCreate.SessionResponse> responseObserver) {
+
+        SessionCreate.SessionResponse.Builder response;
+        DatabaseService service=new DatabaseService();
+
+        response=service.updateSessionFeesById(request.getSessionId(),request.getTeacherId(),request.getFees());
+
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteSession(SessionCreate.DeleteSessionRequest request, StreamObserver<SessionCreate.DeleteSessionResponse> responseObserver) {
+        SessionCreate.DeleteSessionResponse.Builder response;
+        DatabaseService service=new DatabaseService();
+
+        response=service.deleteSessionById(request.getSessionId(),request.getTeacherId());
+
+        responseObserver.onNext(response.build());
         responseObserver.onCompleted();
     }
 }

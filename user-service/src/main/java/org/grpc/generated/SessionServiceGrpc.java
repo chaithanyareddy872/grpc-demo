@@ -91,6 +91,134 @@ public final class SessionServiceGrpc {
      return getGetSessionsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionNameRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateSessionName",
+      requestType = org.grpc.generated.SessionCreate.SessionNameRequest.class,
+      responseType = org.grpc.generated.SessionCreate.SessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionNameRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionNameMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionNameRequest, org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionNameMethod;
+    if ((getUpdateSessionNameMethod = SessionServiceGrpc.getUpdateSessionNameMethod) == null) {
+      synchronized (SessionServiceGrpc.class) {
+        if ((getUpdateSessionNameMethod = SessionServiceGrpc.getUpdateSessionNameMethod) == null) {
+          SessionServiceGrpc.getUpdateSessionNameMethod = getUpdateSessionNameMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.SessionCreate.SessionNameRequest, org.grpc.generated.SessionCreate.SessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "SessionService", "updateSessionName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SessionServiceMethodDescriptorSupplier("updateSessionName"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateSessionNameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionTimingRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionTimingsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateSessionTimings",
+      requestType = org.grpc.generated.SessionCreate.SessionTimingRequest.class,
+      responseType = org.grpc.generated.SessionCreate.SessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionTimingRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionTimingsMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionTimingRequest, org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionTimingsMethod;
+    if ((getUpdateSessionTimingsMethod = SessionServiceGrpc.getUpdateSessionTimingsMethod) == null) {
+      synchronized (SessionServiceGrpc.class) {
+        if ((getUpdateSessionTimingsMethod = SessionServiceGrpc.getUpdateSessionTimingsMethod) == null) {
+          SessionServiceGrpc.getUpdateSessionTimingsMethod = getUpdateSessionTimingsMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.SessionCreate.SessionTimingRequest, org.grpc.generated.SessionCreate.SessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "SessionService", "updateSessionTimings"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionTimingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SessionServiceMethodDescriptorSupplier("updateSessionTimings"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateSessionTimingsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionFeesRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionFeesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateSessionFees",
+      requestType = org.grpc.generated.SessionCreate.SessionFeesRequest.class,
+      responseType = org.grpc.generated.SessionCreate.SessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionFeesRequest,
+      org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionFeesMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.SessionFeesRequest, org.grpc.generated.SessionCreate.SessionResponse> getUpdateSessionFeesMethod;
+    if ((getUpdateSessionFeesMethod = SessionServiceGrpc.getUpdateSessionFeesMethod) == null) {
+      synchronized (SessionServiceGrpc.class) {
+        if ((getUpdateSessionFeesMethod = SessionServiceGrpc.getUpdateSessionFeesMethod) == null) {
+          SessionServiceGrpc.getUpdateSessionFeesMethod = getUpdateSessionFeesMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.SessionCreate.SessionFeesRequest, org.grpc.generated.SessionCreate.SessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "SessionService", "updateSessionFees"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionFeesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.SessionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SessionServiceMethodDescriptorSupplier("updateSessionFees"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateSessionFeesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.DeleteSessionRequest,
+      org.grpc.generated.SessionCreate.DeleteSessionResponse> getDeleteSessionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteSession",
+      requestType = org.grpc.generated.SessionCreate.DeleteSessionRequest.class,
+      responseType = org.grpc.generated.SessionCreate.DeleteSessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.DeleteSessionRequest,
+      org.grpc.generated.SessionCreate.DeleteSessionResponse> getDeleteSessionMethod() {
+    io.grpc.MethodDescriptor<org.grpc.generated.SessionCreate.DeleteSessionRequest, org.grpc.generated.SessionCreate.DeleteSessionResponse> getDeleteSessionMethod;
+    if ((getDeleteSessionMethod = SessionServiceGrpc.getDeleteSessionMethod) == null) {
+      synchronized (SessionServiceGrpc.class) {
+        if ((getDeleteSessionMethod = SessionServiceGrpc.getDeleteSessionMethod) == null) {
+          SessionServiceGrpc.getDeleteSessionMethod = getDeleteSessionMethod = 
+              io.grpc.MethodDescriptor.<org.grpc.generated.SessionCreate.DeleteSessionRequest, org.grpc.generated.SessionCreate.DeleteSessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "SessionService", "deleteSession"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.DeleteSessionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.grpc.generated.SessionCreate.DeleteSessionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SessionServiceMethodDescriptorSupplier("deleteSession"))
+                  .build();
+          }
+        }
+     }
+     return getDeleteSessionMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +260,34 @@ public final class SessionServiceGrpc {
       asyncUnimplementedUnaryCall(getGetSessionsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void updateSessionName(org.grpc.generated.SessionCreate.SessionNameRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateSessionNameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateSessionTimings(org.grpc.generated.SessionCreate.SessionTimingRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateSessionTimingsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateSessionFees(org.grpc.generated.SessionCreate.SessionFeesRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateSessionFeesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void deleteSession(org.grpc.generated.SessionCreate.DeleteSessionRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.DeleteSessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeleteSessionMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +304,34 @@ public final class SessionServiceGrpc {
                 org.grpc.generated.SessionCreate.GetSessionRequest,
                 org.grpc.generated.SessionCreate.GetSessionResponse>(
                   this, METHODID_GET_SESSIONS)))
+          .addMethod(
+            getUpdateSessionNameMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.grpc.generated.SessionCreate.SessionNameRequest,
+                org.grpc.generated.SessionCreate.SessionResponse>(
+                  this, METHODID_UPDATE_SESSION_NAME)))
+          .addMethod(
+            getUpdateSessionTimingsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.grpc.generated.SessionCreate.SessionTimingRequest,
+                org.grpc.generated.SessionCreate.SessionResponse>(
+                  this, METHODID_UPDATE_SESSION_TIMINGS)))
+          .addMethod(
+            getUpdateSessionFeesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.grpc.generated.SessionCreate.SessionFeesRequest,
+                org.grpc.generated.SessionCreate.SessionResponse>(
+                  this, METHODID_UPDATE_SESSION_FEES)))
+          .addMethod(
+            getDeleteSessionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.grpc.generated.SessionCreate.DeleteSessionRequest,
+                org.grpc.generated.SessionCreate.DeleteSessionResponse>(
+                  this, METHODID_DELETE_SESSION)))
           .build();
     }
   }
@@ -185,6 +369,38 @@ public final class SessionServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetSessionsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void updateSessionName(org.grpc.generated.SessionCreate.SessionNameRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateSessionNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateSessionTimings(org.grpc.generated.SessionCreate.SessionTimingRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateSessionTimingsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateSessionFees(org.grpc.generated.SessionCreate.SessionFeesRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateSessionFeesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteSession(org.grpc.generated.SessionCreate.DeleteSessionRequest request,
+        io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.DeleteSessionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeleteSessionMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -217,6 +433,34 @@ public final class SessionServiceGrpc {
     public org.grpc.generated.SessionCreate.GetSessionResponse getSessions(org.grpc.generated.SessionCreate.GetSessionRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetSessionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.grpc.generated.SessionCreate.SessionResponse updateSessionName(org.grpc.generated.SessionCreate.SessionNameRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateSessionNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.grpc.generated.SessionCreate.SessionResponse updateSessionTimings(org.grpc.generated.SessionCreate.SessionTimingRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateSessionTimingsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.grpc.generated.SessionCreate.SessionResponse updateSessionFees(org.grpc.generated.SessionCreate.SessionFeesRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateSessionFeesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.grpc.generated.SessionCreate.DeleteSessionResponse deleteSession(org.grpc.generated.SessionCreate.DeleteSessionRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getDeleteSessionMethod(), getCallOptions(), request);
     }
   }
 
@@ -253,10 +497,46 @@ public final class SessionServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetSessionsMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.SessionCreate.SessionResponse> updateSessionName(
+        org.grpc.generated.SessionCreate.SessionNameRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateSessionNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.SessionCreate.SessionResponse> updateSessionTimings(
+        org.grpc.generated.SessionCreate.SessionTimingRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateSessionTimingsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.SessionCreate.SessionResponse> updateSessionFees(
+        org.grpc.generated.SessionCreate.SessionFeesRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateSessionFeesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.grpc.generated.SessionCreate.DeleteSessionResponse> deleteSession(
+        org.grpc.generated.SessionCreate.DeleteSessionRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeleteSessionMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SESSION_CREATE = 0;
   private static final int METHODID_GET_SESSIONS = 1;
+  private static final int METHODID_UPDATE_SESSION_NAME = 2;
+  private static final int METHODID_UPDATE_SESSION_TIMINGS = 3;
+  private static final int METHODID_UPDATE_SESSION_FEES = 4;
+  private static final int METHODID_DELETE_SESSION = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -282,6 +562,22 @@ public final class SessionServiceGrpc {
         case METHODID_GET_SESSIONS:
           serviceImpl.getSessions((org.grpc.generated.SessionCreate.GetSessionRequest) request,
               (io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.GetSessionResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_SESSION_NAME:
+          serviceImpl.updateSessionName((org.grpc.generated.SessionCreate.SessionNameRequest) request,
+              (io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_SESSION_TIMINGS:
+          serviceImpl.updateSessionTimings((org.grpc.generated.SessionCreate.SessionTimingRequest) request,
+              (io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_SESSION_FEES:
+          serviceImpl.updateSessionFees((org.grpc.generated.SessionCreate.SessionFeesRequest) request,
+              (io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.SessionResponse>) responseObserver);
+          break;
+        case METHODID_DELETE_SESSION:
+          serviceImpl.deleteSession((org.grpc.generated.SessionCreate.DeleteSessionRequest) request,
+              (io.grpc.stub.StreamObserver<org.grpc.generated.SessionCreate.DeleteSessionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +642,10 @@ public final class SessionServiceGrpc {
               .setSchemaDescriptor(new SessionServiceFileDescriptorSupplier())
               .addMethod(getSessionCreateMethod())
               .addMethod(getGetSessionsMethod())
+              .addMethod(getUpdateSessionNameMethod())
+              .addMethod(getUpdateSessionTimingsMethod())
+              .addMethod(getUpdateSessionFeesMethod())
+              .addMethod(getDeleteSessionMethod())
               .build();
         }
       }

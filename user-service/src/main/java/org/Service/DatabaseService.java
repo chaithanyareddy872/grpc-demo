@@ -199,6 +199,68 @@ public class DatabaseService {
         }
         return false;
     }
+
+    public SessionCreate.SessionResponse.Builder findSessionById(int sessionid){
+        Connection connection=getConnection();
+        String query = "select * from sessions where sessionid = ?";
+        PreparedStatement statement = null;
+        SessionCreate.SessionResponse.Builder response = SessionCreate.SessionResponse.newBuilder();
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setInt(1,sessionid);
+            ResultSet resultSet=statement.executeQuery();
+            if (resultSet.next()){
+                response.setSessionId(resultSet.getInt(1))
+                        .setTeacherId(resultSet.getInt(2))
+                        .setSessionName(resultSet.getString(3))
+                        .setSessionStartDate(String.valueOf(resultSet.getDate(4)))
+                        .setSessionStartTime(String.valueOf(resultSet.getTime(4)))
+                        .setSessionEndDate(String.valueOf(resultSet.getDate(5)))
+                        .setSessionEndTime(String.valueOf(resultSet.getTime(5)))
+                        .setInstrumentId(resultSet.getInt(6))
+                        .setGenreId(resultSet.getInt(7))
+                        .setFees(resultSet.getInt(8));
+                return response;
+            }
+            else {
+                return response.setStatusCode(400).setResponseMessage("Session Not Found");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public SessionCreate.SessionResponse.Builder findSessionByIds(int sessionid,int teacherid){
+        Connection connection=getConnection();
+        String query = "select * from sessions where sessionid = ? and teacherid=?";
+        PreparedStatement statement = null;
+        SessionCreate.SessionResponse.Builder response = SessionCreate.SessionResponse.newBuilder();
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setInt(1,sessionid);
+            statement.setInt(2,teacherid);
+            ResultSet resultSet=statement.executeQuery();
+            if (resultSet.next()){
+                response.setSessionId(resultSet.getInt(1))
+                        .setTeacherId(resultSet.getInt(2))
+                        .setSessionName(resultSet.getString(3))
+                        .setSessionStartDate(String.valueOf(resultSet.getDate(4)))
+                        .setSessionStartTime(String.valueOf(resultSet.getTime(4)))
+                        .setSessionEndDate(String.valueOf(resultSet.getDate(5)))
+                        .setSessionEndTime(String.valueOf(resultSet.getTime(5)))
+                        .setInstrumentId(resultSet.getInt(6))
+                        .setGenreId(resultSet.getInt(7))
+                        .setFees(resultSet.getInt(8));
+                return response;
+            }
+            else {
+                return response.setStatusCode(400).setResponseMessage("Session Not Found for this user");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int storeSession(int teacherId, String sessionName, String startDate, String startTime, String endDate, String endTIme, int instrumentId, int genreId, int fees) throws SQLException {
         String start = startDate + " " + startTime;
         String end = endDate + " " + endTIme;
@@ -249,6 +311,111 @@ public class DatabaseService {
             list.add(response.build());
         }
         return list;
+    }
+
+    public SessionCreate.SessionResponse.Builder updateSessionNameById(int sessionid,int teacherid,String sessionname){
+        Connection connection = getConnection();
+        SessionCreate.SessionResponse.Builder response;
+        String query = "update sessions set sessionname=? where sessionid=? and teacherid=?";
+        try {
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setString(1,sessionname);
+            statement.setInt(2,sessionid);
+            statement.setInt(3,teacherid);
+            statement.executeUpdate();
+            response=findSessionById(sessionid);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if(!(response.getStatusCode()==400)){
+            response.setStatusCode(200).setResponseMessage("Updated Successfully");
+            return response;
+        }
+        else {
+            return response;
+        }
+    }
+
+    public SessionCreate.SessionResponse.Builder updateSessionTimingsById(SessionCreate.SessionTimingRequest request) {
+        int sessionid = request.getSessionId();
+        int teacherid = request.getTeacherId();
+        String start = request.getSessionStartDate() + " " + request.getSessionStartTime();
+        String end = request.getSessionEndDate() + " " + request.getSessionEndTime();
+        Timestamp starting = Timestamp.valueOf(start);
+        Timestamp ending = Timestamp.valueOf(end);
+        boolean result = validateDate(request.getSessionStartDate(), request.getSessionStartTime(), request.getSessionEndDate(), request.getSessionEndTime());
+        Connection connection = getConnection();
+        SessionCreate.SessionResponse.Builder response;
+        SessionCreate.SessionResponse.Builder elseResponse=SessionCreate.SessionResponse.newBuilder();
+        if (result == true) {
+            String query = "update sessions set startdate=?, enddate=? where sessionid=? and teacherid=?";
+            try {
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setTimestamp(1, starting);
+                statement.setTimestamp(2, ending);
+                statement.setInt(3, sessionid);
+                statement.setInt(4, teacherid);
+
+                statement.executeUpdate();
+
+                response = findSessionByIds(sessionid, teacherid);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            if (!(response.getStatusCode() == 400)) {
+                response.setStatusCode(200).setResponseMessage("Updated Successfully");
+                return response;
+            } else {
+                return response;
+            }
+        } else {
+            return elseResponse.setStatusCode(400).setResponseMessage("Invalid Time entries");
+        }
+    }
+
+    public SessionCreate.SessionResponse.Builder updateSessionFeesById(int sessionid,int teacherid,int fees){
+        Connection connection = getConnection();
+        SessionCreate.SessionResponse.Builder response;
+        String query = "update sessions set fees=? where sessionid=? and teacherid=?";
+        try {
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setInt(1,fees);
+            statement.setInt(2,sessionid);
+            statement.setInt(3,teacherid);
+            statement.executeUpdate();
+            response=findSessionByIds(sessionid,teacherid);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if(!(response.getStatusCode()==400)){
+            response.setStatusCode(200).setResponseMessage("Updated Successfully");
+            return response;
+        }
+        else {
+            return response;
+        }
+    }
+
+    public SessionCreate.DeleteSessionResponse.Builder deleteSessionById(int sessionid,int teacherid){
+        Connection connection = getConnection();
+        SessionCreate.DeleteSessionResponse.Builder response=SessionCreate.DeleteSessionResponse.newBuilder();
+        String query = "delete from sessions where sessionid=? and teacherid=?";
+        int result=0;
+        try {
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setInt(1,sessionid);
+            statement.setInt(2,teacherid);
+            result=statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if(result==1){
+            return response.setStatusCode(200).setStatusMessage("Deleted Successfully");
+        }
+        else{
+            return response.setStatusCode(400).setStatusMessage("Session not found this user");
+        }
     }
 
 }
