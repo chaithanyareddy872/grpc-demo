@@ -59,6 +59,102 @@ public final class SearchServiceGrpc {
      return getSearchMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByGenreInstrumentMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "searchByGenreInstrument",
+      requestType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.class,
+      responseType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByGenreInstrumentMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByGenreInstrumentMethod;
+    if ((getSearchByGenreInstrumentMethod = SearchServiceGrpc.getSearchByGenreInstrumentMethod) == null) {
+      synchronized (SearchServiceGrpc.class) {
+        if ((getSearchByGenreInstrumentMethod = SearchServiceGrpc.getSearchByGenreInstrumentMethod) == null) {
+          SearchServiceGrpc.getSearchByGenreInstrumentMethod = getSearchByGenreInstrumentMethod = 
+              io.grpc.MethodDescriptor.<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "SearchService", "searchByGenreInstrument"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SearchServiceMethodDescriptorSupplier("searchByGenreInstrument"))
+                  .build();
+          }
+        }
+     }
+     return getSearchByGenreInstrumentMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByFeesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "searchByFees",
+      requestType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.class,
+      responseType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByFeesMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByFeesMethod;
+    if ((getSearchByFeesMethod = SearchServiceGrpc.getSearchByFeesMethod) == null) {
+      synchronized (SearchServiceGrpc.class) {
+        if ((getSearchByFeesMethod = SearchServiceGrpc.getSearchByFeesMethod) == null) {
+          SearchServiceGrpc.getSearchByFeesMethod = getSearchByFeesMethod = 
+              io.grpc.MethodDescriptor.<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "SearchService", "searchByFees"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SearchServiceMethodDescriptorSupplier("searchByFees"))
+                  .build();
+          }
+        }
+     }
+     return getSearchByFeesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByCityMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "searchByCity",
+      requestType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.class,
+      responseType = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest,
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByCityMethod() {
+    io.grpc.MethodDescriptor<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> getSearchByCityMethod;
+    if ((getSearchByCityMethod = SearchServiceGrpc.getSearchByCityMethod) == null) {
+      synchronized (SearchServiceGrpc.class) {
+        if ((getSearchByCityMethod = SearchServiceGrpc.getSearchByCityMethod) == null) {
+          SearchServiceGrpc.getSearchByCityMethod = getSearchByCityMethod = 
+              io.grpc.MethodDescriptor.<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "SearchService", "searchByCity"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SearchServiceMethodDescriptorSupplier("searchByCity"))
+                  .build();
+          }
+        }
+     }
+     return getSearchByCityMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +189,27 @@ public final class SearchServiceGrpc {
       asyncUnimplementedUnaryCall(getSearchMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void searchByGenreInstrument(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSearchByGenreInstrumentMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void searchByFees(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSearchByFeesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void searchByCity(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSearchByCityMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +219,27 @@ public final class SearchServiceGrpc {
                 com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchRequest,
                 com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>(
                   this, METHODID_SEARCH)))
+          .addMethod(
+            getSearchByGenreInstrumentMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest,
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>(
+                  this, METHODID_SEARCH_BY_GENRE_INSTRUMENT)))
+          .addMethod(
+            getSearchByFeesMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest,
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>(
+                  this, METHODID_SEARCH_BY_FEES)))
+          .addMethod(
+            getSearchByCityMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest,
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>(
+                  this, METHODID_SEARCH_BY_CITY)))
           .build();
     }
   }
@@ -131,6 +269,30 @@ public final class SearchServiceGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(getSearchMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void searchByGenreInstrument(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getSearchByGenreInstrumentMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void searchByFees(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getSearchByFeesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void searchByCity(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest request,
+        io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getSearchByCityMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -158,6 +320,30 @@ public final class SearchServiceGrpc {
       return blockingServerStreamingCall(
           getChannel(), getSearchMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public java.util.Iterator<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> searchByGenreInstrument(
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getSearchByGenreInstrumentMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> searchByFees(
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getSearchByFeesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse> searchByCity(
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getSearchByCityMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -180,6 +366,9 @@ public final class SearchServiceGrpc {
   }
 
   private static final int METHODID_SEARCH = 0;
+  private static final int METHODID_SEARCH_BY_GENRE_INSTRUMENT = 1;
+  private static final int METHODID_SEARCH_BY_FEES = 2;
+  private static final int METHODID_SEARCH_BY_CITY = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -200,6 +389,18 @@ public final class SearchServiceGrpc {
       switch (methodId) {
         case METHODID_SEARCH:
           serviceImpl.search((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchRequest) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>) responseObserver);
+          break;
+        case METHODID_SEARCH_BY_GENRE_INSTRUMENT:
+          serviceImpl.searchByGenreInstrument((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>) responseObserver);
+          break;
+        case METHODID_SEARCH_BY_FEES:
+          serviceImpl.searchByFees((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest) request,
+              (io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>) responseObserver);
+          break;
+        case METHODID_SEARCH_BY_CITY:
+          serviceImpl.searchByCity((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest) request,
               (io.grpc.stub.StreamObserver<com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchResponse>) responseObserver);
           break;
         default:
@@ -264,6 +465,9 @@ public final class SearchServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new SearchServiceFileDescriptorSupplier())
               .addMethod(getSearchMethod())
+              .addMethod(getSearchByGenreInstrumentMethod())
+              .addMethod(getSearchByFeesMethod())
+              .addMethod(getSearchByCityMethod())
               .build();
         }
       }

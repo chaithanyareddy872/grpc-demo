@@ -1065,6 +1065,1649 @@ public final class SearchServiceOuterClass {
 
   }
 
+  public interface searchGenreInstrumentRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:searchGenreInstrumentRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.Genres genre = 1;</code>
+     */
+    int getGenreValue();
+    /**
+     * <code>.Genres genre = 1;</code>
+     */
+    com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres getGenre();
+
+    /**
+     * <code>.Instruments instrument = 2;</code>
+     */
+    int getInstrumentValue();
+    /**
+     * <code>.Instruments instrument = 2;</code>
+     */
+    com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments getInstrument();
+  }
+  /**
+   * Protobuf type {@code searchGenreInstrumentRequest}
+   */
+  public  static final class searchGenreInstrumentRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:searchGenreInstrumentRequest)
+      searchGenreInstrumentRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use searchGenreInstrumentRequest.newBuilder() to construct.
+    private searchGenreInstrumentRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private searchGenreInstrumentRequest() {
+      genre_ = 0;
+      instrument_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private searchGenreInstrumentRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              genre_ = rawValue;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              instrument_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchGenreInstrumentRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchGenreInstrumentRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.Builder.class);
+    }
+
+    public static final int GENRE_FIELD_NUMBER = 1;
+    private int genre_;
+    /**
+     * <code>.Genres genre = 1;</code>
+     */
+    public int getGenreValue() {
+      return genre_;
+    }
+    /**
+     * <code>.Genres genre = 1;</code>
+     */
+    public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres getGenre() {
+      @SuppressWarnings("deprecation")
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres result = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.valueOf(genre_);
+      return result == null ? com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.UNRECOGNIZED : result;
+    }
+
+    public static final int INSTRUMENT_FIELD_NUMBER = 2;
+    private int instrument_;
+    /**
+     * <code>.Instruments instrument = 2;</code>
+     */
+    public int getInstrumentValue() {
+      return instrument_;
+    }
+    /**
+     * <code>.Instruments instrument = 2;</code>
+     */
+    public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments getInstrument() {
+      @SuppressWarnings("deprecation")
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments result = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.valueOf(instrument_);
+      return result == null ? com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (genre_ != com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.Classical.getNumber()) {
+        output.writeEnum(1, genre_);
+      }
+      if (instrument_ != com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.Guitar.getNumber()) {
+        output.writeEnum(2, instrument_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (genre_ != com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.Classical.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, genre_);
+      }
+      if (instrument_ != com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.Guitar.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, instrument_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest)) {
+        return super.equals(obj);
+      }
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest other = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest) obj;
+
+      boolean result = true;
+      result = result && genre_ == other.genre_;
+      result = result && instrument_ == other.instrument_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + GENRE_FIELD_NUMBER;
+      hash = (53 * hash) + genre_;
+      hash = (37 * hash) + INSTRUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + instrument_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code searchGenreInstrumentRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:searchGenreInstrumentRequest)
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchGenreInstrumentRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchGenreInstrumentRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.Builder.class);
+      }
+
+      // Construct using com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        genre_ = 0;
+
+        instrument_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchGenreInstrumentRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest getDefaultInstanceForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest build() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest buildPartial() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest result = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest(this);
+        result.genre_ = genre_;
+        result.instrument_ = instrument_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest) {
+          return mergeFrom((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest other) {
+        if (other == com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest.getDefaultInstance()) return this;
+        if (other.genre_ != 0) {
+          setGenreValue(other.getGenreValue());
+        }
+        if (other.instrument_ != 0) {
+          setInstrumentValue(other.getInstrumentValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int genre_ = 0;
+      /**
+       * <code>.Genres genre = 1;</code>
+       */
+      public int getGenreValue() {
+        return genre_;
+      }
+      /**
+       * <code>.Genres genre = 1;</code>
+       */
+      public Builder setGenreValue(int value) {
+        genre_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Genres genre = 1;</code>
+       */
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres getGenre() {
+        @SuppressWarnings("deprecation")
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres result = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.valueOf(genre_);
+        return result == null ? com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.Genres genre = 1;</code>
+       */
+      public Builder setGenre(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Genres value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        genre_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Genres genre = 1;</code>
+       */
+      public Builder clearGenre() {
+        
+        genre_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int instrument_ = 0;
+      /**
+       * <code>.Instruments instrument = 2;</code>
+       */
+      public int getInstrumentValue() {
+        return instrument_;
+      }
+      /**
+       * <code>.Instruments instrument = 2;</code>
+       */
+      public Builder setInstrumentValue(int value) {
+        instrument_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Instruments instrument = 2;</code>
+       */
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments getInstrument() {
+        @SuppressWarnings("deprecation")
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments result = com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.valueOf(instrument_);
+        return result == null ? com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.Instruments instrument = 2;</code>
+       */
+      public Builder setInstrument(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.Instruments value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        instrument_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Instruments instrument = 2;</code>
+       */
+      public Builder clearInstrument() {
+        
+        instrument_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:searchGenreInstrumentRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:searchGenreInstrumentRequest)
+    private static final com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest();
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<searchGenreInstrumentRequest>
+        PARSER = new com.google.protobuf.AbstractParser<searchGenreInstrumentRequest>() {
+      @java.lang.Override
+      public searchGenreInstrumentRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new searchGenreInstrumentRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<searchGenreInstrumentRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<searchGenreInstrumentRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchGenreInstrumentRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface serachFeeRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:serachFeeRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 fees = 1;</code>
+     */
+    int getFees();
+  }
+  /**
+   * <pre>
+   *Search on the basis of FESS!
+   * </pre>
+   *
+   * Protobuf type {@code serachFeeRequest}
+   */
+  public  static final class serachFeeRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:serachFeeRequest)
+      serachFeeRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use serachFeeRequest.newBuilder() to construct.
+    private serachFeeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private serachFeeRequest() {
+      fees_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private serachFeeRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              fees_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_serachFeeRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_serachFeeRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.Builder.class);
+    }
+
+    public static final int FEES_FIELD_NUMBER = 1;
+    private int fees_;
+    /**
+     * <code>int32 fees = 1;</code>
+     */
+    public int getFees() {
+      return fees_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (fees_ != 0) {
+        output.writeInt32(1, fees_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (fees_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, fees_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest)) {
+        return super.equals(obj);
+      }
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest other = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest) obj;
+
+      boolean result = true;
+      result = result && (getFees()
+          == other.getFees());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FEES_FIELD_NUMBER;
+      hash = (53 * hash) + getFees();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *Search on the basis of FESS!
+     * </pre>
+     *
+     * Protobuf type {@code serachFeeRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:serachFeeRequest)
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_serachFeeRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_serachFeeRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.Builder.class);
+      }
+
+      // Construct using com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        fees_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_serachFeeRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest getDefaultInstanceForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest build() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest buildPartial() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest result = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest(this);
+        result.fees_ = fees_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest) {
+          return mergeFrom((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest other) {
+        if (other == com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest.getDefaultInstance()) return this;
+        if (other.getFees() != 0) {
+          setFees(other.getFees());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int fees_ ;
+      /**
+       * <code>int32 fees = 1;</code>
+       */
+      public int getFees() {
+        return fees_;
+      }
+      /**
+       * <code>int32 fees = 1;</code>
+       */
+      public Builder setFees(int value) {
+        
+        fees_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 fees = 1;</code>
+       */
+      public Builder clearFees() {
+        
+        fees_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:serachFeeRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:serachFeeRequest)
+    private static final com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest();
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<serachFeeRequest>
+        PARSER = new com.google.protobuf.AbstractParser<serachFeeRequest>() {
+      @java.lang.Override
+      public serachFeeRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new serachFeeRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<serachFeeRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<serachFeeRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.serachFeeRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface searchCityRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:searchCityRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string city = 1;</code>
+     */
+    java.lang.String getCity();
+    /**
+     * <code>string city = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityBytes();
+  }
+  /**
+   * <pre>
+   *Search on the basis of CITY!
+   * </pre>
+   *
+   * Protobuf type {@code searchCityRequest}
+   */
+  public  static final class searchCityRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:searchCityRequest)
+      searchCityRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use searchCityRequest.newBuilder() to construct.
+    private searchCityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private searchCityRequest() {
+      city_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private searchCityRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              city_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchCityRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchCityRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.Builder.class);
+    }
+
+    public static final int CITY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object city_;
+    /**
+     * <code>string city = 1;</code>
+     */
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string city = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getCityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, city_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getCityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, city_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest)) {
+        return super.equals(obj);
+      }
+      com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest other = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest) obj;
+
+      boolean result = true;
+      result = result && getCity()
+          .equals(other.getCity());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *Search on the basis of CITY!
+     * </pre>
+     *
+     * Protobuf type {@code searchCityRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:searchCityRequest)
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchCityRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchCityRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.class, com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.Builder.class);
+      }
+
+      // Construct using com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        city_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.internal_static_searchCityRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest getDefaultInstanceForType() {
+        return com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest build() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest buildPartial() {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest result = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest(this);
+        result.city_ = city_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest) {
+          return mergeFrom((com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest other) {
+        if (other == com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest.getDefaultInstance()) return this;
+        if (!other.getCity().isEmpty()) {
+          city_ = other.city_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object city_ = "";
+      /**
+       * <code>string city = 1;</code>
+       */
+      public java.lang.String getCity() {
+        java.lang.Object ref = city_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          city_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string city = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityBytes() {
+        java.lang.Object ref = city_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          city_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string city = 1;</code>
+       */
+      public Builder setCity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 1;</code>
+       */
+      public Builder clearCity() {
+        
+        city_ = getDefaultInstance().getCity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 1;</code>
+       */
+      public Builder setCityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:searchCityRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:searchCityRequest)
+    private static final com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest();
+    }
+
+    public static com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<searchCityRequest>
+        PARSER = new com.google.protobuf.AbstractParser<searchCityRequest>() {
+      @java.lang.Override
+      public searchCityRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new searchCityRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<searchCityRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<searchCityRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.musicmantra.searchservice.grpc.SearchServiceOuterClass.searchCityRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface searchResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:searchResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -2284,6 +3927,21 @@ public final class SearchServiceOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_searchRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_searchGenreInstrumentRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_searchGenreInstrumentRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_serachFeeRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_serachFeeRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_searchCityRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_searchCityRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_searchResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2300,18 +3958,26 @@ public final class SearchServiceOuterClass {
       "\n\023SearchService.proto\"e\n\rsearchRequest\022\014" +
       "\n\004city\030\001 \001(\t\022\026\n\005genre\030\002 \001(\0162\007.Genres\022 \n\n" +
       "instrument\030\003 \001(\0162\014.Instruments\022\014\n\004fees\030\004" +
-      " \001(\005\"\273\001\n\016searchResponse\022\024\n\014responsecode\030" +
-      "\001 \001(\005\022\027\n\017responseMessage\030\002 \001(\t\022\021\n\tsessio" +
-      "nid\030\003 \001(\005\022\021\n\tteacherid\030\004 \001(\005\022\022\n\nsessiona" +
-      "me\030\005 \001(\t\022\030\n\020sessionStartDate\030\006 \001(\t\022\030\n\020se" +
-      "ssionStartTime\030\007 \001(\t\022\014\n\004fees\030\010 \001(\005*K\n\006Ge" +
-      "nres\022\r\n\tClassical\020\000\022\010\n\004Rock\020\001\022\014\n\010PopMusi" +
-      "c\020\002\022\010\n\004Jazz\020\003\022\020\n\014CountryMusic\020\004*F\n\013Instr" +
-      "uments\022\n\n\006Guitar\020\000\022\t\n\005Piano\020\001\022\n\n\006Violin\020" +
-      "\002\022\t\n\005Drums\020\003\022\t\n\005Flute\020\0042<\n\rSearchService" +
+      " \001(\005\"X\n\034searchGenreInstrumentRequest\022\026\n\005" +
+      "genre\030\001 \001(\0162\007.Genres\022 \n\ninstrument\030\002 \001(\016" +
+      "2\014.Instruments\" \n\020serachFeeRequest\022\014\n\004fe" +
+      "es\030\001 \001(\005\"!\n\021searchCityRequest\022\014\n\004city\030\001 " +
+      "\001(\t\"\273\001\n\016searchResponse\022\024\n\014responsecode\030\001" +
+      " \001(\005\022\027\n\017responseMessage\030\002 \001(\t\022\021\n\tsession" +
+      "id\030\003 \001(\005\022\021\n\tteacherid\030\004 \001(\005\022\022\n\nsessionam" +
+      "e\030\005 \001(\t\022\030\n\020sessionStartDate\030\006 \001(\t\022\030\n\020ses" +
+      "sionStartTime\030\007 \001(\t\022\014\n\004fees\030\010 \001(\005*K\n\006Gen" +
+      "res\022\r\n\tClassical\020\000\022\010\n\004Rock\020\001\022\014\n\010PopMusic" +
+      "\020\002\022\010\n\004Jazz\020\003\022\020\n\014CountryMusic\020\004*F\n\013Instru" +
+      "ments\022\n\n\006Guitar\020\000\022\t\n\005Piano\020\001\022\n\n\006Violin\020\002" +
+      "\022\t\n\005Drums\020\003\022\t\n\005Flute\020\0042\366\001\n\rSearchService" +
       "\022+\n\006search\022\016.searchRequest\032\017.searchRespo" +
-      "nse0\001B$\n\"com.musicmantra.searchservice.g" +
-      "rpcb\006proto3"
+      "nse0\001\022K\n\027searchByGenreInstrument\022\035.searc" +
+      "hGenreInstrumentRequest\032\017.searchResponse" +
+      "0\001\0224\n\014searchByFees\022\021.serachFeeRequest\032\017." +
+      "searchResponse0\001\0225\n\014searchByCity\022\022.searc" +
+      "hCityRequest\032\017.searchResponse0\001B$\n\"com.m" +
+      "usicmantra.searchservice.grpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2331,8 +3997,26 @@ public final class SearchServiceOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_searchRequest_descriptor,
         new java.lang.String[] { "City", "Genre", "Instrument", "Fees", });
-    internal_static_searchResponse_descriptor =
+    internal_static_searchGenreInstrumentRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_searchGenreInstrumentRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_searchGenreInstrumentRequest_descriptor,
+        new java.lang.String[] { "Genre", "Instrument", });
+    internal_static_serachFeeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_serachFeeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_serachFeeRequest_descriptor,
+        new java.lang.String[] { "Fees", });
+    internal_static_searchCityRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_searchCityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_searchCityRequest_descriptor,
+        new java.lang.String[] { "City", });
+    internal_static_searchResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_searchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_searchResponse_descriptor,

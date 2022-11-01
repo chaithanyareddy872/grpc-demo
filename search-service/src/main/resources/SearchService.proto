@@ -5,6 +5,10 @@ option java_package="com.musicmantra.searchservice.grpc";
 service SearchService{
 
   rpc search(searchRequest) returns (stream searchResponse);
+  rpc searchByGenreInstrument(searchGenreInstrumentRequest) returns (stream searchResponse);
+  rpc searchByFees(serachFeeRequest) returns (stream searchResponse);
+  rpc searchByCity(searchCityRequest) returns (stream searchResponse);
+
 }
 
 message searchRequest{
@@ -12,6 +16,23 @@ message searchRequest{
   Genres genre=2;
   Instruments instrument=3;
   int32 fees=4;
+}
+
+//Search on the basis of genres & instrument!
+
+message searchGenreInstrumentRequest{
+  Genres genre=1;
+  Instruments instrument=2;
+}
+
+//Search on the basis of FESS!
+message serachFeeRequest{
+  int32 fees=1;
+}
+
+//Search on the basis of CITY!
+message searchCityRequest{
+  string city=1;
 }
 
 message searchResponse{
