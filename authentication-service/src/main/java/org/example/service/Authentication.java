@@ -291,7 +291,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                         while (result.next()){
                             studentId=result.getInt(1);
                         }
-                        token = GetJwtToken.getToken(email,studentId,userType);
+                        token = GetJwtToken.getToken(userId,studentId,userType);
                         Channel.getRecommendedTeachers(token,studentId);
 
                     } else if (userType.equals("teacher")) {
@@ -303,7 +303,7 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                         while (result.next()){
                             teacherId=result.getInt(1);
                         }
-                        token = GetJwtToken.getToken(email,teacherId,userType);
+                        token = GetJwtToken.getToken(userId,teacherId,userType);
                         Channel.getSessionsofTeacher(token,teacherId);
 
                     }
