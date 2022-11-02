@@ -229,6 +229,9 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
                     if (usertype == "student") {
                         DatabaseOperations.addstudent(userId);
                     }
+                    if(usertype=="teacher"){
+                        DatabaseOperations.addteacher(userId);
+                    }
 
                     VerificationDetails.getVerify().remove(email, otp);
 
