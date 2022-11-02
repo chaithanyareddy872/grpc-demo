@@ -18,10 +18,11 @@ public class Main {
     	Properties prop = new Properties();
     	prop.setProperty("log4j.rootLogger", "WARN");
     	PropertyConfigurator.configure(prop);
-       System.out.println("starting the server");
-       Server server = ServerBuilder.forPort(9008).addService(new UpdateMailService()).addService(new BookingEmailServer()).addService(new RegisterMailService()).build();
-
+      
+       Server server = ServerBuilder.forPort(9009).addService(new UpdateMailService()).addService(new BookingEmailServer()).addService(new RegisterMailService()).build();
+      
        server.start();
+       System.out.println("starting the server for noty5 service at port: " + server.getPort());
        server.awaitTermination();
 
     }

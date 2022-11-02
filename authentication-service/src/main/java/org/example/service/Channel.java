@@ -1,48 +1,50 @@
 package org.example.service;
 
+import java.util.Iterator;
+
+import org.example.utility.BearerToken;
+
 import com.musicmantra.recommendationservice.grpc.RecommendTeacherGrpc;
 import com.musicmantra.recommendationservice.grpc.Recommendteacher;
 import com.musicmantra.sessionservice.grpc.SessionCreate;
 import com.musicmantra.sessionservice.grpc.SessionServiceGrpc;
-import com.musicmantra.sessionservice.grpc.Sessionservice;
-import com.stackroute.musicmantra.noty5.emailserver.*;
-import com.stackroute.musicmantra.noty5.emailserver.register.*;
+import com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse;
+import com.stackroute.musicmantra.noty5.emailserver.register.RegistrationEmailServerGrpc;
+import com.stackroute.musicmantra.noty5.emailserver.register.mailRequest;
+import com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import org.example.utility.BearerToken;
-
-import java.util.Iterator;
 
 public class Channel {
     public static int verifyReg(String email) {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9009).usePlaintext().build();
-        mailRequesttoregister request = mailRequesttoregister.newBuilder().setEmailid(email).build();
+        mailRequest request = mailRequest.newBuilder().setEmailid(email).build();
         RegistrationEmailServerGrpc.RegistrationEmailServerBlockingStub userStub = RegistrationEmailServerGrpc.newBlockingStub(channel);
-        apiResponse apiResponse = userStub.sendOTPTONewUser(request);
+        OTPapiResponse apiResponse = userStub.sendRegistrationOTP(request);
         System.out.println("response" + apiResponse.getMessage());
         System.out.println("response" + apiResponse.getResponsecode());
         System.out.println(apiResponse.getOTP());
         return apiResponse.getOTP();
-
 
     }
 
     public static void verifiedRegistration(String email) {
         System.out.println(email);
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9009).usePlaintext().build();
-        mailRequesttoregister request = mailRequesttoregister.newBuilder().setEmailid(email).build();
+        mailRequest request = mailRequest.newBuilder().setEmailid(email).build();
         RegistrationEmailServerGrpc.RegistrationEmailServerBlockingStub userStub = RegistrationEmailServerGrpc.newBlockingStub(channel);
 
-        sentmailResponse sentmailResponse=userStub.sendregistrationMail(request);
+        sentmailResponse sentmailResponse=userStub.sendregistedMail(request);
         System.out.println("response :" + sentmailResponse.getMessage());
         System.out.println("response code" + sentmailResponse.getResponsecode());
     }
 
     public static int ResetPswd(String email) {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9009).usePlaintext().build();
-        mailRequestforExistingUser request = mailRequestforExistingUser.newBuilder().setEmailid(email).setMailType(MailType.forNumber(1)).build();
+        mailRequest request = mailRequest.newBuilder().setEmailid(email).build();
         RegistrationEmailServerGrpc.RegistrationEmailServerBlockingStub userStub = RegistrationEmailServerGrpc.newBlockingStub(channel);
-        apiResponse apiResponse=userStub.sendOTPtoExistingUser(request);
+        OTPapiResponse apiResponse=userStub.sendResetPasswordOTP(request);
 
         System.out.println("response" + apiResponse.getMessage());
         System.out.println("response" + apiResponse.getResponsecode());

@@ -3,8 +3,8 @@
 
 package com.stackroute.musicmantra.noty5.emailserver.register;
 
-public interface mailRequesttoregisterOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mailRequesttoregister)
+public interface mailRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:mailRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

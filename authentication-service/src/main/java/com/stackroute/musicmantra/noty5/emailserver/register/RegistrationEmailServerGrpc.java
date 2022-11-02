@@ -27,100 +27,100 @@ public final class RegistrationEmailServerGrpc {
   public static final String SERVICE_NAME = "RegistrationEmailServer";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser,
-      com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPtoExistingUserMethod;
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendResetPasswordOTPMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "sendOTPtoExistingUser",
-      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser.class,
-      responseType = com.stackroute.musicmantra.noty5.emailserver.register.apiResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "sendResetPasswordOTP",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser,
-      com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPtoExistingUserMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser, com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPtoExistingUserMethod;
-    if ((getSendOTPtoExistingUserMethod = RegistrationEmailServerGrpc.getSendOTPtoExistingUserMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendResetPasswordOTPMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendResetPasswordOTPMethod;
+    if ((getSendResetPasswordOTPMethod = RegistrationEmailServerGrpc.getSendResetPasswordOTPMethod) == null) {
       synchronized (RegistrationEmailServerGrpc.class) {
-        if ((getSendOTPtoExistingUserMethod = RegistrationEmailServerGrpc.getSendOTPtoExistingUserMethod) == null) {
-          RegistrationEmailServerGrpc.getSendOTPtoExistingUserMethod = getSendOTPtoExistingUserMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser, com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>newBuilder()
+        if ((getSendResetPasswordOTPMethod = RegistrationEmailServerGrpc.getSendResetPasswordOTPMethod) == null) {
+          RegistrationEmailServerGrpc.getSendResetPasswordOTPMethod = getSendResetPasswordOTPMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "RegistrationEmailServer", "sendOTPtoExistingUser"))
+                  "RegistrationEmailServer", "sendResetPasswordOTP"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.register.apiResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendOTPtoExistingUser"))
+                  com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendResetPasswordOTP"))
                   .build();
           }
         }
      }
-     return getSendOTPtoExistingUserMethod;
+     return getSendResetPasswordOTPMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
-      com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPTONewUserMethod;
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendRegistrationOTPMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "sendOTPTONewUser",
-      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.class,
-      responseType = com.stackroute.musicmantra.noty5.emailserver.register.apiResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "sendRegistrationOTP",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.class,
+      responseType = com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
-      com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPTONewUserMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> getSendOTPTONewUserMethod;
-    if ((getSendOTPTONewUserMethod = RegistrationEmailServerGrpc.getSendOTPTONewUserMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendRegistrationOTPMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> getSendRegistrationOTPMethod;
+    if ((getSendRegistrationOTPMethod = RegistrationEmailServerGrpc.getSendRegistrationOTPMethod) == null) {
       synchronized (RegistrationEmailServerGrpc.class) {
-        if ((getSendOTPTONewUserMethod = RegistrationEmailServerGrpc.getSendOTPTONewUserMethod) == null) {
-          RegistrationEmailServerGrpc.getSendOTPTONewUserMethod = getSendOTPTONewUserMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>newBuilder()
+        if ((getSendRegistrationOTPMethod = RegistrationEmailServerGrpc.getSendRegistrationOTPMethod) == null) {
+          RegistrationEmailServerGrpc.getSendRegistrationOTPMethod = getSendRegistrationOTPMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "RegistrationEmailServer", "sendOTPTONewUser"))
+                  "RegistrationEmailServer", "sendRegistrationOTP"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.register.apiResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendOTPTONewUser"))
+                  com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendRegistrationOTP"))
                   .build();
           }
         }
      }
-     return getSendOTPTONewUserMethod;
+     return getSendRegistrationOTPMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
-      com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistrationMailMethod;
+  private static volatile io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistedMailMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "sendregistrationMail",
-      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.class,
+      fullMethodName = SERVICE_NAME + '/' + "sendregistedMail",
+      requestType = com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.class,
       responseType = com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
-      com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistrationMailMethod() {
-    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistrationMailMethod;
-    if ((getSendregistrationMailMethod = RegistrationEmailServerGrpc.getSendregistrationMailMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+      com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistedMailMethod() {
+    io.grpc.MethodDescriptor<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> getSendregistedMailMethod;
+    if ((getSendregistedMailMethod = RegistrationEmailServerGrpc.getSendregistedMailMethod) == null) {
       synchronized (RegistrationEmailServerGrpc.class) {
-        if ((getSendregistrationMailMethod = RegistrationEmailServerGrpc.getSendregistrationMailMethod) == null) {
-          RegistrationEmailServerGrpc.getSendregistrationMailMethod = getSendregistrationMailMethod = 
-              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister, com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse>newBuilder()
+        if ((getSendregistedMailMethod = RegistrationEmailServerGrpc.getSendregistedMailMethod) == null) {
+          RegistrationEmailServerGrpc.getSendregistedMailMethod = getSendregistedMailMethod = 
+              io.grpc.MethodDescriptor.<com.stackroute.musicmantra.noty5.emailserver.register.mailRequest, com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "RegistrationEmailServer", "sendregistrationMail"))
+                  "RegistrationEmailServer", "sendregistedMail"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.getDefaultInstance()))
+                  com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendregistrationMail"))
+                  .setSchemaDescriptor(new RegistrationEmailServerMethodDescriptorSupplier("sendregistedMail"))
                   .build();
           }
         }
      }
-     return getSendregistrationMailMethod;
+     return getSendregistedMailMethod;
   }
 
   /**
@@ -152,48 +152,48 @@ public final class RegistrationEmailServerGrpc {
 
     /**
      */
-    public void sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendOTPtoExistingUserMethod(), responseObserver);
+    public void sendResetPasswordOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendResetPasswordOTPMethod(), responseObserver);
     }
 
     /**
      */
-    public void sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendOTPTONewUserMethod(), responseObserver);
+    public void sendRegistrationOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendRegistrationOTPMethod(), responseObserver);
     }
 
     /**
      */
-    public void sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request,
+    public void sendregistedMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendregistrationMailMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getSendregistedMailMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSendOTPtoExistingUserMethod(),
+            getSendResetPasswordOTPMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser,
-                com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>(
-                  this, METHODID_SEND_OTPTO_EXISTING_USER)))
+                com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+                com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>(
+                  this, METHODID_SEND_RESET_PASSWORD_OTP)))
           .addMethod(
-            getSendOTPTONewUserMethod(),
+            getSendRegistrationOTPMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
-                com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>(
-                  this, METHODID_SEND_OTPTONEW_USER)))
+                com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
+                com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>(
+                  this, METHODID_SEND_REGISTRATION_OTP)))
           .addMethod(
-            getSendregistrationMailMethod(),
+            getSendregistedMailMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister,
+                com.stackroute.musicmantra.noty5.emailserver.register.mailRequest,
                 com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse>(
-                  this, METHODID_SENDREGISTRATION_MAIL)))
+                  this, METHODID_SENDREGISTED_MAIL)))
           .build();
     }
   }
@@ -218,26 +218,26 @@ public final class RegistrationEmailServerGrpc {
 
     /**
      */
-    public void sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> responseObserver) {
+    public void sendResetPasswordOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSendOTPtoExistingUserMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSendResetPasswordOTPMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request,
-        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> responseObserver) {
+    public void sendRegistrationOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
+        io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSendOTPTONewUserMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSendRegistrationOTPMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request,
+    public void sendregistedMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request,
         io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSendregistrationMailMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSendregistedMailMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -261,23 +261,23 @@ public final class RegistrationEmailServerGrpc {
 
     /**
      */
-    public com.stackroute.musicmantra.noty5.emailserver.register.apiResponse sendOTPtoExistingUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser request) {
+    public com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse sendResetPasswordOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSendOTPtoExistingUserMethod(), getCallOptions(), request);
+          getChannel(), getSendResetPasswordOTPMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.stackroute.musicmantra.noty5.emailserver.register.apiResponse sendOTPTONewUser(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request) {
+    public com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse sendRegistrationOTP(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSendOTPTONewUserMethod(), getCallOptions(), request);
+          getChannel(), getSendRegistrationOTPMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse sendregistrationMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request) {
+    public com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse sendregistedMail(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSendregistrationMailMethod(), getCallOptions(), request);
+          getChannel(), getSendregistedMailMethod(), getCallOptions(), request);
     }
   }
 
@@ -301,32 +301,32 @@ public final class RegistrationEmailServerGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> sendOTPtoExistingUser(
-        com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> sendResetPasswordOTP(
+        com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSendOTPtoExistingUserMethod(), getCallOptions()), request);
+          getChannel().newCall(getSendResetPasswordOTPMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse> sendOTPTONewUser(
-        com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse> sendRegistrationOTP(
+        com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSendOTPTONewUserMethod(), getCallOptions()), request);
+          getChannel().newCall(getSendRegistrationOTPMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> sendregistrationMail(
-        com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse> sendregistedMail(
+        com.stackroute.musicmantra.noty5.emailserver.register.mailRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSendregistrationMailMethod(), getCallOptions()), request);
+          getChannel().newCall(getSendregistedMailMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_SEND_OTPTO_EXISTING_USER = 0;
-  private static final int METHODID_SEND_OTPTONEW_USER = 1;
-  private static final int METHODID_SENDREGISTRATION_MAIL = 2;
+  private static final int METHODID_SEND_RESET_PASSWORD_OTP = 0;
+  private static final int METHODID_SEND_REGISTRATION_OTP = 1;
+  private static final int METHODID_SENDREGISTED_MAIL = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -345,16 +345,16 @@ public final class RegistrationEmailServerGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SEND_OTPTO_EXISTING_USER:
-          serviceImpl.sendOTPtoExistingUser((com.stackroute.musicmantra.noty5.emailserver.register.mailRequestforExistingUser) request,
-              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>) responseObserver);
+        case METHODID_SEND_RESET_PASSWORD_OTP:
+          serviceImpl.sendResetPasswordOTP((com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>) responseObserver);
           break;
-        case METHODID_SEND_OTPTONEW_USER:
-          serviceImpl.sendOTPTONewUser((com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister) request,
-              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.apiResponse>) responseObserver);
+        case METHODID_SEND_REGISTRATION_OTP:
+          serviceImpl.sendRegistrationOTP((com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) request,
+              (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.OTPapiResponse>) responseObserver);
           break;
-        case METHODID_SENDREGISTRATION_MAIL:
-          serviceImpl.sendregistrationMail((com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister) request,
+        case METHODID_SENDREGISTED_MAIL:
+          serviceImpl.sendregistedMail((com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) request,
               (io.grpc.stub.StreamObserver<com.stackroute.musicmantra.noty5.emailserver.register.sentmailResponse>) responseObserver);
           break;
         default:
@@ -418,9 +418,9 @@ public final class RegistrationEmailServerGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new RegistrationEmailServerFileDescriptorSupplier())
-              .addMethod(getSendOTPtoExistingUserMethod())
-              .addMethod(getSendOTPTONewUserMethod())
-              .addMethod(getSendregistrationMailMethod())
+              .addMethod(getSendResetPasswordOTPMethod())
+              .addMethod(getSendRegistrationOTPMethod())
+              .addMethod(getSendregistedMailMethod())
               .build();
         }
       }

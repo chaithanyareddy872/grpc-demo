@@ -4,18 +4,18 @@
 package com.stackroute.musicmantra.noty5.emailserver.register;
 
 /**
- * Protobuf type {@code mailRequesttoregister}
+ * Protobuf type {@code mailRequest}
  */
-public  final class mailRequesttoregister extends
+public  final class mailRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:mailRequesttoregister)
-    mailRequesttoregisterOrBuilder {
+    // @@protoc_insertion_point(message_implements:mailRequest)
+    mailRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use mailRequesttoregister.newBuilder() to construct.
-  private mailRequesttoregister(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use mailRequest.newBuilder() to construct.
+  private mailRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private mailRequesttoregister() {
+  private mailRequest() {
     emailid_ = "";
   }
 
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private mailRequesttoregister(
+  private mailRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -70,15 +70,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequesttoregister_descriptor;
+    return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequesttoregister_fieldAccessorTable
+    return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.class, com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.Builder.class);
+            com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.class, com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.Builder.class);
   }
 
   public static final int EMAILID_FIELD_NUMBER = 1;
@@ -154,10 +154,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister)) {
+    if (!(obj instanceof com.stackroute.musicmantra.noty5.emailserver.register.mailRequest)) {
       return super.equals(obj);
     }
-    com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister other = (com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister) obj;
+    com.stackroute.musicmantra.noty5.emailserver.register.mailRequest other = (com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) obj;
 
     boolean result = true;
     result = result && getEmailid()
@@ -180,69 +180,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(byte[] data)
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(java.io.InputStream input)
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseDelimitedFrom(java.io.InputStream input)
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseDelimitedFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parseFrom(
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister prototype) {
+  public static Builder newBuilder(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -271,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code mailRequesttoregister}
+   * Protobuf type {@code mailRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:mailRequesttoregister)
-      com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregisterOrBuilder {
+      // @@protoc_insertion_point(builder_implements:mailRequest)
+      com.stackroute.musicmantra.noty5.emailserver.register.mailRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequesttoregister_descriptor;
+      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequesttoregister_fieldAccessorTable
+      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.class, com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.Builder.class);
+              com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.class, com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.Builder.class);
     }
 
-    // Construct using com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.newBuilder()
+    // Construct using com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -316,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequesttoregister_descriptor;
+      return com.stackroute.musicmantra.noty5.emailserver.register.RegistrationForgotPassword.internal_static_mailRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister getDefaultInstanceForType() {
-      return com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.getDefaultInstance();
+    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequest getDefaultInstanceForType() {
+      return com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister build() {
-      com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister result = buildPartial();
+    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequest build() {
+      com.stackroute.musicmantra.noty5.emailserver.register.mailRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,8 +334,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister buildPartial() {
-      com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister result = new com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister(this);
+    public com.stackroute.musicmantra.noty5.emailserver.register.mailRequest buildPartial() {
+      com.stackroute.musicmantra.noty5.emailserver.register.mailRequest result = new com.stackroute.musicmantra.noty5.emailserver.register.mailRequest(this);
       result.emailid_ = emailid_;
       onBuilt();
       return result;
@@ -375,16 +375,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister) {
-        return mergeFrom((com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister)other);
+      if (other instanceof com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) {
+        return mergeFrom((com.stackroute.musicmantra.noty5.emailserver.register.mailRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister other) {
-      if (other == com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.stackroute.musicmantra.noty5.emailserver.register.mailRequest other) {
+      if (other == com.stackroute.musicmantra.noty5.emailserver.register.mailRequest.getDefaultInstance()) return this;
       if (!other.getEmailid().isEmpty()) {
         emailid_ = other.emailid_;
         onChanged();
@@ -404,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister parsedMessage = null;
+      com.stackroute.musicmantra.noty5.emailserver.register.mailRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister) e.getUnfinishedMessage();
+        parsedMessage = (com.stackroute.musicmantra.noty5.emailserver.register.mailRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -499,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:mailRequesttoregister)
+    // @@protoc_insertion_point(builder_scope:mailRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:mailRequesttoregister)
-  private static final com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:mailRequest)
+  private static final com.stackroute.musicmantra.noty5.emailserver.register.mailRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister();
+    DEFAULT_INSTANCE = new com.stackroute.musicmantra.noty5.emailserver.register.mailRequest();
   }
 
-  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister getDefaultInstance() {
+  public static com.stackroute.musicmantra.noty5.emailserver.register.mailRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<mailRequesttoregister>
-      PARSER = new com.google.protobuf.AbstractParser<mailRequesttoregister>() {
+  private static final com.google.protobuf.Parser<mailRequest>
+      PARSER = new com.google.protobuf.AbstractParser<mailRequest>() {
     @java.lang.Override
-    public mailRequesttoregister parsePartialFrom(
+    public mailRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new mailRequesttoregister(input, extensionRegistry);
+      return new mailRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<mailRequesttoregister> parser() {
+  public static com.google.protobuf.Parser<mailRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<mailRequesttoregister> getParserForType() {
+  public com.google.protobuf.Parser<mailRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.stackroute.musicmantra.noty5.emailserver.register.mailRequesttoregister getDefaultInstanceForType() {
+  public com.stackroute.musicmantra.noty5.emailserver.register.mailRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

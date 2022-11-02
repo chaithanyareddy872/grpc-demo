@@ -15,25 +15,15 @@ public final class RegistrationForgotPassword {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RegisterVerifyied_descriptor;
+    internal_static_mailRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RegisterVerifyied_fieldAccessorTable;
+      internal_static_mailRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mailRequesttoregister_descriptor;
+    internal_static_OTPapiResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mailRequesttoregister_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mailRequestforExistingUser_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mailRequestforExistingUser_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_apiResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_apiResponse_fieldAccessorTable;
+      internal_static_OTPapiResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sentmailResponse_descriptor;
   static final 
@@ -48,23 +38,18 @@ public final class RegistrationForgotPassword {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n!registration_forgotPassword.proto\"9\n\021R" +
-      "egisterVerifyied\022\023\n\013OTPverified\030\001 \001(\010\022\017\n" +
-      "\007emailid\030\002 \001(\t\"(\n\025mailRequesttoregister\022" +
-      "\017\n\007emailid\030\001 \001(\t\"J\n\032mailRequestforExisti" +
-      "ngUser\022\017\n\007emailid\030\001 \001(\t\022\033\n\010mailType\030\002 \001(" +
-      "\0162\t.MailType\"A\n\013apiResponse\022\017\n\007message\030\001" +
-      " \001(\t\022\013\n\003OTP\030\002 \001(\005\022\024\n\014responsecode\030\003 \001(\005\"" +
-      "9\n\020sentmailResponse\022\017\n\007message\030\001 \001(\t\022\024\n\014" +
-      "Responsecode\030\002 \001(\005*)\n\010MailType\022\n\n\006UPDATE" +
-      "\020\000\022\021\n\rRESETPASSWORD\020\0012\332\001\n\027RegistrationEm" +
-      "ailServer\022B\n\025sendOTPtoExistingUser\022\033.mai" +
-      "lRequestforExistingUser\032\014.apiResponse\0228\n" +
-      "\020sendOTPTONewUser\022\026.mailRequesttoregiste" +
-      "r\032\014.apiResponse\022A\n\024sendregistrationMail\022" +
-      "\026.mailRequesttoregister\032\021.sentmailRespon" +
-      "seB9\n5com.stackroute.musicmantra.noty5.e" +
-      "mailserver.registerP\001b\006proto3"
+      "\n!registration_forgotPassword.proto\"\036\n\013m" +
+      "ailRequest\022\017\n\007emailid\030\001 \001(\t\"D\n\016OTPapiRes" +
+      "ponse\022\017\n\007message\030\001 \001(\t\022\013\n\003OTP\030\002 \001(\005\022\024\n\014r" +
+      "esponsecode\030\003 \001(\005\"9\n\020sentmailResponse\022\017\n" +
+      "\007message\030\001 \001(\t\022\024\n\014Responsecode\030\002 \001(\0052\273\001\n" +
+      "\027RegistrationEmailServer\0225\n\024sendResetPas" +
+      "swordOTP\022\014.mailRequest\032\017.OTPapiResponse\022" +
+      "4\n\023sendRegistrationOTP\022\014.mailRequest\032\017.O" +
+      "TPapiResponse\0223\n\020sendregistedMail\022\014.mail" +
+      "Request\032\021.sentmailResponseB9\n5com.stackr" +
+      "oute.musicmantra.noty5.emailserver.regis" +
+      "terP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -78,32 +63,20 @@ public final class RegistrationForgotPassword {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_RegisterVerifyied_descriptor =
+    internal_static_mailRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_RegisterVerifyied_fieldAccessorTable = new
+    internal_static_mailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RegisterVerifyied_descriptor,
-        new java.lang.String[] { "OTPverified", "Emailid", });
-    internal_static_mailRequesttoregister_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_mailRequesttoregister_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mailRequesttoregister_descriptor,
+        internal_static_mailRequest_descriptor,
         new java.lang.String[] { "Emailid", });
-    internal_static_mailRequestforExistingUser_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_mailRequestforExistingUser_fieldAccessorTable = new
+    internal_static_OTPapiResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_OTPapiResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mailRequestforExistingUser_descriptor,
-        new java.lang.String[] { "Emailid", "MailType", });
-    internal_static_apiResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_apiResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_apiResponse_descriptor,
+        internal_static_OTPapiResponse_descriptor,
         new java.lang.String[] { "Message", "OTP", "Responsecode", });
     internal_static_sentmailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_sentmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sentmailResponse_descriptor,
