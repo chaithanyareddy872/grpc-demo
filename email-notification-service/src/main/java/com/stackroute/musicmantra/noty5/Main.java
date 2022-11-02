@@ -1,16 +1,14 @@
 package com.stackroute.musicmantra.noty5;
 
-import java.io.IOException;
-import java.util.Properties;
-
-import com.stackroute.musicmantra.noty5.emailserver.impl.register.RegisterMailService;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.stackroute.musicmantra.noty5.emailserver.impl.booking_session.BookingEmailServer;
+import com.stackroute.musicmantra.noty5.emailserver.impl.register.RegisterMailService;
 import com.stackroute.musicmantra.noty5.emailserver.impl.update.UpdateMailService;
-
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.apache.log4j.PropertyConfigurator;
+
+import java.io.IOException;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
