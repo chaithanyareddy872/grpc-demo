@@ -58,18 +58,22 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         UserRegister.resetPswdResponse.Builder response = UserRegister.resetPswdResponse.newBuilder();
         if (Validations.validateEmail(email)) {
             if (Validations.validateRegistration(email)) {
-                int generatedOTp = VerificationDetails.getVerify().get(email);
-                if (generatedOTp == otp) {
-                    System.out.println(password);
-                    DatabaseOperations.upDatePassword(email, password);
-                    VerificationDetails.getVerify().remove(email, otp);
-                    response.setMessageReset("Password Reset Successful").setResponseCode(200);
+                if (VerificationDetails.verify.containsKey(email)) {
+                    int generatedOTp = VerificationDetails.getVerify().get(email);
+                    if (generatedOTp == otp) {
+                        System.out.println(password);
+                        DatabaseOperations.upDatePassword(email, password);
+                        VerificationDetails.getVerify().remove(email, otp);
+                        response.setMessageReset("Password Reset Successful").setResponseCode(200);
 
+                    } else {
+                        response.setMessageReset("Invalid OTP").setResponseCode(200);
+                        System.out.println("Invalid OTP");
+                    }
                 } else {
-                    response.setMessageReset("Invalid OTP").setResponseCode(200);
-                    System.out.println("Invalid OTP");
+                    response.setMessageReset("Wrong mail").setResponseCode(400);
                 }
-            } else {
+            }else {
                 response.setMessageReset("Invalid Email").setResponseCode(400);
             }
         }
@@ -213,28 +217,30 @@ public class Authentication extends userRegisterGrpc.userRegisterImplBase {
         UserRegister.APIResponseR.Builder response = UserRegister.APIResponseR.newBuilder();
         if (Validations.validateEmail(email)) {
             System.out.println(otp);
-            int generatedOtp = VerificationDetails.getVerify().get(email);
-            System.out.println("generated otp : " + generatedOtp);
-            if (generatedOtp == otp) {
-                System.out.println("adding user to the registartion table");
+            if (VerificationDetails.verify.containsKey(email)) {
+                int generatedOtp = VerificationDetails.getVerify().get(email);
+                System.out.println("generated otp : " + generatedOtp);
+                if (generatedOtp == otp) {
+                    System.out.println("adding user to the registartion table");
 
-                int userId = DatabaseOperations.addRegistraion(username, fname, lname, email, contact, password, usertype);
-                DatabaseOperations.addAddress(city, state, pincode, userId);
-                DatabaseOperations.addPreferences(genArr, InstArr, userId);
-                if (usertype.equals("student")) {
-                    DatabaseOperations.addstudent(userId);
-                } else if (usertype.equals("teacher")) {
-                    DatabaseOperations.addteacher(userId);
+                    int userId = DatabaseOperations.addRegistraion(username, fname, lname, email, contact, password, usertype);
+                    DatabaseOperations.addAddress(city, state, pincode, userId);
+                    DatabaseOperations.addPreferences(genArr, InstArr, userId);
+                    if (usertype == "student") {
+                        DatabaseOperations.addstudent(userId);
+                    }
+
+                    VerificationDetails.getVerify().remove(email, otp);
+
+                    Channel.verifiedRegistration(email);
+                    response.setResponseMessage("Registration successful").setResponseCode(200);
+
+                } else {
+                    response.setResponseMessage("Invalid OTP").setResponseCode(400);
+                    System.out.println("Invalid OTP");
                 }
-
-                VerificationDetails.getVerify().remove(email, otp);
-
-                Channel.verifiedRegistration(email);
-                response.setResponseMessage("Registration successful").setResponseCode(200);
-
             } else {
-                response.setResponseMessage("Invalid OTP").setResponseCode(400);
-                System.out.println("Invalid OTP");
+                response.setResponseMessage("wrong email").setResponseCode(400);
             }
         } else {
             response.setResponseMessage("Invalid Email").setResponseCode(400);
