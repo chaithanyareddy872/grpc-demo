@@ -6,7 +6,6 @@ import java.util.Properties;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.stackroute.musicmantra.noty5.emailserver.impl.booking_session.BookingEmailServer;
-import com.stackroute.musicmantra.noty5.emailserver.impl.register.RegisterMailService;
 import com.stackroute.musicmantra.noty5.emailserver.impl.update.UpdateMailService;
 
 import io.grpc.Server;
