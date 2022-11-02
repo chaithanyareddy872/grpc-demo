@@ -142,7 +142,7 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
                 }
 
                 //Checking if condition satisfies and returning the response stream
-                if(checkGenres && checkInstruments){
+                if(checkGenres || checkInstruments){
 
                     //Building the response
                     response.setResponseCode(200)
