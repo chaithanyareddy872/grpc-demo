@@ -1,0 +1,10 @@
+version: "2"
+services:
+  UserService:
+    image: userimage
+    container_name: user-service
+    restart: on-failure
+    network_mode: host
+    build: ./user-service
+    ports:
+      - "8086:8086"
