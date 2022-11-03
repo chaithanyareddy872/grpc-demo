@@ -14,15 +14,9 @@ import java.util.Properties;
 public class GrpcInitializer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        //Loading application properties file
-        InputStream file= new FileInputStream("recommendation-service/src/main/resources/application.properties");
-
-        Properties properties=new Properties();
-
-        properties.load(file);
 
         //Building GRPC server
-        Server server= ServerBuilder.forPort(Integer.valueOf(properties.getProperty("server.port"))).addService(new RecommendTeacherServiceImpl()).intercept(new AuthorizationInterceptor()).build();
+        Server server= ServerBuilder.forPort(8081).addService(new RecommendTeacherServiceImpl()).intercept(new AuthorizationInterceptor()).build();
 
         server.start();
 

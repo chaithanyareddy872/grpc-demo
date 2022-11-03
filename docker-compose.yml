@@ -8,3 +8,11 @@ services:
     build: ./user-service
     ports:
       - "8086:8086"
+  RecommendationService:
+    image: rcmdserviceimage
+    container_name: recommendation-service
+    restart: on-failure
+    network_mode: host
+    build: ./recommendation-service
+    ports:
+      - "8081:8081"
