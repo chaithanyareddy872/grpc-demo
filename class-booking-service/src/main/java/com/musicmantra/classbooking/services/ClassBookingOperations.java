@@ -32,7 +32,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     String status = request.getStatus();
                     //setting up response based on the operation performed
                     bookingresponse = databaseOperations.updateindb(conn, bookinid, LocalDateTime.now(), status);
-                    if(bookinid !=0 && validations.statusvalidation(status)) {
+                    if(bookinid !=0 && validations.statusvalidation(status) && bookingresponse.getStatuscode()==200) {
                         ConnectToNoty.sendBookingMail(Math.toIntExact(bookinid), status);
                     }
                     else {
@@ -110,7 +110,7 @@ public class ClassBookingOperations extends ClassBookingGrpc.ClassBookingImplBas
                     bookingresponse = databaseOperations.deleteindb(conn, bookingid);
                 }
                 else{
-                    throw new RuntimeException();
+                    throw new RuntimeException("please provide proper booking id");
                 }
             }
             //handling exception

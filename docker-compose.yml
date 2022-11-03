@@ -8,3 +8,51 @@ services:
     build: ./user-service
     ports:
       - "8086:8086"
+  classbookingservice:
+    image: classbookingservice
+    container_name: booking-service
+    restart: on-failure
+    network_mode: host
+    build: ./class-booking-service
+    ports:
+      - "8095:8095"
+  authenticationservice:
+    image: authenticationservice
+    container_name: authentication-service
+    restart: on-failure
+    network_mode: host
+    build: ./authentication-service
+    ports:
+      - "8098:8098"
+  emailnotificationservice:
+    image: emailnotificationservice
+    container_name: emailnotification-service
+    restart: on-failure
+    network_mode: host
+    build: ./email-notification-service
+    ports:
+      - "9009:9009"
+  feedbackservice:
+    image: feedbackservice
+    container_name: feedback-service
+    restart: on-failure
+    network_mode: host
+    build: ./feedback-and-review-service
+    ports:
+      - "8084:8084"
+  recommendationservice:
+    image: recommandationservice
+    container_name: recommandation-service
+    restart: on-failure
+    network_mode: host
+    build: ./recommendation-service
+    ports:
+      - "8081:8081"
+  searchservice:
+    image: searchservice
+    container_name: search-service
+    restart: on-failure
+    network_mode: host
+    build: ./search-service
+    ports:
+      - "8085:8085"

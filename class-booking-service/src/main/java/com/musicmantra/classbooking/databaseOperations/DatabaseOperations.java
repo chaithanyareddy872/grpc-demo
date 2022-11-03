@@ -103,9 +103,11 @@ public class DatabaseOperations {
                 preparedStatement.setLong(3,bookingid);
                 //calling the execute method and getting how many records effected
                 int noofinsertedrec = preparedStatement.executeUpdate();
-
-                bookingres.setMsg("successfully updated a record");
-                bookingres.setStatuscode(200);
+                if(noofinsertedrec>0) {
+                    bookingres.setMsg("successfully updated a record");
+                    bookingres.setStatuscode(200);
+                }
+                else throw new RuntimeException("no record found to update");
             } else {
                 bookingres.setMsg("inputs does not exist");
                 bookingres.setStatuscode(404);
@@ -121,17 +123,6 @@ public class DatabaseOperations {
     public BookingResp.Builder  deleteindb(Connection conn, Long bookingid) {
 
         try {
-//            PreparedStatement preparedStatement1=conn.prepareStatement(
-//                    "select studentid,sessionid from public.bookings where bookingid=?;");
-//            preparedStatement1.setLong(1,bookingid);
-//            ResultSet resultSet= preparedStatement1.executeQuery();
-//            while (resultSet.next()){
-//                System.out.println(resultSet.getLong(1));
-//                System.out.println(resultSet.getLong(2));
-////                ConnectToNoty.sendBookingMail(resultSet.getLong(1),resultSet.getLong(2));
-//            }
-
-
             // preparing the insert statement
             PreparedStatement preparedStatement =
                     conn.prepareStatement(

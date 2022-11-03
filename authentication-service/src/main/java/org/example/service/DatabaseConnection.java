@@ -14,8 +14,7 @@ public class DatabaseConnection  {//database connnection class
         Connection connection;
         try {
             connection = DriverManager.getConnection(url, psqlname, psqlpassword);
-
-
+            System.out.println("connection established");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
