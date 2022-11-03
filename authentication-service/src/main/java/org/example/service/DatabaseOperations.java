@@ -41,6 +41,14 @@ public class DatabaseOperations {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         return userId;
     }
 
@@ -54,6 +62,13 @@ public class DatabaseOperations {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static void addteacher(int userID) {
@@ -65,6 +80,13 @@ public class DatabaseOperations {
             stmnt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -80,9 +102,16 @@ public class DatabaseOperations {
             stmnt.setString(4, pincode);
 
             stmnt.executeUpdate();
-
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }
@@ -100,9 +129,16 @@ public class DatabaseOperations {
             stmnt.setArray(3, array1);
 
             stmnt.executeUpdate();
-
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }
@@ -121,8 +157,17 @@ public class DatabaseOperations {
             stmnt.setString(2, email);
 
             stmnt.executeUpdate();
+
+            connection.close();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }

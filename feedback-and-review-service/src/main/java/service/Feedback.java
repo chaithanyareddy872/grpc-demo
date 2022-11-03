@@ -15,39 +15,6 @@ import java.util.List;
 
 public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
 {
-/*
-    @Override
-    public void getfeedback(User.getfeedbackReq request, StreamObserver<User.getfeedbackResp> responseObserver) {
-        int feedbackid = request.getFeedbcakId();
-        User.getfeedbackResp.Builder feedbackresp = User.getfeedbackResp.newBuilder();
-        String url = "jdbc:postgresql://localhost:5432/musicmantradb";
-        String postgresqlUname="postgres";
-        String postgresqlPass="Jaga@6565";
-
-        try{
-            Connection connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
-            System.out.println("Connection established");
-            String query = "SELECT feedbackid,bookingid,feedbackrating,message FROM public.feedback where feedbackid=?; ";
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setInt(1, feedbackid);
-            ResultSet resultSet = stmt.executeQuery();
-            while(resultSet.next()){
-                feedbackresp.setFeedbackId(resultSet.getInt(1));
-                feedbackresp.setBookingId(resultSet.getInt(2));
-                feedbackresp.setFeedbackRating(resultSet.getInt(3));
-                feedbackresp.setMessage(resultSet.getString(4));
-                feedbackresp.setResponceCode(200);
-
-
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onNext(feedbackresp.build());
-        responseObserver.onCompleted();
-    }
-*/
-
     @Override
     public void getFeedbackforSession(User.getfeedbackReq request, StreamObserver<User.getfeedbackResp> responseObserver) {
         if(Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("teacher") || Constants.CLIENT_TYPE_CONTEXT_KEY.get().equals("student")){
@@ -64,8 +31,9 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
 
             String query="select * from feedback where bookingid in (select bookingid from bookings where sessionid=?)";
 
+            Connection connection=null;
             try {
-                Connection connection=DriverManager.getConnection(url,postgresqlUname,postgresqlPass);
+                connection=DriverManager.getConnection(url,postgresqlUname,postgresqlPass);
 
                 System.out.println("***Connection Established***");
 
@@ -87,6 +55,12 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
+            }finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
             if (responses.isEmpty()){
@@ -140,8 +114,9 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
         String postgresqlUname="postgres";
         String postgresqlPass="root123";
 
+        Connection connection=null;
         try{
-            Connection connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
+            connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
             System.out.println("Connection established");
             String query1 ="SELECT  enddate FROM public.sessions where sessionid=(SELECT sessionid FROM public.bookings where bookingid=?);";
             PreparedStatement stmt1 = connection.prepareStatement(query1);
@@ -168,6 +143,12 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         return response;
     }
@@ -183,8 +164,10 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
 
         String query="select round(avg(feedbackrating),1)Rating from feedback where bookingid in (select bookingid from bookings where sessionid=?)";
 
+        Connection connection=null;
+
         try {
-            Connection connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
+            connection = DriverManager.getConnection(url, postgresqlUname, postgresqlPass);
 
             System.out.println("***Connection Established***");
 
@@ -201,6 +184,12 @@ public class Feedback extends FeedbackServiceGrpc.FeedbackServiceImplBase
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         responseObserver.onNext(response.build());

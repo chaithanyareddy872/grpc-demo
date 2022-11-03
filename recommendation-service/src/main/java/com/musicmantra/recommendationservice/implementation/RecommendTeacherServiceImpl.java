@@ -18,6 +18,7 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
     //Method to get JDBC connection
     public Connection getConnection(){
         Connection connection=null;
+
         InputStream file;
 
         //load application properties value
@@ -44,6 +45,17 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+/*        String url="jdbc:postgresql://localhost:5432/musicmantradb";
+        String uname="postgres";
+        String pswd="root123";
+
+        try {
+            connection=DriverManager.getConnection(url,uname,pswd);
+            System.out.println("***Connection Successful***");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
 
         return connection;
     }
@@ -79,6 +91,12 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         List<List<String>> studentPreferences=new ArrayList<>();
@@ -162,6 +180,12 @@ public class RecommendTeacherServiceImpl extends RecommendTeacherGrpc.RecommendT
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         if(responses.isEmpty()){
             response.setResponseCode(303).setResponseMessage("No recommendations found please use search request");

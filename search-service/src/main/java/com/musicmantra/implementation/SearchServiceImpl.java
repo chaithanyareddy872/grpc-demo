@@ -85,6 +85,12 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         if (responses.isEmpty()){
@@ -149,6 +155,12 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         if (responses.isEmpty()) {
@@ -192,6 +204,12 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         if (responses.isEmpty()) {
@@ -241,6 +259,12 @@ public class SearchServiceImpl extends SearchServiceGrpc.SearchServiceImplBase {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         if (responses.isEmpty()) {

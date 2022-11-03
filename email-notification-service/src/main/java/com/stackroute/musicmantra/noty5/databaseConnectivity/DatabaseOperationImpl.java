@@ -17,11 +17,12 @@ import com.stackroute.musicmantra.noty5.domain.api.User;
 public class DatabaseOperationImpl implements DatabseOperation {
 
 	Connect connect = new Connect();
-	Connection conn = connect.getConnection();
+
 	static Logger logger = Logger.getLogger(DatabaseOperationImpl.class);
 
 	@Override
 	public String getUserEmailId(int userId) {
+		Connection conn = connect.getConnection();
 		logger.info("inside getUserEMailId method with userid : " + userId);
 		String emailId = null;
 		String query = "select " + Constants.EMAILID+" from "+ Constants.TABLE +" where "+ Constants.USERID+"=?";
@@ -44,6 +45,12 @@ public class DatabaseOperationImpl implements DatabseOperation {
 		} catch (SQLException e) {
 			logger.error("exception occured while reading the mail for userid : " + userId + e.getMessage());
 			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
 		}
 		return emailId;
 	}
@@ -86,28 +93,44 @@ public class DatabaseOperationImpl implements DatabseOperation {
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
 		}
 
 		return users;
 	}
 
 	private void setUserDetails(User user, String query, int bookingId) throws SQLException {
-		PreparedStatement stmnt = conn.prepareStatement(query);
+		Connection conn = connect.getConnection();
+		try {
 
-		stmnt.setInt(1, bookingId);
-		ResultSet rs = stmnt.executeQuery();
+			PreparedStatement stmnt = conn.prepareStatement(query);
 
-		while (rs.next()) {
-			for (int i = 1; i <= 1; i++) {
-				user.setEmailid(rs.getString("emailid"));
-				user.setFirstName(rs.getString("fname"));
+			stmnt.setInt(1, bookingId);
+			ResultSet rs = stmnt.executeQuery();
+
+			while (rs.next()) {
+				for (int i = 1; i <= 1; i++) {
+					user.setEmailid(rs.getString("emailid"));
+					user.setFirstName(rs.getString("fname"));
+				}
+
 			}
-
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			conn.close();
 		}
+
 	}
 
 @Override
 public boolean checkIfnewUser(String email) {
+	Connection conn = connect.getConnection();
 	logger.info("inside checkIfUserIsPresent method with email : " + email);
 	String emailId = null;
 	String query = "select * from users where emailid=?";
@@ -131,6 +154,12 @@ public boolean checkIfnewUser(String email) {
 	} catch (SQLException e) {
 		logger.error("exception occured while checking if user us an existing user with mailid : " + email + e.getMessage());
 		throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
+	}finally {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	return newUser;
 }

@@ -80,6 +80,10 @@ public class DatabaseOperations {
             bookingres.setMsg(exception.getMessage());
             bookingres.setStatuscode(404);
         }
+        finally {
+            conn.close();
+        }
+
         return bookingres;
     }
 
@@ -115,6 +119,12 @@ public class DatabaseOperations {
         } catch (Exception exception) {
             bookingres.setMsg(exception.getMessage());
             bookingres.setStatuscode(400);
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         return bookingres;
     }
@@ -145,6 +155,12 @@ public class DatabaseOperations {
             }
         } catch (Exception exception) {
             bookingres.setMsg(exception.getMessage());
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         return bookingres;
     }
@@ -177,6 +193,12 @@ public class DatabaseOperations {
         catch (Exception e){
             booking.setErrormsg(e.getMessage());
             booking.setStatuscode(400);
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return booking;
@@ -193,6 +215,12 @@ public class DatabaseOperations {
         }
         catch (Exception exception) {
             System.out.println(exception.getMessage());
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         return resultSet;
     }
@@ -207,6 +235,12 @@ public class DatabaseOperations {
         }
         catch (Exception exception) {
             System.out.println(exception.getMessage());
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         return resultSet;
     }

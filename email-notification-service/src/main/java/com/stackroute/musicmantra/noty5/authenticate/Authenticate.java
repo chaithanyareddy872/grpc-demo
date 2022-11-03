@@ -40,21 +40,18 @@ public class Authenticate {
 			logger.info("reading mail and password from file");
 			ObjectMapper mapper = new ObjectMapper();
 
-			mmEmail = mapper.readValue(
+/*			mmEmail = mapper.readValue(
 					new File(Constants.EMAILDETAILS),
-					MusicMantraEmail.class);
+					MusicMantraEmail.class);*/
 
 			logger.info("Validating senders mail and password");
 			session = Session.getInstance(properties, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(mmEmail.getEmailId(), mmEmail.getPassword());
+					return new PasswordAuthentication(MusicMantraEmail.emailId, MusicMantraEmail.password);
 				}
 			});
 			logger.info("mail and password authenticated");
 			session.setDebug(true);
-		} catch (IOException ioe) {
-			logger.error("error while reading the file to get mail and password of sender" + ioe);
-			new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 		}
 //		catch() {}
 		catch (Exception e) {

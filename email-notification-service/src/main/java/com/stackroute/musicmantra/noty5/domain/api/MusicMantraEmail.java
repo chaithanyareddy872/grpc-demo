@@ -1,8 +1,8 @@
 package com.stackroute.musicmantra.noty5.domain.api;
 
 public class MusicMantraEmail {
-	public static String emailId;
-	public static String password;
+	public static String emailId="musiccmantraa@gmail.com";
+	public static String password="iioattvpfhbmwbur";
 	
 	
 	public MusicMantraEmail() {

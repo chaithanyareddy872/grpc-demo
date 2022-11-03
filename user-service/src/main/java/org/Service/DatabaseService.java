@@ -70,6 +70,12 @@ public class DatabaseService {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }
@@ -271,9 +277,11 @@ public class DatabaseService {
                         .setInstrumentId(resultSet.getInt(6))
                         .setGenreId(resultSet.getInt(7))
                         .setFees(resultSet.getInt(8));
+                connection.close();
                 return response;
             }
             else {
+                connection.close();
                 return response.setStatusCode(400).setResponseMessage("Session Not Found");
             }
         } catch (SQLException e) {
@@ -302,9 +310,11 @@ public class DatabaseService {
                         .setInstrumentId(resultSet.getInt(6))
                         .setGenreId(resultSet.getInt(7))
                         .setFees(resultSet.getInt(8));
+                connection.close();
                 return response;
             }
             else {
+                connection.close();
                 return response.setStatusCode(400).setResponseMessage("Session Not Found for this user");
             }
         } catch (SQLException e) {
@@ -377,6 +387,12 @@ public class DatabaseService {
             response=findSessionById(sessionid);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         if(!(response.getStatusCode()==400)){
             response.setStatusCode(200).setResponseMessage("Updated Successfully");
@@ -413,6 +429,12 @@ public class DatabaseService {
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);
+            }finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
             if (!(response.getStatusCode() == 400)) {
                 response.setStatusCode(200).setResponseMessage("Updated Successfully");
@@ -438,6 +460,12 @@ public class DatabaseService {
             response=findSessionByIds(sessionid,teacherid);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         if(!(response.getStatusCode()==400)){
             response.setStatusCode(200).setResponseMessage("Updated Successfully");
@@ -460,6 +488,12 @@ public class DatabaseService {
             result=statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         if(result==1){
             return response.setStatusCode(200).setStatusMessage("Deleted Successfully");

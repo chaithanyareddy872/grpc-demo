@@ -35,10 +35,14 @@ public class Connect {
 			connection = DriverManager.getConnection(prop.getProperty("database.url"),prop.getProperty("database.username"),
 					prop.getProperty("database.password"));
 
+/*			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/musicmantradb","postgres",
+					"root123");*/
+
 			logger.info("connected to databse successfully");
 			return connection;
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.info("exception occured while creating connection to databse: " + e.getMessage());
 			throw new Noty5Exceptions(Noty5Errors.INTERNAL_SERVER_ERROR);
 
